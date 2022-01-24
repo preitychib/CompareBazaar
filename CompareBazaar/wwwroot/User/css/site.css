@@ -1,0 +1,137 @@
+*{
+    font-family: 'Courier New', Courier, monospace;
+}
+
+:root{
+    --red :rgb(201, 15, 15) ;
+    --lightred :rgb(224, 89, 89);
+    --black: black;
+    --white: white;
+}
+.dropdownbg{
+    background: none !important ;
+}
+/* navbar1 */
+/* .fixed-top{
+    padding: 20px 0 20px 8px !important;
+} */
+     /* narbar1 profile */
+.profilewidth{
+    width: 19.9rem !important;
+}
+
+.profiletextcolor{
+    color: var(--black) !important;
+}
+.btncolor{
+    
+    border: 1px solid var(--red);
+    color: var(--red);
+}
+.btncolor:hover{
+    background-color: var(--red) ;
+}
+ /* navbar2 */
+
+.dropdownbgprofilecolor{
+    color: var(--black);
+
+    
+}
+.dropdownbgprofilecolor:hover{
+    color: var(--red);
+    font-weight: bold;
+}
+
+.red:hover{
+    color: var(--red) !important;
+}
+.bg-black{
+    background-color: var(--black) !important;
+}
+.catgcolor{
+    color: var(--white) !important;
+}
+/* .catgcolor:hover{
+    color: red !important;
+} */
+.innerdropdownitem{
+    color: var(--black);
+}
+.innerdropdownitem:hover{
+    color: var(--black);
+    font-weight: 600 !important;
+}
+.innerdropdownsubheading{
+    color: var(--red) ;
+    /* font-weight: bold; */
+}
+.innerdropdownsubheading:hover{
+    color: var(--red);
+    font-weight: bold;
+}
+
+.menu-area{
+    position: static;
+
+}
+.mega-area{
+    position: absolute;
+    width: 80%;
+    left: 0;
+    right: 0;
+    padding: 18px;
+}
+.dropdown-item{
+    padding: 8px 0;
+}
+.innerdropdownheading{
+    color: var(--red);
+    font-weight: bold;
+}
+#navbar2position{
+    position: absolute;
+    width: 100%;
+    top: 13%;
+   position: fixed; 
+    z-index: 2;
+}
+.search-bar{
+    position: absolute;
+    z-index: 1;
+    top: 25%;
+    width: 100%;
+
+}
+.borderradius{
+    border-radius: 7px;
+}
+.searchcolor{
+    color: var(--red) !important;
+    box-shadow: none !important;
+}
+.input-group> .form-control:focus{
+    box-shadow: none;
+}
+.input-group> .form-control{
+    margin-right: 5px;
+}
+.btn-outline-dark{
+    box-shadow: none !important;
+    border-left: 2px solid var(--black);
+    border-right: 0;
+    border-top: 0;
+    border-bottom: 0;
+    border-radius: 0;
+    color: var(--white);
+}
+
+.btn-check:active+.btn-outline-dark, .btn-check:checked+.btn-outline-dark, .btn-outline-dark.active, .btn-outline-dark.dropdown-toggle.show, .btn-outline-dark:active {
+    color: var(--red);
+    background-color: #212529;
+    border-color: #212529;
+}
+.btn-outline-dark:hover{
+    color: var(--red) !important;
+    
+}
