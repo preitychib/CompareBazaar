@@ -1,4 +1,4 @@
-﻿@model IEnumerable<CompareBazaar.Entities.Products>
+﻿
 
 @{
     ViewData["Title"] = "Index";
@@ -7,60 +7,4 @@
 
 <h1>Dashboard</h1>
 
-<p>
-    <a asp-area="Admin" asp-controller="DashBoard" asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ImagePath)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Discount)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Price)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.details)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Availabitlty)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ImagePath)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Discount)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.details)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Availabitlty)
-            </td>
-            <td>
-                <a  asp-area="admin" asp-controller="dashboard" asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a  asp-area="admin" asp-controller="dashboard" asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a  asp-area="admin" asp-controller="dashboard" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+
