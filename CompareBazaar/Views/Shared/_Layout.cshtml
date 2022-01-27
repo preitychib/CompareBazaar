@@ -41,6 +41,7 @@
 
                 <div class="collapse navbar-collapse " id="navbarSupportedContent">
                     <ul class="navbar-nav  mb-2 mb-lg-0  ms-auto me-4 fs-5  ">
+                        <partial name="_AdminMenuPartial" />
                         <li class="nav-item dropdown me-3 ">
                             <a class="nav-link red  " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
                                aria-expanded="false">
@@ -52,7 +53,7 @@
                                 <p class="ms-3 fs-6 profiletextcolor ">To access account and manage order</p>
                                 <form class="d-flex">
 
-                                    <button type="button" class="btn btn-outline-danger btncolor ms-3 px-3">LOGIN/SIGNUP</button>
+                                    <a asp-area="Identity" asp-page="/Account/Login" type="button" class="btn btn-outline-danger btncolor ms-3 px-3">LOGIN/SIGNUP</a>
                                 </form>
                                 <li>
                                     <hr class="dropdown-divider">

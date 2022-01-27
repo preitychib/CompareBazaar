@@ -3,6 +3,8 @@
 
 @{
     ViewData["Title"] = "Log in";
+    //  var returnUrl = ViewData["ReturnUrl"] as string;
+    //@System.Net.WebUtility.UrlEncode(returnUrl)"
 }
 
 <!DOCTYPE html>
@@ -22,9 +24,13 @@
     <link rel="stylesheet" href="~/admin/dist/css/adminlte.min.css">
 </head>
 <body class="hold-transition login-page">
+    <!-- Preloader -->
+    <div class="preloader flex-column justify-content-center align-items-center">
+        <img class="animation__shake" src="~/admin/dist/img/logooo.png" alt="comparebazaarLogo" height="60" width="60">
+    </div>
     <div class="login-box">
         <div class="login-logo">
-            <a href="../../index2.html"><b>Admin</b>Login</a>
+            <a asp-controller="Home" asp-action="Index"><b>CompareBazaar</b>Login</a>
         </div>
         <!-- /.login-logo -->
         <div class="card">
@@ -33,8 +39,9 @@
 
 
                 <form id="account" method="post">
-                    <h4>Use a local account to log in.</h4>
-                    <hr />
+                    <!--action="/Identity/Account/Login?ReturnUrl= -->
+                    <h4>Sign in to start your session</h4>
+                         <hr /> 
                     <div asp-validation-summary="All" class="text-danger"></div>
                     <div class="form-group">
                         <label asp-for="Input.Email"></label>

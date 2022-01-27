@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Authorization;
 namespace CompareBazaar.Areas.Admin.Controllers
 {
 
-    [Authorize(Roles ="Admin")]
+    [Authorize(Roles = "Admin")]
     [Area("Admin")]
     public class DashBoardController : Controller
     {
