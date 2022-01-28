@@ -29,7 +29,7 @@
 
         <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-light py-2 navbar1">
             <div class="container-fluid">
-                <a class="navbar-brand ms-2 fs-2 " href="#">
+                <a class="navbar-brand ms-2 fs-2 " asp-controller="Home" asp-action="">
                     <img src="~/User/images/logoo.png" alt=""
                          width="70">COMPARE<b>BAZAAR</b>
                 </a>
@@ -48,31 +48,14 @@
                                 <i class="fas fa-user-alt red "></i>
                                 PROFILE
                             </a>
-                            <ul class="dropdown-menu profilewidth  " aria-labelledby="navbarDropdown">
-                                <h5 class="ms-3 profiletextcolor fs-3" href="#">Welcome</h5>
-                                <p class="ms-3 fs-6 profiletextcolor ">To access account and manage order</p>
-                                <form class="d-flex">
-
-                                    <a asp-area="Identity" asp-page="/Account/Login" type="button" class="btn btn-outline-danger btncolor ms-3 px-3">LOGIN/SIGNUP</a>
-                                </form>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item ms-3 fs-5 dropdownbg dropdownbgprofilecolor" href="#">Orders</a></li>
-                                <li><a class="dropdown-item ms-3 fs-5 dropdownbg dropdownbgprofilecolor " href="#">Wishlist</a></li>
-                                <li><a class="dropdown-item ms-3 fs-5 dropdownbg dropdownbgprofilecolor " href="#">Contact Us</a></li>
-                                <li>
-                                    <a class="dropdown-item ms-3 fs-5 dropdownbg  dropdownbgprofilecolor" href="#"> Bazaar Stars</a>
-                                </li>
-
-                            </ul>
+                            <partial name="_LoginPartial" />
                         </li>
                         <li class="nav-item me-3">
                             <a class="nav-link  red " aria-current="page" href="#"> <i class="fas fa-heart red "></i> WISHLIST</a>
                         </li>
-                        <li class="nav-item me-3">
-                            <a class="nav-link red " href="#"><i class="fas fa-shopping-cart  red"></i> CART</a>
-                        </li>
+                        <!-- <li class="nav-item me-3">
+                         <a class="nav-link red " href="#"><i class="fas fa-shopping-cart  red"></i> CART</a>
+                        </li>  -->
                     </ul>
                 </div>
             </div>
@@ -90,7 +73,7 @@
                 <div class="d-flex flex-column col-sm-12 col-lg-3 col-12 mb-5 py-4">
                     <h6 class="text-white mb-4">QUICK MENU</h6>
                     <ul class="list-unstyled">
-                        <li><a class="text-decoration-none text-muted footercolor" href="#">About Us</a></li>
+                        <li><a class="text-decoration-none text-muted footercolor" asp-controller="Home" asp-action="About">About COMPAREBAZAAR</a></li>
                         <li><a class="text-decoration-none text-muted footercolor " href="#">Compare Products</a></li>
                         <li><a class="text-decoration-none text-muted footercolor" href="#">Contact Us</a></li>
                         <li><a class="text-decoration-none text-muted footercolor" href="#">FAQs</a></li>

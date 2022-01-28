@@ -3,25 +3,34 @@
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
 
-<ul class="navbar-nav">
-@if (SignInManager.IsSignedIn(User))
-{
-    <li class="nav-item">
-        <a  class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity.Name!</a>
-    </li>
-    <li class="nav-item">
-        <form  class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-            <button  type="submit" class="nav-link btn btn-link text-dark">Logout</button>
+<ul class="dropdown-menu profilewidth  " aria-labelledby="navbarDropdown">
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <h5 class="ms-3 text-black fs-3" href="#">Welcome</h5>
+        <p class="ms-3 fs-6 profiletextcolor " asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">@User.Identity.Name!</p>
+
+        <li> <hr class="dropdown-divider"></li>
+        <!-- <li><a class="dropdown-item ms-3 fs-5 dropdownbg text-black dropdownbgprofilecolor" href="#">Orders</a> </li> -->
+        <li><a class="dropdown-item ms-3 fs-5 dropdownbg text-black dropdownbgprofilecolor" href="#">Wishlist</a></li>
+        <li><a class="dropdown-item ms-3 fs-5 dropdownbg text-black dropdownbgprofilecolor " href="#"> Contact Us </a></li>
+        <!-- <li><a class="dropdown-item ms-3 fs-5 dropdownbg  text-black dropdownbgprofilecolor" href="#"> BazaarStars</a> </li> -->
+        <li> <a class="dropdown-item ms-3 fs-5 dropdownbg  dropdownbgprofilecolor" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })"> Logout</a></li>
+    }
+    else
+    {
+
+
+        <h5 class="ms-3 text-black fs-3" href="#">Welcome</h5>
+        <p class="ms-3 fs-6 text-black ">To access account </p>
+        <form class="d-flex">
+            <a asp-area="Identity" asp-page="/Account/Login" type="button" class="btn btn-outline-danger btncolor ms-3 px-3">LOGIN/SIGNUP</a>
         </form>
-    </li>
-}
-else
-{
-    <li class="nav-item">
-        <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Register</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Login</a>
-    </li>
-}
+        <li> <hr class="dropdown-divider"></li>
+        <!-- <li><a class="dropdown-item ms-3 fs-5 dropdownbg text-black dropdownbgprofilecolor" href="#">Orders</a> </li> -->
+        <li><a class="dropdown-item ms-3 fs-5 dropdownbg text-black dropdownbgprofilecolor" href="#">Wishlist</a></li>
+        <li><a class="dropdown-item ms-3 fs-5 dropdownbg text-black dropdownbgprofilecolor " href="#"> Contact Us </a></li>
+        <!-- <li><a class="dropdown-item ms-3 fs-5 dropdownbg  text-black dropdownbgprofilecolor" href="#"> BazaarStars</a> </li> -->
+    }
 </ul>
+
+
