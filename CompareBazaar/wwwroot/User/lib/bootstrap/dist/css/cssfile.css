@@ -6,8 +6,12 @@
 :root {
     --red: rgb(201, 15, 15);
     --lightred: rgb(224, 89, 89);
+    --lightestred: rgb(224, 87, 87);
+    --googlered: rgb(219, 68, 55);
     --black: black;
     --white: white;
+    --darkblue: rgb(59, 89, 152);
+    --lightblue: rgb(0, 172, 238);
 }
 
 .text-red {
@@ -26,8 +30,32 @@
     background-color: var(--black) !important;
 }
 
+.bg-lightestred {
+    background-color: var(--lightestred);
+}
+
+.bg-googlered {
+    background-color: var(--googlered);
+}
+
+.bg-darkblue {
+    background-color: var(--darkblue);
+}
+
+.bg-lightblue {
+    background-color: var(--lightblue);
+}
+
+.pointer {
+    cursor: pointer;
+}
+
 .dropdownbg {
     background: none !important;
+}
+
+.z-index {
+    z-index: 8 !important;
 }
 
 .innerdropdownitem:hover {
@@ -35,7 +63,7 @@
 }
 
 .redbtn:hover {
-    box-shadow: 3px 4px 2px var(--lightred);
+    box-shadow: 3px 4px 2px var(--lightred) !important;
 }
 
 .footercolor:hover, .btncolor:hover {
@@ -44,6 +72,10 @@
 
 .dropdownbgprofilecolor:hover, .innerdropdownsubheading:hover {
     font-weight: bold;
+}
+
+.border-bottom-red {
+    border-bottom: 1px solid var(--red) !important;
 }
 /* navbar1 */
 /* narbar1 profile */
@@ -98,11 +130,9 @@
 .borderradius {
     border-radius: 7px;
 }
-
-.input-group > .form-control:focus, .searchcolor, .btn-outline-dark, .comparesearch {
+/* .input-group> .form-control:focus , .searchcolor, .btn-outline-dark ,.comparesearch {
     box-shadow: none !important;
-}
-
+} */
 .input-group > .form-control {
     margin-right: 5px;
 }
@@ -151,4 +181,20 @@
 .imagesize {
     height: 6rem;
     width: 6rem !important;
+}
+/* sign up */
+.bgimage {
+    height: 100vh;
+    width: 100%;
+    /* opacity: 0.3 ; */
+}
+
+.top {
+    position: absolute;
+    top: 4.3rem !important;
+}
+
+.form-floating > .form-control, .form-floating > .form-select {
+    height: 3rem;
+    line-height: 1.25;
 }

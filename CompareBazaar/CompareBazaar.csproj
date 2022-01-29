@@ -38,4 +38,11 @@
     <Folder Include="wwwroot\lib\jquery\dist\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="wwwroot\User\images\banner1.svg" />
+    <None Include="wwwroot\User\images\banner2.svg" />
+    <None Include="wwwroot\User\images\banner3.svg" />
+    <None Include="wwwroot\User\images\moto_tab_g70_lte.webp" />
+  </ItemGroup>
+
 </Project>

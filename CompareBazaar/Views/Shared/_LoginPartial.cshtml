@@ -14,7 +14,15 @@
         <li><a class="dropdown-item ms-3 fs-5 dropdownbg text-black dropdownbgprofilecolor" href="#">Wishlist</a></li>
         <li><a class="dropdown-item ms-3 fs-5 dropdownbg text-black dropdownbgprofilecolor " href="#"> Contact Us </a></li>
         <!-- <li><a class="dropdown-item ms-3 fs-5 dropdownbg  text-black dropdownbgprofilecolor" href="#"> BazaarStars</a> </li> -->
-        <li> <a class="dropdown-item ms-3 fs-5 dropdownbg  dropdownbgprofilecolor" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })"> Logout</a></li>
+      
+        <li>
+        <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">
+        <button type="submit" class="dropdown-item ms-3 fs-5 dropdownbg  dropdownbgprofilecolor">Logout</button>
+        </form>
+        </li>
+     
+        
+       // <li> <a class="dropdown-item ms-3 fs-5 dropdownbg  dropdownbgprofilecolor" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })"> Logout</a></li>
     }
     else
     {
