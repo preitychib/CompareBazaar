@@ -1,200 +1,211 @@
-* {
+*{
     font-family: 'Courier New', Courier, monospace;
     /* border: 2px solid red; */
 }
 
-:root {
-    --red: rgb(201, 15, 15);
-    --lightred: rgb(224, 89, 89);
-    --lightestred: rgb(224, 87, 87);
+:root{
+    --red :rgb(201, 15, 15) ;
+    --lightred :rgb(224, 89, 89);
+    --lightestred :rgb(224, 87, 87);
     --googlered: rgb(219, 68, 55);
     --black: black;
+    --grey:rgb(192, 192, 192);
     --white: white;
     --darkblue: rgb(59, 89, 152);
     --lightblue: rgb(0, 172, 238);
-}
 
-.text-red {
+}
+.text-red{
     color: var(--red) !important;
 }
-
-.text-black {
+.text-lightred{
+    color: var(--lightred) !important;
+}
+.text-black{
     color: var(--black) !important;
 }
-
-.bg-red {
+.bg-red{
     background-color: var(--red) !important;
 }
-
-.bg-black {
+.bg-black{
     background-color: var(--black) !important;
 }
-
-.bg-lightestred {
+.bg-grey{
+    background-color: var(--grey);
+}
+.bg-lightestred{
     background-color: var(--lightestred);
 }
-
-.bg-googlered {
+.bg-googlered{
     background-color: var(--googlered);
 }
-
-.bg-darkblue {
+.bg-darkblue{
     background-color: var(--darkblue);
 }
-
-.bg-lightblue {
+.bg-lightblue{
     background-color: var(--lightblue);
 }
-
-.pointer {
+.pointer{
     cursor: pointer;
 }
-
-.dropdownbg {
-    background: none !important;
+.dropdownbg{
+    background: none !important ;
 }
-
-.z-index {
-    z-index: 8 !important;
+.z-index{
+    z-index: 2 !important;
 }
-
-.innerdropdownitem:hover {
+.imgindex{
+    z-index: -1 !important;
+}
+.innerdropdownitem:hover{
     font-weight: 600 !important;
 }
-
-.redbtn:hover {
+.redbtn:hover{
     box-shadow: 3px 4px 2px var(--lightred) !important;
 }
-
-.footercolor:hover, .btncolor:hover {
+.footercolor:hover,.btncolor:hover {
     color: var(--white) !important;
 }
-
-.dropdownbgprofilecolor:hover, .innerdropdownsubheading:hover {
+.dropdownbgprofilecolor:hover ,.innerdropdownsubheading:hover{
     font-weight: bold;
 }
-
-.border-bottom-red {
+.border-bottom-red{
     border-bottom: 1px solid var(--red) !important;
 }
+.scrollbar{
+    overflow-y: scroll !important;
+    height: 15rem !important;
+   width: 100%;
+}
+.underline:hover{
+    text-decoration: underline var(--white) solid;
+     text-underline-offset: 0.4rem;
+     
+}
 /* navbar1 */
-/* narbar1 profile */
-.profilewidth {
+     /* narbar1 profile */
+.profilewidth{
     width: 19.9rem !important;
 }
-
-.red:hover, .dropdownbgprofilecolor:hover {
+.red:hover , .dropdownbgprofilecolor:hover{
     color: var(--red) !important;
 }
 
-.btncolor {
+.btncolor{  
     border: 1px solid var(--red);
     /* color: var(--red); */
 }
-
-    .btncolor:hover {
-        background-color: var(--red);
-    }
-/* navbar2 */
-#navbar2position {
+.btncolor:hover{
+    background-color: var(--red) ;
+}
+ /* navbar2 */
+  #navbar2position{
     position: absolute;
     width: 100%;
     top: 13.4%;
     /*position:fixed;*/
-    z-index: 2;
-}
-
-.menu-area {
+     z-index: 2;
+} 
+.menu-area{
     position: static;
 }
-
-.mega-area {
+.mega-area{
     position: absolute;
     width: 80%;
     left: 0;
     right: 0;
     padding: 18px;
 }
-
-.dropdown-item {
+.dropdown-item{
     padding: 8px 0;
 }
-/* SEARCH BAR */
-.search-bar {
+ /* SEARCH BAR */
+.search-bar{
     position: absolute;
     z-index: 1;
     top: 25%;
     width: 100%;
 }
-
-.borderradius {
+.borderradius{
     border-radius: 7px;
 }
 /* .input-group> .form-control:focus , .searchcolor, .btn-outline-dark ,.comparesearch {
     box-shadow: none !important;
 } */
-.input-group > .form-control {
+.input-group> .form-control{
     margin-right: 5px;
 }
-
 .btn-outline-dark {
     border-left: 2px solid var(--black);
 }
-
-    .btn-check:active + .btn-outline-dark, .btn-check:checked + .btn-outline-dark, .btn-outline-dark.active, .btn-outline-dark.dropdown-toggle.show, .btn-outline-dark:active {
-        color: var(--red);
-        background-color: #212529;
-        border-color: #212529;
-    }
-
-    .btn-outline-dark:hover {
-        color: var(--red) !important;
-    }
+.btn-check:active+.btn-outline-dark, .btn-check:checked+.btn-outline-dark, .btn-outline-dark.active, .btn-outline-dark.dropdown-toggle.show, .btn-outline-dark:active {
+    color: var(--red);
+    background-color: #212529;
+    border-color: #212529;
+}
+.btn-outline-dark:hover{
+    color: var(--red) !important;
+}
 /* products icons */
-.iconsmodule:hover {
+.iconsmodule:hover{   
     transform: translateY(-15px);
     transition: transform 0.6s ease-in;
 }
-
-.icons {
+.icons{
     height: 4rem !important;
 }
 /* compare area */
-.compare {
-    height: 14rem !important;
-    border: 2px solid var(--red);
+.compare{
+    height: 16rem !important;
+    border: 2px solid var(--red);  
 }
-
-.searchproduct {
+.searchproduct{
     font-size: 4rem !important;
 }
-
-.comparesearch {
-    width: 11rem;
+.comparesearch{
+    /* width: 9rem; */
     border: 1px solid var(--black) !important;
 }
-
-.comparebtn {
+.comparebtn{
     width: 17rem !important;
 }
 /* popular products */
-.imagesize {
-    height: 6rem;
+.imagesize{
+    height: 6rem ;
     width: 6rem !important;
 }
-/* sign up */
-.bgimage {
+/* sign up and login*/
+.bgimage{
     height: 100vh;
     width: 100%;
     /* opacity: 0.3 ; */
 }
-
-.top {
+.top{
     position: absolute;
     top: 4.3rem !important;
 }
-
-.form-floating > .form-control, .form-floating > .form-select {
+.form-floating>.form-control, .form-floating>.form-select {
     height: 3rem;
     line-height: 1.25;
+}
+.sort{
+     width: 70% !important;
+}
+.clickbox:focus {
+    border-color: var(--black);
+    /* outline: 0; */
+    /* box-shadow: 0 0 0 0.25rem rgb(13 110 253 / 25%); */
+}
+/* all product page */
+.allproductimg{
+     width: 10rem;
+    height: 10rem; 
+}
+.logo{
+    width: 8rem;
+    height: 4rem;
+}
+.crossmargin{
+    margin-left: 13rem;
+    margin-bottom: 1rem;
 }

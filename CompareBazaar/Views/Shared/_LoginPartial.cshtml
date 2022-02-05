@@ -6,38 +6,62 @@
 <ul class="dropdown-menu profilewidth  " aria-labelledby="navbarDropdown">
     @if (SignInManager.IsSignedIn(User))
     {
-        <h5 class="ms-3 text-black fs-3" href="#">Welcome</h5>
-        <p class="ms-3 fs-6 profiletextcolor " asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">@User.Identity.Name!</p>
+        <li class="ms-3 text-black fs-3" href="#">Welcome</li>
+        <li class="ms-3 fs-6 profiletextcolor " asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">@User.Identity.Name!</li>
 
         <li> <hr class="dropdown-divider"></li>
         <!-- <li><a class="dropdown-item ms-3 fs-5 dropdownbg text-black dropdownbgprofilecolor" href="#">Orders</a> </li> -->
-        <li><a class="dropdown-item ms-3 fs-5 dropdownbg text-black dropdownbgprofilecolor" href="#">Wishlist</a></li>
-        <li><a class="dropdown-item ms-3 fs-5 dropdownbg text-black dropdownbgprofilecolor " href="#"> Contact Us </a></li>
-        <!-- <li><a class="dropdown-item ms-3 fs-5 dropdownbg  text-black dropdownbgprofilecolor" href="#"> BazaarStars</a> </li> -->
-      
         <li>
-        <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">
-        <button type="submit" class="dropdown-item ms-3 fs-5 dropdownbg  dropdownbgprofilecolor">Logout</button>
-        </form>
+            <a class="dropdown-item ms-3 fs-5 dropdownbg text-black dropdownbgprofilecolor"
+               href="#">Wishlist</a>
         </li>
-     
-        
-       // <li> <a class="dropdown-item ms-3 fs-5 dropdownbg  dropdownbgprofilecolor" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })"> Logout</a></li>
+        <li>
+            <a class="dropdown-item ms-3 fs-5 dropdownbg text-black dropdownbgprofilecolor "
+               href="#">
+                Contact
+                Us
+            </a>
+        </li>
+        <!-- <li><a class="dropdown-item ms-3 fs-5 dropdownbg  text-black dropdownbgprofilecolor" href="#"> BazaarStars</a> </li> -->
+
+        <li>
+            <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">
+                <button type="submit" class="dropdown-item ms-3 fs-5 dropdownbg  dropdownbgprofilecolor">Logout</button>
+            </form>
+        </li>
+
+
+        // <li> <a class="dropdown-item ms-3 fs-5 dropdownbg  dropdownbgprofilecolor" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })"> Logout</a></li>
     }
     else
     {
-
-
-        <h5 class="ms-3 text-black fs-3" href="#">Welcome</h5>
-        <p class="ms-3 fs-6 text-black ">To access account </p>
-        <form class="d-flex">
-            <a asp-area="Identity" asp-page="/Account/Login" type="button" class="btn btn-outline-danger btncolor ms-3 px-3">LOGIN/SIGNUP</a>
-        </form>
-        <li> <hr class="dropdown-divider"></li>
+        <li class="ms-3 text-black fs-3" href="#">Welcome</li>
+        <li class="m-2  fs-6 text-black ">To access account </li>
+        <li>
+            <form class="d-flex">
+                <a class="btn btn-outline-danger text-red btncolor ms-3 px-3 shadow-none"
+                   asp-area="Identity" asp-page="/Account/Register">SIGNUP</a>
+                <a class="btn btn-outline-danger text-red btncolor ms-3 px-3 shadow-none"
+                   asp-area="Identity" asp-page="/Account/Login">LOGIN</a>
+            </form>
+        </li>
+        <li>
+            <hr class="dropdown-divider">
+        </li>
         <!-- <li><a class="dropdown-item ms-3 fs-5 dropdownbg text-black dropdownbgprofilecolor" href="#">Orders</a> </li> -->
-        <li><a class="dropdown-item ms-3 fs-5 dropdownbg text-black dropdownbgprofilecolor" href="#">Wishlist</a></li>
-        <li><a class="dropdown-item ms-3 fs-5 dropdownbg text-black dropdownbgprofilecolor " href="#"> Contact Us </a></li>
-        <!-- <li><a class="dropdown-item ms-3 fs-5 dropdownbg  text-black dropdownbgprofilecolor" href="#"> BazaarStars</a> </li> -->
+        <li>
+            <a class="dropdown-item ms-3 fs-5 dropdownbg text-black dropdownbgprofilecolor"
+               href="#">Wishlist</a>
+        </li>
+        <li>
+            <a class="dropdown-item ms-3 fs-5 dropdownbg text-black dropdownbgprofilecolor "
+               href="#">
+                Contact
+                Us
+            </a>
+        </li>
+        <!-- <li><a class="dropdown-item ms-3 fs-5 dropdownbg  text-black dropdownbgprofilecolor" href="#"> Bazaar
+        Stars</a> </li> -->
     }
 </ul>
 

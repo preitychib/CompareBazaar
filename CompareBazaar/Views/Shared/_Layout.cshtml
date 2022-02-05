@@ -21,16 +21,10 @@
 </head>
 
 <body>
-    <!-- Preloader -->
-    <div class="preloader flex-column justify-content-center align-items-center">
-        <img class="animation__shake" src="~/User/images/logooo.png" alt="CompareBazaarLogo" height="60" width="60">
-    </div>
-    <div class="navbar1 ">
-
-        <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-light py-2 navbar1">
+        <nav class="navbar navbar-expand-lg navbar-light sticky-top bg-light py-2 navbar1">
             <div class="container-fluid">
                 <a class="navbar-brand ms-2 fs-2 " asp-controller="Home" asp-action="">
-                    <img src="~/User/images/logoo.png" alt=""
+                    <img src="~/User/images/logoo.png" alt="Compare Bazaar Logo"
                          width="70">COMPARE<b>BAZAAR</b>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -40,9 +34,11 @@
                 </button>
 
                 <div class="collapse navbar-collapse " id="navbarSupportedContent">
-                    <ul class="navbar-nav  mb-2 mb-lg-0  ms-auto me-4 fs-5  ">
+                    <ul class="navbar-nav  mb-2 mb-lg-0  ms-auto me-4 fs-5">
                         <partial name="_AdminMenuPartial" />
-                        <li class="nav-item dropdown me-3 ">
+                        <li class="nav-item dropdown me-3">
+                            <!-- <a class="nav-link red "   href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+        aria-expanded="false"><i class="fas fa-user-alt red "> </i>PROFILE</a> -->
                             <a class="nav-link red  " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
                                aria-expanded="false">
                                 <i class="fas fa-user-alt red "></i>
@@ -51,17 +47,24 @@
                             <partial name="_LoginPartial" />
                         </li>
                         <li class="nav-item me-3">
-                            <a class="nav-link  red " aria-current="page" href="#"> <i class="fas fa-heart red "></i> WISHLIST</a>
+                            <a class="nav-link  red " aria-current="page" href="#">
+                                <i class="fas fa-heart red "></i>
+                                WISHLIST
+                            </a>
+                        </li>
+                        <li class="nav-item me-3">
+                            <a class="nav-link  red " aria-current="page" asp-controller="Home" asp-action="CompareChart">
+                                <i class="fas fa-balance-scale-left red"></i>  COMPARE CHART
+                            </a>
                         </li>
                         <!-- <li class="nav-item me-3">
-                         <a class="nav-link red " href="#"><i class="fas fa-shopping-cart  red"></i> CART</a>
-                        </li>  -->
+     <a class="nav-link red " href="#"><i class="fas fa-shopping-cart  red"></i> CART</a>
+    </li>  -->
                     </ul>
                 </div>
             </div>
         </nav>
-    </div>
-
+  
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="navbar2position">
         <div class="container-fluid">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar"
@@ -75,636 +78,2027 @@
                            data-bs-toggle="dropdown" aria-expanded="false">
                             Mobiles
                         </a>
-                        <ul class="dropdown-menu mega-area ms-3  " aria-labelledby="mega-one">
-                            <div class="row">
-                                <div class=" col-xs-12 col-sm-12 col-md-12 col-lg-4 ">
-                                    <h4 class="text-red fw-bold ">Brands</h4>
-                            <li>  <a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black">Samsung</a> </li>
-                            <li>  <a href="#" class="dropdown-item  dropdownbg  innerdropdownitem text-black">Redmi(Mi)</a></li>
-                            <li>  <a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black">Oppo</a></li>
-                            <li>  <a href="#" class="dropdown-item  dropdownbg  innerdropdownitem text-black">Vivo</a></li>
-                            <li>  <a href="#" class="dropdown-item  dropdownbg  innerdropdownitem text-black">Realme</a></li>
-                            <li>  <a href="#" class="dropdown-item  dropdownbg  innerdropdownitem text-black">Oneplus</a></li>
-                            <li>  <a href="#" class="dropdown-item  dropdownbg  innerdropdownitem text-black">Motorola</a></li>
-                            <li>  <a href="#" class="dropdown-item  dropdownbg  innerdropdownitem text-black">Honor</a></li>
-                            <li>  <a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black">Lenovo</a></li>
-                            <li>  <a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black">Sony</a></li>
-                            <li>  <a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black">HTC</a></li>
+                        <ul class="dropdown-menu mega-area ms-3 " aria-labelledby="mega-one">
+                            <li>
+                                <div class="row">
+                                    <div class=" col-xs-12 col-sm-12 col-md-12 col-lg-4 ">
+                                        <ul class=" list-unstyled ">
+                                            <li class="text-red fw-bold fs-4 ">
+                                                Brands
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black">Samsung</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg  innerdropdownitem text-black">Redmi(Mi)</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black">Oppo</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg  innerdropdownitem text-black">Vivo</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg  innerdropdownitem text-black">Realme</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg  innerdropdownitem text-black">Oneplus</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg  innerdropdownitem text-black">Motorola</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg  innerdropdownitem text-black">Honor</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black">Lenovo</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black">Sony</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black">HTC</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 dropdown-margin">
+                                        <ul class=" list-unstyled ">
+                                            <li class=" text-red fw-bold fs-4 ">
+                                                Categories
+                                            </li>
+                                            <li>
+                                                <a href="/mobiles.html"
+                                                   class="dropdown-item fs-5 dropdownbg  innerdropdownsubheading text-red ">
+                                                    ALL
+                                                    MOBILES
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <hr class="dropdown-divider">
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black ">
+                                                    Android
+                                                    Phones
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg  innerdropdownitem text-black ">
+                                                    Apple
+                                                    IPhones
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <hr class="dropdown-divider">
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item dropdownbg innerdropdownitem text-black ">
+                                                    5G
+                                                    Mobiles
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg  innerdropdownitem text-black ">
+                                                    4G
+                                                    Mobiles
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg  innerdropdownitem text-black ">
+                                                    5Gb
+                                                    RAM Mobiles
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black ">
+                                                    Keypad
+                                                    Mobiles
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <hr class="dropdown-divider">
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black  ">
+                                                    Most
+                                                    popular
+                                                    Mobiles
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg  innerdropdownitem text-black ">
+                                                    Best
+                                                    Mobiles
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg  innerdropdownitem text-black ">
+                                                    Latest
+                                                    Mobiles
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 dropdown-margin">
+                                        <ul class=" list-unstyled ">
+                                            <li class=" text-red fw-bold fs-4 ">
+                                                Price
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black  ">
+                                                    Under
+                                                    Rs 5,000
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg  innerdropdownitem text-black ">
+                                                    Rs5,000
+                                                    to Rs10,000
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg  innerdropdownitem text-black">
+                                                    Rs10,000
+                                                    to Rs
+                                                    15,000
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black ">
+                                                    Rs15,000
+                                                    to Rs20,000
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black  ">
+                                                    Under
+                                                    Rs20,000
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black  ">
+                                                    Above
+                                                    Rs20,000
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <hr class="dropdown-divider">
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black ">
+                                                    Lowest
+                                                    Price
+                                                    Mobiles
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown menu-area">
+                        <a class="nav-link dropdown-toggle ms-2  fs-5 text-white " href="#" id="mega-two" role="button"
+                           data-bs-toggle="dropdown" aria-expanded="false">
+                            Tablets
+                        </a>
+                        <ul class="dropdown-menu mega-area ms-3" aria-labelledby="mega-two">
+                            <li>
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+                                        <ul class="list-unstyled">
+                                            <li class=" text-red fw-bold fs-4 ">
+                                                Brands
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item dropdownbg   innerdropdownitem text-black  ">Samsung</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg  innerdropdownitem text-black  ">Apple</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item dropdownbg   innerdropdownitem text-black  ">Asus</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item dropdownbg  innerdropdownitem text-black  ">Micromax</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item dropdownbg  innerdropdownitem text-black  ">Karbonn</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg  innerdropdownitem text-black  ">Lenovo</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg   innerdropdownitem text-black  ">Spice</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item dropdownbg  innerdropdownitem text-black  ">iBall</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item dropdownbg  innerdropdownitem text-black  ">Huawei</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg  innerdropdownitem text-black   ">Sony</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg  innerdropdownitem text-black  ">HCL</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item dropdownbg  innerdropdownitem text-black   ">Zync</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 dropdown-margin">
+                                        <ul class="list-unstyled">
+                                            <li class=" text-red fw-bold fs-4">
+                                                Categories
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item dropdownbg  innerdropdownsubheading text-red fs-5 ">
+                                                    ALL
+                                                    TABLETS
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <hr class="dropdown-divider">
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg  innerdropdownitem text-black   ">
+                                                    Android
+                                                    Tablets
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg  innerdropdownitem text-black   ">
+                                                    Apple
+                                                    IPads
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item dropdownbg   innerdropdownitem text-black  ">
+                                                    Windows
+                                                    8 Tablets
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <hr class="dropdown-divider">
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item dropdownbg  innerdropdownitem text-black  ">
+                                                    4G
+                                                    Tablets
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg  innerdropdownitem text-black   ">
+                                                    Dual/Quad
+                                                    Core
+                                                    Tablets
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <hr class="dropdown-divider">
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg   innerdropdownitem text-black  ">
+                                                    7"-8"
+                                                    Tablets
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg  innerdropdownitem text-black    ">
+                                                    9"-10"
+                                                    Tablets
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg  innerdropdownitem text-black  ">
+                                                    10"-11"
+                                                    Tablets
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg   innerdropdownitem text-black  ">
+                                                    11"
+                                                    & above
+                                                    Tablets
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <hr class="dropdown-divider">
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item   dropdownbg   innerdropdownitem text-black   ">
+                                                    Most
+                                                    popular
+                                                    Tablets
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg    innerdropdownitem text-black  ">
+                                                    Best
+                                                    Tablets
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg  innerdropdownitem text-black    ">
+                                                    Latest
+                                                    Tablets
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 dropdown-margin">
+                                        <ul class="list-unstyled">
+                                            <li class=" text-red fs-4 fw-bold">
+                                                Price
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg  innerdropdownitem text-black   ">
+                                                    Under
+                                                    Rs 5,000
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item dropdownbg   innerdropdownitem text-black  ">
+                                                    Rs5,000
+                                                    to
+                                                    Rs10,000
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item dropdownbg  innerdropdownitem text-black  ">
+                                                    Rs10,000
+                                                    to Rs
+                                                    15,000
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg  innerdropdownitem text-black  ">
+                                                    Rs15,000
+                                                    to
+                                                    Rs20,000
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg  innerdropdownitem text-black   ">
+                                                    Under
+                                                    Rs20,000
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg   innerdropdownitem text-black   ">
+                                                    Above
+                                                    Rs20,000
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <hr class="dropdown-divider">
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg  innerdropdownitem text-black   ">
+                                                    Lowest
+                                                    Price
+                                                    Tablets
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown menu-area">
+                        <a class="nav-link dropdown-toggle ms-2   fs-5 text-white" href="#" id="mega-three"
+                           role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Laptops
+                        </a>
+                        <ul class="dropdown-menu mega-area ms-3" aria-labelledby="mega-three">
+                            <li>
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+                                        <ul class="list-unstyled">
+                                            <li class=" text-red fw-bold fs-4 ">
+                                                Brands
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item dropdownbg   innerdropdownitem text-black  ">Samsung</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg   innerdropdownitem text-black  ">HP</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg    innerdropdownitem text-black  ">Dell</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg   innerdropdownitem text-black  ">Acer</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg  innerdropdownitem text-black    ">Asus</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg  innerdropdownitem text-black  ">Apple</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item dropdownbg  innerdropdownitem text-black   ">Toshiba</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item dropdownbg  innerdropdownitem text-black   ">HCL</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg  innerdropdownitem text-black  ">Lenovo</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item dropdownbg  innerdropdownitem text-black    ">Sony</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item dropdownbg  innerdropdownitem text-black   ">Fujitsu</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item dropdownbg   innerdropdownitem text-black ">LG</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+                                        <ul class="list-unstyled">
+                                            <li class=" text-red fs-4 fw-bold">
+                                                Categories
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item fs-5 dropdownbg innerdropdownsubheading  text-red  innerdropdownitem">
+                                                    ALL
+                                                    LAPTOPS
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item fs-5 dropdownbg innerdropdownsubheading text-red innerdropdownitem ">
+                                                    ALL
+                                                    COMPUTERS
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <hr class="dropdown-divider">
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg   innerdropdownitem text-black">
+                                                    Windows
+                                                    10 Laptops
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item dropdownbg innerdropdownitem text-black  ">
+                                                    Gaming
+                                                    Laptops
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black   ">
+                                                    AMD
+                                                    Laptops
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <hr class="dropdown-divider">
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item dropdownbg  innerdropdownitem text-black ">
+                                                    Intel
+                                                    Core i7
+                                                    Laptops
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item dropdownbg   innerdropdownitem text-black">
+                                                    Intel
+                                                    Core i5
+                                                    Laptops
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg  innerdropdownitem text-black">
+                                                    Intel
+                                                    Core i3
+                                                    Laptops
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <hr class="dropdown-divider">
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item dropdownbg   innerdropdownitem text-black   ">
+                                                    Laptops
+                                                    With Backlit
+                                                    Keyboard
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item dropdownbg  innerdropdownitem text-black  ">
+                                                    Touch
+                                                    Keyboard
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item dropdownbg innerdropdownitem text-black ">
+                                                    Laptops
+                                                    With Good
+                                                    Battery Life
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <hr class="dropdown-divider">
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black  ">
+                                                    Most
+                                                    popular
+                                                    Laptops
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black  ">
+                                                    Best
+                                                    Laptops
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black ">
+                                                    Latest
+                                                    Laptops
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+                                        <ul class="list-unstyled">
+                                            <li class=" text-red fs-4 fw-bold">
+                                                Price
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black ">
+                                                    Under
+                                                    Rs 20,000
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black  ">
+                                                    Under
+                                                    Rs 30,000
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black ">
+                                                    Under
+                                                    Rs 40,000
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item   dropdownbg innerdropdownitem text-black  ">
+                                                    Under
+                                                    Rs 50,000
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black  ">
+                                                    Under
+                                                    Rs 60,000
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black  ">
+                                                    Above
+                                                    Rs 60,000
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <hr class="dropdown-divider">
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item dropdownbg innerdropdownitem text-black ">
+                                                    Cheapest
+                                                    Laptops
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown menu-area">
+                        <a class="nav-link dropdown-toggle ms-2 fs-5 text-white " href="#" id="mega-four" role="button"
+                           data-bs-toggle="dropdown" aria-expanded="false">
+                            Computers
+                        </a>
+                        <ul class="dropdown-menu mega-area ms-3" aria-labelledby="mega-four">
+                            <li>
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+                                        <ul class="list-unstyled">
+                                            <li class=" text-red fw-bold fs-4 ">
+                                                Categories
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  fs-5 dropdownbg  innerdropdownsubheading  text-red  innerdropdownitem  ">ALLCOMPUTERS</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  fs-5 dropdownbg  innerdropdownsubheading text-red  innerdropdownitem ">
+                                                    ALL
+                                                    LAPTOPS
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <hr class="dropdown-divider">
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item dropdownbg innerdropdownitem text-black ">
+                                                    Windows
+                                                    Computers
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black  ">
+                                                    All
+                                                    in One PCs
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item dropdownbg innerdropdownitem text-black  ">
+                                                    Mini
+                                                    PCs
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black ">
+                                                    Tower
+                                                    PCs
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <hr class="dropdown-divider">
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black  ">
+                                                    Intel
+                                                    Core i7
+                                                    computers
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black  ">
+                                                    Intel
+                                                    Core i5
+                                                    computers
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item   dropdownbg innerdropdownitem text-black ">
+                                                    Intel
+                                                    Core i3
+                                                    computers
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <hr class="dropdown-divider">
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black  ">
+                                                    16GB
+                                                    RAM Desktops
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item   dropdownbg innerdropdownitem text-black ">
+                                                    8GB
+                                                    RAM Desktops
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <hr class="dropdown-divider">
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black  ">
+                                                    Most
+                                                    popular
+                                                    computers
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black ">
+                                                    Latest
+                                                    computers
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+                                        <ul class="list-unstyled">
+                                            <li class=" text-red fw-bold  fs-4">
+                                                Accessories
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item   fs-5 dropdownbg  innerdropdownsubheading  text-red innerdropdownitem   ">
+                                                    ALL
+                                                    ACCESSORIES
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <hr class="dropdown-divider">
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black ">
+                                                    Pen
+                                                    Drives
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black  ">
+                                                    External
+                                                    Hard Disk
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black  ">Keyboards</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item   dropdownbg innerdropdownitem text-black ">Mouse</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black  ">Headphones</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black  ">
+                                                    External
+                                                    Optical Drives
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black  ">
+                                                    Mouse
+                                                    Pads
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black ">Speakers</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item   dropdownbg innerdropdownitem text-black">Webcams</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item   dropdownbg innerdropdownitem text-black ">
+                                                    USB
+                                                    Gadgets
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black ">Cables</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+                                        <ul class="list-unstyled">
+                                            <li class=" text-red fw-bold  fs-4">
+                                                Price
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black ">
+                                                    Under
+                                                    Rs 20,000
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black ">
+                                                    Under
+                                                    Rs 30,000
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black  ">
+                                                    Under
+                                                    Rs 40,000
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black ">
+                                                    Under
+                                                    Rs 50,000
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black  ">
+                                                    Under
+                                                    Rs 60,000
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black  ">
+                                                    Above
+                                                    Rs 60,000
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <hr class="dropdown-divider">
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black  ">
+                                                    Cheapest
+                                                    Computers
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown menu-area">
+                        <a class="nav-link dropdown-toggle ms-2 fs-5 text-white " href="#" id="mega-five" role="button"
+                           data-bs-toggle="dropdown" aria-expanded="false">
+                            TVs
+                        </a>
+                        <ul class="dropdown-menu mega-area ms-3" aria-labelledby="mega-five">
+                            <li>
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+                                        <ul class="list-unstyled">
+                                            <li class=" text-red fw-bold fs-4 ">
+                                                Brands
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black ">Samsung</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black ">Philips</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black  ">Mi</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black ">Micromax</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black  ">Panasonic</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black ">Videocon</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black ">Toshiba</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black  ">Onida</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black ">Sansui</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black  ">Sony</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black ">Vu</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item   dropdownbg innerdropdownitem text-black ">LG</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+                                        <ul class="list-unstyled">
+                                            <li class=" text-red fw-bold fs-4">
+                                                Categories
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  fs-5 dropdownbg  innerdropdownsubheading  text-red innerdropdownitem   ">
+                                                    ALL
+                                                    TELEVISIONS
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <hr class="dropdown-divider">
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black ">
+                                                    Smart
+                                                    TVs
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black ">
+                                                    Curved
+                                                    TVs
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item   dropdownbg innerdropdownitem text-black ">
+                                                    3D
+                                                    TVs
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <hr class="dropdown-divider">
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black  ">Built-in-Wifi</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black  ">
+                                                    4K
+                                                    Resolution
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item   dropdownbg innerdropdownitem text-black ">
+                                                    Full
+                                                    HD
+                                                    Resolution
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <hr class="dropdown-divider">
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black   ">
+                                                    32"-40"
+                                                    Televisions
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black ">
+                                                    40"-50"Tablets
+                                                    Televisions
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item   dropdownbg innerdropdownitem text-black ">
+                                                    55"
+                                                    Televisions
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black ">
+                                                    65"
+                                                    Televisions
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <hr class="dropdown-divider">
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black ">
+                                                    Most
+                                                    popular TVs
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item dropdownbg innerdropdownitem text-black  ">
+                                                    Best
+                                                    TVs
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black  ">
+                                                    Latest
+                                                    TVs
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+                                        <ul class="list-unstyled">
+                                            <li class=" text-red fw-bold fs-4 ">
+                                                Price
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black ">
+                                                    Under
+                                                    Rs 20,000
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item dropdownbg innerdropdownitem text-black ">
+                                                    Under
+                                                    Rs 30,000
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black">
+                                                    Under
+                                                    Rs 40,000
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black  ">
+                                                    Under
+                                                    Rs 50,000
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black ">
+                                                    Under
+                                                    Rs 60,000
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black   ">
+                                                    Above
+                                                    Rs 60,000
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <hr class="dropdown-divider">
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black ">
+                                                    Cheapest
+                                                    Laptops
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown menu-area">
+                        <a class="nav-link dropdown-toggle ms-2 fs-5 text-white  " href="#" id="mega-six" role="button"
+                           data-bs-toggle="dropdown" aria-expanded="false">
+                            Electronices
+                        </a>
+                        <ul class="dropdown-menu mega-area ms-3" aria-labelledby="mega-six">
+                            <li>
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+                                        <ul class="list-unstyled">
+                                            <li class=" text-red fw-bold fs-4">
+                                                Cameras
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item    fs-5 dropdownbg  innerdropdownsubheading  text-red innerdropdownitem    ">
+                                                    ALL
+                                                    CAMERAS
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <hr class="dropdown-divider">
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black  ">
+                                                    Point
+                                                    & Shoot
+                                                    Cameras
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item   dropdownbg innerdropdownitem text-black ">
+                                                    SLR
+                                                    Cameras
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black  ">Camcorders</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item   dropdownbg innerdropdownitem text-black ">
+                                                    Professional
+                                                    Video Cam
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black   ">
+                                                    Camera
+                                                    Lenses
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <hr class="dropdown-divider">
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black  ">Nikon</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item   dropdownbg innerdropdownitem text-black  ">Sony</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item   dropdownbg innerdropdownitem text-black   ">Canon</a>
+                                            </li>
+                                            <li>
+                                                <hr class="dropdown-divider">
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item dropdownbg innerdropdownitem text-black   ">
+                                                    Under
+                                                    Rs 20,000
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black  ">
+                                                    Under
+                                                    Rs 30,000
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black  ">
+                                                    Above
+                                                    Rs 50,000
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <hr class="dropdown-divider">
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black ">
+                                                    Cheapest
+                                                    Cameras
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black  ">
+                                                    Most
+                                                    Popular
+                                                    Cameras
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black  ">
+                                                    Best
+                                                    Cameras
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black  ">
+                                                    Latest
+                                                    Cameras
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+                                        <ul class="list-unstyled">
+                                            <li class=" text-red fw-bold fs-4">
+                                                Smart Wearables
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item   fs-5 dropdownbg  innerdropdownsubheading text-red  innerdropdownitem">
+                                                    ALL
+                                                    SMARTWATCHES
+                                                </a>
+                                            <li>
+                                                <hr class="dropdown-divider">
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black  ">
+                                                    Android
+                                                    Compatible
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black   ">
+                                                    iOS
+                                                    Compatible
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <hr class="dropdown-divider">
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black ">
+                                                    Water
+                                                    Resistant
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black   ">
+                                                    Scratch
+                                                    Resistant
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <hr class="dropdown-divider">
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black  ">Apple</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black ">Samsung</a>
+                                            </li>
+                                            <li>
+                                                <hr class="dropdown-divider">
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  fs-5 dropdownbg  innerdropdownsubheading  text-red innerdropdownitem  ">
+                                                    ALL
+                                                    FITNESS
+                                                    BANDS
+                                                </a>
+                                            <li>
+                                                <hr class="dropdown-divider">
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black">
+                                                    With
+                                                    Touch
+                                                    Display
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item   dropdownbg innerdropdownitem text-black">
+                                                    Shock
+                                                    Resistant
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <hr class="dropdown-divider">
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black">
+                                                    Fitbit
+                                                    Fitness
+                                                    Bands
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black">
+                                                    Garmin
+                                                    Fitness
+                                                    Bands
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <hr class="dropdown-divider">
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  fs-5 dropdownbg  innerdropdownsubheading text-red  innerdropdownitem">
+                                                    VR
+                                                    HEADSETS
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <hr class="dropdown-divider">
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black">Gaming</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item   dropdownbg innerdropdownitem text-black">Entertainment</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+                                        <ul class="list-unstyled">
+                                            <li class=" text-red fw-bold fs-4 ">
+                                                Gaming
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  fs-5 dropdownbg  innerdropdownsubheading  text-red innerdropdownitem  ">
+                                                    ALL
+                                                    GAMING
+                                                    DEVICES
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <hr class="dropdown-divider">
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black  ">
+                                                    Gaming
+                                                    Consoles
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black   ">
+                                                    Portable
+                                                    Gaming
+                                                    Consoles
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item   dropdownbg innerdropdownitem text-black ">
+                                                    Gamepads
+                                                    and
+                                                    Joystices
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <hr class="dropdown-divider">
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item   dropdownbg innerdropdownitem text-black  ">Xbox</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item   dropdownbg innerdropdownitem text-black   ">
+                                                    Play
+                                                    Stations
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <hr class="dropdown-divider">
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item     dropdownbg innerdropdownitem text-black  ">
+                                                    Cheapest
+                                                    Gaming
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item    dropdownbg innerdropdownitem text-black  ">
+                                                    Most
+                                                    Popular
+                                                    Gaming
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item   dropdownbg innerdropdownitem text-black  ">
+                                                    Best
+                                                    Rated Gaming
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item   dropdownbg innerdropdownitem text-black  ">
+                                                    Latest
+                                                    Gaming
+                                                    Devices
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <hr class="dropdown-divider">
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  fs-5 dropdownbg  innerdropdownsubheading  text-red innerdropdownitem ">
+                                                    RC
+                                                    TOYS
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <hr class="dropdown-divider">
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item   dropdownbg innerdropdownitem text-black ">
+                                                    RC
+                                                    Quadcopters
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item   dropdownbg innerdropdownitem text-black  ">
+                                                    RC
+                                                    Cars
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item   dropdownbg innerdropdownitem text-black  ">
+                                                    RC
+                                                    Boats
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item   dropdownbg innerdropdownitem text-black  ">
+                                                    RC
+                                                    Helicopters
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item   dropdownbg innerdropdownitem text-black  ">
+                                                    RC
+                                                    Airplanes
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown menu-area">
+                        <a class="nav-link dropdown-toggle ms-2 fs-5 text-white  " href="#" id="mega-seven"
+                           role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Appliances
+                        </a>
+                        <ul class="dropdown-menu mega-area ms-3" aria-labelledby="mega-seven">
+                            <li>
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
+                                        <ul class="list-unstyled">
+                                            <li class=" text-red fw-bold  fs-4">
+                                                Large Appliances
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item   fs-5 dropdownbg  innerdropdownsubheading  text-red innerdropdownitem">
+                                                    ALL
+                                                    AIR
+                                                    CONDITIONERS
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item   dropdownbg innerdropdownitem text-black  ">
+                                                    Inverter
+                                                    AC
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item   dropdownbg innerdropdownitem text-black  ">
+                                                    Split
+                                                    AC
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item   dropdownbg innerdropdownitem text-black  ">
+                                                    Window
+                                                    AC
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <hr class="dropdown-divider  ">
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item   fs-5 dropdownbg  innerdropdownsubheading text-red  innerdropdownitem  ">
+                                                    AIR
+                                                    COOLERS
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <hr class="dropdown-divider">
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  fs-5 dropdownbg  innerdropdownsubheading text-red  innerdropdownitem">
+                                                    ALL
+                                                    REFRIGERATORS
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item   dropdownbg innerdropdownitem text-black  ">
+                                                    Single
+                                                    Door
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item    dropdownbg innerdropdownitem text-black ">
+                                                    Multi
+                                                    Door
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item   dropdownbg innerdropdownitem text-black  ">
+                                                    Side
+                                                    By Side
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <hr class="dropdown-divider">
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  fs-5 dropdownbg  innerdropdownsubheading text-red  innerdropdownitem">
+                                                    ALL
+                                                    WASHING
+                                                    MACHINES
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item    dropdownbg innerdropdownitem text-black  ">
+                                                    Fully
+                                                    Automatic
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item   dropdownbg innerdropdownitem text-black    ">
+                                                    Semi
+                                                    Automatic
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item   dropdownbg innerdropdownitem text-black  ">
+                                                    Top
+                                                    Load
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item   dropdownbg innerdropdownitem text-black  ">
+                                                    Front
+                                                    Load
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
+                                        <ul class="list-unstyled">
+                                            <li class=" text-red fw-bold  fs-4">
+                                                Small Appliances
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item   fs-5 dropdownbg  innerdropdownsubheading  text-red innerdropdownitem  ">
+                                                    ALL
+                                                    SMALL
+                                                    APPLIANCES
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <hr class="dropdown-divider">
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item   dropdownbg innerdropdownitem text-black   ">Irons</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black      ">
+                                                    Vacuum
+                                                    Cleaners
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item   dropdownbg innerdropdownitem text-black  ">
+                                                    Room
+                                                    Heaters
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item    dropdownbg innerdropdownitem text-black   ">
+                                                    Air
+                                                    Purifiers
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item    dropdownbg innerdropdownitem text-black  ">Fans</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item    dropdownbg innerdropdownitem text-black  ">
+                                                    Emergency
+                                                    Lights
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item    dropdownbg innerdropdownitem text-black  ">
+                                                    Water
+                                                    Purifiers
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item   dropdownbg innerdropdownitem text-black  ">Geysers</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item    dropdownbg innerdropdownitem text-black ">
+                                                    Immersion
+                                                    Rods
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item   dropdownbg innerdropdownitem text-black   ">
+                                                    Hand
+                                                    Dryers
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item    dropdownbg innerdropdownitem text-black  ">
+                                                    Surge
+                                                    Protectors
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item   dropdownbg innerdropdownitem text-black  ">Dehumidifiers</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
+                                        <ul class="list-unstyled">
+                                            <li class=" fs-4 text-red fw-bold">
+                                                Kitchen Appliances
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item   fs-5 dropdownbg  innerdropdownsubheading  text-red innerdropdownitem  ">
+                                                    ALL
+                                                    KITCHEN
+                                                    APPLIANCES
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <hr class="dropdown-divider">
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item    dropdownbg innerdropdownitem text-black  ">
+                                                    Induction
+                                                    Cooktops
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item   dropdownbg innerdropdownitem text-black  ">
+                                                    Mixer
+                                                    Juicer
+                                                    Grinders
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item   dropdownbg innerdropdownitem text-black   ">Juicers</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item   dropdownbg innerdropdownitem text-black  ">
+                                                    Sandwich
+                                                    Makers
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item   dropdownbg innerdropdownitem text-black  ">
+                                                    Microwave
+                                                    Ovens
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item   dropdownbg innerdropdownitem text-black  ">
+                                                    Oven
+                                                    Toaster
+                                                    Grills(OTG)
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item   dropdownbg innerdropdownitem text-black  ">
+                                                    Hand
+                                                    Blenders
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item   dropdownbg innerdropdownitem text-black  ">
+                                                    Food
+                                                    Blenders
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item    dropdownbg innerdropdownitem text-black ">
+                                                    Food
+                                                    Processors
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item    dropdownbg innerdropdownitem text-black ">
+                                                    ELectric
+                                                    Kettles
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item   dropdownbg innerdropdownitem text-black   ">Toasters</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item    dropdownbg innerdropdownitem text-black  ">
+                                                    Roti
+                                                    Makers
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item   dropdownbg innerdropdownitem text-black  ">Choppers</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item   dropdownbg innerdropdownitem text-black  ">
+                                                    Coffee
+                                                    Makers
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
+                                        <ul class="list-unstyled">
+                                            <li class=" text-red  fs-4 fw-bold">
+                                                Personal Appliances
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  fs-5 dropdownbg  innerdropdownsubheading  text-red innerdropdownitem  ">
+                                                    ALL
+                                                    PERSONAL
+                                                    APPLIANCES
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <hr class="dropdown-divider">
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item   dropdownbg innerdropdownitem text-black">
+                                                    Trimmers
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item   dropdownbg innerdropdownitem text-black">Shavers</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item   dropdownbg innerdropdownitem text-black">Epilators</a>
+                                            </li>
+                                            <li>
+                                                <hr class="dropdown-divider">
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item    dropdownbg innerdropdownitem text-black">
+                                                    Hair
+                                                    Dryers
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black">
+                                                    Hair
+                                                    Straighteners
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black">
+                                                    Hair
+                                                    Curlers
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black">
+                                                    Hair
+                                                    Stylers
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item   dropdownbg innerdropdownitem text-black">
+                                                    Electric
+                                                    Toothbrushes
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <hr class="dropdown-divider">
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item   dropdownbg innerdropdownitem text-black">
+                                                    Popular
+                                                    Trimmers
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item   dropdownbg innerdropdownitem text-black">
+                                                    Best
+                                                    Hair Dryers
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                   class="dropdown-item   dropdownbg innerdropdownitem text-black">
+                                                    Cheapest
+                                                    Epilators
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 dropdown-margin">
-                <h4 class=" text-red fw-bold ">Categories</h4>
-                <li>  <a href="#" class="dropdown-item fs-5 dropdownbg  innerdropdownsubheading text-red ">ALL MOBILES</a></li>
-                <li><hr class="dropdown-divider"> </li>
-                <li>  <a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black ">Android Phones</a></li>
-                <li>  <a href="#" class="dropdown-item  dropdownbg  innerdropdownitem text-black ">Apple IPhones</a></li>
-                <li>   <hr class="dropdown-divider"> </li>
-                <li>  <a href="#" class="dropdown-item dropdownbg innerdropdownitem text-black ">5G Mobiles</a></li>
-                <li>  <a href="#" class="dropdown-item  dropdownbg  innerdropdownitem text-black ">4G Mobiles</a></li>
-                <li>  <a href="#" class="dropdown-item  dropdownbg  innerdropdownitem text-black ">5Gb RAM Mobiles</a></li>
-                <li>  <a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black ">Keypad Mobiles</a></li>
-                <li>  <hr class="dropdown-divider"></li>
-                <li>  <a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black  ">Most popular Mobiles</a></li>
-                <li>  <a href="#" class="dropdown-item  dropdownbg  innerdropdownitem text-black ">Best Mobiles</a></li>
-                <li>  <a href="#" class="dropdown-item  dropdownbg  innerdropdownitem text-black ">Latest Mobiles</a></li>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 dropdown-margin">
-                <h4 class=" text-red fw-bold ">Price</h4>
-                <li><a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black  ">Under Rs 5,000</a> </li>
-                <li><a href="#" class="dropdown-item  dropdownbg  innerdropdownitem text-black ">Rs5,000 to Rs10,000</a></li>
-                <li>
-                    <a href="#" class="dropdown-item  dropdownbg  innerdropdownitem text-black">
-                        Rs10,000 to Rs
-                        15,000
-                    </a>
-                </li>
-                <li> <a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black ">Rs15,000 to Rs20,000</a></li>
-                <li><a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black  ">Under Rs20,000</a></li>
-                <li><a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black  ">Above Rs20,000</a></li>
-                <li>   <hr class="dropdown-divider"> </li>
-                <li> <a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black ">Lowest Price Mobiles</a></li>
-            </div>
-        </div>
-        </ul>
-        </li>
-        <li class="nav-item dropdown menu-area">
-            <a class="nav-link dropdown-toggle ms-2  fs-5 text-white " href="#" id="mega-two" role="button"
-               data-bs-toggle="dropdown" aria-expanded="false">
-                Tablets
-            </a>
-            <ul class="dropdown-menu mega-area ms-3" aria-labelledby="mega-two">
-                <div class="row">
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
-                        <h4 class=" text-red fw-bold ">Brands</h4>
-                <li> <a href="#" class="dropdown-item dropdownbg   innerdropdownitem text-black  ">Samsung</a></li>
-                <li> <a href="#" class="dropdown-item  dropdownbg  innerdropdownitem text-black  ">Apple</a></li>
-                <li> <a href="#" class="dropdown-item dropdownbg   innerdropdownitem text-black  ">Asus</a></li>
-                <li> <a href="#" class="dropdown-item dropdownbg  innerdropdownitem text-black  ">Micromax</a></li>
-                <li> <a href="#" class="dropdown-item dropdownbg  innerdropdownitem text-black  ">Karbonn</a></li>
-                <li> <a href="#" class="dropdown-item  dropdownbg  innerdropdownitem text-black  ">Lenovo</a></li>
-                <li> <a href="#" class="dropdown-item  dropdownbg   innerdropdownitem text-black  ">Spice</a></li>
-                <li> <a href="#" class="dropdown-item dropdownbg  innerdropdownitem text-black  ">iBall</a></li>
-                <li> <a href="#" class="dropdown-item dropdownbg  innerdropdownitem text-black  ">Huawei</a></li>
-                <li> <a href="#" class="dropdown-item  dropdownbg  innerdropdownitem text-black   ">Sony</a></li>
-                <li> <a href="#" class="dropdown-item  dropdownbg  innerdropdownitem text-black  ">HCL</a></li>
-                <li> <a href="#" class="dropdown-item dropdownbg  innerdropdownitem text-black   ">Zync</a></li>
-                </div>
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 dropdown-margin">
-                    <h4 class=" text-red fw-bold ">Categories</h4>
-                <li> <a href="#" class="dropdown-item dropdownbg  innerdropdownsubheading text-red fs-5 ">ALL TABLETS</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li> <a href="#" class="dropdown-item  dropdownbg  innerdropdownitem text-black   ">Android Tablets</a></li>
-                <li> <a href="#" class="dropdown-item  dropdownbg  innerdropdownitem text-black   ">Apple IPads</a></li>
-                <li> <a href="#" class="dropdown-item dropdownbg   innerdropdownitem text-black  ">Windows 8 Tablets</a></li>
-                <li>   <hr class="dropdown-divider">   </li>
-                <li> <a href="#" class="dropdown-item dropdownbg  innerdropdownitem text-black  ">4G Tablets</a></li>
-                <li>
-                    <a href="#" class="dropdown-item  dropdownbg  innerdropdownitem text-black   ">
-                        Dual/Quad Core
-                        Tablets
-                    </a>
-                </li>
-                <li><hr class="dropdown-divider"> </li>
-                <li> <a href="#" class="dropdown-item  dropdownbg   innerdropdownitem text-black  ">7"-8" Tablets</a></li>
-                <li> <a href="#" class="dropdown-item  dropdownbg  innerdropdownitem text-black    ">9"-10" Tablets</a></li>
-                <li> <a href="#" class="dropdown-item  dropdownbg  innerdropdownitem text-black  ">10"-11" Tablets</a></li>
-                <li>
-                    <a href="#" class="dropdown-item  dropdownbg   innerdropdownitem text-black  ">
-                        11" & above
-                        Tablets
-                    </a>
-                </li>
-                <li> <hr class="dropdown-divider"> </li>
-                <li>
-                    <a href="#" class="dropdown-item   dropdownbg   innerdropdownitem text-black   ">
-                        Most popular
-                        Tablets
-                    </a>
-                </li>
-                <li> <a href="#" class="dropdown-item  dropdownbg    innerdropdownitem text-black  ">Best Tablets</a></li>
-                <li> <a href="#" class="dropdown-item  dropdownbg  innerdropdownitem text-black    ">Latest Tablets</a></li>
-                </div>
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 dropdown-margin">
-                    <h4 class=" text-red fw-bold">Price</h4>
-                <li>  <a href="#" class="dropdown-item  dropdownbg  innerdropdownitem text-black   ">Under Rs 5,000</a></li>
-                <li>
-                    <a href="#" class="dropdown-item dropdownbg   innerdropdownitem text-black  ">
-                        Rs5,000 to
-                        Rs10,000
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="dropdown-item dropdownbg  innerdropdownitem text-black  ">
-                        Rs10,000 to Rs
-                        15,000
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="dropdown-item  dropdownbg  innerdropdownitem text-black  ">
-                        Rs15,000 to
-                        Rs20,000
-                    </a>
-                </li>
-                <li>   <a href="#" class="dropdown-item  dropdownbg  innerdropdownitem text-black   ">Under Rs20,000</a></li>
-                <li>  <a href="#" class="dropdown-item  dropdownbg   innerdropdownitem text-black   ">Above Rs20,000</a></li>
-                <li>   <hr class="dropdown-divider"> </li>
-                <li>
-                    <a href="#" class="dropdown-item  dropdownbg  innerdropdownitem text-black   ">
-                        Lowest Price
-                        Tablets
-                    </a>
-                </li>
-                </div>
-                </div>
-            </ul>
-        </li>
-        <li class="nav-item dropdown menu-area">
-            <a class="nav-link dropdown-toggle ms-2   fs-5 text-white" href="#" id="mega-three" role="button"
-               data-bs-toggle="dropdown" aria-expanded="false">
-                Laptops
-            </a>
-            <ul class="dropdown-menu mega-area ms-3" aria-labelledby="mega-three">
-                <div class="row">
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
-                        <h4 class=" text-red fw-bold ">Brands</h4>
-                <li> <a href="#" class="dropdown-item dropdownbg   innerdropdownitem text-black  ">Samsung</a></li>
-                <li> <a href="#" class="dropdown-item  dropdownbg   innerdropdownitem text-black  ">HP</a></li>
-                <li> <a href="#" class="dropdown-item  dropdownbg    innerdropdownitem text-black  ">Dell</a></li>
-                <li> <a href="#" class="dropdown-item  dropdownbg   innerdropdownitem text-black  ">Acer</a></li>
-                <li> <a href="#" class="dropdown-item  dropdownbg  innerdropdownitem text-black    ">Asus</a></li>
-                <li> <a href="#" class="dropdown-item  dropdownbg  innerdropdownitem text-black  ">Apple</a></li>
-                <li> <a href="#" class="dropdown-item dropdownbg  innerdropdownitem text-black   ">Toshiba</a></li>
-                <li> <a href="#" class="dropdown-item dropdownbg  innerdropdownitem text-black   ">HCL</a></li>
-                <li> <a href="#" class="dropdown-item  dropdownbg  innerdropdownitem text-black  ">Lenovo</a></li>
-                <li> <a href="#" class="dropdown-item dropdownbg  innerdropdownitem text-black    ">Sony</a></li>
-                <li> <a href="#" class="dropdown-item dropdownbg  innerdropdownitem text-black   ">Fujitsu</a></li>
-                <li> <a href="#" class="dropdown-item dropdownbg   innerdropdownitem text-black ">LG</a></li>
-                </div>
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
-                    <h4 class=" text-red fw-bold">Categories</h4>
-                <li> <a href="#" class="dropdown-item fs-5 dropdownbg innerdropdownsubheading  text-red  innerdropdownitem">ALL LAPTOPS</a></li>
-                <li> <a href="#" class="dropdown-item fs-5 dropdownbg innerdropdownsubheading text-red innerdropdownitem ">ALL COMPUTERS</a></li>
-                <li>  <hr class="dropdown-divider"> </li>
-                <li>  <a href="#" class="dropdown-item  dropdownbg   innerdropdownitem text-black">Windows 10 Laptops</a></li>
-                <li>  <a href="#" class="dropdown-item dropdownbg innerdropdownitem text-black  ">Gaming Laptops</a></li>
-                <li>  <a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black   ">AMD Laptops</a></li>
-                <li>  <hr class="dropdown-divider"></li>
-                <li>  <a href="#" class="dropdown-item dropdownbg  innerdropdownitem text-black ">Intel Core i7 Laptops</a></li>
-                <li> <a href="#" class="dropdown-item dropdownbg   innerdropdownitem text-black">Intel Core i5 Laptops</a></li>
-                <li> <a href="#" class="dropdown-item  dropdownbg  innerdropdownitem text-black">Intel Core i3 Laptops</a></li>
-                <li> <hr class="dropdown-divider"> </li>
-                <li>  <a href="#" class="dropdown-item dropdownbg   innerdropdownitem text-black   ">Laptops With Backlit Keyboard</a></li>
-                <li>  <a href="#" class="dropdown-item dropdownbg  innerdropdownitem text-black  ">Touch Keyboard</a></li>
-                <li>  <a href="#" class="dropdown-item dropdownbg innerdropdownitem text-black ">Laptops With Good Battery Life</a></li>
-                <li>  <hr class="dropdown-divider"> </li>
-                <li>  <a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black  ">Most popular Laptops</a></li>
-                <li>  <a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black  ">Best Laptops</a></li>
-                <li>  <a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black ">Latest Laptops</a></li>
-                </div>
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
-                    <h4 class=" text-red fw-bold">Price</h4>
-                <li>   <a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black ">Under Rs 20,000</a></li>
-                <li>   <a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black  ">Under Rs 30,000</a></li>
-                <li>   <a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black ">Under Rs 40,000</a></li>
-                <li>   <a href="#" class="dropdown-item   dropdownbg innerdropdownitem text-black  ">Under Rs 50,000</a></li>
-                <li>   <a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black  ">Under Rs 60,000</a></li>
-                <li>   <a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black  ">Above Rs 60,000</a></li>
-                <li> <hr class="dropdown-divider"> </li>
-                <li> <a href="#" class="dropdown-item dropdownbg innerdropdownitem text-black ">Cheapest Laptops</a></li>
-                </div>
-                </div>
-            </ul>
-        </li>
-        <li class="nav-item dropdown menu-area">
-            <a class="nav-link dropdown-toggle ms-2 fs-5 text-white " href="#" id="mega-four" role="button"
-               data-bs-toggle="dropdown" aria-expanded="false">
-                Computers
-            </a>
-            <ul class="dropdown-menu mega-area ms-3" aria-labelledby="mega-four">
-                <div class="row">
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
-                        <h4 class=" text-red fw-bold "> Categories</h4>
-                <li> <a href="#" class="dropdown-item  fs-5 dropdownbg  innerdropdownsubheading  text-red  innerdropdownitem  ">ALLCOMPUTERS</a></li>
-                <li> <a href="#" class="dropdown-item  fs-5 dropdownbg  innerdropdownsubheading text-red  innerdropdownitem ">ALL LAPTOPS</a> </li>
-                <li> <hr class="dropdown-divider"> </li>
-                <li> <a href="#" class="dropdown-item dropdownbg innerdropdownitem text-black ">Windows Computers</a></li>
-                <li> <a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black  ">All in One PCs</a></li>
-                <li>  <a href="#" class="dropdown-item dropdownbg innerdropdownitem text-black  ">Mini PCs</a></li>
-                <li> <a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black ">Tower PCs</a></li>
-                <li>   <hr class="dropdown-divider"> </li>
-                <li>
-                    <a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black  ">
-                        Intel Core i7 computers
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black  ">
-                        Intel Core i5 computers
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="dropdown-item   dropdownbg innerdropdownitem text-black ">
-                        Intel Core i3 computers
-                    </a>
-                </li>
-                <li><hr class="dropdown-divider"></li>
-                <li> <a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black  ">16GB RAM Desktops</a></li>
-                <li> <a href="#" class="dropdown-item   dropdownbg innerdropdownitem text-black ">8GB RAM Desktops</a></li>
-                <li>  <hr class="dropdown-divider"> </li>
-                <li> <a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black  ">Most popular computers</a></li>
-                <li> <a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black ">Latest computers</a></li>
-                </div>
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
-                    <h4 class=" text-red fw-bold  fs-3">Accessories</h4>
-                <li>
-                    <a href="#" class="dropdown-item   fs-5 dropdownbg  innerdropdownsubheading  text-red innerdropdownitem   ">
-                        ALL
-                        ACCESSORIES
-                    </a>
-                </li>
-                <li>  <hr class="dropdown-divider"> </li>
-                <li> <a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black ">Pen Drives</a></li>
-                <li>  <a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black  ">External Hard Disk</a></li>
-                <li>  <a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black  ">Keyboards</a></li>
-                <li><a href="#" class="dropdown-item   dropdownbg innerdropdownitem text-black ">Mouse</a></li>
-                <li>  <a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black  ">Headphones</a></li>
-                <li>
-                    <a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black  ">
-                        External Optical Drives
-                    </a>
-                </li>
-                <li>  <a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black  ">Mouse Pads</a></li>
-                <li>  <a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black ">Speakers</a></li>
-                <li>  <a href="#" class="dropdown-item   dropdownbg innerdropdownitem text-black">Webcams</a></li>
-                <li>  <a href="#" class="dropdown-item   dropdownbg innerdropdownitem text-black ">USB Gadgets</a></li>
-                <li>  <a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black ">Cables</a></li>
-                </div>
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
-                    <h4 class=" text-red fw-bold">Price</h4>
-                <li>  <a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black ">Under Rs 20,000</a></li>
-                <li>  <a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black ">Under Rs 30,000</a></li>
-                <li>  <a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black  ">Under Rs 40,000</a></li>
-                <li>  <a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black ">Under Rs 50,000</a></li>
-                <li>  <a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black  ">Under Rs 60,000</a></li>
-                <li>  <a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black  ">Above Rs 60,000</a></li>
-                <li> <hr class="dropdown-divider"></li>
-                <li>  <a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black  ">Cheapest Computers</a></li>
-                </div>
-                </div>
-            </ul>
-        </li>
-        <li class="nav-item dropdown menu-area">
-            <a class="nav-link dropdown-toggle ms-2 fs-5 text-white " href="#" id="mega-five" role="button"
-               data-bs-toggle="dropdown" aria-expanded="false">
-                TVs
-            </a>
-            <ul class="dropdown-menu mega-area ms-3" aria-labelledby="mega-five">
-                <div class="row">
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
-                        <h4 class=" text-red fw-bold ">Brands</h4>
-                <li> <a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black ">Samsung</a></li>
-                <li> <a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black ">Philips</a></li>
-                <li> <a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black  ">Mi</a></li>
-                <li> <a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black ">Micromax</a></li>
-                <li> <a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black  ">Panasonic</a></li>
-                <li> <a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black ">Videocon</a></li>
-                <li> <a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black ">Toshiba</a></li>
-                <li> <a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black  ">Onida</a></li>
-                <li> <a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black ">Sansui</a></li>
-                <li> <a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black  ">Sony</a></li>
-                <li>  <a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black ">Vu</a></li>
-                <li>  <a href="#" class="dropdown-item   dropdownbg innerdropdownitem text-black ">LG</a></li>
-                </div>
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
-                    <h4 class=" text-red fw-bold fs-3">Categories</h4>
-                <li>
-                    <a href="#" class="dropdown-item  fs-5 dropdownbg  innerdropdownsubheading  text-red innerdropdownitem   ">
-                        ALL
-                        TELEVISIONS
-                    </a>
-                </li>
-                <li><hr class="dropdown-divider"> </li>
-                <li>  <a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black ">Smart TVs</a></li>
-                <li>  <a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black ">Curved TVs</a></li>
-                <li>  <a href="#" class="dropdown-item   dropdownbg innerdropdownitem text-black ">3D TVs</a></li>
-                <li>   <hr class="dropdown-divider">  </li>
-                <li>  <a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black  ">Built-in-Wifi</a></li>
-                <li>  <a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black  ">4K Resolution</a></li>
-                <li>  <a href="#" class="dropdown-item   dropdownbg innerdropdownitem text-black ">Full HD Resolution</a></li>
-                <li>  <hr class="dropdown-divider"> </li>
-                <li>
-                    <a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black   ">
-                        32"-40"
-                        Televisions
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black ">
-                        40"-50"Tablets
-                        Televisions
-                    </a>
-                </li>
-                <li>  <a href="#" class="dropdown-item   dropdownbg innerdropdownitem text-black ">55" Televisions</a></li>
-                <li>  <a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black ">65" Televisions</a></li>
-                <li>  <hr class="dropdown-divider"></li>
-                <li> <a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black ">Most popular TVs</a></li>
-                <li>  <a href="#" class="dropdown-item dropdownbg innerdropdownitem text-black  ">Best TVs</a></li>
-                <li>  <a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black  ">Latest TVs</a></li>
-                </div>
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
-                    <h4 class=" text-red fw-bold ">Price</h4>
-                <li> <a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black ">Under Rs 20,000</a></li>
-                <li> <a href="#" class="dropdown-item dropdownbg innerdropdownitem text-black ">Under Rs 30,000</a></li>
-                <li> <a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black">Under Rs 40,000</a></li>
-                <li> <a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black  ">Under Rs 50,000</a></li>
-                <li>  <a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black ">Under Rs 60,000</a></li>
-                <li> <a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black   ">Above Rs 60,000</a></li>
-                <li><hr class="dropdown-divider"> </li>
-                <li> <a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black ">Cheapest Laptops</a></li>
-                </div>
-                </div>
-            </ul>
-        </li>
-        <li class="nav-item dropdown menu-area">
-            <a class="nav-link dropdown-toggle ms-2 fs-5 text-white  " href="#" id="mega-six" role="button"
-               data-bs-toggle="dropdown" aria-expanded="false">
-                Electronices
-            </a>
-            <ul class="dropdown-menu mega-area ms-3" aria-labelledby="mega-six">
-                <div class="row">
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
-                        <h4 class=" text-red fw-bold fs-3"> Cameras</h4>
-                <li>
-                    <a href="#" class="dropdown-item    fs-5 dropdownbg  innerdropdownsubheading  text-red innerdropdownitem    ">
-                        ALL
-                        CAMERAS
-                    </a>
-                </li>
-                <li>   <hr class="dropdown-divider">  </li>
-                <li> <a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black  ">Point & Shoot Cameras</a></li>
-                <li> <a href="#" class="dropdown-item   dropdownbg innerdropdownitem text-black ">SLR Cameras</a></li>
-                <li> <a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black  ">Camcorders</a></li>
-                <li> <a href="#" class="dropdown-item   dropdownbg innerdropdownitem text-black ">Professional Video Cam</a></li>
-                <li> <a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black   ">Camera Lenses</a></li>
-                <li> <hr class="dropdown-divider"> </li>
-                <li> <a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black  ">Nikon</a></li>
-                <li> <a href="#" class="dropdown-item   dropdownbg innerdropdownitem text-black  ">Sony</a></li>
-                <li> <a href="#" class="dropdown-item   dropdownbg innerdropdownitem text-black   ">Canon</a></li>
-                <li>  <hr class="dropdown-divider"> </li>
-                <li> <a href="#" class="dropdown-item dropdownbg innerdropdownitem text-black   ">Under Rs 20,000</a></li>
-                <li> <a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black  ">Under Rs 30,000</a></li>
-                <li> <a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black  ">Above Rs 50,000</a></li>
-                <li> <hr class="dropdown-divider">  </li>
-                <li> <a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black ">Cheapest Cameras</a></li>
-                <li> <a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black  ">Most Popular Cameras</a></li>
-                <li> <a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black  ">Best Cameras</a></li>
-                <li> <a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black  ">Latest Cameras</a></li>
-                </div>
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
-                    <h4 class=" text-red fw-bold fs-3">Smart Wearables</h4>
-                <li>  <a href="#" class="dropdown-item   fs-5 dropdownbg  innerdropdownsubheading text-red  innerdropdownitem">ALL SMARTWATCHES</a>
-                <li> <hr class="dropdown-divider"> </li>
-                <li> <a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black  ">Android Compatible</a></li>
-                <li> <a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black   ">iOS Compatible</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li> <a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black ">Water Resistant</a></li>
-                <li> <a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black   ">Scratch Resistant</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li> <a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black  ">Apple</a></li>
-                <li> <a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black ">Samsung</a></li>
-                <li><hr class="dropdown-divider"> </li>
-                <li>
-                    <a href="#" class="dropdown-item  fs-5 dropdownbg  innerdropdownsubheading  text-red innerdropdownitem  ">
-                        ALL
-                        FITNESS BANDS
-                    </a>
-                <li> <hr class="dropdown-divider"> </li>
-                <li> <a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black">With Touch Display</a></li>
-                <li> <a href="#" class="dropdown-item   dropdownbg innerdropdownitem text-black">Shock Resistant</a></li>
-                <li>  <hr class="dropdown-divider"> </li>
-                <li>
-                    <a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black">
-                        Fitbit Fitness
-                        Bands
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black">
-                        Garmin Fitness
-                        Bands
-                    </a>
-                </li>
-                <li> <hr class="dropdown-divider"></li>
-                <li>
-                    <a href="#" class="dropdown-item  fs-5 dropdownbg  innerdropdownsubheading text-red  innerdropdownitem">
-                        VR
-                        HEADSETS
-                    </a>
-                </li>
-                <li> <hr class="dropdown-divider"> </li>
-                <li> <a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black">Gaming</a></li>
-                <li> <a href="#" class="dropdown-item   dropdownbg innerdropdownitem text-black">Entertainment</a></li>
-                </div>
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
-                    <h4 class=" text-red fw-bold  ">Gaming</h4>
-                <li>
-                    <a href="#" class="dropdown-item  fs-5 dropdownbg  innerdropdownsubheading  text-red innerdropdownitem  ">
-                        ALL
-                        GAMING DEVICES
-                    </a>
-                </li>
-                <li> <hr class="dropdown-divider"> </li>
-                <li> <a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black  ">Gaming Consoles</a></li>
-                <li>
-                    <a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black   ">
-                        Portable Gaming
-                        Consoles
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="dropdown-item   dropdownbg innerdropdownitem text-black ">
-                        Gamepads and
-                        Joystices
-                    </a>
-                </li>
-                <li>  <hr class="dropdown-divider"> </li>
-                <li> <a href="#" class="dropdown-item   dropdownbg innerdropdownitem text-black  ">Xbox</a></li>
-                <li> <a href="#" class="dropdown-item   dropdownbg innerdropdownitem text-black   ">Play Stations</a></li>
-                <li>  <hr class="dropdown-divider"></li>
-                <li>  <a href="#" class="dropdown-item     dropdownbg innerdropdownitem text-black  ">Cheapest Gaming</a></li>
-                <li>  <a href="#" class="dropdown-item    dropdownbg innerdropdownitem text-black  ">Most Popular</li>
-                Gaming</a>
-                <li>  <a href="#" class="dropdown-item   dropdownbg innerdropdownitem text-black  ">Best Rated Gaming</a></li>
-                <li>
-                    <a href="#" class="dropdown-item   dropdownbg innerdropdownitem text-black  ">
-                        Latest Gaming
-                        Devices
-                    </a>
-                </li>
-                <li> <hr class="dropdown-divider"></li>
-                <li>
-                    <a href="#" class="dropdown-item  fs-5 dropdownbg  innerdropdownsubheading  text-red innerdropdownitem ">
-                        RC
-                        TOYS
-                    </a>
-                </li>
-                <li>  <hr class="dropdown-divider"> </li>
-                <li> <a href="#" class="dropdown-item   dropdownbg innerdropdownitem text-black ">RC Quadcopters</a></li>
-                <li> <a href="#" class="dropdown-item   dropdownbg innerdropdownitem text-black  ">RC Cars</a></li>
-                <li> <a href="#" class="dropdown-item   dropdownbg innerdropdownitem text-black  ">RC Boats</a></li>
-                <li> <a href="#" class="dropdown-item   dropdownbg innerdropdownitem text-black  ">RC Helicopters</a></li>
-                <li>  <a href="#" class="dropdown-item   dropdownbg innerdropdownitem text-black  ">RC Airplanes</a></li>
-                </div>
-                </div>
-            </ul>
-        </li>
-        <li class="nav-item dropdown menu-area">
-            <a class="nav-link dropdown-toggle ms-2 fs-5 text-white  " href="#" id="mega-seven" role="button"
-               data-bs-toggle="dropdown" aria-expanded="false">
-                Appliances
-            </a>
-            <ul class="dropdown-menu mega-area ms-3" aria-labelledby="mega-seven">
-                <div class="row">
-                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
-                        <h4 class=" text-red fw-bold">Large Appliances</h4>
-                <li>
-                    <a href="#" class="dropdown-item   fs-5 dropdownbg  innerdropdownsubheading  text-red innerdropdownitem">
-                        ALL
-                        AIR CONDITIONERS
-                    </a>
-                </li>
-                <li>  <a href="#" class="dropdown-item   dropdownbg innerdropdownitem text-black  ">Inverter AC</a></li>
-                <li>  <a href="#" class="dropdown-item   dropdownbg innerdropdownitem text-black  ">Split AC</a></li>
-                <li>  <a href="#" class="dropdown-item   dropdownbg innerdropdownitem text-black  ">Window AC</a></li>
-                <li>  <hr class="dropdown-divider  "></li>
-                <li>
-                    <a href="#"
-                       class="dropdown-item   fs-5 dropdownbg  innerdropdownsubheading text-red  innerdropdownitem  ">
-                        AIR
-                        COOLERS
-                    </a>
-                </li>
-                <li> <hr class="dropdown-divider"> </li>
-                <li>
-                    <a href="#" class="dropdown-item  fs-5 dropdownbg  innerdropdownsubheading text-red  innerdropdownitem">
-                        ALL
-                        REFRIGERATORS
-                    </a>
-                </li>
-                <li> <a href="#" class="dropdown-item   dropdownbg innerdropdownitem text-black  ">Single Door</a></li>
-                <li> <a href="#" class="dropdown-item    dropdownbg innerdropdownitem text-black ">Multi Door</a></li>
-                <li> <a href="#" class="dropdown-item   dropdownbg innerdropdownitem text-black  ">Side By Side</a></li>
-                <li><hr class="dropdown-divider"> </li>
-                <li>
-                    <a href="#" class="dropdown-item  fs-5 dropdownbg  innerdropdownsubheading text-red  innerdropdownitem">
-                        ALL
-                        WASHING MACHINES
-                    </a>
-                </li>
-                <li>  <a href="#" class="dropdown-item    dropdownbg innerdropdownitem text-black  ">Fully Automatic</a></li>
-                <li>  <a href="#" class="dropdown-item   dropdownbg innerdropdownitem text-black    ">Semi Automatic</a></li>
-                <li>  <a href="#" class="dropdown-item   dropdownbg innerdropdownitem text-black  ">Top Load</a></li>
-                <li>  <a href="#" class="dropdown-item   dropdownbg innerdropdownitem text-black  ">Front Load</a></li>
-                </div>
-                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
-                    <h4 class=" text-red fw-bold">Small Appliances</h4>
-                <li>
-                    <a href="#" class="dropdown-item   fs-5 dropdownbg  innerdropdownsubheading  text-red innerdropdownitem  ">
-                        ALL
-                        SMALL APPLIANCES
-                    </a>
-                </li>
-                <li> <hr class="dropdown-divider"> </li>
-                <li>  <a href="#" class="dropdown-item   dropdownbg innerdropdownitem text-black   ">Irons</a></li>
-                <li>  <a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black      ">Vacuum Cleaners</a></li>
-                <li>  <a href="#" class="dropdown-item   dropdownbg innerdropdownitem text-black  ">Room Heaters</a></li>
-                <li>  <a href="#" class="dropdown-item    dropdownbg innerdropdownitem text-black   ">Air Purifiers</a></li>
-                <li>  <a href="#" class="dropdown-item    dropdownbg innerdropdownitem text-black  ">Fans</a></li>
-                <li>  <a href="#" class="dropdown-item    dropdownbg innerdropdownitem text-black  ">Emergency Lights</a></li>
-                <li>  <a href="#" class="dropdown-item    dropdownbg innerdropdownitem text-black  ">Water Purifiers</a></li>
-                <li>  <a href="#" class="dropdown-item   dropdownbg innerdropdownitem text-black  ">Geysers</a></li>
-                <li>  <a href="#" class="dropdown-item    dropdownbg innerdropdownitem text-black ">Immersion Rods</a></li>
-                <li>  <a href="#" class="dropdown-item   dropdownbg innerdropdownitem text-black   ">Hand Dryers</a></li>
-                <li>  <a href="#" class="dropdown-item    dropdownbg innerdropdownitem text-black  ">Surge Protectors</a></li>
-                <li>  <a href="#" class="dropdown-item   dropdownbg innerdropdownitem text-black  ">Dehumidifiers</a></li>
-                </div>
-                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
-                    <h4 class=" text-red fw-bold"> Kitchen Appliances</h4>
-                <li>
-                    <a href="#" class="dropdown-item   fs-5 dropdownbg  innerdropdownsubheading  text-red innerdropdownitem  ">
-                        ALL
-                        KITCHEN APPLIANCES
-                    </a>
-                </li>
-                <li> <hr class="dropdown-divider"> </li>
-                <li>
-                    <a href="#" class="dropdown-item    dropdownbg innerdropdownitem text-black  ">
-                        Induction
-                        Cooktops
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="dropdown-item   dropdownbg innerdropdownitem text-black  ">
-                        Mixer Juicer
-                        Grinders
-                    </a>
-                </li>
-                <li>  <a href="#" class="dropdown-item   dropdownbg innerdropdownitem text-black   ">Juicers</a></li>
-                <li>  <a href="#" class="dropdown-item   dropdownbg innerdropdownitem text-black  ">Sandwich Makers</a></li>
-                <li>  <a href="#" class="dropdown-item   dropdownbg innerdropdownitem text-black  ">Microwave Ovens</a></li>
-                <li>
-                    <a href="#" class="dropdown-item   dropdownbg innerdropdownitem text-black  ">
-                        Oven Toaster
-                        Grills(OTG)
-                    </a>
-                </li>
-                <li> <a href="#" class="dropdown-item   dropdownbg innerdropdownitem text-black  ">Hand Blenders</a></li>
-                <li> <a href="#" class="dropdown-item   dropdownbg innerdropdownitem text-black  ">Food Blenders</a></li>
-                <li>  <a href="#" class="dropdown-item    dropdownbg innerdropdownitem text-black ">Food Processors</a></li>
-                <li>  <a href="#" class="dropdown-item    dropdownbg innerdropdownitem text-black ">ELectric Kettles</a></li>
-                <li>  <a href="#" class="dropdown-item   dropdownbg innerdropdownitem text-black   ">Toasters</a></li>
-                <li>  <a href="#" class="dropdown-item    dropdownbg innerdropdownitem text-black  ">Roti Makers</a></li>
-                <li>  <a href="#" class="dropdown-item   dropdownbg innerdropdownitem text-black  ">Choppers</a></li>
-                <li>  <a href="#" class="dropdown-item   dropdownbg innerdropdownitem text-black  ">Coffee Makers</a></li>
-                </div>
-                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
-                    <h4 class=" text-red fw-bold">Personal Appliances</h4>
-                <li>
-                    <a href="#" class="dropdown-item  fs-5 dropdownbg  innerdropdownsubheading  text-red innerdropdownitem  ">
-                        ALL
-                        PERSONAL APPLIANCES
-                    </a>
-                </li>
-                <li> <hr class="dropdown-divider"> </li>
-                <li> <a href="#" class="dropdown-item   dropdownbg innerdropdownitem text-black"> Trimmers</a></li>
-                <li> <a href="#" class="dropdown-item   dropdownbg innerdropdownitem text-black">Shavers</a></li>
-                <li> <a href="#" class="dropdown-item   dropdownbg innerdropdownitem text-black">Epilators</a></li>
-                <li> <hr class="dropdown-divider"> </li>
-                <li> <a href="#" class="dropdown-item    dropdownbg innerdropdownitem text-black">Hair Dryers</a></li>
-                <li> <a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black">Hair Straighteners </a></li>
-                <li> <a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black">Hair Curlers </a></li>
-                <li> <a href="#" class="dropdown-item  dropdownbg innerdropdownitem text-black">Hair Stylers </a></li>
-                <li>
-                    <a href="#" class="dropdown-item   dropdownbg innerdropdownitem text-black">
-                        Electric
-                        Toothbrushes
-                    </a>
-                </li>
-                <li> <hr class="dropdown-divider">  </li>
-                <li> <a href="#" class="dropdown-item   dropdownbg innerdropdownitem text-black">Popular Trimmers</a></li>
-                <li> <a href="#" class="dropdown-item   dropdownbg innerdropdownitem text-black">Best Hair Dryers</a></li>
-                <li> <a href="#" class="dropdown-item   dropdownbg innerdropdownitem text-black">Cheapest Epilators</a></li>
-                </div>
-                </div>
-            </ul>
-        </li>
-        </ul>
-        </div>
         </div>
     </nav>
 
     @RenderBody()
 
-    <footer class="bg-black">
+    <footer class="bg-black mt-5">
         <div class="container  py-5">
             <div class="row ">
                 <div class="d-flex  flex-column col-sm-12 col-lg-3 col-12 mb-5 position-relative top-0 start-0">
@@ -713,8 +2107,13 @@
                 <div class="d-flex flex-column col-sm-12 col-lg-3 col-12 mb-5 py-4">
                     <h6 class="text-white mb-4">QUICK MENU</h6>
                     <ul class="list-unstyled">
-                        <li><a class="text-decoration-none text-muted footercolor" asp-controller="Home" asp-action="About">About COMPAREBAZAAR</a></li>
-                        <li><a class="text-decoration-none text-muted footercolor " href="#">Compare Products</a></li>
+                        <li>
+                            <a class="text-decoration-none text-muted footercolor" asp-controller="" asp-action="About">
+                                About
+                                COMPAREBAZAAR
+                            </a>
+                        </li>
+                        <li><a class="text-decoration-none text-muted footercolor " asp-controller="" asp-action="CompareChart">Compare Products</a></li>
                         <li><a class="text-decoration-none text-muted footercolor" href="#">Contact Us</a></li>
                         <li><a class="text-decoration-none text-muted footercolor" href="#">FAQs</a></li>
                         <li><a class="text-decoration-none text-muted footercolor" href="#">Terms & Conditions</a></li>
@@ -723,17 +2122,17 @@
                 <div class="d-flex flex-column col-sm-12 col-lg-3 col-12 mb-5 py-4 ">
                     <h6 class="text-white mb-4">CATEGORIES</h6>
                     <ul class="list-unstyled">
-                        <li><a class="text-decoration-none  text-muted footercolor" href="#">Mobiles</a></li>
-                        <li><a class="text-decoration-none text-muted footercolor" href="#">Tablets</a></li>
-                        <li><a class="text-decoration-none text-muted  footercolor" href="#">Laptops</a></li>
-                        <li><a class="text-decoration-none text-muted footercolor" href="#">Computers</a></li>
-                        <li><a class="text-decoration-none text-muted footercolor" href="#">TVs</a></li>
-                        <li><a class="text-decoration-none text-muted footercolor" href="#">Electronices</a></li>
-                        <li><a class="text-decoration-none text-muted  footercolor" href="#">Appliances</a></li>
+                        <li><a class="text-decoration-none  text-muted footercolor" asp-controller="Home" asp-action="ProductsList">Mobiles</a></li>
+                        <li><a class="text-decoration-none text-muted footercolor" asp-controller="Home" asp-action=""> Tablets</a></li>
+                        <li><a class="text-decoration-none text-muted  footercolor" asp-controller="Home" asp-action="">Laptops</a></li>
+                        <li><a class="text-decoration-none text-muted footercolor" asp-controller="Home" asp-action="">Computers</a></li>
+                        <li><a class="text-decoration-none text-muted footercolor" asp-controller="Home" asp-action="">TVs</a></li>
+                        <li><a class="text-decoration-none text-muted footercolor" asp-controller="Home" asp-action="">Electronices</a></li>
+                        <li><a class="text-decoration-none text-muted  footercolor" asp-controller="Home" asp-action="">Appliances</a></li>
                     </ul>
                 </div>
                 <div class="d-flex flex-column col-sm-12 col-lg-3 col-12 mb-5 py-4 ">
-                    <h6 class="text-white mb-4">SOCIAL MEDIA</h6>
+                    <h6 class="text-white mb-4">CONNECT WITH US ON</h6>
                     <div class="flew-row">
                         <i class="fab fa-facebook-f  me-4 fs-5 footercolor"></i>
                         <i class="fab fa-twitter  me-4 fs-5 footercolor "></i>

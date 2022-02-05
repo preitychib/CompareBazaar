@@ -6,9 +6,18 @@
 
 @if (SignInManager.IsSignedIn(User) && await UserManager.IsInRoleAsync(UserManager.GetUserAsync(User).Result, "admin"))
 {
+    <li class="nav-item dropdown me-3 ">
+        <a class="nav-link red  " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+           aria-expanded="false">
+            <i class="fas fa-user-cog red "></i>
+            ADMIN
+        </a>
+        <ul class="dropdown-menu profilewidth  " aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item ms-3 fs-5 dropdownbg text-black dropdownbgprofilecolor" href="https://comparebazaar-api.herokuapp.com/admin " target="_blank">API Admin Panel</a></li>
+            <li> <hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item ms-3 fs-5 dropdownbg text-black dropdownbgprofilecolor " asp-area="Admin" asp-controller="DashBoard" asp-action="" target="_blank">Site Admin Panel</a></li>
 
-    <li class="nav-item me-3">
-        <a class="nav-link red " asp-area="Admin" asp-controller="DashBoard" asp-action=""><i class="fas fa-user-cog  red"></i> ADMIN</a>
+        </ul>
     </li>
 }
 

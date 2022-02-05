@@ -15,7 +15,7 @@
                                     <a class="btn text-white border-top-0 rounded-0 border-end-0 border-bottom-0 btn-outline-dark  dropdown-toggle" href="#"
                                        data-bs-toggle="dropdown" aria-expanded="false">  All Categories</a>
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item ms-2 dropdownbg   innerdropdownitem text-black" href="#">Mobiles Phones</a></li>
+                                        <li><a class="dropdown-item ms-2 dropdownbg   innerdropdownitem text-black" asp-controller="" asp-action="ProductsList">Mobiles Phones</a></li>
                                         <li><a class="dropdown-item ms-2 dropdownbg innerdropdownitem text-black" href="#">Tablets</a></li>
                                         <li><a class="dropdown-item ms-2 dropdownbg innerdropdownitem text-black " href="#">Smartwatches</a></li>
                                         <li><a class="dropdown-item ms-2 dropdownbg innerdropdownitem text-black" href="#">Laptops</a> </li>
@@ -48,7 +48,7 @@
     <!-- <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel"> -->
     <!-- <div class="carousel-inner"> -->
     <!-- <div class="carousel-item active"> -->
-    <img src="~/User/images/background4.jpg" class="d-block w-100" alt="..." height="">
+    <img src="~/User/images/background4.jpg" class="d-block w-100" alt="...">
     <!-- </div> -->
     <!-- </div> -->
     <!-- </div> -->
@@ -59,7 +59,7 @@
             <div class="row">
                 <div class=" col-xs-1 col-sm-1 col-md-1 col-lg-1   d-flex justify-content-center ">
                     <div>
-                        <a class="nav-link  red iconsmodule text-red fw-bold text-center " aria-current="page" href="#">
+                        <a class="nav-link  red iconsmodule text-red fw-bold text-center " aria-current="page" asp-controller="" asp-action="ProductsList">
                             <img src="~/User/images/mobile-phone.png" class="img-fluid mb-2 icons " alt=""> MOBILES
                         </a>
                     </div>
@@ -197,7 +197,7 @@
         </div>
         <div>
             <div class="d-flex align-items-center justify-content-center">
-                <a class="btn btn-danger redbtn bg-red comparebtn " href="#" type="submit">COMPARE NOW </a>
+                <a class="btn btn-danger redbtn bg-red comparebtn " asp-controller="" asp-action="CompareChart" type="submit">COMPARE NOW </a>
             </div>
         </div>
     </div>
@@ -219,9 +219,7 @@
 
                             <br>
                             <a href="#" class=" text-decoration-none text-red fw-bold ">RS 12,999</a>
-                            <a href="">
-                                <button class="btn btn-danger redbtn my-3 " type="submit">COMPARE </button>
-                            </a>
+                            <a class="btn btn-danger redbtn my-3 " >COMPARE </a>
                         </div>
 
                     </div>
@@ -241,8 +239,8 @@
 
                             <br>
                             <a href="#" class=" text-decoration-none text-red  fw-bold ">RS 36,999</a>
-                            <a href="">
-                                <button class="btn btn-danger redbtn my-3 " type="submit">COMPARE </button>
+                            <a class="btn btn-danger redbtn my-3 ">
+                                COMPARE
                             </a>
                         </div>
 
@@ -263,8 +261,8 @@
 
                             <br>
                             <a href="#" class=" text-decoration-none text-red fw-bold ">RS 9,499</a>
-                            <a href="">
-                                <button class="btn btn-danger redbtn my-3 " type="submit">COMPARE </button>
+                            <a class="btn btn-danger redbtn my-3 ">
+                                COMPARE
                             </a>
                         </div>
 
@@ -282,8 +280,8 @@
 
                             <br>
                             <a href="#" class=" text-decoration-none text-red fw-bold">RS 29,999</a>
-                            <a href="">
-                                <button class="btn btn-danger redbtn my-3 " type="submit">COMPARE </button>
+                            <a class="btn btn-danger redbtn my-3 ">
+                                COMPARE
                             </a>
                         </div>
 
@@ -301,8 +299,8 @@
 
                             <br>
                             <a href="#" class=" text-decoration-none text-red fw-bold  ">RS 54,900</a>
-                            <a href="">
-                                <button class="btn btn-danger redbtn my-3 " type="submit">COMPARE </button>
+                            <a class="btn btn-danger redbtn my-3 ">
+                                COMPARE
                             </a>
                         </div>
 
@@ -320,8 +318,8 @@
 
                             <br>
                             <a href="#" class=" text-decoration-none text-red fw-bold   ">RS 27,999</a>
-                            <a href="">
-                                <button class="btn btn-danger redbtn my-3 " type="submit">COMPARE </button>
+                            <a class="btn btn-danger redbtn my-3 ">
+                                COMPARE
                             </a>
                         </div>
 
@@ -339,8 +337,7 @@
 
                             <br>
                             <a href="#" class=" text-decoration-none text-red fw-bold ">RS 42,490</a>
-                            <a href="">
-                                <button class="btn btn-danger redbtn my-3 " type="submit">COMPARE </button>
+                            <a  class="btn btn-danger redbtn my-3 " >COMPARE
                             </a>
                         </div>
 
@@ -360,8 +357,7 @@
 
                             <br>
                             <a href="#" class=" text-decoration-none text-red fw-bold ">RS 59,490</a>
-                            <a href="">
-                                <button class="btn btn-danger redbtn my-3 " type="submit">COMPARE </button>
+                            <a class="btn btn-danger redbtn my-3 ">COMPARE 
                             </a>
                         </div>
 
@@ -372,6 +368,5 @@
         </div>
 
     </div>
-    </div>
-    </div>
+   
 </section>
