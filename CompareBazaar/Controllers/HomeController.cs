@@ -21,6 +21,7 @@ namespace CompareBazaar.Controllers
 
         public IActionResult Index()
         {
+            
             return View();
         }
 
@@ -45,10 +46,25 @@ namespace CompareBazaar.Controllers
 
 
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+       [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+         public IActionResult Error()
+         {
+             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+         }
+        
+
+        /*[Route("Error/{stausCode}")]
+        public IActionResult HttptStatusCodeHandler(int statusCode)
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
+            switch (statusCode)
+            {
+                case 404:
+                    ViewBag.ErrorMessage = "WE COULDN'T FIND THAT PAGE.";
+                    break;
+
+            }
+
+            return View("Error");
+        }*/
     }
 }
