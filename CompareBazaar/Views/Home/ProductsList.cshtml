@@ -398,97 +398,14 @@
 
         <div class="col-10">
             <div class="row mx-3 mt-5">
-                <div class="col-3 ">
-                    <div class="card" style="width: 18rem; ">
-                        <!-- <div class="row"> -->
-                        <div class="  d-flex justify-content-center mt-3 ">
-                            <a href="" class="pointer">
-                                <img src="~/User/images/realme gt.jpg" class="card-img-top allproductimg  " alt="Product image">
-                            </a>
-                        </div>
-                        <a class="text-black  " onclick="Wishlist(this)">
-                            <i class="far fa-heart pointer ms-4 wishlist  "></i>
-                        </a>
-                        <!-- </div> -->
-                        <div class="card-body text-center">
-                            <a class=" text-decoration-none text-dark fw-bold fs-4" href="">Realme GT Master Edition</a>
-                            <h6 class=" text-decoration-none text-red fw-bold ">RS 12,999</h6>
-                            <!-- <a  href="" class="btn btn-danger redbtn bg-red my-2 shadow-none" > <i class="far fa-heart pointer"></i> WISHLIST </a> <br> -->
-                            <a asp-action="CompareChart" class="btn btn-danger redbtn bg-red my-2 shadow-none">COMPARE</a>
-                            <a asp-action="ProductDetails" class="btn btn-danger redbtn bg-red my-2 shadow-none">VIEW</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-3 ">
-                    <div class="card" style="width: 18rem; ">
-                        <!-- <div class="row"> -->
-                        <div class="  d-flex justify-content-center mt-3 ">
-                            <a href="" class="pointer">
-                                <img src="~/User/images/realme gt.jpg" class="card-img-top allproductimg  " alt="Product image">
-                            </a>
-                        </div>
-                        <a class="text-black  " onclick="Wishlist(this)">
-                            <i class="far fa-heart pointer ms-4 wishlist  "></i>
-                        </a>
-                        <!-- </div> -->
-                        <div class="card-body text-center">
-                            <a class=" text-decoration-none text-dark fw-bold fs-4" href="">Realme GT Master Edition</a>
-                            <h6 class=" text-decoration-none text-red fw-bold ">RS 12,999</h6>
-                            <!-- <a  href="" class="btn btn-danger redbtn bg-red my-2 shadow-none" > <i class="far fa-heart pointer"></i> WISHLIST </a> <br> -->
-                            <a href="#" class="btn btn-danger redbtn bg-red my-2 shadow-none">COMPARE</a>
-                            <a href="#" class="btn btn-danger redbtn bg-red my-2 shadow-none">VIEW</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-3 ">
-                    <div class="card" style="width: 18rem; ">
-                        <!-- <div class="row"> -->
-                        <div class="  d-flex justify-content-center mt-3 ">
-                            <a href="" class="pointer">
-                                <img src="~/User/images/realme gt.jpg" class="card-img-top allproductimg  " alt="Product image">
-                            </a>
-                        </div>
-                        <a class="text-black  " onclick="Wishlist(this)">
-                            <i class="far fa-heart pointer ms-4 wishlist  "></i>
-                        </a>
-                        <!-- </div> -->
-                        <div class="card-body text-center">
-                            <a class=" text-decoration-none text-dark fw-bold fs-4" href="">Realme GT Master Edition</a>
-                            <h6 class=" text-decoration-none text-red fw-bold ">RS 12,999</h6>
-                            <!-- <a  href="" class="btn btn-danger redbtn bg-red my-2 shadow-none" > <i class="far fa-heart pointer"></i> WISHLIST </a> <br> -->
-                            <a href="#" class="btn btn-danger redbtn bg-red my-2 shadow-none">COMPARE</a>
-                            <a href="#" class="btn btn-danger redbtn bg-red my-2 shadow-none">VIEW</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-3 ">
-                    <div class="card" style="width: 18rem; ">
-                        <!-- <div class="row"> -->
-                        <div class="  d-flex justify-content-center mt-3 ">
-                            <a href="" class="pointer">
-                                <img src="~/User/images/realme gt.jpg" class="card-img-top allproductimg  " alt="Product image">
-                            </a>
-                        </div>
-                        <a class="text-black  " onclick="Wishlist(this)">
-                            <i class="far fa-heart pointer ms-4 wishlist  "></i>
-                        </a>
-                        <!-- </div> -->
-                        <div class="card-body text-center">
-                            <a class=" text-decoration-none text-dark fw-bold fs-4" href="">Realme GT Master Edition</a>
-                            <h6 class=" text-decoration-none text-red fw-bold ">RS 12,999</h6>
-                            <!-- <a  href="" class="btn btn-danger redbtn bg-red my-2 shadow-none" > <i class="far fa-heart pointer"></i> WISHLIST </a> <br> -->
-                            <a href="#" class="btn btn-danger redbtn bg-red my-2 shadow-none">COMPARE</a>
-                            <a href="#" class="btn btn-danger redbtn bg-red my-2 shadow-none">VIEW</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="row mx-3 mt-5">
+                @foreach (var item in ViewBag.mobiles)
+                {
                     <div class="col-3 ">
                         <div class="card" style="width: 18rem; ">
                             <!-- <div class="row"> -->
                             <div class="  d-flex justify-content-center mt-3 ">
                                 <a href="" class="pointer">
-                                    <img src="~/User/images/realme gt.jpg" class="card-img-top allproductimg  " alt="Product image">
+                                    <img src="@item.product_images.image" class="card-img-top allproductimg  " alt="Product image">
                                 </a>
                             </div>
                             <a class="text-black  " onclick="Wishlist(this)">
@@ -496,164 +413,15 @@
                             </a>
                             <!-- </div> -->
                             <div class="card-body text-center">
-                                <a class=" text-decoration-none text-dark fw-bold fs-4" href="">Realme GT Master Edition</a>
-                                <h6 class=" text-decoration-none text-red fw-bold ">RS 12,999</h6>
+                                <a class=" text-decoration-none text-dark fw-bold fs-4" href="">@item.name</a>
+                                <h6 class=" text-decoration-none text-red fw-bold ">Rs @item.price</h6>
                                 <!-- <a  href="" class="btn btn-danger redbtn bg-red my-2 shadow-none" > <i class="far fa-heart pointer"></i> WISHLIST </a> <br> -->
-                                <a href="#" class="btn btn-danger redbtn bg-red my-2 shadow-none">COMPARE</a>
-                                <a href="#" class="btn btn-danger redbtn bg-red my-2 shadow-none">VIEW</a>
+                                <a asp-action="CompareChart" class="btn btn-danger redbtn bg-red my-2 shadow-none">COMPARE</a>
+                                <a asp-action="ProductDetails" class="btn btn-danger redbtn bg-red my-2 shadow-none">VIEW</a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-3 ">
-                        <div class="card" style="width: 18rem; ">
-                            <!-- <div class="row"> -->
-                            <div class="  d-flex justify-content-center mt-3 ">
-                                <a href="" class="pointer">
-                                    <img src="~/User/images/realme gt.jpg" class="card-img-top allproductimg  " alt="Product image">
-                                </a>
-                            </div>
-                            <a class="text-black  " onclick="Wishlist(this)">
-                                <i class="far fa-heart pointer ms-4 wishlist  "></i>
-                            </a>
-                            <!-- </div> -->
-                            <div class="card-body text-center">
-                                <a class=" text-decoration-none text-dark fw-bold fs-4" href="">Realme GT Master Edition</a>
-                                <h6 class=" text-decoration-none text-red fw-bold ">RS 12,999</h6>
-                                <!-- <a  href="" class="btn btn-danger redbtn bg-red my-2 shadow-none" > <i class="far fa-heart pointer"></i> WISHLIST </a> <br> -->
-                                <a href="#" class="btn btn-danger redbtn bg-red my-2 shadow-none">COMPARE</a>
-                                <a href="#" class="btn btn-danger redbtn bg-red my-2 shadow-none">VIEW</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-3 ">
-                        <div class="card" style="width: 18rem; ">
-                            <!-- <div class="row"> -->
-                            <div class="  d-flex justify-content-center mt-3 ">
-                                <a href="" class="pointer">
-                                    <img src="~/User/images/realme gt.jpg" class="card-img-top allproductimg  " alt="Product image">
-                                </a>
-                            </div>
-                            <a class="text-black  " onclick="Wishlist(this)">
-                                <i class="far fa-heart pointer ms-4 wishlist  "></i>
-                            </a>
-                            <!-- </div> -->
-                            <div class="card-body text-center">
-                                <a class=" text-decoration-none text-dark fw-bold fs-4" href="">Realme GT Master Edition</a>
-                                <h6 class=" text-decoration-none text-red fw-bold ">RS 12,999</h6>
-                                <!-- <a  href="" class="btn btn-danger redbtn bg-red my-2 shadow-none" > <i class="far fa-heart pointer"></i> WISHLIST </a> <br> -->
-                                <a href="#" class="btn btn-danger redbtn bg-red my-2 shadow-none">COMPARE</a>
-                                <a href="#" class="btn btn-danger redbtn bg-red my-2 shadow-none">VIEW</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-3 ">
-                        <div class="card" style="width: 18rem; ">
-                            <!-- <div class="row"> -->
-                            <div class="  d-flex justify-content-center mt-3 ">
-                                <a href="" class="pointer">
-                                    <img src="~/User/images/realme gt.jpg" class="card-img-top allproductimg  " alt="Product image">
-                                </a>
-                            </div>
-                            <a class="text-black  " onclick="Wishlist(this)">
-                                <i class="far fa-heart pointer ms-4 wishlist  "></i>
-                            </a>
-                            <!-- </div> -->
-                            <div class="card-body text-center">
-                                <a class=" text-decoration-none text-dark fw-bold fs-4" href="">Realme GT Master Edition</a>
-                                <h6 class=" text-decoration-none text-red fw-bold ">RS 12,999</h6>
-                                <!-- <a  href="" class="btn btn-danger redbtn bg-red my-2 shadow-none" > <i class="far fa-heart pointer"></i> WISHLIST </a> <br> -->
-                                <a href="#" class="btn btn-danger redbtn bg-red my-2 shadow-none">COMPARE</a>
-                                <a href="#" class="btn btn-danger redbtn bg-red my-2 shadow-none">VIEW</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row mx-3 mt-5">
-                    <div class="col-3 ">
-                        <div class="card" style="width: 18rem; ">
-                            <!-- <div class="row"> -->
-                            <div class="  d-flex justify-content-center mt-3 ">
-                                <a href="" class="pointer">
-                                    <img src="~/User/images/realme gt.jpg" class="card-img-top allproductimg  " alt="Product image">
-                                </a>
-                            </div>
-                            <a class="text-black  " onclick="Wishlist(this)">
-                                <i class="far fa-heart pointer ms-4 wishlist  "></i>
-                            </a>
-                            <!-- </div> -->
-                            <div class="card-body text-center">
-                                <a class=" text-decoration-none text-dark fw-bold fs-4" href="">Realme GT Master Edition</a>
-                                <h6 class=" text-decoration-none text-red fw-bold ">RS 12,999</h6>
-                                <!-- <a  href="" class="btn btn-danger redbtn bg-red my-2 shadow-none" > <i class="far fa-heart pointer"></i> WISHLIST </a> <br> -->
-                                <a href="#" class="btn btn-danger redbtn bg-red my-2 shadow-none">COMPARE</a>
-                                <a href="#" class="btn btn-danger redbtn bg-red my-2 shadow-none">VIEW</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-3 ">
-                        <div class="card" style="width: 18rem; ">
-                            <!-- <div class="row"> -->
-                            <div class="  d-flex justify-content-center mt-3 ">
-                                <a href="" class="pointer">
-                                    <img src="~/User/images/realme gt.jpg" class="card-img-top allproductimg  " alt="Product image">
-                                </a>
-                            </div>
-                            <a class="text-black  " onclick="Wishlist(this)">
-                                <i class="far fa-heart pointer ms-4 wishlist  "></i>
-                            </a>
-                            <!-- </div> -->
-                            <div class="card-body text-center">
-                                <a class=" text-decoration-none text-dark fw-bold fs-4" href="">Realme GT Master Edition</a>
-                                <h6 class=" text-decoration-none text-red fw-bold ">RS 12,999</h6>
-                                <!-- <a  href="" class="btn btn-danger redbtn bg-red my-2 shadow-none" > <i class="far fa-heart pointer"></i> WISHLIST </a> <br> -->
-                                <a href="#" class="btn btn-danger redbtn bg-red my-2 shadow-none">COMPARE</a>
-                                <a href="#" class="btn btn-danger redbtn bg-red my-2 shadow-none">VIEW</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-3 ">
-                        <div class="card" style="width: 18rem; ">
-                            <!-- <div class="row"> -->
-                            <div class="  d-flex justify-content-center mt-3 ">
-                                <a href="" class="pointer">
-                                    <img src="~/User/images/realme gt.jpg" class="card-img-top allproductimg  " alt="Product image">
-                                </a>
-                            </div>
-                            <a class="text-black  " onclick="Wishlist(this)">
-                                <i class="far fa-heart pointer ms-4 wishlist  "></i>
-                            </a>
-                            <!-- </div> -->
-                            <div class="card-body text-center">
-                                <a class=" text-decoration-none text-dark fw-bold fs-4" href="">Realme GT Master Edition</a>
-                                <h6 class=" text-decoration-none text-red fw-bold ">RS 12,999</h6>
-                                <!-- <a  href="" class="btn btn-danger redbtn bg-red my-2 shadow-none" > <i class="far fa-heart pointer"></i> WISHLIST </a> <br> -->
-                                <a href="#" class="btn btn-danger redbtn bg-red my-2 shadow-none">COMPARE</a>
-                                <a href="#" class="btn btn-danger redbtn bg-red my-2 shadow-none">VIEW</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-3 ">
-                        <div class="card" style="width: 18rem; ">
-                            <!-- <div class="row"> -->
-                            <div class="  d-flex justify-content-center mt-3 ">
-                                <a href="" class="pointer">
-                                    <img src="~/User/images/realme gt.jpg" class="card-img-top allproductimg  " alt="Product image">
-                                </a>
-                            </div>
-                            <a class="text-black  " onclick="Wishlist(this)">
-                                <i class="far fa-heart pointer ms-4 wishlist  "></i>
-                            </a>
-                            <!-- </div> -->
-                            <div class="card-body text-center">
-                                <a class=" text-decoration-none text-dark fw-bold fs-4" href="">Realme GT Master Edition</a>
-                                <h6 class=" text-decoration-none text-red fw-bold ">RS 12,999</h6>
-                                <!-- <a  href="" class="btn btn-danger redbtn bg-red my-2 shadow-none" > <i class="far fa-heart pointer"></i> WISHLIST </a> <br> -->
-                                <a href="#" class="btn btn-danger redbtn bg-red my-2 shadow-none">COMPARE</a>
-                                <a href="#" class="btn btn-danger redbtn bg-red my-2 shadow-none">VIEW</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                }
             </div>
         </div>
     </div>

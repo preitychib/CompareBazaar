@@ -10,9 +10,11 @@
     --googlered: rgb(219, 68, 55);
     --black: black;
     --grey:rgb(192, 192, 192);
+    --lightgrey:rgb(230, 230, 230);
     --white: white;
     --darkblue: rgb(59, 89, 152);
     --lightblue: rgb(0, 172, 238);
+    
 
 }
 .text-red{
@@ -63,7 +65,7 @@
 .redbtn:hover{
     box-shadow: 3px 4px 2px var(--lightred) !important;
 }
-.footercolor:hover,.btncolor:hover {
+.footercolor:hover,.btncolor:hover  {
     color: var(--white) !important;
 }
 .dropdownbgprofilecolor:hover ,.innerdropdownsubheading:hover{
@@ -95,7 +97,7 @@
     border: 1px solid var(--red);
     /* color: var(--red); */
 }
-.btncolor:hover{
+.btncolor:hover  {
     background-color: var(--red) ;
 }
  /* navbar2 */
@@ -208,4 +210,19 @@
 .crossmargin{
     margin-left: 13rem;
     margin-bottom: 1rem;
+}
+.crossposition{
+   position: relative;
+   left: 2rem;
+}
+.crosshover:hover{
+    background-color: var(--lightgrey) ;
+    border-radius: 50%;
+}
+.fontsize1{
+   font-size: 6rem;
+}
+.errorimg{
+    width: 18rem;
+    height: 18rem; 
 }

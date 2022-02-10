@@ -1,10 +1,12 @@
 ﻿using CompareBazaar.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace CompareBazaar.Controllers
@@ -35,9 +37,28 @@ namespace CompareBazaar.Controllers
             return View();
         }
 
-        public IActionResult ProductsList()
+        public async Task<IActionResult> ProductsListAsync()
         {
-            return View();
+            // return View();
+            using (var client = new HttpClient())
+            {
+                var url = "https://comparebazaar-api.herokuapp.com/api/flipkart/mobile/";
+
+                // return await client.GetAsync(url);
+                var response = await client.GetAsync(url);
+                response.EnsureSuccessStatusCode();
+
+                var content = await response.Content.ReadAsStringAsync();
+
+                var mobiles = JsonConvert.DeserializeObject<object>(content);
+
+                // ViewData["response"] = response;
+               // Console.WriteLine(mobiles);
+
+                ViewBag.mobiles = mobiles;
+
+                return View();
+            }
         }
         public IActionResult ProductDetails()
         {
