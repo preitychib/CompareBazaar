@@ -94,7 +94,7 @@
                         </div>
                     </div>
                     <!-- <span class="fw-bold fs-6 ms-2 ">BRAND</span>
-                    <span class=""> <a href="" class=" text-decoration-none ms-5 fs-6"> Clear </a></span> -->
+                <span class=""> <a href="" class=" text-decoration-none ms-5 fs-6"> Clear </a></span> -->
                     <input class="form-control form-control-sm shadow-none clickbox " type="text" placeholder="Search Brand"
                            aria-label=".form-control-sm example">
                 </div>
@@ -285,9 +285,9 @@
             </div>
             <div class="  border-bottom ">
                 <!-- <div class="my-3">
-                  <span class="fw-bold fs-6 ms-2 "> RATINGS</span>
-                  <span class=""> <a href="" class=" text-decoration-none fs-6 ms-5 "> Clear  </a></span>
-                </div> -->
+              <span class="fw-bold fs-6 ms-2 "> RATINGS</span>
+              <span class=""> <a href="" class=" text-decoration-none fs-6 ms-5 "> Clear  </a></span>
+            </div> -->
                 <div class="row my-3">
                     <div class="col-8">
                         <h5 class="   fw-bold  ms-2 text-red "> RATINGS</h5>
@@ -332,9 +332,9 @@
             </div>
             <div class="  border-bottom ">
                 <!-- <div class="my-3">
-                  <span class="fw-bold fs-6 ms-2 ">AVAILABILITY</span>
-                  <span class=""> <a href="" class=" text-decoration-none fs-6 ms-3 "> Clear  </a></span>
-                </div> -->
+              <span class="fw-bold fs-6 ms-2 ">AVAILABILITY</span>
+              <span class=""> <a href="" class=" text-decoration-none fs-6 ms-3 "> Clear  </a></span>
+            </div> -->
                 <div class="row my-3">
                     <div class="col-8">
                         <h5 class="   fw-bold  ms-2 text-red ">AVAILABILITY</h5>
@@ -375,9 +375,9 @@
                     </div>
                 </div>
                 <!-- <div class="my-3">
-                  <span class="fw-bold fs-6 ms-2 ">Vendors</span>
-                  <span class=""> <a href="" class=" text-decoration-none fs-6 ms-5 "> Clear  </a></span>
-                </div> -->
+              <span class="fw-bold fs-6 ms-2 ">Vendors</span>
+              <span class=""> <a href="" class=" text-decoration-none fs-6 ms-5 "> Clear  </a></span>
+            </div> -->
                 <ul class="">
                     <li class="form-check ">
                         <input class="form-check-input shadow-none" type="checkbox" value="" id="">
@@ -395,40 +395,48 @@
             </div>
         </div>
 
+        
 
-        <div class="col-10">
-            <div class="row mx-3 mt-5">
-               
-                @foreach (var item in ViewBag.mobiles.results)
-                {
-                   // TempData["id"]=item.id;
-                   // TempData.Keep(key: "id");
+           
 
-                    <div class="col-3 ">
-                        <div class="card" style="width: 18rem; ">
-                            <!-- <div class="row"> -->
-                            <div class="  d-flex justify-content-center mt-3 ">
-                                <a href="" class="pointer">
-                                    <img src="@item.product_images.image" class="card-img-top allproductimg  " alt="Product image">
+            <div class="col-10">
+                <div class="row mx-3 mt-5">
+
+                    @foreach (var item in ViewBag.mobiles.results)
+                    {
+                        // TempData["id"]=item.id;
+                        // TempData.Keep(key: "id");
+                       // string url = $"ProductDetails{'/'}{item.id}";
+
+                        <div class="col col-md-2 col-lg-3 ">
+                            
+                            <div class="card" style="width: 18rem; ">
+                                <!-- <div class="row"> -->
+                                <div class="  d-flex justify-content-center mt-3 ">
+                                    <a href="" class="pointer">
+                                        <img src="@item.product_images.image" class="card-img-top allproductimg  " alt="Product image">
+                                    </a>
+                                </div>
+                                <a class="text-black  " onclick="Wishlist(this)">
+                                    <i class="far fa-heart pointer ms-4 wishlist  "></i>
                                 </a>
+                                <!-- </div> -->
+                                <div class="card-body text-center">
+                                    <a class=" text-decoration-none text-dark fw-bold fs-4" href="">@item.name</a>
+                                    <h6 class=" text-decoration-none text-red fw-bold ">Rs @item.price</h6>
+                                    <!-- <a  href="" class="btn btn-danger redbtn bg-red my-2 shadow-none" > <i class="far fa-heart pointer"></i> WISHLIST </a> <br> -->
+                                    <a asp-action="CompareChart" class="btn btn-danger redbtn bg-red my-2 shadow-none">COMPARE</a>
+                                    <a onclick="location.href='@Url.Action("ProductDetails","Home", new  { id = item.id})'" class="btn btn-danger redbtn bg-red my-2 shadow-none">VIEW</a>
+
+                                </div>
                             </div>
-                            <a class="text-black  " onclick="Wishlist(this)">
-                                <i class="far fa-heart pointer ms-4 wishlist  "></i>
-                            </a>
-                            <!-- </div> -->
-                            <div class="card-body text-center">
-                                <a class=" text-decoration-none text-dark fw-bold fs-4" href="">@item.name</a>
-                                <h6 class=" text-decoration-none text-red fw-bold ">Rs @item.price</h6>
-                                <!-- <a  href="" class="btn btn-danger redbtn bg-red my-2 shadow-none" > <i class="far fa-heart pointer"></i> WISHLIST </a> <br> -->
-                                <a asp-action="CompareChart" class="btn btn-danger redbtn bg-red my-2 shadow-none">COMPARE</a>
-                                <a asp-action="ProductDetails"  class="btn btn-danger redbtn bg-red my-2 shadow-none" >VIEW</a>
-                            </div>
+                            
                         </div>
-                    </div>
-                }
+                    }
+                </div>
             </div>
         </div>
-    </div>
+   
 
 
 </section>

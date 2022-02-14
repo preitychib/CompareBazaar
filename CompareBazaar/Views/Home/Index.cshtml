@@ -2,37 +2,69 @@
     ViewData["Title"] = "Home";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<section id="section1" class="search-bar">
+<section id="section1" class="search-bar  ">
     <div class="container ">
         <div class="row">
             <div class="col-lg-10 mx-auto">
-                <form>
+                <form class="formsearch">
                     <div class="p-1 bg-light bg-dark borderradius searchbox  ">
                         <div class="input-group">
-                            <input type="search" placeholder="Search products,brands,features" class="form-control">
-                            <div class="input-group-append">
+                            <input type="search" placeholder="Search products,brands,features" class="form-control shadow-none">
+                            <div class="input-group-append allcat">
                                 <div class="btn-group">
-                                    <a class="btn text-white border-top-0 rounded-0 border-end-0 border-bottom-0 btn-outline-dark  dropdown-toggle" href="#"
-                                       data-bs-toggle="dropdown" aria-expanded="false">  All Categories</a>
+                                    <a class="btn text-white border-top-0 rounded-0 border-end-0 border-bottom-0 btn-outline-dark shadow-none  dropdown-toggle"
+                                       href="#" data-bs-toggle="dropdown" aria-expanded="false"> All Categories</a>
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item ms-2 dropdownbg   innerdropdownitem text-black" asp-controller="" asp-action="ProductsList">Mobiles Phones</a></li>
-                                        <li><a class="dropdown-item ms-2 dropdownbg innerdropdownitem text-black" href="#">Tablets</a></li>
-                                        <li><a class="dropdown-item ms-2 dropdownbg innerdropdownitem text-black " href="#">Smartwatches</a></li>
-                                        <li><a class="dropdown-item ms-2 dropdownbg innerdropdownitem text-black" href="#">Laptops</a> </li>
-                                        <li><a class="dropdown-item ms-2 dropdownbg innerdropdownitem text-black" href="#">TVs</a></li>
-                                        <li><a class="dropdown-item ms-2 dropdownbg innerdropdownitem text-black" href="#">Cameras</a></li>
-                                        <li><a class="dropdown-item ms-2 dropdownbg innerdropdownitem text-black" href="#">Gaming</a></li>
-                                        <li><a class="dropdown-item ms-2 dropdownbg innerdropdownitem text-black" href="#">Large Appliances</a></li>
-                                        <li><a class="dropdown-item ms-2 dropdownbg innerdropdownitem text-black" href="#">Small Appliances</a></li>
                                         <li>
-                                            <a class="dropdown-item ms-2 dropdownbg  innerdropdownitem text-black" href="#">Kitchen Appliances</a>
+                                            <a class="dropdown-item ms-2 dropdownbg   innerdropdownitem text-black" asp-controller="" asp-action="ProductsList">
+                                                Mobiles
+                                                Phones
+                                            </a>
                                         </li>
-                                        <li><a class="dropdown-item ms-2 dropdownbg  innerdropdownitem text-black" href="#">Personal Appliances</a> </li>
+                                        <li>
+                                            <a class="dropdown-item ms-2 dropdownbg innerdropdownitem text-black" href="#">Tablets</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item ms-2 dropdownbg innerdropdownitem text-black "
+                                               href="#">Smartwatches</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item ms-2 dropdownbg innerdropdownitem text-black" href="#">Laptops</a>
+                                        </li>
+                                        <li><a class="dropdown-item ms-2 dropdownbg innerdropdownitem text-black" href="#">TVs</a></li>
+                                        <li>
+                                            <a class="dropdown-item ms-2 dropdownbg innerdropdownitem text-black" href="#">Cameras</a>
+                                        </li>
+                                        <li><a class="dropdown-item ms-2 dropdownbg innerdropdownitem text-black" href="#">Gaming</a></li>
+                                        <li>
+                                            <a class="dropdown-item ms-2 dropdownbg innerdropdownitem text-black" href="#">
+                                                Large
+                                                Appliances
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item ms-2 dropdownbg innerdropdownitem text-black" href="#">
+                                                Small
+                                                Appliances
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item ms-2 dropdownbg  innerdropdownitem text-black" href="#">
+                                                Kitchen
+                                                Appliances
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item ms-2 dropdownbg  innerdropdownitem text-black" href="#">
+                                                Personal
+                                                Appliances
+                                            </a>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
                             <div class="input-group-append">
-                                <a type="submit" class="btn btn-link searchcolor text-red" href="#">
+                                <a type="submit" class="btn btn-link searchcolor text-red shadow-none" href="#">
                                     <i class="fas fa-search"></i>
                                 </a>
                             </div>
@@ -44,97 +76,90 @@
     </div>
 </section>
 <section id="section2">
-
-    <!-- <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel"> -->
-    <!-- <div class="carousel-inner"> -->
-    <!-- <div class="carousel-item active"> -->
-    <img src="~/User/images/background4.jpg" class="d-block w-100" alt="...">
-    <!-- </div> -->
-    <!-- </div> -->
-    <!-- </div> -->
+    <img src="~/User/images/background4.jpg" class="d-block w-100 img-fluid" alt="Background Image">
 </section>
-<section id="section3">
-    <div class="container my-5">
-        <div class="box">
-            <div class="row">
-                <div class=" col-xs-1 col-sm-1 col-md-1 col-lg-1   d-flex justify-content-center ">
+<section id="section3 ">
+    <div class="container my-4">
+        <div class="row">
+            <div class="owl-carousel owl-theme owl-carousel1 " id="owl-carousel1">
+                <div class="item d-flex justify-content-center  ">
                     <div>
                         <a class="nav-link  red iconsmodule text-red fw-bold text-center " aria-current="page" asp-controller="" asp-action="ProductsList">
                             <img src="~/User/images/mobile-phone.png" class="img-fluid mb-2 icons " alt=""> MOBILES
                         </a>
                     </div>
                 </div>
-                <div class=" col-xs-1 col-sm-1 col-md-1 col-lg-1  d-flex justify-content-center  ">
+                <div class="item d-flex justify-content-center">
                     <div>
                         <a class="nav-link  red iconsmodule text-red fw-bold text-center " aria-current="page" href="#">
                             <img src="~/User/images/tablet.png" class="img-fluid mb-2 icons" alt=""> TABLETS
                         </a>
                     </div>
                 </div>
-                <div class=" col-xs-1 col-sm-1 col-md-1 col-lg-1   d-flex justify-content-center  ">
+                <div class="item d-flex justify-content-center">
                     <div>
                         <a class="nav-link  red iconsmodule text-red fw-bold text-center " aria-current="page" href="#">
                             <img src="~/User/images/laptop.png" class="img-fluid mb-2 icons" alt=""> LAPTOPS
                         </a>
                     </div>
                 </div>
-                <div class=" col-xs-1 col-sm-1 col-md-1 col-lg-1  d-flex justify-content-center  ">
+                <div class="item d-flex justify-content-center">
                     <div>
                         <a class="nav-link  red iconsmodule text-red fw-bold text-center " aria-current="page" href="#">
                             <img src="~/User/images/computer.png" class="img-fluid mb-2 icons" alt=""> COMPUTERS
                         </a>
                     </div>
                 </div>
-                <div class=" col-xs-1 col-sm-1 col-md-1 col-lg-1 d-flex justify-content-center ">
+                <div class="item d-flex justify-content-center">
                     <div>
                         <a class="nav-link  red iconsmodule text-red fw-bold text-center" aria-current="page" href="#">
                             <img src="~/User/images/television.png" class="img-fluid mb-2 icons" alt=""> TVs
                         </a>
                     </div>
                 </div>
-                <div class=" col-xs-1 col-sm-1 col-md-1 col-lg-1 d-flex justify-content-center  ">
+                <div class="item d-flex justify-content-center">
                     <div>
                         <a class="nav-link  red  iconsmodule text-red fw-bold text-center " aria-current="page" href="#">
                             <img src="~/User/images/camera.png" class="img-fluid mb-2  icons" alt=""> CAMERAS
                         </a>
                     </div>
                 </div>
-                <div class=" col-xs-1 col-sm-1 col-md-1 col-lg-1  d-flex justify-content-center   ">
+                <div class="item d-flex justify-content-center">
                     <div>
                         <a class="nav-link  red iconsmodule text-red fw-bold text-center" aria-current="page" href="#">
                             <img src="~/User/images/smart-watch.png" class="img-fluid mb-2 icons" alt=""> SMARTWATCHES
                         </a>
                     </div>
                 </div>
-                <div class=" col-xs-1 col-sm-1 col-md-1 col-lg-1   d-flex justify-content-center ">
+                <div class="item d-flex justify-content-center">
                     <div>
                         <a class="nav-link  red iconsmodule text-red fw-bold  text-center " aria-current="page" href="#">
                             <img src="~/User/images/gaming.png" class="img-fluid mb-2 icons" alt=""> GAMING
                         </a>
                     </div>
                 </div>
-                <div class=" col-xs-1 col-sm-1 col-md-1 col-lg-1   d-flex justify-content-center  ">
+                <div class="item d-flex justify-content-center">
                     <div>
                         <a class="nav-link  red iconsmodule text-red fw-bold text-center " aria-current="page" href="#">
                             <img src="~/User/images/large-appliance.png" class="img-fluid mb-2 icons" alt=""> LARGE APPLIANCES
                         </a>
                     </div>
                 </div>
-                <div class=" col-xs-1 col-sm-1 col-md-1 col-lg-1  d-flex justify-content-center  ">
+                <div class="item d-flex justify-content-center">
                     <div>
                         <a class="nav-link  red iconsmodule text-red fw-bold text-center" aria-current="page" href="#">
                             <img src="~/User/images/smallappl.png" class="img-fluid mb-2 icons" alt=""> SMALL APPLIANCES
                         </a>
                     </div>
                 </div>
-                <div class=" col-xs-1 col-sm-1 col-md-1 col-lg-1  d-flex justify-content-center">
+                <div class="item d-flex justify-content-center">
                     <div>
                         <a class="nav-link  red iconsmodule text-red fw-bold text-center" aria-current="page" href="#">
                             <img src="~/User/images/kitchenware.png" class="img-fluid mb-2 icons" alt=""> KITCHEN APPLIANCES
                         </a>
                     </div>
                 </div>
-                <div class=" col-xs-1 col-sm-1 col-md-1 col-lg-1   d-flex justify-content-center">
+                <div class="item d-flex justify-content-center">
                     <div>
                         <a class="nav-link  red iconsmodule text-red fw-bold text-center" aria-current="page" href="#">
                             <img src="~/User/images/Personalapp.png" class="img-fluid mb-2 icons" alt=""> PERSONAL APPLIANCES
@@ -149,224 +174,190 @@
     <div class="container">
         <h2 class="text-center mb-5 text-red fw-bold"> Compare Chart </h2>
         <div class="row mb-5 ">
-            <div class="  col-lg-3 col-md-3  col-sm-6  ">
+            <div class="  col-lg-3 col-md-3 col-sm-6 col-xs-6 ">
                 <div class="card shadow-sm compare d-flex align-items-center justify-content-center  ">
                     <a href="" class="mt-4"><i class="fas fa-search-plus text-red searchproduct"></i> </a>
-                    <!-- <img src="images/logoo.png" class="compareimg" alt=""> -->
-                    <form class="d-flex  mx-4 mt-4">
-                        <!-- <input class="form-control me-2" type="search" placeholder="Search Products" aria-label="Search"> -->
-                        <input type="search" placeholder="Search products" class="form-control  comparesearch"
+                    <form class="d-flex  mx-2 mt-4">
+                        <input type="search" placeholder="Search products" class="form-control radius shadow-none comparesearch "
                                aria-label="Search">
-                        <a class="btn  btn-outline-danger text-red btncolor ms-2" href="#" type="submit">Search</a>
+                        <a type="submit" class="btn btn-link searchcolor bg-red text-white radius shadow-none" href="#">
+                            <i class="fas fa-search"></i>
+                        </a>
                     </form>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-3  col-sm-6   ">
-                <div class="card shadow-sm compare d-flex align-items-center justify-content-center  ">
+            <div class="col-lg-3 col-md-3  col-sm-6 col-xs-6  ">
+                <div class="card shadow-sm compare d-flex align-items-center justify-content-center ">
                     <a href="" class="mt-4"><i class="fas fa-search-plus text-red searchproduct"></i> </a>
-                    <form class="d-flex  mx-4 mt-4">
-                        <!-- <input class="form-control me-2" type="search" placeholder="Search Products" aria-label="Search"> -->
-                        <input type="search" placeholder="Search products" class="form-control  comparesearch"
+                    <form class="d-flex  mx-2 mt-4">
+                        <input type="search" placeholder="Search products" class="form-control radius shadow-none comparesearch "
                                aria-label="Search">
-                        <a class="btn  btn-outline-danger text-red btncolor ms-2" href="#" type="submit">Search</a>
+                        <a type="submit" class="btn btn-link searchcolor bg-red text-white radius shadow-none" href="#">
+                            <i class="fas fa-search"></i>
+                        </a>
                     </form>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-3  col-sm-6   ">
+            <div class="col-lg-3 col-md-3  col-sm-6 col-xs-6 comparehide ">
                 <div class="card shadow-sm compare d-flex align-items-center justify-content-center  ">
                     <a href="" class="mt-4"><i class="fas fa-search-plus text-red searchproduct"></i> </a>
-                    <form class="d-flex  mx-4 mt-4">
-                        <!-- <input class="form-control me-2" type="search" placeholder="Search Products" aria-label="Search"> -->
-                        <input type="search" placeholder="Search products" class="form-control  comparesearch"
+                    <form class="d-flex  mx-2 mt-4">
+                        <input type="search" placeholder="Search products" class="form-control radius shadow-none comparesearch "
                                aria-label="Search">
-                        <a class="btn  btn-outline-dangern text-red btncolor ms-2" href="#" type="submit">Search</a>
+                        <a type="submit" class="btn btn-link searchcolor bg-red text-white radius shadow-none" href="#">
+                            <i class="fas fa-search"></i>
+                        </a>
                     </form>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-3  col-sm-6  ">
+            <div class="col-lg-3 col-md-3  col-sm-6 col-xs-6 comparehide  ">
                 <div class="card shadow-sm compare d-flex align-items-center justify-content-center  ">
                     <a href="" class="mt-4"><i class="fas fa-search-plus text-red searchproduct"></i> </a>
-                    <form class="d-flex  mx-4 mt-4  ">
-                        <!-- <input class="form-control me-2" type="search" placeholder="Search Products" aria-label="Search"> -->
-                        <input type="search" placeholder="Search products" class="form-control  comparesearch"
+                    <form class="d-flex  mx-2 mt-4">
+                        <input type="search" placeholder="Search products" class="form-control radius shadow-none comparesearch "
                                aria-label="Search">
-                        <a class="btn  btn-outline-danger text-red btncolor ms-2" href="#" type="submit">Search</a>
+                        <a type="submit" class="btn btn-link searchcolor bg-red text-white radius shadow-none" href="#">
+                            <i class="fas fa-search"></i>
+                        </a>
                     </form>
                 </div>
             </div>
         </div>
         <div>
             <div class="d-flex align-items-center justify-content-center">
-                <a class="btn btn-danger redbtn bg-red comparebtn " asp-controller="" asp-action="CompareChart" type="submit">COMPARE NOW </a>
+                <a class="btn btn-danger redbtn bg-red col-4 shadow-none" asp-controller="" asp-action="CompareChart" type="submit">
+                    COMPARE NOW
+                </a>
             </div>
         </div>
     </div>
 </section>
 <section id="section5">
     <div class="container my-5 ">
-        <h3 class="text-center my-3 product fw-bold"> Popular Products </h3>
+        <h3 class="text-center my-3 text-red fw-bold"> Popular Products </h3>
         <div class="row">
-            <div class="owl-carousel owl-theme">
+            <div class="owl-carousel owl-theme" id="owl-carousel2">
                 <div class="item">
-                    <div class=" border rounded  d-flex   ">
+                    <div class=" border rounded  d-flex ">
                         <div class=" d-flex align-items-center  ">
-
-                            <img src="~/User/images/samsunggalaxym32_64gb_.png" class="flex-shrink-0  imagesize m-3"
-                                 alt="...">
+                            <img src="~/User/images/samsunggalaxym32_64gb_.png" class="flex-shrink-0  imagesize m-3" alt="...">
                         </div>
                         <div class="mt-3">
                             <a href="#" class=" text-decoration-none text-dark fw-bold  ">SAMSUNG Galaxy M32(Light Blue,64GB)</a>
-
                             <br>
                             <a href="#" class=" text-decoration-none text-red fw-bold ">RS 12,999</a>
-                            <a class="btn btn-danger redbtn my-3 " >COMPARE </a>
+                            <a href="#" class="btn btn-danger redbtn bg-red my-3 shadow-none " type="submit">
+                                COMPARE
+                            </a>
                         </div>
-
                     </div>
                 </div>
                 <div class="item">
                     <div class=" border rounded  d-flex  boxsize ">
                         <div class=" d-flex align-items-center  ">
-
-                            <img src="~/User/images/onrplus9r_5_8gb_128_.png" class="flex-shrink-0  imagesize m-3"
-                                 alt="...">
+                            <img src="~/User/images/onrplus9r_5_8gb_128_.png" class="flex-shrink-0  imagesize m-3" alt="...">
                         </div>
                         <div class="mt-3">
                             <a href="#" class=" text-decoration-none text-dark fw-bold  ">
                                 One Plus
                                 9R 5G (Lake Blue ,8GB RAM ,128GB)
                             </a>
-
                             <br>
                             <a href="#" class=" text-decoration-none text-red  fw-bold ">RS 36,999</a>
-                            <a class="btn btn-danger redbtn my-3 ">
-                                COMPARE
-                            </a>
+                            <a href="#" class="btn btn-danger redbtn bg-red my-3 shadow-none " type="submit">COMPARE </a>
                         </div>
-
                     </div>
                 </div>
                 <div class="item">
                     <div class=" border  rounded d-flex   ">
-                        <div class=" d-flex align-items-center  ">
-
-                            <img src="~/User/images/samsungf12-removebg-preview.png" class="flex-shrink-0  imagesize m-3"
-                                 alt="...">
+                        <div class=" d-flex align-items-center ">
+                            <img src="~/User/images/samsungf12-removebg-preview.png" class="flex-shrink-0  imagesize m-3" alt="...">
                         </div>
                         <div class="mt-3">
                             <a href="#" class=" text-decoration-none text-dark fw-bold  ">
                                 SAMSUNG Galaxy F12 (Sky
                                 Blue, 64GB)
                             </a>
-
                             <br>
                             <a href="#" class=" text-decoration-none text-red fw-bold ">RS 9,499</a>
-                            <a class="btn btn-danger redbtn my-3 ">
-                                COMPARE
-                            </a>
+                            <a href="#" class="btn btn-danger redbtn bg-red my-3 shadow-none " type="submit">COMPARE </a>
                         </div>
-
                     </div>
                 </div>
                 <div class="item">
                     <div class=" border rounded   d-flex   ">
                         <div class=" d-flex align-items-center  ">
-
-                            <img src="~/User/images/realme gt.jpg" class="flex-shrink-0  imagesize m-3"
-                                 alt="...">
+                            <img src="~/User/images/realme gt.jpg" class="flex-shrink-0  imagesize m-3" alt="...">
                         </div>
                         <div class="mt-3">
                             <a href="#" class=" text-decoration-none text-dark fw-bold">Realme GT Master Edition( Black,256GB)</a>
-
                             <br>
                             <a href="#" class=" text-decoration-none text-red fw-bold">RS 29,999</a>
-                            <a class="btn btn-danger redbtn my-3 ">
-                                COMPARE
-                            </a>
+                            <a href="#" class="btn btn-danger redbtn bg-red my-3 shadow-none " type="submit">COMPARE </a>
                         </div>
-
                     </div>
                 </div>
                 <div class="item">
                     <div class=" border rounded  d-flex   ">
                         <div class=" d-flex align-items-center  ">
-
-                            <img src="~/User/images/iphoneair4.jpg" class="flex-shrink-0  imagesize m-3"
-                                 alt="...">
+                            <img src="~/User/images/iphoneair4.jpg" class="flex-shrink-0  imagesize m-3" alt="...">
                         </div>
                         <div class="mt-3">
-                            <a href="#" class=" text-decoration-none text-dark fw-bold  ">Apple iPad Air(4th Gen)64GB ROM 10.9 inch</a>
-
+                            <a href="#" class=" text-decoration-none text-dark fw-bold  ">
+                                Apple iPad Air(4th Gen)64GB ROM 10.9
+                                inch
+                            </a>
                             <br>
                             <a href="#" class=" text-decoration-none text-red fw-bold  ">RS 54,900</a>
-                            <a class="btn btn-danger redbtn my-3 ">
-                                COMPARE
-                            </a>
+                            <a href="#" class="btn btn-danger redbtn bg-red my-3 shadow-none " type="submit">COMPARE </a>
                         </div>
-
                     </div>
                 </div>
                 <div class="item">
                     <div class=" border rounded  d-flex   ">
                         <div class=" d-flex align-items-center  ">
-
-                            <img src="~/User/images/samsungs6.jpg" class="flex-shrink-0  imagesize m-3"
-                                 alt="...">
+                            <img src="~/User/images/samsungs6.jpg" class="flex-shrink-0  imagesize m-3" alt="...">
                         </div>
                         <div class="mt-3">
-                            <a href="#" class=" text-decoration-none text-dark fw-bold  ">SAMSUNG Galaxy TabS6 Lite  64GB ROM 10.4inch</a>
-
+                            <a href="#" class=" text-decoration-none text-dark fw-bold  ">
+                                SAMSUNG Galaxy TabS6 Lite 64GB ROM
+                                10.4inch
+                            </a>
                             <br>
                             <a href="#" class=" text-decoration-none text-red fw-bold   ">RS 27,999</a>
-                            <a class="btn btn-danger redbtn my-3 ">
-                                COMPARE
-                            </a>
+                            <a href="#" class="btn btn-danger redbtn bg-red my-3 shadow-none " type="submit">COMPARE </a>
                         </div>
-
                     </div>
                 </div>
                 <div class="item">
                     <div class=" border rounded  d-flex   ">
                         <div class=" d-flex align-items-center  ">
-
-                            <img src="~/User/images/dell.png" class="flex-shrink-0  imagesize m-3"
-                                 alt="...">
+                            <img src="~/User/images/dell.png" class="flex-shrink-0  imagesize m-3" alt="...">
                         </div>
                         <div class="mt-3">
                             <a href="#" class=" text-decoration-none text-dark fw-bold  ">Dell Core i3 11thGen (6GB/256GB SSD)</a>
-
                             <br>
                             <a href="#" class=" text-decoration-none text-red fw-bold ">RS 42,490</a>
-                            <a  class="btn btn-danger redbtn my-3 " >COMPARE
-                            </a>
+                            <a href="#" class="btn btn-danger redbtn bg-red my-3 shadow-none " type="submit">COMPARE </a>
                         </div>
-
                     </div>
                 </div>
                 <div class="item">
                     <div class=" border rounded  d-flex   ">
                         <div class=" d-flex align-items-center  ">
-
-                            <img src="~/User/images/hpcore.jpg" class="flex-shrink-0  imagesize m-3"
-                                 alt="...">
+                            <img src="~/User/images/hpcore.jpg" class="flex-shrink-0  imagesize m-3" alt="...">
                         </div>
                         <div class="mt-3">
                             <a href="#" class=" text-decoration-none text-dark fw-bold  ">
                                 HP 14s Core i5 11thGen (6GB/512GB SSD)
                             </a>
-
                             <br>
                             <a href="#" class=" text-decoration-none text-red fw-bold ">RS 59,490</a>
-                            <a class="btn btn-danger redbtn my-3 ">COMPARE 
-                            </a>
+                            <a href="#" class="btn btn-danger redbtn bg-red my-3 shadow-none " type="submit">COMPARE </a>
                         </div>
-
                     </div>
                 </div>
-
             </div>
         </div>
-
     </div>
-   
 </section>

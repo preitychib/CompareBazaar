@@ -37,6 +37,11 @@ namespace CompareBazaar.Controllers
             return View();
         }
 
+        public IActionResult WishList()
+        {
+            return View();
+        }
+
         public async Task<IActionResult> ProductsListAsync()
         {
             // return View();
@@ -53,7 +58,7 @@ namespace CompareBazaar.Controllers
                 var mobiles = JsonConvert.DeserializeObject<object>(content);
 
                 // ViewData["response"] = response;
-               // Console.WriteLine(mobiles);
+                Console.WriteLine(mobiles);
 
                 ViewBag.mobiles = mobiles;
 
@@ -77,7 +82,7 @@ namespace CompareBazaar.Controllers
                 var mobile = JsonConvert.DeserializeObject<object>(content);
 
                 // ViewData["response"] = response;
-               Console.WriteLine(mobile);
+               //Console.WriteLine(mobile);
 
                 ViewBag.mobile = mobile;
                // ViewBag.id = id;

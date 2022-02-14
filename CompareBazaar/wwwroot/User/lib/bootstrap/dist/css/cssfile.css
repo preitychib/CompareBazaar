@@ -1,8 +1,10 @@
 *{
     font-family: 'Courier New', Courier, monospace;
-    /* border: 2px solid red; */
+    /* border: 1px solid red; */
 }
-
+/*html {
+    font-size: 16px;
+}*/
 :root{
     --red :rgb(201, 15, 15) ;
     --lightred :rgb(224, 89, 89);
@@ -14,8 +16,6 @@
     --white: white;
     --darkblue: rgb(59, 89, 152);
     --lightblue: rgb(0, 172, 238);
-    
-
 }
 .text-red{
     color: var(--red) !important;
@@ -84,10 +84,16 @@
      text-underline-offset: 0.4rem;
      
 }
+/*#navbar2position.fs-3{
+    font-size: 1rem !important;
+}*/
+.fontsize1 {
+    font-size: 1rem;
+}
 /* navbar1 */
      /* narbar1 profile */
 .profilewidth{
-    width: 19.9rem !important;
+    width: 15rem !important;
 }
 .red:hover , .dropdownbgprofilecolor:hover{
     color: var(--red) !important;
@@ -101,19 +107,19 @@
     background-color: var(--red) ;
 }
  /* navbar2 */
-  #navbar2position{
+    #navbar2position{
     position: absolute;
     width: 100%;
-    top: 13.4%;
-    /*position:fixed;*/
+     /* top: 13.4%;  */
+    /* position:fixed; */
      z-index: 2;
-} 
+}   
 .menu-area{
     position: static;
 }
 .mega-area{
     position: absolute;
-    width: 80%;
+    width: 93%;
     left: 0;
     right: 0;
     padding: 18px;
@@ -155,8 +161,14 @@
 }
 .icons{
     height: 4rem !important;
+    /* width: 4rem !important; */
 }
 /* compare area */
+
+.radius {
+      border-radius: 0rem !important;
+}
+
 .compare{
     height: 16rem !important;
     border: 2px solid var(--red);  
@@ -167,10 +179,11 @@
 .comparesearch{
     /* width: 9rem; */
     border: 1px solid var(--black) !important;
+    border-right: 0px !important;
 }
-.comparebtn{
+/* .comparebtn{
     width: 17rem !important;
-}
+} */
 /* popular products */
 .imagesize{
     height: 6rem ;
@@ -213,16 +226,164 @@
 }
 .crossposition{
    position: relative;
-   left: 2rem;
+   left: 1.6rem;
 }
 .crosshover:hover{
     background-color: var(--lightgrey) ;
     border-radius: 50%;
 }
-.fontsize1{
-   font-size: 6rem;
+.fontsize2{
+   font-size: 5.8rem;
+}
+.fontsize3{
+    font-size: 1.5rem ;
 }
 .errorimg{
     width: 18rem;
     height: 18rem; 
 }
+/* RESPONSIVE */
+ @media screen and (min-width:768px) and (max-width:1200px){
+
+
+} 
+ @media screen and (min-width:450px) and (max-width:767.5px){
+ .errorimg{
+    width: 15rem;
+    height: 15rem; 
+ }
+ .errortext{
+     /* text-align: center !important; */
+     display: flex;
+     justify-content: center;
+ }
+ .fontsize2{
+     font-size: 5rem;
+ }
+ .fontsize3{
+     font-size: 1.3rem;
+ }
+ .formsearch{
+    display: block;
+    width: 90%;
+    margin: 0 auto;
+} 
+.comparehide{
+    display: none;
+}
+.col-xs-6 {
+    flex: 0 0 auto;
+    width: 50% !important;
+}
+} 
+ @media screen and (min-width:381px) and (max-width:450px){
+ .errorimg{
+    width: 12rem;
+    height: 12rem; 
+ }
+ .errortext{
+     /* text-align: center !important; */
+     display: flex;
+     justify-content: center;
+ }
+ .fontsize2{
+     font-size: 4rem;
+ }
+ .fontsize3{
+     font-size: 1.15rem;
+ }
+ /* .search-bar{
+    position: absolute;
+    top: 26%;
+ } */
+  .formsearch{
+    display: block;
+    width: 95%;
+    margin: 0 auto;
+}  
+.allcat , .comparehide{
+    display: none;
+}
+.col-xs-6 {
+    flex: 0 0 auto;
+    width: 50% !important;
+}
+} 
+ @media screen and (min-width:298px) and (max-width:381px){
+    .wbnamesize {
+       font-size: 1.1rem !important;
+   }
+   .wbimg{
+       width: 50px;
+   } 
+   .errorimg{
+    width: 10rem;
+    height: 10rem; 
+ }
+ .errortext{
+     /* text-align: center !important; */
+     display: flex;
+     justify-content: center;
+ }
+ .fontsize2{
+     font-size: 3.1rem;
+ }
+ .fontsize3{
+     font-size: 1.1rem;
+ }
+ .search-bar{
+    position: absolute;
+    top: 22%;
+}
+ .formsearch{
+    display: block;
+    width: 95%;
+    margin: 0 auto;
+} 
+ .allcat , .comparehide{
+    display: none;
+}
+.col-xs-6 {
+    flex: 0 0 auto;
+    width: 50% !important;
+}
+} 
+ @media screen and (min-width:273px) and (max-width:298px){
+    .wbnamesize {
+       font-size: 0.9rem !important;
+   }
+   .wbimg{
+       width: 40px;
+   } 
+  .errorimg{
+    width: 8rem;
+    height: 8rem; 
+ }
+ .errortext{
+     /* text-align: center !important; */
+     display: flex;
+     justify-content: center;
+ }
+ .fontsize2{
+     font-size: 2.9rem;
+ }
+ .fontsize3{
+     font-size: 1rem;
+ }
+ .search-bar{
+    position: absolute;
+    top: 20%;
+}
+ .formsearch{
+    display: block;
+    width: 95%;
+    margin: 0 auto;
+} 
+ .allcat , .comparehide{
+    display: none;
+}
+.col-xs-6 {
+    flex: 0 0 auto;
+    width: 50% !important;
+}
+} 

@@ -22,50 +22,51 @@
 </head>
 
 <body>
-        <nav class="navbar navbar-expand-lg navbar-light sticky-top bg-light py-2 navbar1">
-            <div class="container-fluid">
-                <a class="navbar-brand ms-2 fs-2 " asp-controller="Home" asp-action="">
-                    <img src="~/User/images/logoo.png" alt="Compare Bazaar Logo"
-                         width="70">COMPARE<b>BAZAAR</b>
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                        aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse " id="navbarSupportedContent">
-                    <ul class="navbar-nav  mb-2 mb-lg-0  ms-auto me-4 fs-5">
-                        <partial name="_AdminMenuPartial" />
-                        <li class="nav-item dropdown me-3">
-                            <!-- <a class="nav-link red "   href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top bg-light py-2 navbar1">
+        <div class="container-fluid">
+            <a class="navbar-brand ms-1 fs-2 wbnamesize " asp-action="">
+                <img src="~/User/images/logoo.png"
+                     alt="CompareBazzar Logo" width="70" class="wbimg img-fluid">
+                COMPARE<b>BAZAAR</b>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                <ul class="navbar-nav  mb-2 mb-lg-0  ms-auto me-4 fs-5">
+                    <partial name="_AdminMenuPartial" />
+                    <li class="nav-item dropdown me-3">
+                        <!-- <a class="nav-link red "   href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
         aria-expanded="false"><i class="fas fa-user-alt red "> </i>PROFILE</a> -->
-                            <a class="nav-link red  " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-                               aria-expanded="false">
-                                <i class="fas fa-user-alt red "></i>
-                                PROFILE
-                            </a>
-                            <partial name="_LoginPartial" />
-                        </li>
-                        <li class="nav-item me-3">
-                            <a class="nav-link  red " aria-current="page" href="#">
-                                <i class="fas fa-heart red "></i>
-                                WISHLIST
-                            </a>
-                        </li>
-                        <li class="nav-item me-3">
-                            <a class="nav-link  red " aria-current="page" asp-controller="Home" asp-action="CompareChart">
-                                <i class="fas fa-balance-scale-left red"></i>  COMPARE CHART
-                            </a>
-                        </li>
-                        <!-- <li class="nav-item me-3">
+                        <a class="nav-link red  " href="#" id="navbarDropdown" role="button"
+                           data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-user-alt red "></i>
+                            PROFILE
+                        </a>
+                        <partial name="_LoginPartial" />
+                       
+                    </li>
+                    <li class="nav-item me-3">
+                        <a class="nav-link  red " aria-current="page" asp-action="WishList">
+                            <i class="fas fa-heart red "></i>
+                            WISHLIST
+                        </a>
+                    </li>
+                    <li class="nav-item me-3">
+                        <a class="nav-link  red " aria-current="page" asp-controller="Home" asp-action="CompareChart">
+                            <i class="fas fa-balance-scale-left red"></i>
+                            COMPARE CHART
+                        </a>
+                    </li>
+                    <!-- <li class="nav-item me-3">
      <a class="nav-link red " href="#"><i class="fas fa-shopping-cart  red"></i> CART</a>
     </li>  -->
-                    </ul>
-                </div>
+                </ul>
             </div>
-        </nav>
-  
+        </div>
+    </nav>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="navbar2position">
         <div class="container-fluid">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar"
@@ -73,16 +74,17 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbar">
-                <ul class="navbar-nav ml-auto">
+                <ul class="navbar-nav ml-auto mx-3">
                     <li class="nav-item dropdown menu-area">
-                        <a class="nav-link dropdown-toggle ms-5 fs-5 text-white" href="#" id="mega-one" role="button"
-                           data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle ms-1 fontsize1 text-white" href="/mobiles.html"
+                           id="mega-one" role="button" data-bs-toggle="dropdown"
+                           aria-expanded="false">
                             Mobiles
                         </a>
-                        <ul class="dropdown-menu mega-area ms-3 " aria-labelledby="mega-one">
+                        <ul class="dropdown-menu mega-area ms-1 " aria-labelledby="mega-one">
                             <li>
                                 <div class="row">
-                                    <div class=" col-xs-12 col-sm-12 col-md-12 col-lg-4 ">
+                                    <div class=" col-xs-12 col-sm-12 col-md-4 col-lg-4 ">
                                         <ul class=" list-unstyled ">
                                             <li class="text-red fw-bold fs-4 ">
                                                 Brands
@@ -133,14 +135,14 @@
                                             </li>
                                         </ul>
                                     </div>
-                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 dropdown-margin">
+                                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 dropdown-margin">
                                         <ul class=" list-unstyled ">
                                             <li class=" text-red fw-bold fs-4 ">
                                                 Categories
                                             </li>
                                             <li>
-                                                <a href="/mobiles.html"
-                                                   class="dropdown-item fs-5 dropdownbg  innerdropdownsubheading text-red ">
+                                                <a asp-action="ProductsList"
+                                                   class="dropdown-item fs-6 dropdownbg  innerdropdownsubheading text-red ">
                                                     ALL
                                                     MOBILES
                                                 </a>
@@ -220,7 +222,7 @@
                                             </li>
                                         </ul>
                                     </div>
-                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 dropdown-margin">
+                                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 dropdown-margin">
                                         <ul class=" list-unstyled ">
                                             <li class=" text-red fw-bold fs-4 ">
                                                 Price
@@ -286,14 +288,15 @@
                         </ul>
                     </li>
                     <li class="nav-item dropdown menu-area">
-                        <a class="nav-link dropdown-toggle ms-2  fs-5 text-white " href="#" id="mega-two" role="button"
-                           data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle ms-1 fontsize1 text-white " href="#"
+                           id="mega-two" role="button" data-bs-toggle="dropdown"
+                           aria-expanded="false">
                             Tablets
                         </a>
-                        <ul class="dropdown-menu mega-area ms-3" aria-labelledby="mega-two">
+                        <ul class="dropdown-menu mega-area ms-1" aria-labelledby="mega-two">
                             <li>
                                 <div class="row">
-                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+                                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                                         <ul class="list-unstyled">
                                             <li class=" text-red fw-bold fs-4 ">
                                                 Brands
@@ -348,14 +351,14 @@
                                             </li>
                                         </ul>
                                     </div>
-                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 dropdown-margin">
+                                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 dropdown-margin">
                                         <ul class="list-unstyled">
                                             <li class=" text-red fw-bold fs-4">
                                                 Categories
                                             </li>
                                             <li>
                                                 <a href="#"
-                                                   class="dropdown-item dropdownbg  innerdropdownsubheading text-red fs-5 ">
+                                                   class="dropdown-item dropdownbg  innerdropdownsubheading text-red fs-6 ">
                                                     ALL
                                                     TABLETS
                                                 </a>
@@ -461,7 +464,7 @@
                                             </li>
                                         </ul>
                                     </div>
-                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 dropdown-margin">
+                                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 dropdown-margin">
                                         <ul class="list-unstyled">
                                             <li class=" text-red fs-4 fw-bold">
                                                 Price
@@ -529,14 +532,15 @@
                         </ul>
                     </li>
                     <li class="nav-item dropdown menu-area">
-                        <a class="nav-link dropdown-toggle ms-2   fs-5 text-white" href="#" id="mega-three"
-                           role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle ms-1   fontsize1 text-white" href="#"
+                           id="mega-three" role="button" data-bs-toggle="dropdown"
+                           aria-expanded="false">
                             Laptops
                         </a>
-                        <ul class="dropdown-menu mega-area ms-3" aria-labelledby="mega-three">
+                        <ul class="dropdown-menu mega-area ms-1" aria-labelledby="mega-three">
                             <li>
                                 <div class="row">
-                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+                                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                                         <ul class="list-unstyled">
                                             <li class=" text-red fw-bold fs-4 ">
                                                 Brands
@@ -591,21 +595,21 @@
                                             </li>
                                         </ul>
                                     </div>
-                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+                                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                                         <ul class="list-unstyled">
                                             <li class=" text-red fs-4 fw-bold">
                                                 Categories
                                             </li>
                                             <li>
                                                 <a href="#"
-                                                   class="dropdown-item fs-5 dropdownbg innerdropdownsubheading  text-red  innerdropdownitem">
+                                                   class="dropdown-item fs-6 dropdownbg innerdropdownsubheading  text-red  innerdropdownitem">
                                                     ALL
                                                     LAPTOPS
                                                 </a>
                                             </li>
                                             <li>
                                                 <a href="#"
-                                                   class="dropdown-item fs-5 dropdownbg innerdropdownsubheading text-red innerdropdownitem ">
+                                                   class="dropdown-item fs-6 dropdownbg innerdropdownsubheading text-red innerdropdownitem ">
                                                     ALL
                                                     COMPUTERS
                                                 </a>
@@ -714,7 +718,7 @@
                                             </li>
                                         </ul>
                                     </div>
-                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+                                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                                         <ul class="list-unstyled">
                                             <li class=" text-red fs-4 fw-bold">
                                                 Price
@@ -778,25 +782,26 @@
                         </ul>
                     </li>
                     <li class="nav-item dropdown menu-area">
-                        <a class="nav-link dropdown-toggle ms-2 fs-5 text-white " href="#" id="mega-four" role="button"
-                           data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle ms-1 fontsize1 text-white " href="#"
+                           id="mega-four" role="button" data-bs-toggle="dropdown"
+                           aria-expanded="false">
                             Computers
                         </a>
-                        <ul class="dropdown-menu mega-area ms-3" aria-labelledby="mega-four">
+                        <ul class="dropdown-menu mega-area ms-1" aria-labelledby="mega-four">
                             <li>
                                 <div class="row">
-                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+                                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                                         <ul class="list-unstyled">
                                             <li class=" text-red fw-bold fs-4 ">
                                                 Categories
                                             </li>
                                             <li>
                                                 <a href="#"
-                                                   class="dropdown-item  fs-5 dropdownbg  innerdropdownsubheading  text-red  innerdropdownitem  ">ALLCOMPUTERS</a>
+                                                   class="dropdown-item  fs-6 dropdownbg  innerdropdownsubheading  text-red  innerdropdownitem  ">ALLCOMPUTERS</a>
                                             </li>
                                             <li>
                                                 <a href="#"
-                                                   class="dropdown-item  fs-5 dropdownbg  innerdropdownsubheading text-red  innerdropdownitem ">
+                                                   class="dropdown-item  fs-6 dropdownbg  innerdropdownsubheading text-red  innerdropdownitem ">
                                                     ALL
                                                     LAPTOPS
                                                 </a>
@@ -896,14 +901,14 @@
                                             </li>
                                         </ul>
                                     </div>
-                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+                                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                                         <ul class="list-unstyled">
                                             <li class=" text-red fw-bold  fs-4">
                                                 Accessories
                                             </li>
                                             <li>
                                                 <a href="#"
-                                                   class="dropdown-item   fs-5 dropdownbg  innerdropdownsubheading  text-red innerdropdownitem   ">
+                                                   class="dropdown-item   fs-6 dropdownbg  innerdropdownsubheading  text-red innerdropdownitem   ">
                                                     ALL
                                                     ACCESSORIES
                                                 </a>
@@ -972,7 +977,7 @@
                                             </li>
                                         </ul>
                                     </div>
-                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+                                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                                         <ul class="list-unstyled">
                                             <li class=" text-red fw-bold  fs-4">
                                                 Price
@@ -1036,14 +1041,15 @@
                         </ul>
                     </li>
                     <li class="nav-item dropdown menu-area">
-                        <a class="nav-link dropdown-toggle ms-2 fs-5 text-white " href="#" id="mega-five" role="button"
-                           data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle ms-1 fontsize1 text-white " href="#"
+                           id="mega-five" role="button" data-bs-toggle="dropdown"
+                           aria-expanded="false">
                             TVs
                         </a>
-                        <ul class="dropdown-menu mega-area ms-3" aria-labelledby="mega-five">
+                        <ul class="dropdown-menu mega-area ms-1" aria-labelledby="mega-five">
                             <li>
                                 <div class="row">
-                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+                                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                                         <ul class="list-unstyled">
                                             <li class=" text-red fw-bold fs-4 ">
                                                 Brands
@@ -1098,14 +1104,14 @@
                                             </li>
                                         </ul>
                                     </div>
-                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+                                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                                         <ul class="list-unstyled">
                                             <li class=" text-red fw-bold fs-4">
                                                 Categories
                                             </li>
                                             <li>
                                                 <a href="#"
-                                                   class="dropdown-item  fs-5 dropdownbg  innerdropdownsubheading  text-red innerdropdownitem   ">
+                                                   class="dropdown-item  fs-6 dropdownbg  innerdropdownsubheading  text-red innerdropdownitem   ">
                                                     ALL
                                                     TELEVISIONS
                                                 </a>
@@ -1213,7 +1219,7 @@
                                             </li>
                                         </ul>
                                     </div>
-                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+                                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                                         <ul class="list-unstyled">
                                             <li class=" text-red fw-bold fs-4 ">
                                                 Price
@@ -1277,21 +1283,22 @@
                         </ul>
                     </li>
                     <li class="nav-item dropdown menu-area">
-                        <a class="nav-link dropdown-toggle ms-2 fs-5 text-white  " href="#" id="mega-six" role="button"
-                           data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle ms-1 fontsize1 text-white  " href="#"
+                           id="mega-six" role="button" data-bs-toggle="dropdown"
+                           aria-expanded="false">
                             Electronices
                         </a>
-                        <ul class="dropdown-menu mega-area ms-3" aria-labelledby="mega-six">
+                        <ul class="dropdown-menu mega-area ms-1" aria-labelledby="mega-six">
                             <li>
                                 <div class="row">
-                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+                                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                                         <ul class="list-unstyled">
                                             <li class=" text-red fw-bold fs-4">
                                                 Cameras
                                             </li>
                                             <li>
                                                 <a href="#"
-                                                   class="dropdown-item    fs-5 dropdownbg  innerdropdownsubheading  text-red innerdropdownitem    ">
+                                                   class="dropdown-item    fs-6 dropdownbg  innerdropdownsubheading  text-red innerdropdownitem    ">
                                                     ALL
                                                     CAMERAS
                                                 </a>
@@ -1405,14 +1412,14 @@
                                             </li>
                                         </ul>
                                     </div>
-                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+                                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                                         <ul class="list-unstyled">
                                             <li class=" text-red fw-bold fs-4">
                                                 Smart Wearables
                                             </li>
                                             <li>
                                                 <a href="#"
-                                                   class="dropdown-item   fs-5 dropdownbg  innerdropdownsubheading text-red  innerdropdownitem">
+                                                   class="dropdown-item   fs-6 dropdownbg  innerdropdownsubheading text-red  innerdropdownitem">
                                                     ALL
                                                     SMARTWATCHES
                                                 </a>
@@ -1466,7 +1473,7 @@
                                             </li>
                                             <li>
                                                 <a href="#"
-                                                   class="dropdown-item  fs-5 dropdownbg  innerdropdownsubheading  text-red innerdropdownitem  ">
+                                                   class="dropdown-item  fs-6 dropdownbg  innerdropdownsubheading  text-red innerdropdownitem  ">
                                                     ALL
                                                     FITNESS
                                                     BANDS
@@ -1513,7 +1520,7 @@
                                             </li>
                                             <li>
                                                 <a href="#"
-                                                   class="dropdown-item  fs-5 dropdownbg  innerdropdownsubheading text-red  innerdropdownitem">
+                                                   class="dropdown-item  fs-6 dropdownbg  innerdropdownsubheading text-red  innerdropdownitem">
                                                     VR
                                                     HEADSETS
                                                 </a>
@@ -1531,14 +1538,14 @@
                                             </li>
                                         </ul>
                                     </div>
-                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+                                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                                         <ul class="list-unstyled">
                                             <li class=" text-red fw-bold fs-4 ">
                                                 Gaming
                                             </li>
                                             <li>
                                                 <a href="#"
-                                                   class="dropdown-item  fs-5 dropdownbg  innerdropdownsubheading  text-red innerdropdownitem  ">
+                                                   class="dropdown-item  fs-6 dropdownbg  innerdropdownsubheading  text-red innerdropdownitem  ">
                                                     ALL
                                                     GAMING
                                                     DEVICES
@@ -1599,8 +1606,8 @@
                                                    class="dropdown-item    dropdownbg innerdropdownitem text-black  ">
                                                     Most
                                                     Popular
-                                                    Gaming
                                                 </a>
+                                                Gaming
                                             </li>
                                             <li>
                                                 <a href="#"
@@ -1622,7 +1629,7 @@
                                             </li>
                                             <li>
                                                 <a href="#"
-                                                   class="dropdown-item  fs-5 dropdownbg  innerdropdownsubheading  text-red innerdropdownitem ">
+                                                   class="dropdown-item  fs-6 dropdownbg  innerdropdownsubheading  text-red innerdropdownitem ">
                                                     RC
                                                     TOYS
                                                 </a>
@@ -1672,11 +1679,12 @@
                         </ul>
                     </li>
                     <li class="nav-item dropdown menu-area">
-                        <a class="nav-link dropdown-toggle ms-2 fs-5 text-white  " href="#" id="mega-seven"
-                           role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle ms-1 fontsize1 text-white  " href="#"
+                           id="mega-seven" role="button" data-bs-toggle="dropdown"
+                           aria-expanded="false">
                             Appliances
                         </a>
-                        <ul class="dropdown-menu mega-area ms-3" aria-labelledby="mega-seven">
+                        <ul class="dropdown-menu mega-area ms-1" aria-labelledby="mega-seven">
                             <li>
                                 <div class="row">
                                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
@@ -1686,7 +1694,7 @@
                                             </li>
                                             <li>
                                                 <a href="#"
-                                                   class="dropdown-item   fs-5 dropdownbg  innerdropdownsubheading  text-red innerdropdownitem">
+                                                   class="dropdown-item   fs-6 dropdownbg  innerdropdownsubheading  text-red innerdropdownitem">
                                                     ALL
                                                     AIR
                                                     CONDITIONERS
@@ -1718,7 +1726,7 @@
                                             </li>
                                             <li>
                                                 <a href="#"
-                                                   class="dropdown-item   fs-5 dropdownbg  innerdropdownsubheading text-red  innerdropdownitem  ">
+                                                   class="dropdown-item   fs-6 dropdownbg  innerdropdownsubheading text-red  innerdropdownitem  ">
                                                     AIR
                                                     COOLERS
                                                 </a>
@@ -1728,7 +1736,7 @@
                                             </li>
                                             <li>
                                                 <a href="#"
-                                                   class="dropdown-item  fs-5 dropdownbg  innerdropdownsubheading text-red  innerdropdownitem">
+                                                   class="dropdown-item  fs-6 dropdownbg  innerdropdownsubheading text-red  innerdropdownitem">
                                                     ALL
                                                     REFRIGERATORS
                                                 </a>
@@ -1759,7 +1767,7 @@
                                             </li>
                                             <li>
                                                 <a href="#"
-                                                   class="dropdown-item  fs-5 dropdownbg  innerdropdownsubheading text-red  innerdropdownitem">
+                                                   class="dropdown-item  fs-6 dropdownbg  innerdropdownsubheading text-red  innerdropdownitem">
                                                     ALL
                                                     WASHING
                                                     MACHINES
@@ -1802,7 +1810,7 @@
                                             </li>
                                             <li>
                                                 <a href="#"
-                                                   class="dropdown-item   fs-5 dropdownbg  innerdropdownsubheading  text-red innerdropdownitem  ">
+                                                   class="dropdown-item   fs-6 dropdownbg  innerdropdownsubheading  text-red innerdropdownitem  ">
                                                     ALL
                                                     SMALL
                                                     APPLIANCES
@@ -1892,7 +1900,7 @@
                                             </li>
                                             <li>
                                                 <a href="#"
-                                                   class="dropdown-item   fs-5 dropdownbg  innerdropdownsubheading  text-red innerdropdownitem  ">
+                                                   class="dropdown-item   fs-6 dropdownbg  innerdropdownsubheading  text-red innerdropdownitem  ">
                                                     ALL
                                                     KITCHEN
                                                     APPLIANCES
@@ -1939,7 +1947,7 @@
                                                    class="dropdown-item   dropdownbg innerdropdownitem text-black  ">
                                                     Oven
                                                     Toaster
-                                                    Grills(OTG)
+                                                    Grills
                                                 </a>
                                             </li>
                                             <li>
@@ -2001,7 +2009,7 @@
                                             </li>
                                             <li>
                                                 <a href="#"
-                                                   class="dropdown-item  fs-5 dropdownbg  innerdropdownsubheading  text-red innerdropdownitem  ">
+                                                   class="dropdown-item  fs-6 dropdownbg  innerdropdownsubheading  text-red innerdropdownitem  ">
                                                     ALL
                                                     PERSONAL
                                                     APPLIANCES
@@ -2155,20 +2163,72 @@
             crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script>
-        $('.owl-carousel').owlCarousel({
+        $('#owl-carousel1').owlCarousel({
+            loop: true,
+            margin: 10,
+            nav: false,
+            dots: false,
+
+            responsive: {
+                200: {
+                    items: 2
+                },
+                300: {
+                    items: 3
+                },
+                400: {
+                    items: 4
+                },
+                500: {
+                    items: 5
+                },
+                600: {
+                    items: 6
+                },
+
+                900: {
+                    items: 7
+                },
+                1000: {
+                    items: 8
+                },
+
+                1100: {
+                    items: 9
+                },
+                1200: {
+                    items: 10
+                },
+                1300: {
+                    items: 11
+                },
+                1400: {
+                    items: 12
+                }
+            }
+        })
+        $('#owl-carousel2').owlCarousel({
             loop: true,
             margin: 15,
             nav: false,
             autoplay: true,
             autoplayTimeout: 2000,
             responsive: {
+
                 0: {
                     items: 1
                 },
-                600: {
-                    items: 3
+
+                900: {
+                    items: 2
                 },
                 1000: {
+                    items: 2
+                },
+                1300: {
+                    items: 3
+                },
+                1400: {
                     items: 5
                 }
             }
