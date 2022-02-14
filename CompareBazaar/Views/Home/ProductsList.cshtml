@@ -398,8 +398,12 @@
 
         <div class="col-10">
             <div class="row mx-3 mt-5">
-                @foreach (var item in ViewBag.mobiles)
+               
+                @foreach (var item in ViewBag.mobiles.results)
                 {
+                   // TempData["id"]=item.id;
+                   // TempData.Keep(key: "id");
+
                     <div class="col-3 ">
                         <div class="card" style="width: 18rem; ">
                             <!-- <div class="row"> -->
@@ -417,7 +421,7 @@
                                 <h6 class=" text-decoration-none text-red fw-bold ">Rs @item.price</h6>
                                 <!-- <a  href="" class="btn btn-danger redbtn bg-red my-2 shadow-none" > <i class="far fa-heart pointer"></i> WISHLIST </a> <br> -->
                                 <a asp-action="CompareChart" class="btn btn-danger redbtn bg-red my-2 shadow-none">COMPARE</a>
-                                <a asp-action="ProductDetails" class="btn btn-danger redbtn bg-red my-2 shadow-none">VIEW</a>
+                                <a asp-action="ProductDetails"  class="btn btn-danger redbtn bg-red my-2 shadow-none" >VIEW</a>
                             </div>
                         </div>
                     </div>
