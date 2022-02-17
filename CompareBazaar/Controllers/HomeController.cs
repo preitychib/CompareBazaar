@@ -32,6 +32,8 @@ namespace CompareBazaar.Controllers
             return View();
         }
 
+       
+
         public IActionResult CompareChart()
         {
             return View();
