@@ -2,9 +2,6 @@
     font-family: 'Courier New', Courier, monospace;
     /* border: 1px solid red; */
 }
-/* html{
-    font-size: 16px;
-} */
 :root{
     --red :rgb(201, 15, 15) ;
     --lightred :rgb(224, 89, 89);
@@ -79,11 +76,6 @@
     height: 15rem !important;
    width: 100%;
 }
-.underline:hover{
-    text-decoration: underline var(--white) solid;
-     text-underline-offset: 0.4rem;
-     
-}
 .fontsize1{
   font-size: 1rem;
 }
@@ -95,7 +87,6 @@
 .red:hover , .dropdownbgprofilecolor:hover{
     color: var(--red) !important;
 }
-
 .btncolor{  
     border: 1px solid var(--red);
     /* color: var(--red); */
@@ -131,12 +122,6 @@
     top: 25%;
     width: 100%;
 }
-.borderradius{
-    border-radius: 7px;
-}
-/* .input-group> .form-control:focus , .searchcolor, .btn-outline-dark ,.comparesearch {
-    box-shadow: none !important;
-} */
 .input-group> .form-control{
     margin-right: 5px;
 }
@@ -161,26 +146,22 @@
     /* width: 4rem !important; */
 }
 /* compare area */
-
 .radius {
       border-radius: 0rem !important;
 }
-
-.compare{
-    height: 16rem !important;
-    border: 2px solid var(--red);  
+.compare , .compare-1{
+    height: 15rem !important;
+    /* width: 19rem !important; */
+    border: 2px solid var(--red) !important;  
 }
-.searchproduct{
-    font-size: 4rem !important;
+.searchproduct , .searchproduct-1{
+    font-size: 4rem;
 }
-.comparesearch{
+.comparesearch , .comparesearch-1  {
     /* width: 9rem; */
     border: 1px solid var(--black) !important;
-    border-right: 0px !important;
+    border-right: 0px !important  ;
 }
-/* .comparebtn{
-    width: 17rem !important;
-} */
 /* popular products */
 .imagesize{
     height: 6rem ;
@@ -189,15 +170,20 @@
 /* sign up and login*/
 .bgimage{
     height: 100vh;
-    width: 100%;
-    /* opacity: 0.3 ; */
+    width: 100%; 
+    background-attachment: fixed !important;
+    background-position: center  !important;
+    background-size: cover !important;
 }
-.top{
+.top , .top-1{
     position: absolute;
-    top: 4.3rem !important;
+    top: 4rem !important;
 }
-.form-floating>.form-control, .form-floating>.form-select {
-    height: 3rem;
+.boxwidth{
+     width: 28rem !important;
+}
+.form-floating>.form-control, .form-floating>.form-select , .contactheight {
+    height: 2.7rem;
     line-height: 1.25;
 }
 .sort{
@@ -205,8 +191,6 @@
 }
 .clickbox:focus {
     border-color: var(--black);
-    /* outline: 0; */
-    /* box-shadow: 0 0 0 0.25rem rgb(13 110 253 / 25%); */
 }
 /* all product page */
 .allproductimg{
@@ -244,10 +228,17 @@
 .fontsize6{
     font-size: 1rem;
 }
-
+/* .fontsize9{
+    font-size: 2.6rem!important;
+} */
 .errorimg{
     width: 18rem;
     height: 18rem; 
+}
+/* FAQs */
+#faqsec1 h1{
+    top: 14rem ;
+    font-size: 3.7rem;
 }
 /* RESPONSIVE */
  @media screen and (min-width:768px) and (max-width:1290px){
@@ -257,6 +248,9 @@
 .fontsize6{
     font-size: 0.85rem ;
 }
+.fontsize9{
+    font-size: 2rem;
+}
  .hidename{
      display: none !important;
  }
@@ -264,7 +258,19 @@
     width: 7rem;
     height: 3.5rem;
 }
-
+.top{
+    position: absolute;
+    top: 3.1rem !important;
+}
+.fontsize11{
+    font-size: 1rem;
+}
+.crossmargin{
+    margin-left: 7.6rem;
+}
+#faqsec1 h1 {
+    font-size: 3rem;
+}
 } 
  @media screen and (min-width:450px) and (max-width:767.5px){
  .errorimg{
@@ -301,6 +307,29 @@
     flex: 0 0 auto;
     width: 50% !important;
 }
+.fontsize9{
+    font-size: 1.7rem;
+}
+.boxwidth{
+    width: 26.4rem !important;
+}
+.top{
+    position: absolute;
+    top: 2.5rem !important;
+}
+.crossmargin{
+    margin-left: 7.2rem;
+}
+.fontsize11{
+    font-size: 0.9rem;
+}
+.compare{
+    width: 9rem;
+}
+#faqsec1 h1 {
+    font-size: 2.25rem;
+}
+
 } 
  @media screen and (min-width:381px) and (max-width:450px){
  .errorimg{
@@ -326,10 +355,10 @@
 .allcat , .comparehide, .hidename{
     display: none !important;
 }
-.col-xs-6 {
+/* .col-xs-6 {
     flex: 0 0 auto;
     width: 50% !important;
-}
+} */
  .fontsize5{
     font-size: 1.1rem;
 }
@@ -339,6 +368,31 @@
 .logo{ 
    width: 6rem;
    height: 3rem;
+}
+.fontsize9{
+    font-size: 1.57rem;
+}
+.boxwidth{
+    width: 22rem !important;
+}
+.top{
+    position: absolute;
+    top: 2.5rem !important;
+}
+.compare{
+    width: 7.4rem;
+}
+.fontsize11{
+    font-size: 0.74rem;
+}
+.searchproduct {
+    font-size: 3.5rem;
+}
+.crossmargin{
+    margin-left: 5rem;
+}
+#faqsec1 h1 {
+    font-size: 1.9rem;
 }
 } 
  @media screen and (min-width:298px) and (max-width:381px){
@@ -372,8 +426,11 @@
     width: 95%;
     margin: 0 auto;
 } 
- .allcat , .comparehide , .hidename{
+ .allcat , .comparehide , .hidename , .h-hide , .snone{ 
     display: none !important;
+}
+.comparesearch{
+    border-right: 1px solid var(--black) !important ;
 }
 .col-xs-6 {
     flex: 0 0 auto;
@@ -395,6 +452,40 @@
    width: 4rem;
    height: 2rem;
 }
+.boxwidth{
+    width: 17rem !important;
+}
+.col-xxs-12{
+    flex: 0 0 auto;
+    width: 100% !important;
+}
+.fontsize10{
+    font-size: 0.7rem !important;
+}
+.compare{
+    width: 6rem;
+}
+.fontsize11{
+    font-size: 0.5rem;
+}
+.fontsize12{
+    font-size: 0.9rem;
+}
+.searchproduct {
+    font-size: 3.4rem;
+}
+.crossmargin{
+    margin-left: 4rem;
+}
+#faqsec1 h1 {
+    font-size: 1.48rem;
+}
+#aboutsec1 h3{
+    font-size: 1.3rem !important;
+}
+.aboutimg{
+    height: 18rem !important;
+}
 } 
  @media screen and (min-width:273px) and (max-width:298px){
     .wbnamesize {
@@ -408,7 +499,6 @@
     height: 8rem; 
  }
  .errortext{
-     /* text-align: center !important; */
      display: flex;
      justify-content: center;
  }
@@ -427,13 +517,13 @@
     width: 95%;
     margin: 0 auto;
 } 
- .allcat , .comparehide, .hidename{
+ .allcat , .comparehide, .hidename ,.h-hide , .snone{
     display: none !important;
 }
-.col-xs-6 {
+/* .col-xs-6 {
     flex: 0 0 auto;
     width: 50% !important;
-}
+} */
 .fontsize5{
     font-size: 0.5rem;
 }
@@ -449,5 +539,42 @@
 .logo{ 
    width: 3rem;
    height: 1.5rem;
+}
+.boxwidth{
+    width: 15.6rem !important;
+}
+.fontsize10{
+    font-size: 0.6rem !important;
+}
+.col-xxs-12{
+    flex: 0 0 auto;
+    width: 100% !important;
+}
+.compare{
+    width: 6rem;
+}
+.fontsize11{
+    font-size: 0.5rem;
+}
+.searchproduct {
+    font-size: 3.4rem;
+}
+.crossmargin{
+    margin-left: 4rem;
+}
+.comparesearch{
+    border-right: 1px solid var(--black) !important ;
+}
+.fontsize12{
+    font-size: 0.84rem !important;
+}
+#faqsec1 h1 {
+    font-size: 1.38rem;
+}
+#aboutsec1 h3{
+    font-size: 1rem !important;
+}
+.aboutimg{
+    height: 17rem !important;
 }
 } 

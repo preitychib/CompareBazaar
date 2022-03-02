@@ -15,10 +15,12 @@ namespace CompareBazaar.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+      //  private readonly HttpClient _client;
 
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
+           // _client = client;
         }
 
         public IActionResult Index()
@@ -32,7 +34,17 @@ namespace CompareBazaar.Controllers
             return View();
         }
 
-       
+        public IActionResult Contact()
+        {
+            return View();
+        }
+
+        public IActionResult FAQs()
+        {
+            return View();
+        }
+
+
 
         public IActionResult CompareChart()
         {
@@ -46,34 +58,44 @@ namespace CompareBazaar.Controllers
 
         public async Task<IActionResult> ProductsListAsync()
         {
-            // return View();
-            using (var client = new HttpClient())
+            ViewBag.mobiles = await GetMobiles("flipkart");
+            return View();
+           
+        }
+        private async Task<object> GetMobiles(string vendor)
+        {
+            try
             {
-                var url = "https://comparebazaar-api.herokuapp.com/api/flipkart/mobile/";
+                using (var client = new HttpClient())
+                {
+                    var Url = $"https://comparebazaar-api.herokuapp.com/api/{vendor}/mobile/?ordering=-price";
 
-                // return await client.GetAsync(url);
-                var response = await client.GetAsync(url);
-                response.EnsureSuccessStatusCode();
+                    // return await client.GetAsync(url);
+                    var Response = await client.GetAsync(Url);
+                    Response.EnsureSuccessStatusCode();
 
-                var content = await response.Content.ReadAsStringAsync();
+                    var Content = await Response.Content.ReadAsStringAsync();
 
-                var mobiles = JsonConvert.DeserializeObject<object>(content);
+                    var Mobiles = JsonConvert.DeserializeObject<object>(Content);
 
-                // ViewData["response"] = response;
-                Console.WriteLine(mobiles);
 
-                ViewBag.mobiles = mobiles;
-
-                return View();
+                    // var newMobiles = await _mobileService.GetMobiles();
+                    return Mobiles;
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.Write(ex);
+                return null;
             }
         }
-        public async Task<IActionResult> ProductDetailsAsync(int id)
+        public async Task<IActionResult> ProductDetailsAsync(string vendor,int id)
         {
             //int id = (int)TempData["id"];
             
             using (var client = new HttpClient())
             {
-                var url = $"https://comparebazaar-api.herokuapp.com/api/flipkart/mobile/{id}";
+                var url = $"https://comparebazaar-api.herokuapp.com/api/{vendor}/mobile/{id}";
 
                 // return await client.GetAsync(url);
                 var response = await client.GetAsync(url);

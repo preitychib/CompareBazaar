@@ -37,13 +37,18 @@ namespace CompareBazaar
                 .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
-           /*services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-                .AddCookie(options =>
-                {
-                    options.LoginPath = "/Identity/Account/Login";
-                }
-                );
-           */
+            //services.AddHttpClient<>(c =>
+            //{
+            //    c.BaseAddress = new Uri("https://comparebazaar-api.herokuapp.com");
+            //    c.DefaultRequestHeaders.Add("Accept", "application/.json");
+            //});
+            /*services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                 .AddCookie(options =>
+                 {
+                     options.LoginPath = "/Identity/Account/Login";
+                 }
+                 );
+            */
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
