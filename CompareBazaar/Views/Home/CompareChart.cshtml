@@ -1,876 +1,739 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
-<section class=" mt-5 pt-5" id="s1">
-    <div class="container-fluid px-5">
-        <h2 class="text-center mb-5 text-red fw-bold"> Compare Chart </h2>
+﻿<section class=" mt-5 pt-5" id="s1">
+    <div class="container-fluid px-3">
+        <div>
+            <h2 class="text-center mb-5 text-red fw-bold"> Compare Chart </h2>
+        </div>
         <div class="row mb-5 ">
-            <div class="  col  ">
-
+            <div class="  col-lg-3 col-md-3 col-sm-4 col ">
             </div>
-            <div class="  col ">
+            <div class="  col-lg-3 col-md-3 col-sm-4 col ">
                 <div class="card shadow-sm compare d-flex align-items-center justify-content-center  ">
-                    <a href="" class="  text-decoration-none text-black pointer ">
+                    <a href="" class="  text-decoration-none text-black pointer d-block ">
                         <i class="fas fa-times crossmargin fs-4"></i>
                     </a>
-                    <img class="img-fluid  allproductimg  " id="deta" src="~/User/images/realme gt.jpg" alt="Product Image">
+                    <img class="img-fluid  allproductimg  " id="deta" src="~/User/images/realme gt.jpg" alt="">
                 </div>
             </div>
-            <div class="col ">
+            <div class="col-lg-3 col-md-3 col-sm-4   col">
                 <div class="card shadow-sm compare d-flex align-items-center justify-content-center  ">
                     <a href="" class="mt-4"><i class="fas fa-search-plus text-red searchproduct"></i> </a>
-                    <form class="d-flex  mx-4 mt-4">
-                        <!-- <input class="form-control me-2" type="search" placeholder="Search Products" aria-label="Search"> -->
-                        <input type="search" placeholder="Search products"
-                               class="form-control shadow-none comparesearch" aria-label="Search">
-                        <a class="btn  btn-outline-danger text-red btncolor ms-2 shadow-none" href="#"
-                           type="submit">Search</a>
+                    <form class="d-flex  mx-2 mt-4">
+                        <input type="search" placeholder="Search products" class="form-control radius shadow-none comparesearch "
+                               aria-label="Search">
+                        <a type="submit" class="btn btn-link searchcolor bg-red text-white radius shadow-none snone" href="#">
+                            <i class="fas fa-search"></i>
+                        </a>
                     </form>
-                    <a class="btn btn-danger redbtn bg-red col-8 m-2 shadow-none">
+                    <a class="btn btn-danger redbtn bg-red col-8 m-2 fontsize11 shadow-none">
                         ADD TO
                         COMPARE
                     </a>
                 </div>
             </div>
-            <div class="col ">
+            <div class=" col-lg-3 col-md-3  comparehide">
                 <div class="card shadow-sm compare d-flex align-items-center justify-content-center  ">
                     <a href="" class="mt-4"><i class="fas fa-search-plus text-red searchproduct"></i></a>
-                    <form class="d-flex  mx-4 mt-4">
-                        <!-- <input class="form-control me-2" type="search" placeholder="Search Products" aria-label="Search"> -->
-                        <input type="search" placeholder="Search products"
-                               class="form-control shadow-none comparesearch" aria-label="Search">
-                        <a class="btn  btn-outline-dangern text-red btncolor ms-2 shadow-none" href="#">Search</a>
+                    <form class="d-flex  mx-2 mt-4">
+                        <input type="search" placeholder="Search products" class="form-control radius shadow-none comparesearch "
+                               aria-label="Search">
+                        <a type="submit" class="btn btn-link searchcolor bg-red text-white radius shadow-none snone" href="#">
+                            <i class="fas fa-search"></i>
+                        </a>
                     </form>
-                    <a class="btn btn-danger redbtn bg-red col-8 m-2 shadow-none" href="#">
+                    <a class="btn btn-danger redbtn bg-red col-8 m-2 fontsize11 shadow-none" href="#">
                         ADD TO
                         COMPARE
                     </a>
                 </div>
             </div>
-            <div class="col ">
+            <!-- <div class="col-lg-2 col-md-2 comparehide ">
                 <div class="card shadow-sm compare d-flex align-items-center justify-content-center  ">
                     <a href="" class="mt-4"><i class="fas fa-search-plus text-red searchproduct"></i> </a>
-                    <form class="d-flex  mx-4 mt-4  ">
-                        <!-- <input class="form-control me-2" type="search" placeholder="Search Products" aria-label="Search"> -->
-                        <input type="search" placeholder="Search products"
-                               class="form-control shadow-none  comparesearch" aria-label="Search">
-                        <a class="btn  btn-outline-danger text-red btncolor ms-2 shadow-none" href="#">Search</a>
-                    </form>
-                    <a class="btn btn-danger redbtn bg-red col-8 m-2 shadow-none" href="#">
-                        ADD TO
-                        COMPARE
-                    </a>
+                    <form class="d-flex  mx-2 mt-4">
+                        <input type="search" placeholder="Search products" class="form-control radius shadow-none comparesearch "
+                          aria-label="Search">
+                          <a type="submit" class="btn btn-link searchcolor bg-red text-white radius shadow-none" href="#"> <i
+                              class="fas fa-search"></i></a>
+                      </form>
+                    <a class="btn btn-danger redbtn bg-red col-8 m-2 shadow-none" href="#">ADD TO
+                        COMPARE </a>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 
 </section>
-<section id="s2 " class="container-fluid px-5">
-
+<section id="s2 " class="container-fluid px-3 ">
     <div class="row bg-light d-flex align-items-center  ">
-        <div class="col">
-            <span class="fs-6">Name</span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fs-6 fontsize12">Name</span>
         </div>
-        <div class="col">
-            <span>Realme GT Master Edition</span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fontsize12">Realme GT Master Edition</span>
         </div>
-        <div class="col">
-            <span></span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fontsize12"></span>
         </div>
-        <div class="col">
-            <span></span>
-        </div>
-        <div class="col">
-            <span></span>
+        <div class=" col-lg-3 col-md-3  comparehide">
+            <span class="fontsize12"></span>
         </div>
     </div>
     <div class="row  d-flex align-items-center ">
-        <div class="col">
-            <span class="fs-6">Price</span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col ">
+            <span class="fs-6 fontsize12">Price</span>
         </div>
-        <div class="col">
-            <span>Rs 23,960</span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fontsize12">Rs 23,960</span>
         </div>
-        <div class="col">
-            <span></span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fontsize12"></span>
         </div>
-        <div class="col">
-            <span></span>
-        </div>
-        <div class="col">
-            <span></span>
+        <div class="col-lg-3 col-md-3 comparehide">
+            <span class="fontsize12"></span>
         </div>
     </div>
     <div class="row  bg-red d-flex align-items-center ">
         <div class="col">
-            <span class="fs-4  text-white ">GENERAL</span>
+            <span class="fs-4 fontsize7 text-white ">GENERAL</span>
         </div>
     </div>
     <div class="row  d-flex align-items-center ">
-        <div class="col">
-            <span class="fs-6">Network</span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fs-6 fontsize12">Network</span>
         </div>
-        <div class="col">
-            <span>5G</span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fontsize12">5G</span>
         </div>
-        <div class="col">
-            <span></span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fontsize12"></span>
         </div>
-        <div class="col">
-            <span></span>
+        <div class="col-lg-3 col-md-3 comparehide">
+            <span class="fontsize12"></span>
         </div>
-        <div class="col">
-            <span></span>
-        </div>
+
     </div>
     <div class="row  bg-light d-flex align-items-center  ">
-        <div class="col">
-            <span class="fs-6"> SIM Type </span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fs-6 fontsize12"> SIM Type </span>
         </div>
-        <div class="col">
-            <span>Nano SIM</span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fontsize12">Nano SIM</span>
         </div>
-        <div class="col">
-            <span></span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fontsize12"></span>
         </div>
-        <div class="col">
-            <span></span>
-        </div>
-        <div class="col">
-            <span></span>
+        <div class="col-lg-3 col-md-3 comparehide">
+            <span class="fontsize12"></span>
         </div>
     </div>
     <div class="row  d-flex align-items-center ">
-        <div class="col">
-            <span class="fs-6">Dual SIM</span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fs-6 fontsize12">Dual SIM</span>
         </div>
-        <div class="col">
-            <span>Yes</span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fontsize12">Yes</span>
         </div>
-        <div class="col">
-            <span></span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fontsize12"></span>
         </div>
-        <div class="col">
-            <span></span>
-        </div>
-        <div class="col">
-            <span></span>
+        <div class="col-lg-3 col-md-3 comparehide">
+            <span class="fontsize12"></span>
         </div>
     </div>
     <div class="row bg-light d-flex align-items-center  ">
-        <div class="col">
-            <span class="fs-6">Touch Screen</span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fs-6 fontsize12">Touch Screen</span>
         </div>
-        <div class="col">
-            <span>Yes</span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fontsize12">Yes</span>
         </div>
-        <div class="col">
-            <span></span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fontsize12"></span>
         </div>
-        <div class="col">
-            <span></span>
-        </div>
-        <div class="col">
-            <span></span>
+        <div class="col-lg-3 col-md-3 comparehide">
+            <span class="fontsize12"></span>
         </div>
     </div>
     <div class="row  d-flex align-items-center ">
-        <div class="col">
-            <span class="fs-6">FingerPrint Unlock</span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fs-6 fontsize12">FingerPrint Unlock</span>
         </div>
-        <div class="col">
-            <span>Yes</span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fontsize12">Yes</span>
         </div>
-        <div class="col">
-            <span></span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fontsize12"></span>
         </div>
-        <div class="col">
-            <span></span>
-        </div>
-        <div class="col">
-            <span></span>
+        <div class="col-lg-3 col-md-3 comparehide">
+            <span class="fontsize12"></span>
         </div>
     </div>
     <div class="row bg-light d-flex align-items-center ">
-        <div class="col">
-            <span class="fs-6">Face Lock</span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fs-6 fontsize12">Face Lock</span>
         </div>
-        <div class="col">
-            <span>NA</span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fontsize12">NA</span>
         </div>
-        <div class="col">
-            <span></span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fontsize12"></span>
         </div>
-        <div class="col">
-            <span></span>
-        </div>
-        <div class="col">
-            <span></span>
+        <div class="col-lg-3 col-md-3 comparehide">
+            <span class="fontsize12"></span>
         </div>
     </div>
     <div class="row bg-red  d-flex align-items-center">
         <div class="col">
-            <span class="text-white fs-4">DISPLAY</span>
+            <span class="text-white fontsize7 fs-4">DISPLAY</span>
         </div>
     </div>
     <div class="row d-flex align-items-center">
-        <div class="col">
-            <span class="fs-6">Screen Size </span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fs-6 fontsize12">Screen Size </span>
         </div>
-        <div class="col">
-            <span> 6.43 inch </span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fontsize12"> 6.43 inch </span>
         </div>
-        <div class="col">
-            <span></span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fontsize12"></span>
         </div>
-        <div class="col">
-            <span></span>
-        </div>
-        <div class="col">
-            <span></span>
+        <div class="col-lg-3 col-md-3 comparehide">
+            <span class="fontsize12"></span>
         </div>
     </div>
     <div class="row d-flex align-items-center bg-light">
-        <div class="col">
-            <span class="fs-6">Screen Resolution</span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fs-6 fontsize12">Screen Resolution</span>
         </div>
-        <div class="col">
-            <span>1080 x 2400 pixels</span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fontsize12">1080 x 2400 pixels</span>
         </div>
-        <div class="col">
-            <span></span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fontsize12"></span>
         </div>
-        <div class="col">
-            <span></span>
-        </div>
-        <div class="col">
-            <span></span>
+        <div class="col-lg-3 col-md-3 comparehide">
+            <span class="fontsize12"></span>
         </div>
     </div>
     <div class="row  d-flex align-items-center">
-        <div class="col">
-            <span class="fs-6">Display Type</span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fs-6 fontsize12">Display Type</span>
         </div>
-        <div class="col">
-            <span>Super AMOLED</span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fontsize12">Super AMOLED</span>
         </div>
-        <div class="col">
-            <span></span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fontsize12"></span>
         </div>
-        <div class="col">
-            <span></span>
-        </div>
-        <div class="col">
-            <span></span>
+        <div class="col-lg-3 col-md-3 comparehide">
+            <span class="fontsize12"></span>
         </div>
     </div>
     <div class="row bg-red d-flex align-items-center">
         <div class="col">
-            <span class="fs-4 text-white">MEMORY</span>
+            <span class="fs-4 fontsize7 text-white">MEMORY</span>
         </div>
     </div>
     <div class="row d-flex align-items-center ">
-        <div class="col">
-            <span class="fs-6"> Internal Memory </span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fs-6 fontsize12"> Internal Memory </span>
         </div>
-        <div class="col">
-            <span>128 GB</span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fontsize12">128 GB</span>
         </div>
-        <div class="col">
-            <span></span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fontsize12"></span>
         </div>
-        <div class="col">
-            <span></span>
-        </div>
-        <div class="col">
-            <span></span>
+        <div class="col-lg-3 col-md-3 comparehide">
+            <span class="fontsize12"></span>
         </div>
     </div>
     <div class="row d-flex align-items-center bg-light">
-        <div class="col">
-            <span class="fs-6"> External Memory</span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fs-6 fontsize12"> External Memory</span>
         </div>
-        <div class="col">
-            <span>NA</span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fontsize12">NA</span>
         </div>
-        <div class="col">
-            <span></span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fontsize12"></span>
         </div>
-        <div class="col">
-            <span></span>
-        </div>
-        <div class="col">
-            <span></span>
+        <div class="col-lg-3 col-md-3 comparehide">
+            <span class="fontsize12"></span>
         </div>
     </div>
     <div class="row d-flex align-items-center">
-        <div class="col">
-            <span class="fs-4">RAM</span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fs-6 fontsize12">RAM</span>
         </div>
-        <div class="col">
-            <span>8GB</span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fontsize12">8GB</span>
         </div>
-        <div class="col">
-            <span></span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fontsize12"></span>
         </div>
-        <div class="col">
-            <span></span>
-        </div>
-        <div class="col">
-            <span></span>
+        <div class="col-lg-3 col-md-3 comparehide">
+            <span class="fontsize12"></span>
         </div>
     </div>
     <div class="row d-flex align-items-center bg-red">
         <div class="col">
-            <span class="fs-4 text-white">CAMERA</span>
+            <span class="fs-4 fontsize7 text-white">CAMERA</span>
         </div>
     </div>
     <div class="row d-flex align-items-center ">
-        <div class="col">
-            <span class="fs-6">Rear Camera</span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fs-6 fontsize12">Rear Camera</span>
         </div>
-        <div class="col">
-            <span>64 MP</span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fontsize12">64 MP</span>
         </div>
-        <div class="col">
-            <span></span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fontsize12"></span>
         </div>
-        <div class="col">
-            <span></span>
-        </div>
-        <div class="col">
-            <span></span>
+        <div class="col-lg-3 col-md-3 comparehide">
+            <span class="fontsize12"></span>
         </div>
     </div>
     <div class="row d-flex align-items-center bg-light ">
-        <div class="col">
-            <span class="fs-6">Rear Camera Flash</span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fs-6 fontsize12">Rear Camera Flash</span>
         </div>
-        <div class="col">
-            <span>Yes</span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fontsize12">Yes</span>
         </div>
-        <div class="col">
-            <span></span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fontsize12"></span>
         </div>
-        <div class="col">
-            <span></span>
-        </div>
-        <div class="col">
-            <span></span>
+        <div class="col-lg-3 col-md-3 comparehide">
+            <span class="fontsize12"></span>
         </div>
     </div>
     <div class="row d-flex align-items-center ">
-        <div class="col">
-            <span class="fs-6">Front Camera</span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fs-6 fontsize12">Front Camera</span>
         </div>
-        <div class="col">
-            <span>32 MP</span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fontsize12">32 MP</span>
         </div>
-        <div class="col">
-            <span></span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fontsize12"></span>
         </div>
-        <div class="col">
-            <span></span>
-        </div>
-        <div class="col">
-            <span></span>
+        <div class="col-lg-3 col-md-3 comparehide">
+            <span class="fontsize12"></span>
         </div>
     </div>
     <div class="row d-flex align-items-center bg-light">
-        <div class="col">
-            <span class="fs-6"> Front Camera Flash</span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fs-6 fontsize12"> Front Camera Flash</span>
         </div>
-        <div class="col">
-            <span>NA</span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fontsize12">NA</span>
         </div>
-        <div class="col">
-            <span></span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fontsize12"></span>
         </div>
-        <div class="col">
-            <span></span>
-        </div>
-        <div class="col">
-            <span></span>
+        <div class="col-lg-3 col-md-3 comparehide">
+            <span class="fontsize12"></span>
         </div>
     </div>
     <div class="row d-flex align-items-center bg-red">
         <div class="col">
-            <span class="fs-4 text-white">VIDEO RECORDING</span>
+            <span class="fs-4 fontsize7 text-white">VIDEO RECORDING</span>
         </div>
     </div>
     <div class="row d-flex align-items-center">
-        <div class="col">
-            <span class="fs-6"> Rear Camera Video Quality</span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fs-6 fontsize12"> Rear Camera Video Quality</span>
         </div>
-        <div class="col">
-            <span>2160 p</span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fontsize12">2160 p</span>
         </div>
-        <div class="col">
-            <span></span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fontsize12"></span>
         </div>
-        <div class="col">
-            <span></span>
-        </div>
-        <div class="col">
-            <span></span>
+        <div class="col-lg-3 col-md-3 comparehide">
+            <span class="fontsize12"></span>
         </div>
     </div>
     <div class="row d-flex align-items-center bg-red">
         <div class="col">
-            <span class="fs-4 text-white">CONNECTIVITY</span>
+            <span class="fs-4 fontsize7 text-white">CONNECTIVITY</span>
         </div>
     </div>
     <div class="row d-flex align-items-center">
-        <div class="col">
-            <span class="fs-6">Wifi</span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fs-6 fontsize12">Wifi</span>
         </div>
-        <div class="col">
-            <span>Yes</span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fontsize12">Yes</span>
         </div>
-        <div class="col">
-            <span></span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fontsize12"></span>
         </div>
-        <div class="col">
-            <span></span>
-        </div>
-        <div class="col">
-            <span></span>
+        <div class="col-lg-3 col-md-3 comparehide">
+            <span class="fontsize12"></span>
         </div>
     </div>
     <div class="row d-flex align-items-center bg-light">
-        <div class="col">
-            <span class="fs-6"> Radio</span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fs-6 fontsize12"> Radio</span>
         </div>
-        <div class="col">
-            <span>No</span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fontsize12">No</span>
         </div>
-        <div class="col">
-            <span></span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fontsize12"></span>
         </div>
-        <div class="col">
-            <span></span>
-        </div>
-        <div class="col">
-            <span></span>
+        <div class="col-lg-3 col-md-3 comparehide">
+            <span class="fontsize12"></span>
         </div>
     </div>
     <div class="row d-flex align-items-center">
-        <div class="col">
-            <span class="fs-6">Infrared</span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fs-6 fontsize12">Infrared</span>
         </div>
-        <div class="col">
-            <span>NA</span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fontsize12">NA</span>
         </div>
-        <div class="col">
-            <span></span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fontsize12"></span>
         </div>
-        <div class="col">
-            <span></span>
-        </div>
-        <div class="col">
-            <span></span>
+        <div class="col-lg-3 col-md-3 comparehide">
+            <span class="fontsize12"></span>
         </div>
     </div>
     <div class="row d-flex align-items-center bg-light">
-        <div class="col">
-            <span class="fs-6">GPRS</span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fs-6 fontsize12">GPRS</span>
         </div>
-        <div class="col">
-            <span>NA</span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fontsize12">NA</span>
         </div>
-        <div class="col">
-            <span></span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fontsize12"></span>
         </div>
-        <div class="col">
-            <span></span>
-        </div>
-        <div class="col">
-            <span></span>
+        <div class="col-lg-3 col-md-3 comparehide">
+            <span class="fontsize12"></span>
         </div>
     </div>
     <div class="row d-flex align-items-center">
-        <div class="col">
-            <span class="fs-6"> EDGE</span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fs-6 fontsize12"> EDGE</span>
         </div>
-        <div class="col">
-            <span>NA</span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fontsize12">NA</span>
         </div>
-        <div class="col">
-            <span></span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fontsize12"></span>
         </div>
-        <div class="col">
-            <span></span>
-        </div>
-        <div class="col">
-            <span></span>
+        <div class="col-lg-3 col-md-3 comparehide">
+            <span class="fontsize12"></span>
         </div>
     </div>
     <div class="row d-flex align-items-center bg-light">
-        <div class="col">
-            <span class="fs-6"> NFC</span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fs-6 fontsize12"> NFC</span>
         </div>
-        <div class="col">
-            <span>Yes</span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fontsize12">Yes</span>
         </div>
-        <div class="col">
-            <span></span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fontsize12"></span>
         </div>
-        <div class="col">
-            <span></span>
-        </div>
-        <div class="col">
-            <span></span>
+        <div class="col-lg-3 col-md-3 comparehide">
+            <span class="fontsize12"></span>
         </div>
     </div>
     <div class="row d-flex align-items-center">
-        <div class="col">
-            <span class="fs-6"> USB</span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fs-6 fontsize12"> USB</span>
         </div>
-        <div class="col">
-            <span>Yes</span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fontsize12">Yes</span>
         </div>
-        <div class="col">
-            <span></span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fontsize12"></span>
         </div>
-        <div class="col">
-            <span></span>
-        </div>
-        <div class="col">
-            <span></span>
+        <div class="col-lg-3 col-md-3 comparehide">
+            <span class="fontsize12"></span>
         </div>
     </div>
     <div class="row d-flex align-items-center bg-light">
-        <div class="col">
-            <span class="fs-6"> Bluetooth Version</span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fs-6 fontsize12"> Bluetooth Version</span>
         </div>
-        <div class="col">
-            <span>5.0 With A2DP</span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fontsize12">5.0 With A2DP</span>
         </div>
-        <div class="col">
-            <span></span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fontsize12"></span>
         </div>
-        <div class="col">
-            <span></span>
-        </div>
-        <div class="col">
-            <span></span>
+        <div class="col-lg-3 col-md-3 comparehide">
+            <span class="fontsize12"></span>
         </div>
     </div>
     <div class="row d-flex align-items-center bg-red">
         <div class="col">
-            <span class="fs-4 text-white">OS</span>
+            <span class="fs-4 fontsize7 text-white">OS</span>
         </div>
     </div>
     <div class="row d-flex align-items-center">
-        <div class="col">
-            <span class="fs-6"> OS </span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fs-6 fontsize12"> OS </span>
         </div>
-        <div class="col">
-            <span>Android</span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fontsize12">Android</span>
         </div>
-        <div class="col">
-            <span></span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fontsize12"></span>
         </div>
-        <div class="col">
-            <span></span>
-        </div>
-        <div class="col">
-            <span></span>
+        <div class="col-lg-3 col-md-3 comparehide">
+            <span class="fontsize12"></span>
         </div>
     </div>
     <div class="row d-flex align-items-center bg-light">
-        <div class="col">
-            <span class="fs-6"> OS Version </span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fs-6 fontsize12"> OS Version </span>
         </div>
-        <div class="col">
-            <span> Android 11 </span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fontsize12"> Android 11 </span>
         </div>
-        <div class="col">
-            <span></span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fontsize12"></span>
         </div>
-        <div class="col">
-            <span></span>
-        </div>
-        <div class="col">
-            <span></span>
+        <div class="col-lg-3 col-md-3 comparehide">
+            <span class="fontsize12"></span>
         </div>
     </div>
     <div class="row d-flex align-items-center bg-red">
         <div class="col">
-            <span class="fs-4 text-white">PROCESSOR</span>
+            <span class="fs-4 fontsize7 text-white">PROCESSOR</span>
         </div>
     </div>
     <div class="row d-flex align-items-center">
-        <div class="col">
-            <span class="fs-6"> Processor Type</span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fs-6 fontsize12"> Processor Type</span>
         </div>
-        <div class="col">
-            <span>Octa Core</span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fontsize12">Octa Core</span>
         </div>
-        <div class="col">
-            <span></span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fontsize12"></span>
         </div>
-        <div class="col">
-            <span></span>
-        </div>
-        <div class="col">
-            <span></span>
+        <div class="col-lg-3 col-md-3 comparehide">
+            <span class="fontsize12"></span>
         </div>
     </div>
     <div class="row d-flex align-items-center bg-light">
-        <div class="col">
-            <span class="fs-6"> Processor Speed</span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fs-6 fontsize12"> Processor Speed</span>
         </div>
-        <div class="col">
-            <span>2.4 Ghz</span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fontsize12">2.4 Ghz</span>
         </div>
-        <div class="col">
-            <span></span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fontsize12"></span>
         </div>
-        <div class="col">
-            <span></span>
-        </div>
-        <div class="col">
-            <span></span>
+        <div class="col-lg-3 col-md-3 comparehide">
+            <span class="fontsize12"></span>
         </div>
     </div>
     <div class="row d-flex align-items-center">
-        <div class="col">
-            <span class="fs-6">Chipset Group</span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fs-6 fontsize12">Chipset Group</span>
         </div>
-        <div class="col">
-            <span> Qualcomm </span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fontsize12"> Qualcomm </span>
         </div>
-        <div class="col">
-            <span></span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fontsize12"></span>
         </div>
-        <div class="col">
-            <span></span>
-        </div>
-        <div class="col">
-            <span></span>
+        <div class="col-lg-3 col-md-3 comparehide">
+            <span class="fontsize12"></span>
         </div>
     </div>
     <div class="row d-flex align-items-center bg-light">
-        <div class="col">
-            <span class="fs-6"> Chipset Details</span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fs-6 fontsize12"> Chipset Details</span>
         </div>
-        <div class="col">
-            <span> Snapdragon 778G 5G</span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fontsize12"> Snapdragon 778G 5G</span>
         </div>
-        <div class="col">
-            <span></span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fontsize12"></span>
         </div>
-        <div class="col">
-            <span></span>
-        </div>
-        <div class="col">
-            <span></span>
+        <div class="col-lg-3 col-md-3 comparehide">
+            <span class="fontsize12"></span>
         </div>
     </div>
     <div class="row d-flex align-items-center bg-red">
         <div class="col">
-            <span class="fs-4 text-white">BATTERY</span>
+            <span class="fs-4 fontsize7 text-white">BATTERY</span>
         </div>
     </div>
     <div class="row d-flex align-items-center">
-        <div class="col">
-            <span class="fs-6"> Battery Type</span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fs-6 fontsize12"> Battery Type</span>
         </div>
-        <div class="col">
-            <span>Li-Po</span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fontsize12">Li-Po</span>
         </div>
-        <div class="col">
-            <span></span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fontsize12"></span>
         </div>
-        <div class="col">
-            <span></span>
-        </div>
-        <div class="col">
-            <span></span>
+        <div class="col-lg-3 col-md-3 comparehide">
+            <span class="fontsize12"></span>
         </div>
     </div>
     <div class="row d-flex align-items-center bg-light">
-        <div class="col">
-            <span class="fs-6"> Battery Capacity</span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fs-6 fontsize12"> Battery Capacity</span>
         </div>
-        <div class="col">
-            <span>4300 mAh </span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fontsize12">4300 mAh </span>
         </div>
-        <div class="col">
-            <span></span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fontsize12"></span>
         </div>
-        <div class="col">
-            <span></span>
-        </div>
-        <div class="col">
-            <span></span>
+        <div class="col-lg-3 col-md-3 comparehide">
+            <span class="fontsize12"></span>
         </div>
     </div>
     <div class="row d-flex align-items-center">
-        <div class="col">
-            <span class="fs-6">Stand By Time</span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fs-6 fontsize12">Stand By Time</span>
         </div>
-        <div class="col">
-            <span>NA</span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fontsize12">NA</span>
         </div>
-        <div class="col">
-            <span></span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fontsize12"></span>
         </div>
-        <div class="col">
-            <span></span>
-        </div>
-        <div class="col">
-            <span></span>
+        <div class="col-lg-3 col-md-3 comparehide">
+            <span class="fontsize12"></span>
         </div>
     </div>
     <div class="row d-flex align-items-center bg-light">
-        <div class="col">
-            <span class="fs-6">Talk Time</span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fs-6 fontsize12">Talk Time</span>
         </div>
-        <div class="col">
-            <span>NA</span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fontsize12">NA</span>
         </div>
-        <div class="col">
-            <span></span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fontsize12"></span>
         </div>
-        <div class="col">
-            <span></span>
-        </div>
-        <div class="col">
-            <span></span>
+        <div class="col-lg-3 col-md-3 comparehide">
+            <span class="fontsize12"></span>
         </div>
     </div>
     <div class="row d-flex align-items-center bg-red">
         <div class="col">
-            <span class="fs-4 text-white">SOUND</span>
+            <span class="fs-4 fontsize7 text-white">SOUND</span>
         </div>
     </div>
     <div class="row d-flex align-items-center">
-        <div class="col">
-            <span class="fs-6">3.5mm Jack</span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fs-6 fontsize12">3.5mm Jack</span>
         </div>
-        <div class="col">
-            <span>Yes</span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fontsize12">Yes</span>
         </div>
-        <div class="col">
-            <span></span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fontsize12"></span>
         </div>
-        <div class="col">
-            <span></span>
-        </div>
-        <div class="col">
-            <span></span>
+        <div class="col-lg-3 col-md-3 comparehide">
+            <span class="fontsize12"></span>
         </div>
     </div>
     <div class="row d-flex align-items-center bg-light">
-        <div class="col">
-            <span class="fs-6">Loudspeaker</span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fs-6 fontsize12">Loudspeaker</span>
         </div>
-        <div class="col">
-            <span>Yes</span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fontsize12">Yes</span>
         </div>
-        <div class="col">
-            <span></span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fontsize12"></span>
         </div>
-        <div class="col">
-            <span></span>
-        </div>
-        <div class="col">
-            <span></span>
+        <div class="col-lg-3 col-md-3 comparehide">
+            <span class="fontsize12"></span>
         </div>
     </div>
     <div class="row d-flex align-items-center bg-red">
         <div class="col">
-            <span class="fs-4 text-white">BODY </span>
+            <span class="fs-4 fontsize7 text-white">BODY </span>
         </div>
     </div>
     <div class="row d-flex align-items-center">
-        <div class="col">
-            <span class="fs-6">Height</span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fs-6 fontsize12">Height</span>
         </div>
-        <div class="col">
-            <span>159.2 mm</span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fontsize12">159.2 mm</span>
         </div>
-        <div class="col">
-            <span></span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fontsize12"></span>
         </div>
-        <div class="col">
-            <span></span>
-        </div>
-        <div class="col">
-            <span></span>
+        <div class="col-lg-3 col-md-3 comparehide">
+            <span class="fontsize12"></span>
         </div>
     </div>
     <div class="row d-flex align-items-center bg-light">
-        <div class="col">
-            <span class="fs-6"> Width</span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fs-6 fontsize12"> Width</span>
         </div>
-        <div class="col">
-            <span>73.5 mm</span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fontsize12">73.5 mm</span>
         </div>
-        <div class="col">
-            <span></span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fontsize12"></span>
         </div>
-        <div class="col">
-            <span></span>
-        </div>
-        <div class="col">
-            <span></span>
+        <div class="col-lg-3 col-md-3 comparehide">
+            <span class="fontsize12"></span>
         </div>
     </div>
     <div class="row d-flex align-items-center">
-        <div class="col">
-            <span class="fs-6">Thickness </span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fs-6 fontsize12">Thickness </span>
         </div>
-        <div class="col">
-            <span>8.0 mm</span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fontsize12">8.0 mm</span>
         </div>
-        <div class="col">
-            <span></span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fontsize12"></span>
         </div>
-        <div class="col">
-            <span></span>
-        </div>
-        <div class="col">
-            <span></span>
+        <div class="col-lg-3 col-md-3 comparehide">
+            <span class="fontsize12"></span>
         </div>
     </div>
     <div class="row d-flex align-items-center bg-light">
-        <div class="col">
-            <span class="fs-6">Weight</span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fs-6 fontsize12">Weight</span>
         </div>
-        <div class="col">
-            <span>180 g</span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fontsize12">180 g</span>
         </div>
-        <div class="col">
-            <span></span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fontsize12"></span>
         </div>
-        <div class="col">
-            <span></span>
-        </div>
-        <div class="col">
-            <span></span>
+        <div class="col-lg-3 col-md-3 comparehide">
+            <span class="fontsize12"></span>
         </div>
     </div>
     <div class="row d-flex align-items-center bg-light">
-        <div class="col">
-            <span class="fs-6">Type</span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fs-6 fontsize12">Type</span>
         </div>
-        <div class="col">
-            <span>NA</span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fontsize12">NA</span>
         </div>
-        <div class="col">
-            <span></span>
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <span class="fontsize12"></span>
         </div>
-        <div class="col">
-            <span></span>
-        </div>
-        <div class="col">
-            <span></span>
+        <div class="col-lg-3 col-md-3 comparehide">
+            <span class="fontsize12"></span>
         </div>
     </div>
 </section>
