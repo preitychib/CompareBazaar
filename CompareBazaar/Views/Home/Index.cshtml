@@ -2,14 +2,14 @@
     ViewData["Title"] = "Home";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<section id="section1" class="search-bar  ">
+<section id="section1" class="search-bar ">
     <div class="container ">
         <div class="row">
             <div class="col-lg-10 mx-auto">
-                <form class="formsearch">
-                    <div class="p-1 bg-light bg-dark borderradius searchbox  ">
+                <form class="formsearch" method="get">
+                    <div class="p-1 bg-light bg-dark rounded searchbox  ">
                         <div class="input-group">
-                            <input type="search" placeholder="Search products,brands,features" class="form-control shadow-none">
+                            <input type="search"  placeholder="Search products,brands,features" class="form-control shadow-none">
                             <div class="input-group-append allcat">
                                 <div class="btn-group">
                                     <a class="btn text-white border-top-0 rounded-0 border-end-0 border-bottom-0 btn-outline-dark shadow-none  dropdown-toggle"
@@ -174,11 +174,25 @@
     <div class="container">
         <h2 class="text-center mb-5 text-red fw-bold"> Compare Chart </h2>
         <div class="row mb-5 ">
-            <div class="  col-lg-3 col-md-3 col-sm-6 col-xs-6 ">
-                <div class="card shadow-sm compare d-flex align-items-center justify-content-center  ">
-                    <a href="" class="mt-4"><i class="fas fa-search-plus text-red searchproduct"></i> </a>
+            <div class="  col-lg-4 col-md-4 col-sm-6 col-xs-6 ">
+                <div class="card shadow-sm compare-1 d-flex align-items-center justify-content-center  ">
+                    <a href="" class="mt-4"><i class="fas fa-search-plus text-red searchproduct-1"></i> </a>
                     <form class="d-flex  mx-2 mt-4">
-                        <input type="search" placeholder="Search products" class="form-control radius shadow-none comparesearch "
+                        <input type="search" placeholder="Search products" class="form-control radius shadow-none comparesearch-1 " 
+
+                               aria-label="Search">
+                        
+                        <a type="submit" class="btn btn-link searchcolor bg-red text-white radius shadow-none" href="#">
+                            <i class="fas fa-search"></i>
+                        </a>
+                    </form>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4  col-sm-6 col-xs-6  ">
+                <div class="card shadow-sm compare-1 d-flex align-items-center justify-content-center ">
+                    <a href="" class="mt-4"><i class="fas fa-search-plus text-red searchproduct-1"></i> </a>
+                    <form class="d-flex  mx-2 mt-4">
+                        <input type="search" placeholder="Search products" class="form-control radius shadow-none comparesearch-1 "
                                aria-label="Search">
                         <a type="submit" class="btn btn-link searchcolor bg-red text-white radius shadow-none" href="#">
                             <i class="fas fa-search"></i>
@@ -186,11 +200,11 @@
                     </form>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-3  col-sm-6 col-xs-6  ">
-                <div class="card shadow-sm compare d-flex align-items-center justify-content-center ">
-                    <a href="" class="mt-4"><i class="fas fa-search-plus text-red searchproduct"></i> </a>
+            <div class="col-lg-4 col-md-4  col-sm-6 col-xs-6 comparehide ">
+                <div class="card shadow-sm compare-1 d-flex align-items-center justify-content-center  ">
+                    <a href="" class="mt-4"><i class="fas fa-search-plus text-red searchproduct-1"></i> </a>
                     <form class="d-flex  mx-2 mt-4">
-                        <input type="search" placeholder="Search products" class="form-control radius shadow-none comparesearch "
+                        <input type="search" placeholder="Search products" class="form-control radius shadow-none comparesearch-1 "
                                aria-label="Search">
                         <a type="submit" class="btn btn-link searchcolor bg-red text-white radius shadow-none" href="#">
                             <i class="fas fa-search"></i>
@@ -198,30 +212,7 @@
                     </form>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-3  col-sm-6 col-xs-6 comparehide ">
-                <div class="card shadow-sm compare d-flex align-items-center justify-content-center  ">
-                    <a href="" class="mt-4"><i class="fas fa-search-plus text-red searchproduct"></i> </a>
-                    <form class="d-flex  mx-2 mt-4">
-                        <input type="search" placeholder="Search products" class="form-control radius shadow-none comparesearch "
-                               aria-label="Search">
-                        <a type="submit" class="btn btn-link searchcolor bg-red text-white radius shadow-none" href="#">
-                            <i class="fas fa-search"></i>
-                        </a>
-                    </form>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-3  col-sm-6 col-xs-6 comparehide  ">
-                <div class="card shadow-sm compare d-flex align-items-center justify-content-center  ">
-                    <a href="" class="mt-4"><i class="fas fa-search-plus text-red searchproduct"></i> </a>
-                    <form class="d-flex  mx-2 mt-4">
-                        <input type="search" placeholder="Search products" class="form-control radius shadow-none comparesearch "
-                               aria-label="Search">
-                        <a type="submit" class="btn btn-link searchcolor bg-red text-white radius shadow-none" href="#">
-                            <i class="fas fa-search"></i>
-                        </a>
-                    </form>
-                </div>
-            </div>
+          
         </div>
         <div>
             <div class="d-flex align-items-center justify-content-center">

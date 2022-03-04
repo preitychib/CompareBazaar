@@ -44,8 +44,6 @@ namespace CompareBazaar.Controllers
             return View();
         }
 
-
-
         public IActionResult CompareChart()
         {
             return View();
@@ -56,32 +54,34 @@ namespace CompareBazaar.Controllers
             return View();
         }
 
+        public IActionResult SearchResults()
+        {
+            return View();
+        }
         public async Task<IActionResult> ProductsListAsync()
         {
             ViewBag.mobiles = await GetMobiles("flipkart");
             return View();
            
         }
-        private async Task<object> GetMobiles(string vendor)
+        private static async Task<object> GetMobiles(string vendor)
         {
             try
             {
-                using (var client = new HttpClient())
-                {
-                    var Url = $"https://comparebazaar-api.herokuapp.com/api/{vendor}/mobile/?ordering=-price";
+                using var client = new HttpClient();
+                var Url = $"https://comparebazaar-api.herokuapp.com/api/{vendor}/mobile/?ordering=-price";
 
-                    // return await client.GetAsync(url);
-                    var Response = await client.GetAsync(Url);
-                    Response.EnsureSuccessStatusCode();
+                // return await client.GetAsync(url);
+                var Response = await client.GetAsync(Url);
+                Response.EnsureSuccessStatusCode();
 
-                    var Content = await Response.Content.ReadAsStringAsync();
+                var Content = await Response.Content.ReadAsStringAsync();
 
-                    var Mobiles = JsonConvert.DeserializeObject<object>(Content);
+                var Mobiles = JsonConvert.DeserializeObject<object>(Content);
 
 
-                    // var newMobiles = await _mobileService.GetMobiles();
-                    return Mobiles;
-                }
+                // var newMobiles = await _mobileService.GetMobiles();
+                return Mobiles;
             }
             catch (Exception ex)
             {
@@ -92,27 +92,25 @@ namespace CompareBazaar.Controllers
         public async Task<IActionResult> ProductDetailsAsync(string vendor,int id)
         {
             //int id = (int)TempData["id"];
-            
-            using (var client = new HttpClient())
-            {
-                var url = $"https://comparebazaar-api.herokuapp.com/api/{vendor}/mobile/{id}";
 
-                // return await client.GetAsync(url);
-                var response = await client.GetAsync(url);
-                response.EnsureSuccessStatusCode();
+            using var client = new HttpClient();
+            var url = $"https://comparebazaar-api.herokuapp.com/api/{vendor}/mobile/{id}";
 
-                var content = await response.Content.ReadAsStringAsync();
+            // return await client.GetAsync(url);
+            var response = await client.GetAsync(url);
+            response.EnsureSuccessStatusCode();
 
-                var mobile = JsonConvert.DeserializeObject<object>(content);
+            var content = await response.Content.ReadAsStringAsync();
 
-                // ViewData["response"] = response;
-               //Console.WriteLine(mobile);
+            var mobile = JsonConvert.DeserializeObject<object>(content);
 
-                ViewBag.mobile = mobile;
-               // ViewBag.id = id;
+            // ViewData["response"] = response;
+            //Console.WriteLine(mobile);
 
-                return View();
-            }
+            ViewBag.mobile = mobile;
+            // ViewBag.id = id;
+
+            return View();
         }
 
 

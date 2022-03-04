@@ -14,7 +14,7 @@ namespace CompareBazaar.Data.Migrations
 
             var passwordHash = hasher.HashPassword(null, "Password100!");
 
-            StringBuilder sb = new StringBuilder();
+            StringBuilder sb = new();
 
             sb.AppendLine("INSERT INTO AspNetUsers(Id, UserName, NormalizedUserName,Email,EmailConfirmed,PhoneNumberConfirmed,TwoFactorEnabled,LockoutEnabled,AccessFailedCount,NormalizedEmail,PasswordHash,SecurityStamp,FirstName)");
             sb.AppendLine("VALUES(");
