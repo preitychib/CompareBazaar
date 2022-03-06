@@ -1,4 +1,5 @@
 ﻿using CompareBazaar.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
@@ -23,9 +24,10 @@ namespace CompareBazaar.Controllers
            // _client = client;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> IndexAsync()
         {
-            
+            ViewBag.mobiles = await GetMobiles("amazon");
+           // Console.WriteLine(ViewBag.mobiles);
             return View();
         }
 
@@ -44,23 +46,72 @@ namespace CompareBazaar.Controllers
             return View();
         }
 
-        public IActionResult CompareChart()
+        [Authorize]
+        public async Task<IActionResult> CompareChartAsync(string vendor=null, int id=-1)
         {
+            
+            
+            if (vendor!=null && id!=-1) {
+                ViewBag.mobile = await GetMobile(vendor, id);
+              /*  if (TempData["compChart"] == null)
+                {
+                    List<CompareChart> compareItem = new List<CompareChart>();
+                    compareItem.Add(new CompareChart()
+                    {
+                        id = id,
+                        vendor = vendor
+                    });
+                    TempData["compChart"] = compareItem;
+                }
+                else
+                {
+                    List<CompareChart> compareItem = (List<CompareChart>)TempData["compChart"];
+                    compareItem.Add(new CompareChart(){
+                        id = id,
+                        vendor = vendor
+                    });
+                    TempData["compChart"] = compareItem;
+                }*/
+
+                return View();
+            }
+            ViewBag.mobile = null;
+
             return View();
         }
 
-        public IActionResult WishList()
+        [Authorize]
+        public async Task<IActionResult> WishListAsync(string vendor = null, int id = -1)
         {
+            //int id = (int)TempData["id"];
+
+            if (vendor != null && id != -1)
+            {
+
+                List<CompareChart> compareItem = new List<CompareChart>();
+                compareItem.Add(new CompareChart()
+                {
+                    id = id,
+                    vendor = vendor
+                });
+
+                ViewBag.mobile = await GetMobile(compareItem[0].vendor, compareItem[0].id);
+                return View();
+            }
+            ViewBag.mobile = null;
+
             return View();
         }
-
         public IActionResult SearchResults()
         {
             return View();
         }
         public async Task<IActionResult> ProductsListAsync()
         {
+            
             ViewBag.mobiles = await GetMobiles("flipkart");
+            //ViewBag.mobiles = await GetMobiles("flipkart");
+            
             return View();
            
         }
@@ -91,31 +142,41 @@ namespace CompareBazaar.Controllers
         }
         public async Task<IActionResult> ProductDetailsAsync(string vendor,int id)
         {
-            //int id = (int)TempData["id"];
-
-            using var client = new HttpClient();
-            var url = $"https://comparebazaar-api.herokuapp.com/api/{vendor}/mobile/{id}";
-
-            // return await client.GetAsync(url);
-            var response = await client.GetAsync(url);
-            response.EnsureSuccessStatusCode();
-
-            var content = await response.Content.ReadAsStringAsync();
-
-            var mobile = JsonConvert.DeserializeObject<object>(content);
-
-            // ViewData["response"] = response;
-            //Console.WriteLine(mobile);
-
-            ViewBag.mobile = mobile;
-            // ViewBag.id = id;
-
+           
+            ViewBag.mobile = await GetMobile(vendor,id);
+            
             return View();
+        }
+
+        private static async Task<object> GetMobile(string vendor,int id)
+        {
+            try
+            {
+                using var client = new HttpClient();
+                var Url = $"https://comparebazaar-api.herokuapp.com/api/{vendor}/mobile/{id}";
+
+                // return await client.GetAsync(url);
+                var Response = await client.GetAsync(Url);
+                Response.EnsureSuccessStatusCode();
+
+                var Content = await Response.Content.ReadAsStringAsync();
+
+                var Mobiles = JsonConvert.DeserializeObject<object>(Content);
+
+
+                // var newMobiles = await _mobileService.GetMobiles();
+                return Mobiles;
+            }
+            catch (Exception ex)
+            {
+                Debug.Write(ex);
+                return null;
+            }
         }
 
 
 
-       [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
          public IActionResult Error()
          {
              return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });

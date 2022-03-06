@@ -174,7 +174,7 @@
     <div class="container">
         <h2 class="text-center mb-5 text-red fw-bold"> Compare Chart </h2>
         <div class="row mb-5 ">
-            <div class="  col-lg-4 col-md-4 col-sm-6 col-xs-6 ">
+            <div class="  col-lg-4 col-md-4 col-sm-6 col ">
                 <div class="card shadow-sm compare-1 d-flex align-items-center justify-content-center  ">
                     <a href="" class="mt-4"><i class="fas fa-search-plus text-red searchproduct-1"></i> </a>
                     <form class="d-flex  mx-2 mt-4">
@@ -188,7 +188,7 @@
                     </form>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-4  col-sm-6 col-xs-6  ">
+            <div class="col-lg-4 col-md-4  col-sm-6 col  ">
                 <div class="card shadow-sm compare-1 d-flex align-items-center justify-content-center ">
                     <a href="" class="mt-4"><i class="fas fa-search-plus text-red searchproduct-1"></i> </a>
                     <form class="d-flex  mx-2 mt-4">
@@ -200,7 +200,7 @@
                     </form>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-4  col-sm-6 col-xs-6 comparehide ">
+            <div class="col-lg-4 col-md-4  col-sm-6 col comparehide ">
                 <div class="card shadow-sm compare-1 d-flex align-items-center justify-content-center  ">
                     <a href="" class="mt-4"><i class="fas fa-search-plus text-red searchproduct-1"></i> </a>
                     <form class="d-flex  mx-2 mt-4">
@@ -228,127 +228,27 @@
         <h3 class="text-center my-3 text-red fw-bold"> Popular Products </h3>
         <div class="row">
             <div class="owl-carousel owl-theme" id="owl-carousel2">
-                <div class="item">
-                    <div class=" border rounded  d-flex ">
-                        <div class=" d-flex align-items-center  ">
-                            <img src="~/User/images/samsunggalaxym32_64gb_.png" class="flex-shrink-0  imagesize m-3" alt="...">
-                        </div>
-                        <div class="mt-3">
-                            <a href="#" class=" text-decoration-none text-dark fw-bold  ">SAMSUNG Galaxy M32(Light Blue,64GB)</a>
-                            <br>
-                            <a href="#" class=" text-decoration-none text-red fw-bold ">RS 12,999</a>
-                            <a href="#" class="btn btn-danger redbtn bg-red my-3 shadow-none " type="submit">
-                                COMPARE
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class=" border rounded  d-flex  boxsize ">
-                        <div class=" d-flex align-items-center  ">
-                            <img src="~/User/images/onrplus9r_5_8gb_128_.png" class="flex-shrink-0  imagesize m-3" alt="...">
-                        </div>
-                        <div class="mt-3">
-                            <a href="#" class=" text-decoration-none text-dark fw-bold  ">
-                                One Plus
-                                9R 5G (Lake Blue ,8GB RAM ,128GB)
-                            </a>
-                            <br>
-                            <a href="#" class=" text-decoration-none text-red  fw-bold ">RS 36,999</a>
-                            <a href="#" class="btn btn-danger redbtn bg-red my-3 shadow-none " type="submit">COMPARE </a>
+                @foreach (var item in ViewBag.mobiles.results)
+                {
+                    <div class="item">
+                        <div class=" border rounded  d-flex ">
+                            <div class=" d-flex align-items-center  ">
+                                <img src="@item.product_images.image" class="flex-shrink-0  imagesize m-3" alt="...">
+                            </div>
+                            <div class="mt-3">
+                                <a href="/home/ProductDetails/?vendor=@item.vendor.name&id=@item.id" class=" text-decoration-none text-dark fw-bold  ">@item.name</a>
+
+                                <br>
+                                <a href="/home/ProductDetails/?vendor=@item.vendor.name&id=@item.id" class=" text-decoration-none text-red fw-bold ">@item.price</a>
+                                <a href="/home/CompareChart/?vendor=@item.vendor.name&id=@item.id" class="btn btn-danger redbtn bg-red my-3 shadow-none " type="submit">
+                                    COMPARE
+                                </a>
+                            </div>
                         </div>
                     </div>
+                }
+                  
                 </div>
-                <div class="item">
-                    <div class=" border  rounded d-flex   ">
-                        <div class=" d-flex align-items-center ">
-                            <img src="~/User/images/samsungf12-removebg-preview.png" class="flex-shrink-0  imagesize m-3" alt="...">
-                        </div>
-                        <div class="mt-3">
-                            <a href="#" class=" text-decoration-none text-dark fw-bold  ">
-                                SAMSUNG Galaxy F12 (Sky
-                                Blue, 64GB)
-                            </a>
-                            <br>
-                            <a href="#" class=" text-decoration-none text-red fw-bold ">RS 9,499</a>
-                            <a href="#" class="btn btn-danger redbtn bg-red my-3 shadow-none " type="submit">COMPARE </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class=" border rounded   d-flex   ">
-                        <div class=" d-flex align-items-center  ">
-                            <img src="~/User/images/realme gt.jpg" class="flex-shrink-0  imagesize m-3" alt="...">
-                        </div>
-                        <div class="mt-3">
-                            <a href="#" class=" text-decoration-none text-dark fw-bold">Realme GT Master Edition( Black,256GB)</a>
-                            <br>
-                            <a href="#" class=" text-decoration-none text-red fw-bold">RS 29,999</a>
-                            <a href="#" class="btn btn-danger redbtn bg-red my-3 shadow-none " type="submit">COMPARE </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class=" border rounded  d-flex   ">
-                        <div class=" d-flex align-items-center  ">
-                            <img src="~/User/images/iphoneair4.jpg" class="flex-shrink-0  imagesize m-3" alt="...">
-                        </div>
-                        <div class="mt-3">
-                            <a href="#" class=" text-decoration-none text-dark fw-bold  ">
-                                Apple iPad Air(4th Gen)64GB ROM 10.9
-                                inch
-                            </a>
-                            <br>
-                            <a href="#" class=" text-decoration-none text-red fw-bold  ">RS 54,900</a>
-                            <a href="#" class="btn btn-danger redbtn bg-red my-3 shadow-none " type="submit">COMPARE </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class=" border rounded  d-flex   ">
-                        <div class=" d-flex align-items-center  ">
-                            <img src="~/User/images/samsungs6.jpg" class="flex-shrink-0  imagesize m-3" alt="...">
-                        </div>
-                        <div class="mt-3">
-                            <a href="#" class=" text-decoration-none text-dark fw-bold  ">
-                                SAMSUNG Galaxy TabS6 Lite 64GB ROM
-                                10.4inch
-                            </a>
-                            <br>
-                            <a href="#" class=" text-decoration-none text-red fw-bold   ">RS 27,999</a>
-                            <a href="#" class="btn btn-danger redbtn bg-red my-3 shadow-none " type="submit">COMPARE </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class=" border rounded  d-flex   ">
-                        <div class=" d-flex align-items-center  ">
-                            <img src="~/User/images/dell.png" class="flex-shrink-0  imagesize m-3" alt="...">
-                        </div>
-                        <div class="mt-3">
-                            <a href="#" class=" text-decoration-none text-dark fw-bold  ">Dell Core i3 11thGen (6GB/256GB SSD)</a>
-                            <br>
-                            <a href="#" class=" text-decoration-none text-red fw-bold ">RS 42,490</a>
-                            <a href="#" class="btn btn-danger redbtn bg-red my-3 shadow-none " type="submit">COMPARE </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class=" border rounded  d-flex   ">
-                        <div class=" d-flex align-items-center  ">
-                            <img src="~/User/images/hpcore.jpg" class="flex-shrink-0  imagesize m-3" alt="...">
-                        </div>
-                        <div class="mt-3">
-                            <a href="#" class=" text-decoration-none text-dark fw-bold  ">
-                                HP 14s Core i5 11thGen (6GB/512GB SSD)
-                            </a>
-                            <br>
-                            <a href="#" class=" text-decoration-none text-red fw-bold ">RS 59,490</a>
-                            <a href="#" class="btn btn-danger redbtn bg-red my-3 shadow-none " type="submit">COMPARE </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 </section>

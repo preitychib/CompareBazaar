@@ -6,59 +6,31 @@
         <div class="row mb-5 ">
             <div class="  col-lg-3 col-md-3 col-sm-4 col ">
             </div>
+           
             <div class="  col-lg-3 col-md-3 col-sm-4 col ">
-                <div class="card shadow-sm compare d-flex align-items-center justify-content-center  ">
-                    <a href="" class="  text-decoration-none text-black pointer d-block ">
-                        <i class="fas fa-times crossmargin fs-4"></i>
-                    </a>
-                    <img class="img-fluid  allproductimg  " id="deta" src="~/User/images/realme gt.jpg" alt="">
-                </div>
+               <partial name="_CompareCardPartial" />
             </div>
+           
             <div class="col-lg-3 col-md-3 col-sm-4   col">
-                <div class="card shadow-sm compare d-flex align-items-center justify-content-center  ">
-                    <a href="" class="mt-4"><i class="fas fa-search-plus text-red searchproduct"></i> </a>
-                    <form class="d-flex  mx-2 mt-4">
-                        <input type="search" placeholder="Search products" class="form-control radius shadow-none comparesearch "
-                               aria-label="Search">
-                        <a type="submit" class="btn btn-link searchcolor bg-red text-white radius shadow-none snone" href="#">
-                            <i class="fas fa-search"></i>
-                        </a>
-                    </form>
-                    <a class="btn btn-danger redbtn bg-red col-8 m-2 fontsize11 shadow-none">
-                        ADD TO
-                        COMPARE
-                    </a>
-                </div>
+               <partial name="_CompareCardPartial" />
             </div>
+           
             <div class=" col-lg-3 col-md-3  comparehide">
-                <div class="card shadow-sm compare d-flex align-items-center justify-content-center  ">
-                    <a href="" class="mt-4"><i class="fas fa-search-plus text-red searchproduct"></i></a>
-                    <form class="d-flex  mx-2 mt-4">
-                        <input type="search" placeholder="Search products" class="form-control radius shadow-none comparesearch "
-                               aria-label="Search">
-                        <a type="submit" class="btn btn-link searchcolor bg-red text-white radius shadow-none snone" href="#">
-                            <i class="fas fa-search"></i>
-                        </a>
-                    </form>
-                    <a class="btn btn-danger redbtn bg-red col-8 m-2 fontsize11 shadow-none" href="#">
-                        ADD TO
-                        COMPARE
-                    </a>
-                </div>
+                <partial name="_CompareCardPartial" />   
             </div>
             <!-- <div class="col-lg-2 col-md-2 comparehide ">
-                <div class="card shadow-sm compare d-flex align-items-center justify-content-center  ">
-                    <a href="" class="mt-4"><i class="fas fa-search-plus text-red searchproduct"></i> </a>
-                    <form class="d-flex  mx-2 mt-4">
-                        <input type="search" placeholder="Search products" class="form-control radius shadow-none comparesearch "
-                          aria-label="Search">
-                          <a type="submit" class="btn btn-link searchcolor bg-red text-white radius shadow-none" href="#"> <i
-                              class="fas fa-search"></i></a>
-                      </form>
-                    <a class="btn btn-danger redbtn bg-red col-8 m-2 shadow-none" href="#">ADD TO
-                        COMPARE </a>
-                </div>
-            </div> -->
+        <div class="card shadow-sm compare d-flex align-items-center justify-content-center  ">
+            <a href="" class="mt-4"><i class="fas fa-search-plus text-red searchproduct"></i> </a>
+            <form class="d-flex  mx-2 mt-4">
+                <input type="search" placeholder="Search products" class="form-control radius shadow-none comparesearch "
+                  aria-label="Search">
+                  <a type="submit" class="btn btn-link searchcolor bg-red text-white radius shadow-none" href="#"> <i
+                      class="fas fa-search"></i></a>
+              </form>
+            <a class="btn btn-danger redbtn bg-red col-8 m-2 shadow-none" href="#">ADD TO
+                COMPARE </a>
+        </div>
+    </div> -->
         </div>
     </div>
 
@@ -68,15 +40,41 @@
         <div class="col-lg-3 col-md-3 col-sm-4 col">
             <span class="fs-6 fontsize12">Name</span>
         </div>
-        <div class="col-lg-3 col-md-3 col-sm-4 col">
-            <span class="fontsize12">Realme GT Master Edition</span>
+       
+         <div class="col-lg-3 col-md-3 col-sm-4 col">
+                @if (ViewBag.mobile != null)
+                {
+                    <span class="fontsize12">@ViewBag.mobile.name</span>
+                }
+                else
+                {
+                    <span class="fontsize12"></span>
+                }
         </div>
-        <div class="col-lg-3 col-md-3 col-sm-4 col">
-            <span class="fontsize12"></span>
-        </div>
-        <div class=" col-lg-3 col-md-3  comparehide">
-            <span class="fontsize12"></span>
-        </div>
+       
+         <div class="col-lg-3 col-md-3 col-sm-4 col">
+             @if (ViewBag.mobile != null)
+             {
+                 <span class="fontsize12">@ViewBag.mobile.name</span>
+             }
+             else
+             {
+                 <span class="fontsize12"></span>
+             }
+         </div>
+        
+         <div class=" col-lg-3 col-md-3  comparehide">
+             @if (ViewBag.mobile != null)
+             {
+                 <span class="fontsize12">@ViewBag.mobile.name</span>
+             }
+             else
+             {
+                 <span class="fontsize12"></span>
+             }
+         </div>
+        
+           
     </div>
     <div class="row  d-flex align-items-center ">
         <div class="col-lg-3 col-md-3 col-sm-4 col ">

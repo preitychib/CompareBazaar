@@ -19,9 +19,9 @@
                     </ul>
                   </div> -->
             <select class="form-select shadow-none ms-auto  clickbox  " aria-label="Default select example">
-                <option selected> Sort By : Popularity</option>
-                <option value="1" class="">Sort By : Price - low to high</option>
-                <option value="2" class="">Sort By : Price - high to low</option>
+                <option value="1"> Sort By : Popularity</option>
+                <option value="2" class="">Sort By : Price - low to high</option>
+                <option selected class="">Sort By : Price - high to low</option>
                 <!-- <option value="3" class="">Sort By : Customer Rating</option> -->
             </select>
         </div>
@@ -799,7 +799,7 @@
                                 <a class=" text-decoration-none text-dark fw-bold fs-4" href="">@item.name</a>
                                 <h6 class=" text-decoration-none text-red fw-bold ">Rs @item.price</h6>
                                 <!-- <a  href="" class="btn btn-danger redbtn bg-red my-2 shadow-none" > <i class="far fa-heart pointer"></i> WISHLIST </a> <br> -->
-                                <a asp-action="CompareChart" class="btn btn-danger redbtn bg-red my-2 shadow-none">COMPARE</a>
+                                <a href="/home/CompareChart/?vendor=@item.vendor.name&id=@item.id" class="btn btn-danger redbtn bg-red my-2 shadow-none">COMPARE</a>
                                 @*<a onclick="location.href='@Url.Action("ProductDetails","Home", new  { vendor= item.vendor.name, id=item.id})'" class="btn btn-danger redbtn bg-red my-2 shadow-none">VIEW</a>*@
                                 @*@using (Html.BeginForm("index", "Home"))
                         {*@

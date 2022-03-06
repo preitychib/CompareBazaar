@@ -37,6 +37,9 @@ namespace CompareBazaar
                 .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
+            services.AddDistributedMemoryCache();
+
+           
             //services.AddHttpClient<>(c =>
             //{
             //    c.BaseAddress = new Uri("https://comparebazaar-api.herokuapp.com");
@@ -77,7 +80,7 @@ namespace CompareBazaar
             });
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
+           
             app.UseRouting();
 
             app.UseAuthentication();
