@@ -1,5 +1,13 @@
 ﻿<section class="mt-5 pt-5 container">
     <h3 class="fw-bold "> MY WISHLIST </h3>
+
+    @*@foreach(var product in ViewBag.myList)
+    {
+
+    ViewBag.mobile = await GetMobile(product.vendor, product.id);
+
+    }*@
+
     @if (ViewBag.mobile != null)
     {
         <div class="row ">
@@ -28,4 +36,4 @@
 
         </div>
     }
-    </section>
+</section>

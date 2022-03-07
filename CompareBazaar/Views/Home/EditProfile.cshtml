@@ -1,0 +1,110 @@
+﻿@{
+    ViewData["Title"] = "Edit Profile";
+    ViewBag.HideNavBar = true;
+}
+
+<section class="s2">
+    <div class=" container-fluid  ">
+        <div class="modal-dialog position-absolute top-50 start-50 translate-middle z-index boxwidth ">
+            <div class="modal-content  ">
+                <div class=" p-3 pb-2 border-bottom-0">
+                    <!-- <h3 class="fw-bold mb-2 text-center ">Welcome to COMPAREBAZAAR</h3>-->
+                    <h3 class=" mb-0 fw-bold text-center ">EDIT PROFILE</h3>
+                    <!-- <button type="button" class="btn-close ms-3" data-bs-dismiss="modal" aria-label="Close"></button>-->
+                </div>
+                <div class="model-body m-1">
+                    <form class="">
+                        <div class="row">
+                            <div class=" col col-xxs-12 form-floating mb-3   ">
+                                <input type="text"
+                                       class="form-control form-control-sm rounded-0 border-0 border-bottom-red shadow-none"
+                                       id="floatingFName" placeholder="First Name">
+                                <label for="floatingFName" class="text-red "><i class="fas fa-user ms-1"></i> First Name</label>
+                            </div>
+                            <div class=" col col-xxs-12 form-floating mb-3">
+                                <input type="text"
+                                       class="form-control form-control-sm rounded-0 border-0 border-bottom-red shadow-none"
+                                       id="floatingLName" placeholder="Last Name">
+                                <label for="floatingLName" class="text-red"><i class="fas fa-user ms-1"></i> Last Name</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="  col-lg-12 col-md-12 col-sm-12  form-floating mb-3">
+                                <input type="email"
+                                       class="form-control form-control-sm rounded-0 border-0 border-bottom-red shadow-none"
+                                       id="floatingInput" placeholder="Email Address">
+                                <label for="floatingInput" class="text-red">
+                                    <i class="fas fa-envelope ms-1"></i> Email
+                                    Address
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="  col-lg-12 col-md-12 col-sm-12  form-floating mb-3">
+                                <input type="number"
+                                       class="form-control form-control-sm rounded-0 border-0 border-bottom-red shadow-none"
+                                       id="floatingphoneno" placeholder="Phone Number">
+                                <label for="floatingphoneno" class="text-red">
+                                    <i class="fa-solid fa-phone ms-1"></i> Phone
+                                    Number
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="  col-lg-12 col-md-12 col-sm-12  form-floating mb-3">
+                                <textarea class="form-control form-control-sm  rounded-0 border-0 border-bottom-red shadow-none"
+                                          placeholder="Address" id="floatingaddress" style="height: 55px"></textarea>
+                                <label for="floatingaddress " class="text-red ">
+                                    <i class="fa-solid fa-house-chimney ms-1"></i>
+                                    Address
+                                </label>
+                            </div>
+                        </div>
+                     <!--   <div class="row">
+                            <div class=" col  form-floating mb-3   ">
+                                <input type="text"
+                                       class="form-control form-control-sm rounded-0 border-0 border-bottom-red shadow-none "
+                                       id="floatingcountry" placeholder="Country">
+                                <label for="floatingcountry" class="text-red "><i class="fa-solid fa-earth-americas ms-1"></i> Country</label>
+                            </div>
+                            <div class=" col  form-floating mb-3">
+                                <input type="text"
+                                       class="form-control form-control-sm rounded-0 border-0 border-bottom-red shadow-none"
+                                       id="floatingstate" placeholder="State">
+                                <label for="floatingstate" class="text-red"><i class="fa-solid fa-location-dot ms-1"></i> State</label>
+                            </div>
+                        </div>
+                         -->
+                        <div class="row">
+                            <div class=" col  form-floating mb-3   ">
+                                <input type="text"
+                                       class="form-control form-control-sm rounded-0 border-0 border-bottom-red shadow-none "
+                                       id="floatingcity" placeholder="First Name">
+                                <label for="floatingcity" class="text-red "><i class="fa-solid fa-location-dot ms-1"></i> City</label>
+                            </div>
+                            <div class=" col form-floating mb-3">
+                                <input type="text"
+                                       class="form-control form-control-sm rounded-0 border-0 border-bottom-red shadow-none"
+                                       id="floatingpincode" placeholder="Pincode">
+                                <label for="floatingpincode" class="text-red">  <i class="fa-solid fa-map-pin ms-1"></i> Pincode</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="text-center mb-3">
+                                <button href="" class=" col-10 btn btn-outline-danger text-red btncolor ms-3 px-3 shadow-none">
+                                    SAVE
+                                    CHANGES
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="s3">
+    <img src="~/User/images/background4.jpg" class="bgimage img-fluid opacity-25 " alt="Backgroung Image">
+    @*<div class="bgimage opacity-25 img-fluid" style="background-image: url('~/User/images/background4.jpg');"/>*@
+
+</section>

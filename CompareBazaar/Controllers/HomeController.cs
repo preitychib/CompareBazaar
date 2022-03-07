@@ -1,5 +1,9 @@
-﻿using CompareBazaar.Models;
+﻿using CompareBazaar.Data;
+using CompareBazaar.Helpers;
+using CompareBazaar.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
@@ -16,11 +20,13 @@ namespace CompareBazaar.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-      //  private readonly HttpClient _client;
+        private readonly UserManager<ApplicationUser> _userManager;
+        //  private readonly HttpClient _client;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger,UserManager<ApplicationUser> userManager)
         {
             _logger = logger;
+            _userManager = userManager;
            // _client = client;
         }
 
@@ -47,12 +53,15 @@ namespace CompareBazaar.Controllers
         }
 
         [Authorize]
-        public async Task<IActionResult> CompareChartAsync(string vendor=null, int id=-1)
+        public async Task<IActionResult> WishListAsync(string vendor=null, int id=-1)
         {
             
             
             if (vendor!=null && id!=-1) {
+               // var myList = SessionHelper.GetObjectFromJson<List<Item>>(HttpContext.Session, "myList");
                 ViewBag.mobile = await GetMobile(vendor, id);
+
+
               /*  if (TempData["compChart"] == null)
                 {
                     List<CompareChart> compareItem = new List<CompareChart>();
@@ -79,17 +88,43 @@ namespace CompareBazaar.Controllers
 
             return View();
         }
+      
 
         [Authorize]
-        public async Task<IActionResult> WishListAsync(string vendor = null, int id = -1)
+        public async Task<IActionResult> CompareChartAsync()
         {
-            //int id = (int)TempData["id"];
+            if (SessionHelper.GetObjectFromJson<List<Item>>(HttpContext.Session, "myList") != null)
+            {
+                var myList = SessionHelper.GetObjectFromJson<List<Item>>(HttpContext.Session, "myList");
+                int n = 0;
 
+                // ViewBag.Mobile[n] = null;
+                foreach (var product in myList)
+                {
+                    ViewBag.mobile = await GetMobile(product.vendor, product.id);
+                    n++;
+                }
+
+                if (n-- > 0)
+                    ViewBag.mobile1 = await GetMobile(myList[0].vendor, myList[0].id);
+                if (n-- > 0)
+                    ViewBag.mobile2 = await GetMobile(myList[1].vendor, myList[1].id);
+                if (n-- > 0)
+                    ViewBag.mobile3 = await GetMobile(myList[2].vendor, myList[2].id);
+                return View();
+            }
+           
+           
+                return View();
+        }
+       /* public async Task<IActionResult> WishListasync(string vendor = null, int id = -1)
+        {
+            
             if (vendor != null && id != -1)
             {
 
-                List<CompareChart> compareItem = new List<CompareChart>();
-                compareItem.Add(new CompareChart()
+                List<Item> compareItem = new List<Item>();
+                compareItem.Add(new Item()
                 {
                     id = id,
                     vendor = vendor
@@ -102,6 +137,70 @@ namespace CompareBazaar.Controllers
 
             return View();
         }
+       */
+        public  IActionResult AddItem(string vendor , int id)
+        {
+            if (SessionHelper.GetObjectFromJson<List<Item>>(HttpContext.Session, "myList") == null)
+            {
+                List<Item> myList = new List<Item>();
+                myList.Add(new Item()
+                {
+                    id = id,
+                    vendor = vendor
+                });
+
+                SessionHelper.SetObjectAsJson(HttpContext.Session, "myList", myList);
+            }
+            else
+            {
+                List<Item> myList = SessionHelper.GetObjectFromJson<List<Item>>(HttpContext.Session, "myList");
+               
+                    myList.Add(new Item()
+                    {
+                        id = id,
+                        vendor = vendor
+                    });
+
+                
+                SessionHelper.SetObjectAsJson(HttpContext.Session, "myList", myList);
+            }
+            return RedirectToAction("CompareChart");
+        }
+
+        public IActionResult Remove(int id)
+        {
+            List<Item> myList = SessionHelper.GetObjectFromJson<List<Item>>(HttpContext.Session, "myList");
+            //int index = isExist(id);
+            myList.RemoveAt(id);
+            SessionHelper.SetObjectAsJson(HttpContext.Session, "myList", myList);
+            return RedirectToAction("CompareChart");
+        }
+        private bool isNull()
+        {
+            List<Item> myList = SessionHelper.GetObjectFromJson<List<Item>>(HttpContext.Session, "cart");
+           
+                if (myList!=null)
+                {
+                    return true;
+                }
+           
+            return false;
+        }
+        //private int isExist(string id)
+        //{
+        //    List<Item> myList = SessionHelper.GetObjectFromJson<List<Item>>(HttpContext.Session, "myList");
+        //    int n = 0;
+        //    foreach (var product in myList) n++;
+        //        for (int i = 0; i < n; i++)
+        //    {
+        //        if (myList[i].id.Equals(id))
+        //        {
+        //            return i;
+        //        }
+        //    }
+        //    return -1;
+        //}
+
         public async Task<IActionResult> SearchResultsAsync(string searchStr)
         {
             using var client = new HttpClient();
@@ -190,6 +289,57 @@ namespace CompareBazaar.Controllers
         }
 
 
+        [Authorize]
+        [HttpGet]
+        public async Task<IActionResult> EditProfile()
+        {
+            var currentUserName = User.Identity.Name;
+            var loggedInUser = await _userManager.FindByEmailAsync(currentUserName);
+
+            ViewBag.loggedInUser = loggedInUser;
+
+            return View();
+        }
+
+        [Authorize]
+        [HttpPost]
+        public async Task<IActionResult> EditProfile(IFormCollection userCollection)
+        {
+            try
+            {
+                var loggedInUser = await _userManager.FindByNameAsync(User.Identity.Name);
+
+                loggedInUser.FirstName = userCollection["FirstName"];
+                loggedInUser.LastName = userCollection["LastName"];
+                loggedInUser.Email = userCollection["Email"];
+                loggedInUser.UserName = userCollection["Email"];
+                loggedInUser.PhoneNumber = userCollection["PhoneNumber"];
+                loggedInUser.Address1 = userCollection["Address"];
+                loggedInUser.Address2 = userCollection["City"];
+             //   loggedInUser.State = userCollection["State"];
+               // loggedInUser.PostCode = int.Parse(userCollection["PostCode"]);
+
+                var isSuccess = await _userManager.UpdateAsync(loggedInUser);
+
+                if (isSuccess.Succeeded)
+                {
+                    _logger.LogInformation("User updated successfully.");
+                    return RedirectToAction("EditProfile");
+                }
+
+                // If Operation Failes, Redirect to Index
+                _logger.LogInformation("User Profile Update Failed");
+                return RedirectToAction("Error", "Index");
+            }
+            catch (System.Exception ex)
+            {
+                // Log Exception
+                _logger.LogError(ex.ToString());
+                // return Error Page or Index
+                return RedirectToAction("Error", "Index");
+            }
+
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
          public IActionResult Error()

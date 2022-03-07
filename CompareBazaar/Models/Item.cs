@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace CompareBazaar.Models
 {
-    public class CompareChart
+    public class Item
     { 
         public int id { get; set; }
         public string vendor { get; set; }

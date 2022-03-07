@@ -37,6 +37,7 @@ namespace CompareBazaar
                 .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
+            services.AddSession();
             services.AddDistributedMemoryCache();
 
            
@@ -80,6 +81,7 @@ namespace CompareBazaar
                 }
             });
             app.UseHttpsRedirection();
+            app.UseSession();
             app.UseStaticFiles();
            
             app.UseRouting();
