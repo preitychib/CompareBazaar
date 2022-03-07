@@ -796,7 +796,12 @@
                             </a>
                             <!-- </div> -->
                             <div class="card-body text-center">
+                                @*@{ 
+                                    var nameStr = item.name.Split(" ");
+                                    
+                                }*@
                                 <a class=" text-decoration-none text-dark fw-bold fs-4" href="">@item.name</a>
+                                @*<a class=" text-decoration-none text-dark fw-bold fs-4" href="">@nameStr[1]</a>*@
                                 <h6 class=" text-decoration-none text-red fw-bold ">Rs @item.price</h6>
                                 <!-- <a  href="" class="btn btn-danger redbtn bg-red my-2 shadow-none" > <i class="far fa-heart pointer"></i> WISHLIST </a> <br> -->
                                 <a href="/home/CompareChart/?vendor=@item.vendor.name&id=@item.id" class="btn btn-danger redbtn bg-red my-2 shadow-none">COMPARE</a>

@@ -6,10 +6,10 @@
     <div class="container ">
         <div class="row">
             <div class="col-lg-10 mx-auto">
-                <form class="formsearch" method="get">
+                <form asp-action="SearchResults">
                     <div class="p-1 bg-light bg-dark rounded searchbox  ">
                         <div class="input-group">
-                            <input type="search"  placeholder="Search products,brands,features" class="form-control shadow-none">
+                            <input type="search" name="searchStr"  placeholder="Search products,brands,features" class="form-control shadow-none">
                             <div class="input-group-append allcat">
                                 <div class="btn-group">
                                     <a class="btn text-white border-top-0 rounded-0 border-end-0 border-bottom-0 btn-outline-dark shadow-none  dropdown-toggle"
@@ -216,7 +216,7 @@
         </div>
         <div>
             <div class="d-flex align-items-center justify-content-center">
-                <a class="btn btn-danger redbtn bg-red col-4 shadow-none" asp-controller="" asp-action="CompareChart" type="submit">
+                <a class="btn btn-danger redbtn bg-red col-4 shadow-none" asp-controller="" asp-action="CompareChart" >
                     COMPARE NOW
                 </a>
             </div>
@@ -239,7 +239,7 @@
                                 <a href="/home/ProductDetails/?vendor=@item.vendor.name&id=@item.id" class=" text-decoration-none text-dark fw-bold  ">@item.name</a>
 
                                 <br>
-                                <a href="/home/ProductDetails/?vendor=@item.vendor.name&id=@item.id" class=" text-decoration-none text-red fw-bold ">@item.price</a>
+                                <a href="/home/ProductDetails/?vendor=@item.vendor.name&id=@item.id" class=" text-decoration-none text-red fw-bold ">Rs @item.price</a>
                                 <a href="/home/CompareChart/?vendor=@item.vendor.name&id=@item.id" class="btn btn-danger redbtn bg-red my-3 shadow-none " type="submit">
                                     COMPARE
                                 </a>

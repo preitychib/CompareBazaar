@@ -40,6 +40,7 @@ namespace CompareBazaar
             services.AddDistributedMemoryCache();
 
            
+
             //services.AddHttpClient<>(c =>
             //{
             //    c.BaseAddress = new Uri("https://comparebazaar-api.herokuapp.com");

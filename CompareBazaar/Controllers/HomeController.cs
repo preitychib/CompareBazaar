@@ -102,9 +102,24 @@ namespace CompareBazaar.Controllers
 
             return View();
         }
-        public IActionResult SearchResults()
+        public async Task<IActionResult> SearchResultsAsync(string searchStr)
         {
-            return View();
+            using var client = new HttpClient();
+            var Url = $"https://comparebazaar-api.herokuapp.com/api/flipkart/mobile/?search={searchStr}";
+
+            // return await client.GetAsync(url);
+            var Response = await client.GetAsync(Url);
+            Response.EnsureSuccessStatusCode();
+
+            var Content = await Response.Content.ReadAsStringAsync();
+
+            var Mobiles = JsonConvert.DeserializeObject<object>(Content);
+
+            ViewBag.mobiles = Mobiles;
+            // var newMobiles = await _mobileService.GetMobiles();
+           
+
+            return View("./ProductsList");
         }
         public async Task<IActionResult> ProductsListAsync()
         {
