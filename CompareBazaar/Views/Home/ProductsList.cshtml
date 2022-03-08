@@ -1,4 +1,7 @@
-﻿<section class=" pb-3   border-bottom container-fluid" id="sec1">
+﻿@{ 
+    String Str = "price";
+}
+<section class=" pb-3   border-bottom container-fluid" id="sec1">
     <div class="row mt-5  pt-5 f-hide">
         <div class="col-xxl-2 col-xl-2 col-lg-3 col-md-4 col ">
             <h4 class="fw-bold ">FILTERS</h4>
@@ -8,364 +11,379 @@
         </div>
         <div class="col-xxl-5 col-xl-5 col-lg-5 col-md-4 col  ">
             <!-- <div class="dropdown  ">
-                    <a class="btn btn-light dropdown-toggle shadow-none" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                      Sort By : Popularity
-                    </a>
+      <a class="btn btn-light dropdown-toggle shadow-none" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+        Sort By : Popularity
+      </a>
 
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                      <li><a class="dropdown-item p-2" href="#">Price - low to high</a></li>
-                      <li><a class="dropdown-item p-2" href="#">Price - high to low</a></li>
-                      <li><a class="dropdown-item p-2" href="#">Customer Rating</a></li>
-                    </ul>
-                  </div> -->
-            <select class="form-select shadow-none ms-auto  clickbox  " aria-label="Default select example">
-                <option value="1"> Sort By : Popularity</option>
-                <option value="2" class="">Sort By : Price - low to high</option>
-                <option selected class="">Sort By : Price - high to low</option>
-                <!-- <option value="3" class="">Sort By : Customer Rating</option> -->
-            </select>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+        <li><a class="dropdown-item p-2" href="#">Price - low to high</a></li>
+        <li><a class="dropdown-item p-2" href="#">Price - high to low</a></li>
+        <li><a class="dropdown-item p-2" href="#">Customer Rating</a></li>
+      </ul>
+    </div> -->
+            <!--<form asp-action="SortProducts">
+        <select asp-for="@Str" class="form-select shadow-none ms-auto  clickbox  " aria-label="Default select example">
+            <option value="1"> Sort By : Popularity</option>-->
+            @*<option value="2" class="">@Html.ActionLink("Sort By : Price - low to high", "SortProducts", new { Str = "price" })</option>*@
+            <!--<option value="price" type="submit" class="">Sort By : Price - low to high</option>
+    <option value="-price" type="submit" selected class="">Sort By : Price - high to low</option>-->
+            <!-- <option value="3" class="">Sort By : Customer Rating</option> -->
+            <!--</select>
+        <input type="submit" />
+    </form>-->
+
+
+            <select onchange="window.location.href=this.value;" class="form-select shadow-none ms-auto  clickbox  " aria-label="Default select example">
+                <option value="/Home/SortProducts/"> Sort By : Popularity</option>
+                @*<option value="2" class="">@Html.ActionLink("Sort By : Price - low to high", "SortProducts", new { Str = "price" })</option>*@
+                <option value="/Home/SortProducts/?Str=price" type="submit" class="">Sort By : Price - low to high</option>
+                 <option value="/Home/SortProducts/?Str=-price" type="submit" >Sort By : Price - high to low</option>
+                 <!--<option value="3" class="">Sort By : Customer Rating</option> -->
+                </select>
+                   
+
+            </div>
+
         </div>
+        <div class="row  mt-5  pt-4 f-show">
+            <div class="col-6">
+                <!-- Button trigger modal 
+                <button type="button" class="btn col-12  shadow-none fs-4 fontsize12 " data-bs-toggle="modal" data-bs-target="#exampleModal1">
+                    <i class="fa-solid fa-filter  "></i> FILTERS
+                </button>
 
-    </div>
-    <div class="row  mt-5  pt-4 f-show">
-        <div class="col-6">
-            <!-- Button trigger modal -->
-            <button type="button" class="btn col-12  shadow-none fs-4 fontsize12 " data-bs-toggle="modal" data-bs-target="#exampleModal1">
-                <i class="fa-solid fa-filter  "></i> FILTERS
-            </button>
-
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModal1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-scrollable">
-                    <div class="modal-content">
-                        <div class="modal-header row">
-                            <!-- <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close"></button> -->
-                            <!-- <div class="row "> -->
-                            <div class="col-9">
-                                <h3 class="modal-title fw-bold text-black" id="exampleModalLabel1">Filters</h3>
-                            </div>
-                            <div class="col-3">
-                                <a class="text-decoration-none text-red" id="">Clear All</a>
-                            </div>
-                            <!-- </div> -->
-                        </div>
-                        <div class="modal-body">
-                            <div class="   ">
-                                <h4 class="fw-bold ms-2 text-red">PRICE</h4>
-                                <ul class="">
-                                    <li class="form-check ">
-                                        <input class="form-check-input shadow-none " type="checkbox" value="" id="">
-                                        <label class="form-check-label innerdropdownitem " for="">
-                                            Under Rs 5,000
-                                        </label>
-                                    </li>
-                                    <li class="form-check">
-                                        <input class="form-check-input  shadow-none  " type="checkbox" value="" id="">
-                                        <label class="form-check-label  innerdropdownitem " for="">
-                                            Rs 5,000 to Rs 10,000
-                                        </label>
-                                    </li>
-                                    <li class="form-check">
-                                        <input class="form-check-input  shadow-none" type="checkbox" value="" id="">
-                                        <label class="form-check-label innerdropdownitem    " for="">
-                                            Rs 10,000 to Rs 15,000
-                                        </label>
-                                    </li>
-                                    <li class="form-check">
-                                        <input class="form-check-input   shadow-none" type="checkbox" value="" id="">
-                                        <label class="form-check-label innerdropdownitem  " for="">
-                                            Rs 15,000 to Rs 20,000
-                                        </label>
-                                    </li>
-                                    <li class="form-check">
-                                        <input class="form-check-input  shadow-none" type="checkbox" value="" id="">
-                                        <label class="form-check-label innerdropdownitem  " for="">
-                                            Under Rs 20,000
-                                        </label>
-                                    </li>
-                                    <li class="form-check">
-                                        <input class="form-check-input shadow-none" type="checkbox" value="" id="">
-                                        <label class="form-check-label  innerdropdownitem   " for="">
-                                            Above Rs 20,000
-                                        </label>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="">
-                                <h4 class="   fw-bold  ms-2 text-red">BRAND</h4>
-                                <div class="my-3">
-                                    <input class="form-control form-control-sm shadow-none clickbox " type="text" placeholder="Search Brand"
-                                           aria-label=".form-control-sm example">
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-scrollable">
+                        <div class="modal-content">
+                            <div class="modal-header row">
+                                <!-- <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close"></button> -->
+                                <!-- <div class="row "> -->
+                                <div class="col-9">
+                                    <h3 class="modal-title fw-bold text-black" id="exampleModalLabel1">Filters</h3>
                                 </div>
-                                <ul class="">
-                                    <li class="form-check ">
-                                        <input class="form-check-input shadow-none" type="checkbox" value="" id="">
-                                        <label class="form-check-label innerdropdownitem  " for="">
-                                            Apple
-                                        </label>
-                                    </li>
-                                    <li class="form-check">
-                                        <input class="form-check-input  shadow-none  " type="checkbox" value="" id="">
-                                        <label class="form-check-label  innerdropdownitem " for="">
-                                            ASUS
-                                        </label>
-                                    </li>
-                                    <li class="form-check">
-                                        <input class="form-check-input  shadow-none" type="checkbox" value="" id="">
-                                        <label class="form-check-label   innerdropdownitem   " for="">
-                                            BlackZone
-                                        </label>
-                                    </li>
-                                    <li class="form-check">
-                                        <input class="form-check-input   shadow-none" type="checkbox" value="" id="">
-                                        <label class="form-check-label  innerdropdownitem " for="">
-                                            Coolpad
-                                        </label>
-                                    </li>
-                                    <li class="form-check">
-                                        <input class="form-check-input  shadow-none" type="checkbox" value="" id="">
-                                        <label class="form-check-label  innerdropdownitem " for="">
-                                            Google
-                                        </label>
-                                    </li>
-                                    <li class="form-check">
-                                        <input class="form-check-input shadow-none" type="checkbox" value="" id="">
-                                        <label class="form-check-label  innerdropdownitem  " for="">
-                                            HEEMAX
-                                        </label>
-                                    </li>
-                                    <li class="form-check">
-                                        <input class="form-check-input shadow-none" type="checkbox" value="" id="">
-                                        <label class="form-check-label  innerdropdownitem " for="">
-                                            HTC
-                                        </label>
-                                    </li>
-                                    <li class="form-check">
-                                        <input class="form-check-input shadow-none" type="checkbox" value="" id="">
-                                        <label class="form-check-label   innerdropdownitem  " for="">
-                                            Huawei
-                                        </label>
-                                    </li>
-                                    <li class="form-check">
-                                        <input class="form-check-input shadow-none" type="checkbox" value="" id="">
-                                        <label class="form-check-label  innerdropdownitem   " for="">
-                                            IKall
-                                        </label>
-                                    </li>
-                                    <li class="form-check">
-                                        <input class="form-check-input shadow-none" type="checkbox" value="" id="">
-                                        <label class="form-check-label  innerdropdownitem  " for="">
-                                            Intex
-                                        </label>
-                                    </li>
-                                    <li class="form-check">
-                                        <input class="form-check-input shadow-none" type="checkbox" value="" id="">
-                                        <label class="form-check-label   innerdropdownitem" for="">
-                                            IQOO
-                                        </label>
-                                    </li>
-                                    <li class="form-check">
-                                        <input class="form-check-input shadow-none" type="checkbox" value="" id="">
-                                        <label class="form-check-label  innerdropdownitem" for="">
-                                            Itel
-                                        </label>
-                                    </li>
-                                    <li class="form-check">
-                                        <input class="form-check-input shadow-none" type="checkbox" value="" id="">
-                                        <label class="form-check-label   innerdropdownitem" for="">
-                                            Lava
-                                        </label>
-                                    </li>
-                                    <li class="form-check">
-                                        <input class="form-check-input shadow-none" type="checkbox" value="" id="">
-                                        <label class="form-check-label   innerdropdownitem" for="">
-                                            Lenovo
-                                        </label>
-                                    </li>
-                                    <li class="form-check">
-                                        <input class="form-check-input shadow-none" type="checkbox" value="" id="">
-                                        <label class="form-check-label   innerdropdownitem" for="">
-                                            Mi
-                                        </label>
-                                    </li>
-                                    <li class="form-check">
-                                        <input class="form-check-input shadow-none" type="checkbox" value="" id="">
-                                        <label class="form-check-label  innerdropdownitem" for="">
-                                            Micromax
-                                        </label>
-                                    </li>
-                                    <li class="form-check">
-                                        <input class="form-check-input shadow-none" type="checkbox" value="" id="">
-                                        <label class="form-check-label  innerdropdownitem" for="">
-                                            Motorola
-                                        </label>
-                                    </li>
-                                    <li class="form-check">
-                                        <input class="form-check-input shadow-none" type="checkbox" value="" id="">
-                                        <label class="form-check-label  innerdropdownitem" for="">
-                                            MTR
-                                        </label>
-                                    </li>
-                                    <li class="form-check">
-                                        <input class="form-check-input shadow-none" type="checkbox" value="" id="">
-                                        <label class="form-check-label  innerdropdownitem" for="">
-                                            Nokia
-                                        </label>
-                                    </li>
-                                    <li class="form-check">
-                                        <input class="form-check-input shadow-none" type="checkbox" value="" id="">
-                                        <label class="form-check-label   innerdropdownitem" for="">
-                                            OnePlus
-                                        </label>
-                                    </li>
-                                    <li class="form-check">
-                                        <input class="form-check-input shadow-none" type="checkbox" value="" id="">
-                                        <label class="form-check-label  innerdropdownitem" for="">
-                                            Oppo
-                                        </label>
-                                    </li>
-                                    <li class="form-check">
-                                        <input class="form-check-input shadow-none" type="checkbox" value="" id="">
-                                        <label class="form-check-label  innerdropdownitem" for="">
-                                            Philips
-                                        </label>
-                                    </li>
-                                    <li class="form-check">
-                                        <input class="form-check-input shadow-none" type="checkbox" value="" id="">
-                                        <label class="form-check-label   innerdropdownitem" for="">
-                                            Realme
-                                        </label>
-                                    </li>
-                                    <li class="form-check">
-                                        <input class="form-check-input  shadow-none" type="checkbox" value="" id="">
-                                        <label class="form-check-label   innerdropdownitem" for="">
-                                            Redmi
-                                        </label>
-                                    </li>
-                                    <li class="form-check">
-                                        <input class="form-check-input shadow-none" type="checkbox" value="" id="">
-                                        <label class="form-check-label   innerdropdownitem" for="">
-                                            Samsung
-                                        </label>
-                                    </li>
-                                    <li class="form-check">
-                                        <input class="form-check-input shadow-none" type="checkbox" value="" id="">
-                                        <label class="form-check-label  innerdropdownitem" for="">
-                                            SeniorWorld
-                                        </label>
-                                    </li>
-                                    <li class="form-check">
-                                        <input class="form-check-input shadow-none" type="checkbox" value="" id="">
-                                        <label class="form-check-label  innerdropdownitem" for="">
-                                            Snexian
-                                        </label>
-                                    </li>
-                                    <li class="form-check">
-                                        <input class="form-check-input shadow-none" type="checkbox" value="" id="">
-                                        <label class="form-check-label  innerdropdownitem" for="">
-                                            Vivo
-                                        </label>
-                                    </li>
-                                    <li class="form-check">
-                                        <input class="form-check-input shadow-none" type="checkbox" value="" id="">
-                                        <label class="form-check-label   innerdropdownitem" for="">
-                                            Xiaomi
-                                        </label>
-                                    </li>
-                                    <li class="form-check">
-                                        <input class="form-check-input shadow-none" type="checkbox" value="" id="">
-                                        <label class="form-check-label  innerdropdownitem" for="">
-                                            Zopo
-                                        </label>
-                                    </li>
+                                <div class="col-3">
+                                    <a class="text-decoration-none text-red" id="">Clear All</a>
+                                </div>
+                                <!-- </div> -->
+                            </div>
+                            <div class="modal-body">
+                                <div class="   ">
+                                    <h4 class="fw-bold ms-2 text-red">PRICE</h4>
+                                    <ul class="">
+                                        <li class="form-check ">
+                                            <input class="form-check-input shadow-none " type="checkbox" value="" id="">
+                                            <label class="form-check-label innerdropdownitem " for="">
+                                                Under Rs 5,000
+                                            </label>
+                                        </li>
+                                        <li class="form-check">
+                                            <input class="form-check-input  shadow-none  " type="checkbox" value="" id="">
+                                            <label class="form-check-label  innerdropdownitem " for="">
+                                                Rs 5,000 to Rs 10,000
+                                            </label>
+                                        </li>
+                                        <li class="form-check">
+                                            <input class="form-check-input  shadow-none" type="checkbox" value="" id="">
+                                            <label class="form-check-label innerdropdownitem    " for="">
+                                                Rs 10,000 to Rs 15,000
+                                            </label>
+                                        </li>
+                                        <li class="form-check">
+                                            <input class="form-check-input   shadow-none" type="checkbox" value="" id="">
+                                            <label class="form-check-label innerdropdownitem  " for="">
+                                                Rs 15,000 to Rs 20,000
+                                            </label>
+                                        </li>
+                                        <li class="form-check">
+                                            <input class="form-check-input  shadow-none" type="checkbox" value="" id="">
+                                            <label class="form-check-label innerdropdownitem  " for="">
+                                                Under Rs 20,000
+                                            </label>
+                                        </li>
+                                        <li class="form-check">
+                                            <input class="form-check-input shadow-none" type="checkbox" value="" id="">
+                                            <label class="form-check-label  innerdropdownitem   " for="">
+                                                Above Rs 20,000
+                                            </label>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="">
+                                    <h4 class="   fw-bold  ms-2 text-red">BRAND</h4>
+                                    <div class="my-3">
+                                        <input class="form-control form-control-sm shadow-none clickbox " type="text" placeholder="Search Brand"
+                                               aria-label=".form-control-sm example">
+                                    </div>
+                                    <ul class="">
+                                        <li class="form-check ">
+                                            <input class="form-check-input shadow-none" type="checkbox" value="" id="">
+                                            <label class="form-check-label innerdropdownitem  " for="">
+                                                Apple
+                                            </label>
+                                        </li>
+                                        <li class="form-check">
+                                            <input class="form-check-input  shadow-none  " type="checkbox" value="" id="">
+                                            <label class="form-check-label  innerdropdownitem " for="">
+                                                ASUS
+                                            </label>
+                                        </li>
+                                        <li class="form-check">
+                                            <input class="form-check-input  shadow-none" type="checkbox" value="" id="">
+                                            <label class="form-check-label   innerdropdownitem   " for="">
+                                                BlackZone
+                                            </label>
+                                        </li>
+                                        <li class="form-check">
+                                            <input class="form-check-input   shadow-none" type="checkbox" value="" id="">
+                                            <label class="form-check-label  innerdropdownitem " for="">
+                                                Coolpad
+                                            </label>
+                                        </li>
+                                        <li class="form-check">
+                                            <input class="form-check-input  shadow-none" type="checkbox" value="" id="">
+                                            <label class="form-check-label  innerdropdownitem " for="">
+                                                Google
+                                            </label>
+                                        </li>
+                                        <li class="form-check">
+                                            <input class="form-check-input shadow-none" type="checkbox" value="" id="">
+                                            <label class="form-check-label  innerdropdownitem  " for="">
+                                                HEEMAX
+                                            </label>
+                                        </li>
+                                        <li class="form-check">
+                                            <input class="form-check-input shadow-none" type="checkbox" value="" id="">
+                                            <label class="form-check-label  innerdropdownitem " for="">
+                                                HTC
+                                            </label>
+                                        </li>
+                                        <li class="form-check">
+                                            <input class="form-check-input shadow-none" type="checkbox" value="" id="">
+                                            <label class="form-check-label   innerdropdownitem  " for="">
+                                                Huawei
+                                            </label>
+                                        </li>
+                                        <li class="form-check">
+                                            <input class="form-check-input shadow-none" type="checkbox" value="" id="">
+                                            <label class="form-check-label  innerdropdownitem   " for="">
+                                                IKall
+                                            </label>
+                                        </li>
+                                        <li class="form-check">
+                                            <input class="form-check-input shadow-none" type="checkbox" value="" id="">
+                                            <label class="form-check-label  innerdropdownitem  " for="">
+                                                Intex
+                                            </label>
+                                        </li>
+                                        <li class="form-check">
+                                            <input class="form-check-input shadow-none" type="checkbox" value="" id="">
+                                            <label class="form-check-label   innerdropdownitem" for="">
+                                                IQOO
+                                            </label>
+                                        </li>
+                                        <li class="form-check">
+                                            <input class="form-check-input shadow-none" type="checkbox" value="" id="">
+                                            <label class="form-check-label  innerdropdownitem" for="">
+                                                Itel
+                                            </label>
+                                        </li>
+                                        <li class="form-check">
+                                            <input class="form-check-input shadow-none" type="checkbox" value="" id="">
+                                            <label class="form-check-label   innerdropdownitem" for="">
+                                                Lava
+                                            </label>
+                                        </li>
+                                        <li class="form-check">
+                                            <input class="form-check-input shadow-none" type="checkbox" value="" id="">
+                                            <label class="form-check-label   innerdropdownitem" for="">
+                                                Lenovo
+                                            </label>
+                                        </li>
+                                        <li class="form-check">
+                                            <input class="form-check-input shadow-none" type="checkbox" value="" id="">
+                                            <label class="form-check-label   innerdropdownitem" for="">
+                                                Mi
+                                            </label>
+                                        </li>
+                                        <li class="form-check">
+                                            <input class="form-check-input shadow-none" type="checkbox" value="" id="">
+                                            <label class="form-check-label  innerdropdownitem" for="">
+                                                Micromax
+                                            </label>
+                                        </li>
+                                        <li class="form-check">
+                                            <input class="form-check-input shadow-none" type="checkbox" value="" id="">
+                                            <label class="form-check-label  innerdropdownitem" for="">
+                                                Motorola
+                                            </label>
+                                        </li>
+                                        <li class="form-check">
+                                            <input class="form-check-input shadow-none" type="checkbox" value="" id="">
+                                            <label class="form-check-label  innerdropdownitem" for="">
+                                                MTR
+                                            </label>
+                                        </li>
+                                        <li class="form-check">
+                                            <input class="form-check-input shadow-none" type="checkbox" value="" id="">
+                                            <label class="form-check-label  innerdropdownitem" for="">
+                                                Nokia
+                                            </label>
+                                        </li>
+                                        <li class="form-check">
+                                            <input class="form-check-input shadow-none" type="checkbox" value="" id="">
+                                            <label class="form-check-label   innerdropdownitem" for="">
+                                                OnePlus
+                                            </label>
+                                        </li>
+                                        <li class="form-check">
+                                            <input class="form-check-input shadow-none" type="checkbox" value="" id="">
+                                            <label class="form-check-label  innerdropdownitem" for="">
+                                                Oppo
+                                            </label>
+                                        </li>
+                                        <li class="form-check">
+                                            <input class="form-check-input shadow-none" type="checkbox" value="" id="">
+                                            <label class="form-check-label  innerdropdownitem" for="">
+                                                Philips
+                                            </label>
+                                        </li>
+                                        <li class="form-check">
+                                            <input class="form-check-input shadow-none" type="checkbox" value="" id="">
+                                            <label class="form-check-label   innerdropdownitem" for="">
+                                                Realme
+                                            </label>
+                                        </li>
+                                        <li class="form-check">
+                                            <input class="form-check-input  shadow-none" type="checkbox" value="" id="">
+                                            <label class="form-check-label   innerdropdownitem" for="">
+                                                Redmi
+                                            </label>
+                                        </li>
+                                        <li class="form-check">
+                                            <input class="form-check-input shadow-none" type="checkbox" value="" id="">
+                                            <label class="form-check-label   innerdropdownitem" for="">
+                                                Samsung
+                                            </label>
+                                        </li>
+                                        <li class="form-check">
+                                            <input class="form-check-input shadow-none" type="checkbox" value="" id="">
+                                            <label class="form-check-label  innerdropdownitem" for="">
+                                                SeniorWorld
+                                            </label>
+                                        </li>
+                                        <li class="form-check">
+                                            <input class="form-check-input shadow-none" type="checkbox" value="" id="">
+                                            <label class="form-check-label  innerdropdownitem" for="">
+                                                Snexian
+                                            </label>
+                                        </li>
+                                        <li class="form-check">
+                                            <input class="form-check-input shadow-none" type="checkbox" value="" id="">
+                                            <label class="form-check-label  innerdropdownitem" for="">
+                                                Vivo
+                                            </label>
+                                        </li>
+                                        <li class="form-check">
+                                            <input class="form-check-input shadow-none" type="checkbox" value="" id="">
+                                            <label class="form-check-label   innerdropdownitem" for="">
+                                                Xiaomi
+                                            </label>
+                                        </li>
+                                        <li class="form-check">
+                                            <input class="form-check-input shadow-none" type="checkbox" value="" id="">
+                                            <label class="form-check-label  innerdropdownitem" for="">
+                                                Zopo
+                                            </label>
+                                        </li>
 
 
-                                </ul>
-                            </div>
-                            <!-- <div class=" ">
-                              <h4 class="   fw-bold  ms-2 text-red "> RATINGS</h4>
-                              <ul class="">
-                                <li class="form-check ">
-                                  <input class="form-check-input shadow-none" type="checkbox" value="" id="">
-                                  <label class="form-check-label   innerdropdownitem" for="">
-                                    5 Star Reviews
-                                  </label>
-                                </li>
-                                <li class="form-check">
-                                  <input class="form-check-input  shadow-none  " type="checkbox" value="" id="">
-                                  <label class="form-check-label   innerdropdownitem" for="">
-                                    4 Star Reviews
-                                  </label>
-                                </li>
-                                <li class="form-check">
-                                  <input class="form-check-input  shadow-none" type="checkbox" value="" id="">
-                                  <label class="form-check-label  innerdropdownitem" for="">
-                                    3 Star Reviews
-                                  </label>
-                                </li>
-                                <li class="form-check">
-                                  <input class="form-check-input   shadow-none" type="checkbox" value="" id="">
-                                  <label class="form-check-label  innerdropdownitem" for="">
-                                    2 Star Reviews
-                                  </label>
-                                </li>
-                                <li class="form-check">
-                                  <input class="form-check-input  shadow-none" type="checkbox" value="" id="">
-                                  <label class="form-check-label   innerdropdownitem" for="">
-                                    1 Star Reviews
-                                  </label>
-                                </li>
+                                    </ul>
+                                </div>
+                                <!-- <div class=" ">
+                          <h4 class="   fw-bold  ms-2 text-red "> RATINGS</h4>
+                          <ul class="">
+                            <li class="form-check ">
+                              <input class="form-check-input shadow-none" type="checkbox" value="" id="">
+                              <label class="form-check-label   innerdropdownitem" for="">
+                                5 Star Reviews
+                              </label>
+                            </li>
+                            <li class="form-check">
+                              <input class="form-check-input  shadow-none  " type="checkbox" value="" id="">
+                              <label class="form-check-label   innerdropdownitem" for="">
+                                4 Star Reviews
+                              </label>
+                            </li>
+                            <li class="form-check">
+                              <input class="form-check-input  shadow-none" type="checkbox" value="" id="">
+                              <label class="form-check-label  innerdropdownitem" for="">
+                                3 Star Reviews
+                              </label>
+                            </li>
+                            <li class="form-check">
+                              <input class="form-check-input   shadow-none" type="checkbox" value="" id="">
+                              <label class="form-check-label  innerdropdownitem" for="">
+                                2 Star Reviews
+                              </label>
+                            </li>
+                            <li class="form-check">
+                              <input class="form-check-input  shadow-none" type="checkbox" value="" id="">
+                              <label class="form-check-label   innerdropdownitem" for="">
+                                1 Star Reviews
+                              </label>
+                            </li>
 
-                              </ul>
-                            </div> -->
-                            <div class=" ">
-                                <h4 class="   fw-bold  ms-2 text-red ">AVAILABILITY</h4>
-                                <ul class="">
-                                    <li class="form-check ">
-                                        <input class="form-check-input shadow-none" type="checkbox" value="" id="">
-                                        <label class="form-check-label    innerdropdownitem" for="">
-                                            Include Out of Stock
-                                        </label>
-                                    </li>
-                                    <li class="form-check">
-                                        <input class="form-check-input  shadow-none  " type="checkbox" value="" id="">
-                                        <label class="form-check-label  innerdropdownitem" for="">
-                                            Exclude Upcoming
-                                        </label>
-                                    </li>
-                                    <li class="form-check">
-                                        <input class="form-check-input  shadow-none" type="checkbox" value="" id="">
-                                        <label class="form-check-label   innerdropdownitem" for="">
-                                            Upcoming
-                                        </label>
-                                    </li>
-                                </ul>
+                          </ul>
+                        </div> -->
+                                <div class=" ">
+                                    <h4 class="   fw-bold  ms-2 text-red ">AVAILABILITY</h4>
+                                    <ul class="">
+                                        <li class="form-check ">
+                                            <input class="form-check-input shadow-none" type="checkbox" value="" id="">
+                                            <label class="form-check-label    innerdropdownitem" for="">
+                                                Include Out of Stock
+                                            </label>
+                                        </li>
+                                        <li class="form-check">
+                                            <input class="form-check-input  shadow-none  " type="checkbox" value="" id="">
+                                            <label class="form-check-label  innerdropdownitem" for="">
+                                                Exclude Upcoming
+                                            </label>
+                                        </li>
+                                        <li class="form-check">
+                                            <input class="form-check-input  shadow-none" type="checkbox" value="" id="">
+                                            <label class="form-check-label   innerdropdownitem" for="">
+                                                Upcoming
+                                            </label>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="   ">
+                                    <h4 class="   fw-bold text-red ms-2 ">VENDORS</h4>
+                                    <ul class="">
+                                        <li class="form-check ">
+                                            <input class="form-check-input shadow-none" type="checkbox" value="" id="">
+                                            <label class="form-check-label   innerdropdownitem" for="">
+                                                Amazon
+                                            </label>
+                                        </li>
+                                        <li class="form-check">
+                                            <input class="form-check-input  shadow-none  " type="checkbox" value="" id="">
+                                            <label class="form-check-label   innerdropdownitem" for="">
+                                                Flipkart
+                                            </label>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
-                            <div class="   ">
-                                <h4 class="   fw-bold text-red ms-2 ">VENDORS</h4>
-                                <ul class="">
-                                    <li class="form-check ">
-                                        <input class="form-check-input shadow-none" type="checkbox" value="" id="">
-                                        <label class="form-check-label   innerdropdownitem" for="">
-                                            Amazon
-                                        </label>
-                                    </li>
-                                    <li class="form-check">
-                                        <input class="form-check-input  shadow-none  " type="checkbox" value="" id="">
-                                        <label class="form-check-label   innerdropdownitem" for="">
-                                            Flipkart
-                                        </label>
-                                    </li>
-                                </ul>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn btn-danger redbtn bg-red">Apply</button>
                             </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn btn-danger redbtn bg-red">Apply</button>
                         </div>
                     </div>
                 </div>
-            </div>
         </div>
         <div class="col-6 f-show">
             <!-- Button trigger modal -->
@@ -381,6 +399,7 @@
                             <h5 class="modal-title fw-bold text-black" id="exampleModalLabel2">Sort By</h5>
                             <button class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
+                        <form asp-action="SortProducts">
                         <div class="modal-body">
                             <!-- <select class="form-select shadow-none ms-auto  clickbox  " aria-label="Default select example">
                               <option selected> Sort By : Popularity</option>
@@ -389,19 +408,20 @@
                               <option value="3" class="">Sort By : Customer Rating</option>
                             </select> -->
                             <div class="form-check">
-                                <input class="form-check-input shadow-none  " type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked>
+                                <input class="form-check-input shadow-none  " type="radio" name="flexRadioDefault" id="flexRadioDefault1" >
                                 <label class="form-check-label innerdropdownitem " for="flexRadioDefault1">
                                     Popularity
                                 </label>
                             </div>
+                            
                             <div class="form-check">
-                                <input class="form-check-input shadow-none " type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                                <input  asp-for="@Str" value="price" class="form-check-input shadow-none " type="radio"  id="flexRadioDefault2" >
                                 <label class="form-check-label innerdropdownitem " for="flexRadioDefault2">
                                     Price - low to high
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input shadow-none" type="radio" name="flexRadioDefault" id="flexRadioDefault3">
+                                <input asp-for="@Str" value="-price" class="form-check-input shadow-none" type="radio" name="Str" id="flexRadioDefault3">
                                 <label class="form-check-label innerdropdownitem " for="flexRadioDefault3">
                                     Price - high to low
                                 </label>
@@ -410,8 +430,9 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn btn-danger redbtn bg-red">Apply</button>
+                            <a type="submit"  href="/home/SortProducts/?Str=@Str" name="Str" class="btn btn btn-danger redbtn bg-red">Apply</a>
                         </div>
+                        </form>
                     </div>
                 </div>
             </div>

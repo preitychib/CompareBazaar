@@ -101,7 +101,7 @@ namespace CompareBazaar.Controllers
                 // ViewBag.Mobile[n] = null;
                 foreach (var product in myList)
                 {
-                    ViewBag.mobile = await GetMobile(product.vendor, product.id);
+                    //ViewBag.mobile = await GetMobile(product.vendor, product.id);
                     n++;
                 }
 
@@ -142,12 +142,14 @@ namespace CompareBazaar.Controllers
         {
             if (SessionHelper.GetObjectFromJson<List<Item>>(HttpContext.Session, "myList") == null)
             {
-                List<Item> myList = new List<Item>();
-                myList.Add(new Item()
+                List<Item> myList = new List<Item>
                 {
-                    id = id,
-                    vendor = vendor
-                });
+                    new Item()
+                    {
+                        id = id,
+                        vendor = vendor
+                    }
+                };
 
                 SessionHelper.SetObjectAsJson(HttpContext.Session, "myList", myList);
             }
@@ -175,7 +177,7 @@ namespace CompareBazaar.Controllers
             SessionHelper.SetObjectAsJson(HttpContext.Session, "myList", myList);
             return RedirectToAction("CompareChart");
         }
-        private bool isNull()
+        private bool IsNull()
         {
             List<Item> myList = SessionHelper.GetObjectFromJson<List<Item>>(HttpContext.Session, "cart");
            
@@ -218,6 +220,25 @@ namespace CompareBazaar.Controllers
             // var newMobiles = await _mobileService.GetMobiles();
            
 
+             return View("./ProductsList"); ;
+        }
+        public async Task<IActionResult> SortProductsAsync(string Str)
+        {
+            using var client = new HttpClient();
+            var Url = $"https://comparebazaar-api.herokuapp.com/api/flipkart/mobile/?ordering={Str}";
+
+            // return await client.GetAsync(url);
+            var Response = await client.GetAsync(Url);
+            Response.EnsureSuccessStatusCode();
+
+            var Content = await Response.Content.ReadAsStringAsync();
+
+            var Mobiles = JsonConvert.DeserializeObject<object>(Content);
+
+            ViewBag.mobiles = Mobiles;
+            // var newMobiles = await _mobileService.GetMobiles();
+
+
             return View("./ProductsList");
         }
         public async Task<IActionResult> ProductsListAsync()
@@ -234,7 +255,7 @@ namespace CompareBazaar.Controllers
             try
             {
                 using var client = new HttpClient();
-                var Url = $"https://comparebazaar-api.herokuapp.com/api/{vendor}/mobile/?ordering=-price";
+                var Url = $"https://comparebazaar-api.herokuapp.com/api/{vendor}/mobile";
 
                 // return await client.GetAsync(url);
                 var Response = await client.GetAsync(Url);

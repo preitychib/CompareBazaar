@@ -64,9 +64,9 @@
                                 </div>
                             </div>
                             <div class="input-group-append">
-                                <a type="submit" name="searchStr" class="btn btn-link searchcolor text-red shadow-none" asp-action="">
+                                <button type="submit" name="searchStr" class="btn btn-link searchcolor text-red shadow-none" >
                                     <i class="fas fa-search"></i>
-                                </a>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -240,7 +240,7 @@
 
                                 <br>
                                 <a href="/home/ProductDetails/?vendor=@item.vendor.name&id=@item.id" class=" text-decoration-none text-red fw-bold ">Rs @item.price</a>
-                                <a href="/home/CompareChart/?vendor=@item.vendor.name&id=@item.id" class="btn btn-danger redbtn bg-red my-3 shadow-none " type="submit">
+                                <a href="/home/AddItem/?vendor=@item.vendor.name&id=@item.id" class="btn btn-danger redbtn bg-red my-3 shadow-none " type="submit">
                                     COMPARE
                                 </a>
                             </div>

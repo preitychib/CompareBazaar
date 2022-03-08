@@ -22,9 +22,9 @@
                         <form asp-action="SearchResults" class="d-flex  mx-2 mt-4">
                             <input type="search" name="searchStr" placeholder="Search products" class="form-control radius shadow-none comparesearch "
                                    aria-label="Search">
-                            <a type="submit" class="btn btn-link searchcolor bg-red text-white radius shadow-none snone" href="#">
+                            <submit type="submit" class="btn btn-link searchcolor bg-red text-white radius shadow-none snone" >
                                 <i class="fas fa-search"></i>
-                            </a>
+                            </submit>
                         </form>
                         <a class="btn btn-danger redbtn bg-red col-8 m-2 fontsize11 shadow-none">
                             ADD TO
@@ -49,9 +49,9 @@
                         <form asp-action="SearchResults" class="d-flex  mx-2 mt-4">
                             <input name="searchStr" type="search" placeholder="Search products" class="form-control radius shadow-none comparesearch "
                                    aria-label="Search">
-                            <a type="submit" class="btn btn-link searchcolor bg-red text-white radius shadow-none snone" href="#">
+                            <button type="submit" class="btn btn-link searchcolor bg-red text-white radius shadow-none snone" >
                                 <i class="fas fa-search"></i>
-                            </a>
+                            </button>
                         </form>
                         <a class="btn btn-danger redbtn bg-red col-8 m-2 fontsize11 shadow-none">
                             ADD TO
@@ -76,9 +76,9 @@
                         <form asp-action="SearchResults" class="d-flex  mx-2 mt-4">
                             <input name="searchStr" type="search" placeholder="Search products" class="form-control radius shadow-none comparesearch "
                                    aria-label="Search">
-                            <a type="submit" class="btn btn-link searchcolor bg-red text-white radius shadow-none snone" asp-action="SearchResults">
+                            <button type="submit" class="btn btn-link searchcolor bg-red text-white radius shadow-none snone" >
                                 <i class="fas fa-search"></i>
-                            </a>
+                            </button>
                         </form>
                         <a class="btn btn-danger redbtn bg-red col-8 m-2 fontsize11 shadow-none">
                             ADD TO
@@ -152,7 +152,7 @@
         @if (ViewBag.mobile1 != null)
         {
             <div class="col-lg-3 col-md-3 col-sm-4 col">
-                <span class="fontsize12">Rs 23,960</span>
+                <span class="fontsize12">Rs @ViewBag.mobile1.price</span>
             </div>
         }
         else
@@ -163,7 +163,7 @@
         @if (ViewBag.mobile2 != null)
         {
             <div class="col-lg-3 col-md-3 col-sm-4 col">
-                <span class="fontsize12">Rs 23,960</span>
+                <span class="fontsize12">Rs @ViewBag.mobile2.price</span>
             </div>
         }
         else
@@ -171,10 +171,10 @@
             <span class="fontsize12"></span>
         }
 
-        @if (ViewBag.mobile1 != null)
+        @if (ViewBag.mobile3 != null)
         {
             <div class="col-lg-3 col-md-3 comparehide">
-                <span class="fontsize12">Rs 23,960</span>
+                <span class="fontsize12">Rs @ViewBag.mobile3.price</span>
             </div>
         }
         else
