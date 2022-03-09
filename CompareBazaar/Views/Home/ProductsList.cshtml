@@ -34,7 +34,7 @@
 
 
             <select onchange="window.location.href=this.value;" class="form-select shadow-none ms-auto  clickbox  " aria-label="Default select example">
-                <option value="/Home/SortProducts/"> Sort By : Popularity</option>
+                <option value="/Home/SortProducts/"> Sort By : </option>
                 @*<option value="2" class="">@Html.ActionLink("Sort By : Price - low to high", "SortProducts", new { Str = "price" })</option>*@
                 <option value="/Home/SortProducts/?Str=price" type="submit" class="">Sort By : Price - low to high</option>
                  <option value="/Home/SortProducts/?Str=-price" type="submit" >Sort By : Price - high to low</option>
@@ -407,12 +407,12 @@
                               <option value="2" class="">Sort By : Price - high to low</option>
                               <option value="3" class="">Sort By : Customer Rating</option>
                             </select> -->
-                            <div class="form-check">
+                            @*<div class="form-check">
                                 <input class="form-check-input shadow-none  " type="radio" name="flexRadioDefault" id="flexRadioDefault1" >
                                 <label class="form-check-label innerdropdownitem " for="flexRadioDefault1">
                                     Popularity
                                 </label>
-                            </div>
+                            </div>*@
                             
                             <div class="form-check">
                                 <input  asp-for="@Str" value="price" class="form-check-input shadow-none " type="radio"  id="flexRadioDefault2" >

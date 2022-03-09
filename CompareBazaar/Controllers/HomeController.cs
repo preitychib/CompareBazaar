@@ -52,7 +52,7 @@ namespace CompareBazaar.Controllers
             return View();
         }
 
-        [Authorize]
+        
         public async Task<IActionResult> WishListAsync(string vendor=null, int id=-1)
         {
             
@@ -90,7 +90,7 @@ namespace CompareBazaar.Controllers
         }
       
 
-        [Authorize]
+       
         public async Task<IActionResult> CompareChartAsync()
         {
             if (SessionHelper.GetObjectFromJson<List<Item>>(HttpContext.Session, "myList") != null)
