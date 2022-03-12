@@ -8,32 +8,42 @@
 
     }*@
 
-    @if (ViewBag.mobile != null)
+    @if (ViewBag.n >0)
     {
+        int i = 0;
+       
         <div class="row ">
-            <div class=" col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-3 col-xxl-3 my-3  d-flex justify-content-center ">
-                <div class="card  " style="width: 16rem; ">
-                    <div class="  d-flex justify-content-center mt-3 ">
-                        <a href="" class="pointer">
-                            <img src="@ViewBag.mobile.product_images.image"
-                                 class="card-img-top allproductimg  " alt="mobile">
-                        </a>
-                        <a asp-action="WishList"
-                           class=" crossposition text-decoration-none text-black pointer ">
-                            <i class="fas fa-times crosshover px-1 fs-3"></i>
-                        </a>
-                    </div>
-                    <div class="card-body text-center">
-                        <a class=" text-decoration-none text-dark fw-bold fs-4" href="">
-                            @ViewBag.mobile.name
-                        </a>
-                        <h6 class=" text-decoration-none text-red fw-bold "> @ViewBag.mobile.price</h6>
-                        <a href="/home/CompareChart/?vendor=@ViewBag.mobile.vendor.name&id=@ViewBag.mobile.id"
-                           class="btn btn-danger redbtn bg-red my-2 col-6 shadow-none">COMPARE</a>
-                    </div>
+       
+        @foreach (var item in ViewBag.mobile)
+        {
+            
+            var Url = $"/home/Remove/?id={i}&View=WishList&list=Wishlist";
+            i++;
+        <div class=" col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-3 col-xxl-3 my-3  d-flex justify-content-center ">
+            <div class="card  " style="width: 16rem; ">
+                <div class="  d-flex justify-content-center mt-3 ">
+                    <a href="" class="pointer">
+                        <img src="@item.product_images.image"
+                             class="card-img-top allproductimg  " alt="mobile">
+                    </a>
+                    <a href=@Url
+                       class=" crossposition text-decoration-none text-black pointer ">
+                        <i class="fas fa-times crosshover px-1 fs-3"></i>
+                    </a>
+                </div>
+                <div class="card-body text-center">
+                    <a class=" text-decoration-none text-dark fw-bold fs-4" href="">
+                        @item.name
+                    </a>
+                    <h6 class=" text-decoration-none text-red fw-bold "> @item.price</h6>
+                    <a href="/home/AddItem/?vendor=@item.vendor.name&id=@item.id&View=CompareChart&list=Comparelist"
+                       class="btn btn-danger redbtn bg-red my-2 col-6 shadow-none">COMPARE</a>
                 </div>
             </div>
-
         </div>
+        }
+</div>
+
+        
     }
 </section>
