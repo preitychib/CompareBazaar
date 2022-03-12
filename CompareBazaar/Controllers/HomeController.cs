@@ -34,7 +34,21 @@ namespace CompareBazaar.Controllers
         public async Task<IActionResult> IndexAsync()
         {
             ViewBag.mobiles = await GetMobiles("amazon");
-         //  Console.WriteLine(ViewBag.mobiles);
+            if (SessionHelper.GetObjectFromJson<List<Item>>(HttpContext.Session, "Comparelist") != null)
+            {
+                var myList = SessionHelper.GetObjectFromJson<List<Item>>(HttpContext.Session, "Comparelist");
+
+                if (myList.Count > 0)
+                {
+                    ViewBag.mobile = new List<dynamic>();
+
+                    for (int i = 0; i < myList.Count; i++)
+                        ViewBag.mobile.Add(await GetItem(myList[i].vendor, "mobile", myList[i].id));
+                }
+                ViewBag.n = myList.Count;
+               
+            }
+            //  Console.WriteLine(ViewBag.mobiles);
             return View();
         }
 
@@ -70,7 +84,7 @@ namespace CompareBazaar.Controllers
                         ViewBag.mobile.Add(await GetItem(myList[i].vendor, "mobile", myList[i].id));
                 }
                 ViewBag.n = myList.Count;
-                return View();
+              //  return View();
             }
            
            

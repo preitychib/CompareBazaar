@@ -1,5 +1,5 @@
 ﻿@{
-    var empty = 3-ViewBag.n;
+    
 
 }
 <section class=" mt-5 pt-5" id="s1">
@@ -14,7 +14,7 @@
                 <div class="card shadow-sm compare d-flex align-items-center justify-content-center  ">
                     @if (ViewBag.n > 0)
                     {
-                        <a href="/home/Remove/?id=0&View=CompareChart&list=Comparelist" class="text-decoration-none text-black pointer d-block ">
+                        <a href="/home/Remove/?id=0&View=Index&list=Comparelist" class="text-decoration-none text-black pointer d-block ">
                             <i class="fas fa-times crossmargin fs-4"></i>
                         </a>
                         <img class="img-fluid  allproductimg  " id="deta" src="@ViewBag.mobile[0].product_images.image" alt="">
@@ -25,9 +25,9 @@
                         <form asp-action="ProductsList" class="d-flex  mx-2 mt-4">
                             <input type="search" name="searchStr" placeholder="Search products" class="form-control radius shadow-none comparesearch "
                                    aria-label="Search">
-                            <submit type="submit" class="btn btn-link searchcolor bg-red text-white radius shadow-none snone">
+                            <button type="submit" class="btn btn-link searchcolor bg-red text-white radius shadow-none snone">
                                 <i class="fas fa-search"></i>
-                            </submit>
+                            </button>
                         </form>
                         <a class="btn btn-danger redbtn bg-red col-8 m-2 fontsize11 shadow-none">
                             ADD TO
@@ -49,7 +49,7 @@
                     else
                     {
                         <a asp-controller="" asp-action="" class="mt-4"><i class="fas fa-search-plus text-red searchproduct"></i> </a>
-                        <form asp-action="SearchResults" class="d-flex  mx-2 mt-4">
+                        <form asp-action="ProductsList" class="d-flex  mx-2 mt-4">
                             <input type="search" name="searchStr" placeholder="Search products" class="form-control radius shadow-none comparesearch "
                                    aria-label="Search">
                             <submit type="submit" class="btn btn-link searchcolor bg-red text-white radius shadow-none snone">
@@ -76,7 +76,7 @@
                     else
                     {
                         <a asp-controller="" asp-action="" class="mt-4"><i class="fas fa-search-plus text-red searchproduct"></i> </a>
-                        <form asp-action="SearchResults" class="d-flex  mx-2 mt-4">
+                        <form asp-action="ProductsList" class="d-flex  mx-2 mt-4">
                             <input name="searchStr" type="search" placeholder="Search products" class="form-control radius shadow-none comparesearch "
                                    aria-label="Search">
                             <button type="submit" class="btn btn-link searchcolor bg-red text-white radius shadow-none snone">
@@ -114,9 +114,9 @@
         </div>
        
          <div class="col-lg-3 col-md-3 col-sm-4 col">
-                @if (ViewBag.mobile1 != null)
+                @if (ViewBag.n>0)
                 {
-                    <span class="fontsize12">@ViewBag.mobile1.name</span>
+                    <span class="fontsize12">@ViewBag.mobile[0].name</span>
                 }
                 else
                 {
@@ -125,9 +125,9 @@
         </div>
        
          <div class="col-lg-3 col-md-3 col-sm-4 col">
-             @if (ViewBag.mobile2 != null)
+             @if (ViewBag.n>1)
              {
-                 <span class="fontsize12">@ViewBag.mobile2.name</span>
+                 <span class="fontsize12">@ViewBag.mobile[1].name</span>
              }
              else
              {
@@ -136,9 +136,9 @@
          </div>
         
          <div class=" col-lg-3 col-md-3  comparehide">
-             @if (ViewBag.mobile3 != null)
+             @if (ViewBag.n >2)
              {
-                 <span class="fontsize12">@ViewBag.mobile3.name</span>
+                 <span class="fontsize12">@ViewBag.mobile[2].name</span>
              }
              else
              {
@@ -152,10 +152,10 @@
         <div class="col-lg-3 col-md-3 col-sm-4 col ">
             <span class="fs-6 fontsize12">Price</span>
         </div>
-        @if (ViewBag.mobile1 != null)
+        @if (ViewBag.n >0)
         {
             <div class="col-lg-3 col-md-3 col-sm-4 col">
-                <span class="fontsize12">Rs @ViewBag.mobile1.price</span>
+                <span class="fontsize12">Rs @ViewBag.mobile[0].price</span>
             </div>
         }
         else
@@ -163,10 +163,10 @@
             <span class="fontsize12"></span>
         }
 
-        @if (ViewBag.mobile2 != null)
+        @if (ViewBag.n >1)
         {
             <div class="col-lg-3 col-md-3 col-sm-4 col">
-                <span class="fontsize12">Rs @ViewBag.mobile2.price</span>
+                <span class="fontsize12">Rs @ViewBag.mobile[1].price</span>
             </div>
         }
         else
@@ -174,10 +174,10 @@
             <span class="fontsize12"></span>
         }
 
-        @if (ViewBag.mobile3 != null)
+        @if (ViewBag.n >2)
         {
             <div class="col-lg-3 col-md-3 comparehide">
-                <span class="fontsize12">Rs @ViewBag.mobile3.price</span>
+                <span class="fontsize12">Rs @ViewBag.mobile[2].price</span>
             </div>
         }
         else

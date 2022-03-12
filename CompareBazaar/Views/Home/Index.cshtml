@@ -176,42 +176,74 @@
         <div class="row mb-5 ">
             <div class="  col-lg-4 col-md-4 col-sm-6 col ">
                 <div class="card shadow-sm compare-1 d-flex align-items-center justify-content-center  ">
-                    <a href="" class="mt-4"><i class="fas fa-search-plus text-red searchproduct-1"></i> </a>
-                    <form class="d-flex  mx-2 mt-4">
-                        <input type="search" placeholder="Search products" class="form-control radius shadow-none comparesearch-1 " 
+                    @if (ViewBag.n > 0)
+                    {
+                        <a href="/home/Remove/?id=0&View=Index&list=Comparelist" class="text-decoration-none text-black pointer d-block ">
+                            <i class="fas fa-times crossmargin fs-4"></i>
+                        </a>
+                        <img class="img-fluid  allproductimg  " id="deta" src="@ViewBag.mobile[0].product_images.image" alt="">
+                    }
+                    else
+                    {
+                        <a href="" class="mt-4"><i class="fas fa-search-plus text-red searchproduct-1"></i> </a>
+                        <form asp-action="ProductsList" class="d-flex  mx-2 mt-4">
+                            <input type="search" name="searchStr" placeholder="Search products" class="form-control radius shadow-none comparesearch-1 "
+                                   aria-label="Search">
 
-                               aria-label="Search">
-                        
-                        <a type="submit" class="btn btn-link searchcolor bg-red text-white radius shadow-none" href="#">
-                            <i class="fas fa-search"></i>
-                        </a>
-                    </form>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-4  col-sm-6 col  ">
-                <div class="card shadow-sm compare-1 d-flex align-items-center justify-content-center ">
-                    <a href="" class="mt-4"><i class="fas fa-search-plus text-red searchproduct-1"></i> </a>
-                    <form class="d-flex  mx-2 mt-4">
-                        <input type="search" placeholder="Search products" class="form-control radius shadow-none comparesearch-1 "
-                               aria-label="Search">
-                        <a type="submit" class="btn btn-link searchcolor bg-red text-white radius shadow-none" href="#">
-                            <i class="fas fa-search"></i>
-                        </a>
-                    </form>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-4  col-sm-6 col comparehide ">
+                            <button type="submit" class="btn btn-link searchcolor bg-red text-white radius shadow-none" href="#">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </form>
+                    }
+                    </div>
+            </div>         
+            <div class="  col-lg-4 col-md-4 col-sm-6 col ">
                 <div class="card shadow-sm compare-1 d-flex align-items-center justify-content-center  ">
-                    <a href="" class="mt-4"><i class="fas fa-search-plus text-red searchproduct-1"></i> </a>
-                    <form class="d-flex  mx-2 mt-4">
-                        <input type="search" placeholder="Search products" class="form-control radius shadow-none comparesearch-1 "
-                               aria-label="Search">
-                        <a type="submit" class="btn btn-link searchcolor bg-red text-white radius shadow-none" href="#">
-                            <i class="fas fa-search"></i>
+                    @if (ViewBag.n > 1)
+                    {
+                        <a href="/home/Remove/?id=0&View=Index&list=Comparelist" class="text-decoration-none text-black pointer d-block ">
+                            <i class="fas fa-times crossmargin fs-4"></i>
                         </a>
-                    </form>
-                </div>
+                        <img class="img-fluid  allproductimg  " id="deta" src="@ViewBag.mobile[1].product_images.image" alt="">
+                    }
+                    else
+                    {
+                        <a href="" class="mt-4"><i class="fas fa-search-plus text-red searchproduct-1"></i> </a>
+                        <form asp-action="ProductsList" class="d-flex  mx-2 mt-4">
+                            <input type="search" name="searchStr" placeholder="Search products" class="form-control radius shadow-none comparesearch-1 "
+                                   aria-label="Search">
+
+                            <button type="submit" class="btn btn-link searchcolor bg-red text-white radius shadow-none" href="#">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </form>
+                    }
+                    </div>
+            </div>        
+            <div class="  col-lg-4 col-md-4 col-sm-6 col comparehide">
+                <div class="card shadow-sm compare-1 d-flex align-items-center justify-content-center  ">
+                    @if (ViewBag.n > 2)
+                    {
+                        <a href="/home/Remove/?id=0&View=Index&list=Comparelist" class="text-decoration-none text-black pointer d-block ">
+                            <i class="fas fa-times crossmargin fs-4"></i>
+                        </a>
+                        <img class="img-fluid  allproductimg  " id="deta" src="@ViewBag.mobile[2].product_images.image" alt="">
+                    }
+                    else
+                    {
+                        <a href="" class="mt-4"><i class="fas fa-search-plus text-red searchproduct-1"></i> </a>
+                        <form asp-action="ProductsList" class="d-flex  mx-2 mt-4">
+                            <input type="search" name="searchStr" placeholder="Search products" class="form-control radius shadow-none comparesearch-1 "
+                                   aria-label="Search">
+
+                            <button type="submit" class="btn btn-link searchcolor bg-red text-white radius shadow-none" href="#">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </form>
+                    }
+                    </div>
             </div>
+          
           
         </div>
         <div>
@@ -240,7 +272,7 @@
 
                                 <br>
                                 <a href="/home/ProductDetails/?vendor=@item.vendor.name&id=@item.id" class=" text-decoration-none text-red fw-bold ">Rs @item.price</a>
-                                <a href="/home/AddItem/?vendor=@item.vendor.name&id=@item.id" class="btn btn-danger redbtn bg-red my-3 shadow-none " type="submit">
+                                <a href="/home/AddItem/?vendor=@item.vendor.name&id=@item.id&View=CompareChart&list=Comparelist" class="btn btn-danger redbtn bg-red my-3 shadow-none " type="submit">
                                     COMPARE
                                 </a>
                             </div>
