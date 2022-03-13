@@ -1,9 +1,9 @@
 ﻿@{ 
-    String Str="price", vendor = "flipkart", order = "id" ,searchStr = null,availability = null;
+    String  vendor = "flipkart", order = "-price" ,searchStr = null,availability = null;
     int pageSize = 4,pageNum = 1, fVendor = 1,fBrand = -1,pstart = 0, pend = 90000000;
 
     int i, j,k,l;
-    i = j =k= 0;
+    i = j =k= l=0;
    var n1 = 4;
     var n2 = 4;
 
@@ -29,7 +29,7 @@
       </ul>
     </div> -->
             <!--<form asp-action="SortProducts">
-        <select asp-for="@Str" class="form-select shadow-none ms-auto  clickbox  " aria-label="Default select example">
+        <select asp-for="@order" class="form-select shadow-none ms-auto  clickbox  " aria-label="Default select example">
             <option value="1"> Sort By : Popularity</option>-->
             @*<option value="2" class="">@Html.ActionLink("Sort By : Price - low to high", "SortProducts", new { Str = "price" })</option>*@
             <!--<option value="price" type="submit" class="">Sort By : Price - low to high</option>
@@ -254,13 +254,13 @@
                             </div>*@
                             
                             <div class="form-check">
-                                <input  asp-for="@Str" value="price" class="form-check-input shadow-none " type="radio"  id="flexRadioDefault2" >
+                                <input  asp-for="@order" value="price" class="form-check-input shadow-none " type="radio"  id="flexRadioDefault2" >
                                 <label class="form-check-label innerdropdownitem " for="flexRadioDefault2">
                                     Price - low to high
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input asp-for="@Str" value="-price" class="form-check-input shadow-none" type="radio" name="Str" id="flexRadioDefault3">
+                                <input asp-for="@order" value="-price" class="form-check-input shadow-none" type="radio" name="Str" id="flexRadioDefault3">
                                 <label class="form-check-label innerdropdownitem " for="flexRadioDefault3">
                                     Price - high to low
                                 </label>
@@ -269,7 +269,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <a type="submit"  href="/home/ProductsList/?order=@Str" name="Str" class="btn btn btn-danger redbtn bg-red">Apply</a>
+                            <a type="submit"  href="/home/ProductsList/?order=@order" name="Str" class="btn btn btn-danger redbtn bg-red">Apply</a>
                         </div>
                         </form>
                     </div>
@@ -472,73 +472,68 @@
             <div class="row mx-3 mt-5">
                 @while (i < n1 && j < n2)
                 {
-                    if (ViewBag.mobiles[0].results[i].price >= ViewBag.mobiles[1].results[j].price)
+                    if (order == "-price")
                     {
-                        k = i; l = 0; i++;
-                        Console.WriteLine(k);
+                        if (ViewBag.mobiles[0].results[i].price >= ViewBag.mobiles[1].results[j].price)
+                        {
+                            k = i; l = 0; i++;
+                            Console.WriteLine(k);
 
-                        <div class=" col-xxl-3 col-xl-3 col-lg-6 col-md-6 col-sm-6 col ">
-                            <div class="card my-1">
-                                <!-- <div class="row"> -->
-                                <div class="  d-flex justify-content-center mt-3 ">
-                                    <a href="" class="pointer">
-                                        <img src="@ViewBag.mobiles[l].results[k].product_images.image" class="card-img-top allproductimg  " alt="Product image">
-                                    </a>
-                                </div>
-                                <a class="text-black  " onclick="Wishlist(this)" href="/home/AddItem/?vendor=@ViewBag.mobiles[l].results[k].vendor.name&id=@ViewBag.mobiles[l].results[k].id&View=WishList&list=Wishlist">
-                                    <i class="far fa-heart pointer ms-4 wishlist  "></i>
-                                </a>
-                                <!-- </div> -->
-                                <div class="card-body text-center">
 
-                                    <a class=" text-decoration-none text-dark fw-bold fs-4" href="">@ViewBag.mobiles[l].results[k].name</a>
+                        }
 
-                                    <h6 class=" text-decoration-none text-red fw-bold ">Rs @ViewBag.mobiles[l].results[k].price</h6>
-                                    <!-- <a  href="" class="btn btn-danger redbtn bg-red my-2 shadow-none" > <i class="far fa-heart pointer"></i> WISHLIST </a> <br> -->
-                                    <a href="/home/AddItem/?vendor=@ViewBag.mobiles[l].results[k].vendor.name&id=@ViewBag.mobiles[l].results[k].id&View=CompareChart&list=Comparelist" class="btn btn-danger redbtn bg-red my-2 shadow-none">COMPARE</a>
+                        else
+                        {
+                            k = j; l = 1; j++;
 
-                                    <a href="/home/ProductDetails/?vendor=@ViewBag.mobiles[l].results[k].vendor.name&id=@ViewBag.mobiles[l].results[k].id" class="btn btn-danger redbtn bg-red my-2 shadow-none">VIEW</a>
-                                </div>
-                            </div>
-
-                        </div>
+                        }
                     }
-
-                    else
+                    else if (order =="price")
                     {
-                        k = j; l = 1; j++;
-                        <div class=" col-xxl-3 col-xl-3 col-lg-6 col-md-6 col-sm-6 col ">
-                            <div class="card my-1">
-                                <!-- <div class="row"> -->
-                                <div class="  d-flex justify-content-center mt-3 ">
-                                    <a href="" class="pointer">
-                                        <img src="@ViewBag.mobiles[l].results[k].product_images.image" class="card-img-top allproductimg  " alt="Product image">
-                                    </a>
-                                </div>
-                                <a class="text-black  " onclick="Wishlist(this)" href="/home/AddItem/?vendor=@ViewBag.mobiles[l].results[k].vendor.name&id=@ViewBag.mobiles[l].results[k].id&View=WishList&list=Wishlist">
-                                    <i class="far fa-heart pointer ms-4 wishlist  "></i>
+                        if (ViewBag.mobiles[0].results[i].price <= ViewBag.mobiles[1].results[j].price)
+                        {
+                            k = i; l = 0; i++;
+                            Console.WriteLine(k);
+
+
+                        }
+
+                        else
+                        {
+                            k = j; l = 1; j++;
+
+                        }
+                    }
+                    <div class=" col-xxl-3 col-xl-3 col-lg-6 col-md-6 col-sm-6 col ">
+                        <div class="card my-1">
+                            <!-- <div class="row"> -->
+                            <div class="  d-flex justify-content-center mt-3 ">
+                                <a href="" class="pointer">
+                                    <img src="@ViewBag.mobiles[l].results[k].product_images.image" class="card-img-top allproductimg  " alt="Product image">
                                 </a>
-                                <!-- </div> -->
-                                <div class="card-body text-center">
-                                    @*@{
-                                var nameStr = item.name.Split(" ");
-
-                            }*@
-                                    <a class=" text-decoration-none text-dark fw-bold fs-4" href="">@ViewBag.mobiles[l].results[k].name</a>
-                                    @*<a class=" text-decoration-none text-dark fw-bold fs-4" href="">@nameStr[1]</a>*@
-                                    <h6 class=" text-decoration-none text-red fw-bold ">Rs @ViewBag.mobiles[l].results[k].price</h6>
-                                    <!-- <a  href="" class="btn btn-danger redbtn bg-red my-2 shadow-none" > <i class="far fa-heart pointer"></i> WISHLIST </a> <br> -->
-                                    <a href="/home/AddItem/?vendor=@ViewBag.mobiles[l].results[k].vendor.name&id=@ViewBag.mobiles[l].results[k].id&View=CompareChart&list=Comparelist" class="btn btn-danger redbtn bg-red my-2 shadow-none">COMPARE</a>
-                                    @*<a onclick="location.href='@Url.Action("ProductDetails","Home", new  { vendor= item.vendor.name, id=item.id})'" class="btn btn-danger redbtn bg-red my-2 shadow-none">VIEW</a>*@
-                                    @*@using (Html.BeginForm("index", "Home"))
-                            {*@
-                                    <a href="/home/ProductDetails/?vendor=@ViewBag.mobiles[l].results[k].vendor.name&id=@ViewBag.mobiles[l].results[k].id" class="btn btn-danger redbtn bg-red my-2 shadow-none">VIEW</a>
-                                </div>
                             </div>
+                            <a class="text-black  " onclick="Wishlist(this)" href="/home/AddItem/?vendor=@ViewBag.mobiles[l].results[k].vendor.name&id=@ViewBag.mobiles[l].results[k].id&View=WishList&list=Wishlist">
+                                <i class="far fa-heart pointer ms-4 wishlist  "></i>
+                            </a>
+                            <!-- </div> -->
+                            <div class="card-body text-center">
+                                @*@{
+                            var nameStr = item.name.Split(" ");
 
+                        }*@
+                                <a class=" text-decoration-none text-dark fw-bold fs-4" href="">@ViewBag.mobiles[l].results[k].name</a>
+                                @*<a class=" text-decoration-none text-dark fw-bold fs-4" href="">@nameStr[1]</a>*@
+                                <h6 class=" text-decoration-none text-red fw-bold ">Rs @ViewBag.mobiles[l].results[k].price</h6>
+                                <!-- <a  href="" class="btn btn-danger redbtn bg-red my-2 shadow-none" > <i class="far fa-heart pointer"></i> WISHLIST </a> <br> -->
+                                <a href="/home/AddItem/?vendor=@ViewBag.mobiles[l].results[k].vendor.name&id=@ViewBag.mobiles[l].results[k].id&View=CompareChart&list=Comparelist" class="btn btn-danger redbtn bg-red my-2 shadow-none">COMPARE</a>
+                                @*<a onclick="location.href='@Url.Action("ProductDetails","Home", new  { vendor= item.vendor.name, id=item.id})'" class="btn btn-danger redbtn bg-red my-2 shadow-none">VIEW</a>*@
+                                @*@using (Html.BeginForm("index", "Home"))
+                        {*@
+                                <a href="/home/ProductDetails/?vendor=@ViewBag.mobiles[l].results[k].vendor.name&id=@ViewBag.mobiles[l].results[k].id" class="btn btn-danger redbtn bg-red my-2 shadow-none">VIEW</a>
+                            </div>
                         </div>
 
-                    }
+                    </div>
 
 
                 }
