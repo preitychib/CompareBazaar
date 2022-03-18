@@ -28,11 +28,36 @@
 
     <!-- Email input -->
     <div>
-        <label for="name" class="form-label">Emial name</label>
-        <input type="text" class="form-control" id="name" name="Email"
+        <label for="name" class="form-label">Email name</label>
+        <input type="email" class="form-control" id="name" name="Email"
                value="@ViewBag.user.Email">
         <span class="text-danger"></span>
     </div>
+     <div>
+        <label for="name" class="form-label">City</label>
+        <input type="text" class="form-control" id="name" name="Address2"
+               value="@ViewBag.user.Address2">
+        <span class="text-danger"></span>
+    </div>
+     <div>
+        <label for="name" class="form-label">Pin Code</label>
+        <input type="text" class="form-control" id="name" name="PostCode"
+               value="@ViewBag.user.PostCode">
+        <span class="text-danger"></span>
+    </div>
+     <div>
+        <label for="name" class="form-label">Phone Number</label>
+        <input type="text" class="form-control" id="name" name="PhoneNumber"
+               value="@ViewBag.user.PhoneNumber">
+        <span class="text-danger"></span>
+    </div>
+     <div>
+        <label for="name" class="form-label">Address</label>
+        <input type="text" class="form-control" id="name" name="Address1"
+               value="@ViewBag.user.Address1">
+        <span class="text-danger"></span>
+    </div>
+     
     <div class="d-grid gap-2 col-sm-8 ms-auto me-auto pt-3">
         <button type="submit" class="btn btn-primary rounded-pill shadow-none">
             Save

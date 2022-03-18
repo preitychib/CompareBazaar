@@ -56,16 +56,20 @@ namespace CompareBazaar.Areas.Admin.Controllers
 
        // [Route("Admin/User/Edit/{id}")]
         [HttpPost]
-        public async Task<ActionResult> EditUser(string id, [FromForm] UserEdit userEdit)
+        public async Task<ActionResult> EditUser(string id,IFormCollection userEdit)
         {
             try
             {
                 var user = await _userManager.FindByIdAsync(id);
 
-                user.FirstName = userEdit.FirstName;
-                user.LastName = userEdit.LastName;
-                user.Email = userEdit.Email;
-                user.UserName = userEdit.Email;
+                user.FirstName = userEdit["FirstName"];
+                user.LastName = userEdit["LastName"];
+                user.Email = userEdit["Email"];
+                user.UserName = userEdit["Email"];
+                user.Address1 = userEdit["Address1"];
+                user.Address2 = userEdit["Address2"];
+                user.PhoneNumber = userEdit["PhoneNumber"]; ;
+                user.PostCode = userEdit["Postcode"];
 
                 var result = await _userManager.UpdateAsync(user);
 

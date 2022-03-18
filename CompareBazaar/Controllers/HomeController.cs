@@ -1,4 +1,6 @@
-﻿using CompareBazaar.Data;
+﻿
+using CompareBazaar.Areas.Admin.Models;
+using CompareBazaar.Data;
 using CompareBazaar.Helpers;
 using CompareBazaar.Models;
 using Microsoft.AspNetCore.Authorization;
@@ -309,58 +311,49 @@ namespace CompareBazaar.Controllers
             }
         }
 
-        [Authorize]
-        [HttpGet]
-        public async Task<IActionResult> EditProfile()
+        public async Task<ActionResult> EditProfile()
         {
             var currentUserName = User.Identity.Name;
-            var loggedInUser = await _userManager.FindByEmailAsync(currentUserName);
+            var user = await _userManager.FindByEmailAsync(currentUserName);
 
-            ViewBag.loggedInUser = loggedInUser;
-
+            ViewBag.user = user;
+            
             return View();
         }
 
-        [Authorize]
+       
         [HttpPost]
-        public async Task<IActionResult> EditProfile(IFormCollection userCollection)
+        public async Task<ActionResult> EditProfile(IFormCollection userEdit)
         {
             try
             {
-                var loggedInUser = await _userManager.FindByNameAsync(User.Identity.Name);
+                var user = await _userManager.FindByNameAsync(User.Identity.Name);
+                user.FirstName = userEdit["FirstName"];
+                user.LastName = userEdit["LastName"];
+                user.Email = userEdit["Email"];
+                user.UserName = userEdit["Email"];
+                user.Address1 = userEdit["Address1"];
+                user.Address2 = userEdit["Address2"];
+                user.PhoneNumber = userEdit["PhoneNumber"]; ;
+                user.PostCode = userEdit["Postcode"]; 
 
-                loggedInUser.FirstName = userCollection["FirstName"];
-                loggedInUser.LastName = userCollection["LastName"];
-                loggedInUser.Email = userCollection["Email"];
-                loggedInUser.UserName = userCollection["Email"];
-                loggedInUser.PhoneNumber = userCollection["PhoneNumber"];
-                loggedInUser.Address1 = userCollection["Address"];
-                loggedInUser.Address2 = userCollection["City"];
-             //   loggedInUser.State = userCollection["State"];
-               // loggedInUser.PostCode = int.Parse(userCollection["PostCode"]);
+                var result = await _userManager.UpdateAsync(user);
 
-                var isSuccess = await _userManager.UpdateAsync(loggedInUser);
-
-                if (isSuccess.Succeeded)
+                if (!result.Succeeded)
                 {
-                    _logger.LogInformation("User updated successfully.");
-                    return RedirectToAction("EditProfile");
+                    _logger.LogError("Failed to update User");
+                    return RedirectToAction("Error");
                 }
 
-                // If Operation Failes, Redirect to Index
-                _logger.LogInformation("User Profile Update Failed");
-                return RedirectToAction("Error", "Index");
+                return RedirectToAction("Index");
+
             }
             catch (System.Exception ex)
             {
-                // Log Exception
                 _logger.LogError(ex.ToString());
-                // return Error Page or Index
-                return RedirectToAction("Error", "Index");
+                return RedirectToAction("Error");
             }
-
         }
-
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
          public IActionResult Error()
          {

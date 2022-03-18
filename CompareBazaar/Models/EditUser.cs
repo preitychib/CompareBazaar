@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace CompareBazaar.Areas.Admin.Models
+namespace CompareBazaar.Models
 {
-    public class UserEdit
+    public class EditUser
     {
         public string FirstName { get; set; }
 
@@ -18,6 +18,5 @@ namespace CompareBazaar.Areas.Admin.Models
         public string City { get; set; }
         public string Pincode { get; set; }
         public string PhoneNo { get; set; }
-
     }
 }
