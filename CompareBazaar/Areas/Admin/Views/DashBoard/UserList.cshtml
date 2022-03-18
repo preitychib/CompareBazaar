@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewData["Title"] = "UserList";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>First</th>
+            <th>Last</th>
+            <th>Email</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in ViewBag.userlist)
+        {
+            <tr>
+                <th><a asp-area="Admin" asp-controller="DashBoard" asp-action="EditUser" asp-route-id="@item.Id">@item.Id</a></th>
+                <td>@item.FirstName</td>
+                <td>@item.LastName</td>
+                <td>@item.Email</td>
+                <td>
+                    <a asp-area="Admin" asp-controller="DashBoard" asp-action="DeleteUser" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-area="Admin" asp-controller="DashBoard" asp-action="UserAdd" class="btn btn-primary">Add User</a>

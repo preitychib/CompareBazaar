@@ -22,13 +22,17 @@ namespace CompareBazaar.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly UserManager<ApplicationUser> _userManager;
+        private readonly ApplicationDbContext _context;
+
+       
         //  private readonly HttpClient _client;
 
-        public HomeController(ILogger<HomeController> logger,UserManager<ApplicationUser> userManager)
+        public HomeController(ILogger<HomeController> logger,UserManager<ApplicationUser> userManager, ApplicationDbContext context)
         {
             _logger = logger;
             _userManager = userManager;
-           // _client = client;
+            _context = context;
+            // _client = client;
         }
 
         public async Task<IActionResult> IndexAsync()
@@ -62,6 +66,18 @@ namespace CompareBazaar.Controllers
             return View();
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Contact([Bind("Id,FirstName,LastName,EmailAddress,Message")] Contact contact)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Add(contact);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(contact);
+        }
         public IActionResult FAQs()
         {
             return View();

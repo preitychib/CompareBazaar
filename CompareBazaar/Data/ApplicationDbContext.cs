@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using CompareBazaar.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
@@ -24,6 +25,7 @@ namespace CompareBazaar.Data
     }
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        public DbSet<Contact> ContactUs { get; set; }
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {

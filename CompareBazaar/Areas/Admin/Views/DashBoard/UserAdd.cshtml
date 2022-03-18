@@ -1,0 +1,46 @@
+﻿@using CompareBazaar.Data
+@{
+    ViewData["Title"] = "EditUser";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Add User</h1>
+
+<form method="post">
+    <!-- 2 column grid layout with text inputs for the first and last names -->
+    <div class="row mb-4">
+        <div>
+            <label for="name" class="form-label">First name</label>
+            <input type="text" class="form-control" id="name" name="FirstName">
+            <span class="text-danger"></span>
+        </div>
+
+        <div>
+            <label for="name" class="form-label">Last name</label>
+            <input type="text" class="form-control" id="name" name="LastName">
+            <span class="text-danger"></span>
+        </div>
+
+    </div>
+
+    <!-- Email input -->
+    <div>
+        <label for="name" class="form-label">Emial name</label>
+        <input type="text" class="form-control" id="name" name="Email">
+        <span class="text-danger"></span>
+    </div>
+
+    <!-- Password input -->
+    <div>
+        <label for="name" class="form-label">Password</label>
+        <input type="password" class="form-control" id="name" name="Password">
+        <span class="text-danger"></span>
+    </div>
+
+    <div class="d-grid gap-2 col-sm-8 ms-auto me-auto pt-3">
+        <button type="submit" class="btn btn-primary rounded-pill shadow-none">
+            Save
+            Changes
+        </button>
+    </div>
+</form>
