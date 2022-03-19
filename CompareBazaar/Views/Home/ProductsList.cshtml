@@ -2,10 +2,14 @@
     String  vendor = "flipkart", order = "-price" ,searchStr = null,availability = null;
     int pageSize = 4,pageNum = 1, fVendor = 1,fBrand = -1,pstart = 0, pend = 90000000;
 
-    int i, j,k,l;
+    int i, j,k,l,n1,n2;
     i = j =k= l=0;
-   var n1 = ViewBag.mobiles[0].results.Count;
-    var n2 = ViewBag.mobiles[1].results.Count;
+    if (ViewBag.mobiles[0] != null) { n1 = ViewBag.mobiles[0].results.Count; }
+    else n1 = -1;
+
+    if (ViewBag.mobiles[1] != null) { n2 = ViewBag.mobiles[1].results.Count; }
+    else n2 = -1;
+
 
 }
 <section class=" pb-3   border-bottom container-fluid" id="sec1">
@@ -512,8 +516,8 @@
                                     <img src="@ViewBag.mobiles[l].results[k].product_images.image" class="card-img-top allproductimg  " alt="Product image">
                                 </a>
                             </div>
-                            <a class="text-black  " onclick="Wishlist(this)" href="/home/AddItem/?vendor=@ViewBag.mobiles[l].results[k].vendor.name&id=@ViewBag.mobiles[l].results[k].id&View=WishList&list=Wishlist">
-                                <i class="far fa-heart pointer ms-4 wishlist  "></i>
+                            <a class="text-black  " onclick="Wishlist(this)" href="/home/AddItem/?vendor=@ViewBag.mobiles[l].results[k].vendor.name&id=@ViewBag.mobiles[l].results[k].id&View=ProductsList&list=Wishlist">
+                                <i  class="far fa-heart pointer ms-4 wishlist  "></i>
                             </a>
                             <!-- </div> -->
                             <div class="card-body text-center">

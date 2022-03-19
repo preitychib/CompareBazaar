@@ -156,6 +156,8 @@ namespace CompareBazaar.Controllers
                 
                 SessionHelper.SetObjectAsJson(HttpContext.Session, list, myList);
             }
+
+
             return RedirectToAction(View);
         }
 
@@ -196,7 +198,7 @@ namespace CompareBazaar.Controllers
         
      
      
-        public async Task<IActionResult> ProductsListAsync(string vendor="flipkart", int pageSize = 4, int pageNum = 1,int fVendor=1, string order = "-price", string searchStr = null,string availability=null,int fBrand=-1,int pstart=0,int pend=90000000)
+        public async Task<IActionResult> ProductsListAsync(string vendor="flipkart", int pageSize = 4, int pageNum = 2,int fVendor=1, string order = "-price", string searchStr = null,string availability=null,int fBrand=-1,int pstart=0,int pend=90000000)
         {
            
             var fmobiles = await GetMobiles(vendor,pageSize,pageNum,fVendor,order,searchStr,availability,fBrand,pstart,pend);
@@ -206,7 +208,7 @@ namespace CompareBazaar.Controllers
              ViewBag.mobiles = new List<dynamic>();
             ViewBag.mobiles.Add(fmobiles);
             ViewBag.mobiles.Add(amobiles);
-           Console.WriteLine( ViewBag.mobiles[0].results);
+           //Console.WriteLine( ViewBag.mobiles[1].results.Count==null);
            
              
             ViewBag.brands = await GetBrands(vendor);
@@ -223,13 +225,13 @@ namespace CompareBazaar.Controllers
                 //Url = $"https://comparebazaar-api.herokuapp.com/api/{vendor}/mobile/?ordering=-price";
                 if (searchStr == null && brand > -1)
                 {
-                    // Url = $"https://comparebazaar-api.herokuapp.com/api/{vendor}/mobile/?ordering={order}&availability={avlbty}&vendor={fVendor}&page_size={pageSize}&page={pageNum}&price_start={pstart}&price_end={pend}";// brand not added
-                    Url = $"https://comparebazaar-api.herokuapp.com/api/{vendor}/mobile/";
+                    Url = $"https://comparebazaar-api.herokuapp.com/api/{vendor}/mobile/?ordering={order}&availability={avlbty}&vendor={fVendor}&page_size={pageSize}&page={pageNum}&price_start={pstart}&price_end={pend}";// brand not added
+                   // Url = $"https://comparebazaar-api.herokuapp.com/api/{vendor}/mobile/";
                 }
                 else
                 {
-                    //Url = $"https://comparebazaar-api.herokuapp.com/api/{vendor}/mobile/?search={searchStr}&ordering={order}&vendor={fVendor}&page_size={pageSize}&page={pageNum}&availability={avlbty}&price_start={pstart}&price_end={pend}"; //brand not added
-                    Url = $"https://comparebazaar-api.herokuapp.com/api/{vendor}/mobile/?search={searchStr}&ordering={order}";
+                    Url = $"https://comparebazaar-api.herokuapp.com/api/{vendor}/mobile/?search={searchStr}&ordering={order}&vendor={fVendor}&page_size={pageSize}&page={pageNum}&availability={avlbty}&price_start={pstart}&price_end={pend}"; //brand not added
+                    //Url = $"https://comparebazaar-api.herokuapp.com/api/{vendor}/mobile/?search={searchStr}&ordering={order}";
                 }
                 // return await client.GetAsync(url);
                 var Response = await client.GetAsync(Url);
