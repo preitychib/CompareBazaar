@@ -42,4 +42,8 @@
     <None Include="wwwroot\User\images\moto_tab_g70_lte.webp" />
   </ItemGroup>
 
+  <Target Name="PrePublishTarget" AfterTargets="Publish">
+    <Exec Command="dotnet ef database update" />
+  </Target>
+
 </Project>
