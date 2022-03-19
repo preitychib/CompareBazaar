@@ -39,6 +39,9 @@ namespace CompareBazaar.Controllers
 
         public async Task<IActionResult> IndexAsync()
         {
+            ViewBag.brand1 = await GetBrands("flipkart");
+            ViewBag.brand2 = await GetBrands("amazon");
+
             ViewBag.mobiles = await GetMobiles("amazon");
             if (SessionHelper.GetObjectFromJson<List<Item>>(HttpContext.Session, "Comparelist") != null)
             {
@@ -58,8 +61,10 @@ namespace CompareBazaar.Controllers
             return View();
         }
 
-        public IActionResult About()
+        public async Task<IActionResult> AboutAsync()
         {
+            ViewBag.brand1 = await GetBrands("flipkart");
+            ViewBag.brand2 = await GetBrands("amazon");
             return View();
         }
 
@@ -80,8 +85,10 @@ namespace CompareBazaar.Controllers
             }
             return View(contact);
         }
-        public IActionResult FAQs()
+        public async Task<IActionResult> FAQsAsync()
         {
+            ViewBag.brand1 = await GetBrands("flipkart");
+            ViewBag.brand2 = await GetBrands("amazon");
             return View();
         }
 
@@ -90,6 +97,8 @@ namespace CompareBazaar.Controllers
        [Authorize]
         public async Task<IActionResult> CompareChartAsync()
         {
+            ViewBag.brand1 = await GetBrands("flipkart");
+            ViewBag.brand2 = await GetBrands("amazon");
             if (SessionHelper.GetObjectFromJson<List<Item>>(HttpContext.Session, "Comparelist") != null)
             {
                 var myList = SessionHelper.GetObjectFromJson<List<Item>>(HttpContext.Session, "Comparelist");
@@ -111,6 +120,8 @@ namespace CompareBazaar.Controllers
         [Authorize]
         public async Task<IActionResult> WishListAsync()
         {
+            ViewBag.brand1 = await GetBrands("flipkart");
+            ViewBag.brand2 = await GetBrands("amazon");
             if (SessionHelper.GetObjectFromJson<List<Item>>(HttpContext.Session, "Wishlist") != null)
             {
                 var myList = SessionHelper.GetObjectFromJson<List<Item>>(HttpContext.Session, "Wishlist");
@@ -214,8 +225,9 @@ namespace CompareBazaar.Controllers
            //Console.WriteLine( ViewBag.mobiles[1].results.Count==null);
            
              
-            ViewBag.brands = await GetBrands(vendor);
-           
+            ViewBag.brand1 = await GetBrands("flipkart");
+            ViewBag.brand2 = await GetBrands("amazon");
+
             return View();
            
         }
@@ -256,8 +268,9 @@ namespace CompareBazaar.Controllers
         }
         public async Task<IActionResult> ProductDetailsAsync(string vendor,int id)
         {
-           // Product mobile = new Product();
-           var mobile = await GetItem(vendor,"mobile",id);
+            ViewBag.brand1 = await GetBrands("flipkart");
+            ViewBag.brand2 = await GetBrands("amazon");
+            var mobile = await GetItem(vendor,"mobile",id);
             ViewBag.mobile = mobile;
            // Console.WriteLine(mobile);
 

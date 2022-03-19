@@ -1,7 +1,9 @@
 ﻿@{
-    
+
 
 }
+
+<partial name="_NavBar2Partial" />
 <section class=" mt-5 pt-5" id="s1">
     <div class="container-fluid px-3">
         <div>
@@ -91,20 +93,20 @@
                 </div>
             </div>
             <!-- <div class="col-lg-2 col-md-2 comparehide ">
-        <div class="card shadow-sm compare d-flex align-items-center justify-content-center  ">
-            <a href="" class="mt-4"><i class="fas fa-search-plus text-red searchproduct"></i> </a>
-            <form class="d-flex  mx-2 mt-4">
-                <input type="search" placeholder="Search products" class="form-control radius shadow-none comparesearch "
-                  aria-label="Search">
-                  <a type="submit" class="btn btn-link searchcolor bg-red text-white radius shadow-none" href="#"> <i
-                      class="fas fa-search"></i></a>
-              </form>
-            <a class="btn btn-danger redbtn bg-red col-8 m-2 shadow-none" href="#">ADD TO
-                COMPARE </a>
+                <div class="card shadow-sm compare d-flex align-items-center justify-content-center  ">
+                    <a href="" class="mt-4"><i class="fas fa-search-plus text-red searchproduct"></i> </a>
+                    <form class="d-flex  mx-2 mt-4">
+                        <input type="search" placeholder="Search products" class="form-control radius shadow-none comparesearch "
+                          aria-label="Search">
+                          <a type="submit" class="btn btn-link searchcolor bg-red text-white radius shadow-none" href="#"> <i
+                              class="fas fa-search"></i></a>
+                      </form>
+                    <a class="btn btn-danger redbtn bg-red col-8 m-2 shadow-none" href="#">ADD TO
+                        COMPARE </a>
+                </div>
+            </div> -->
         </div>
-    </div> -->
-        </div>
-                    </div>
+    </div>
 
 </section>
 <section id="s2 " class="container-fluid px-3 ">
@@ -112,47 +114,47 @@
         <div class="col-lg-3 col-md-3 col-sm-4 col">
             <span class="fs-6 fontsize12">Name</span>
         </div>
-       
-         <div class="col-lg-3 col-md-3 col-sm-4 col">
-                @if (ViewBag.n>0)
-                {
-                    <span class="fontsize12">@ViewBag.mobile[0].name</span>
-                }
-                else
-                {
-                    <span class="fontsize12"></span>
-                }
+
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            @if (ViewBag.n > 0)
+            {
+                <span class="fontsize12">@ViewBag.mobile[0].name</span>
+            }
+            else
+            {
+                <span class="fontsize12"></span>
+            }
         </div>
-       
-         <div class="col-lg-3 col-md-3 col-sm-4 col">
-             @if (ViewBag.n>1)
-             {
-                 <span class="fontsize12">@ViewBag.mobile[1].name</span>
-             }
-             else
-             {
-                 <span class="fontsize12"></span>
-             }
-         </div>
-        
-         <div class=" col-lg-3 col-md-3  comparehide">
-             @if (ViewBag.n >2)
-             {
-                 <span class="fontsize12">@ViewBag.mobile[2].name</span>
-             }
-             else
-             {
-                 <span class="fontsize12"></span>
-             }
-         </div>
-        
-           
+
+        <div class="col-lg-3 col-md-3 col-sm-4 col">
+            @if (ViewBag.n > 1)
+            {
+                <span class="fontsize12">@ViewBag.mobile[1].name</span>
+            }
+            else
+            {
+                <span class="fontsize12"></span>
+            }
+        </div>
+
+        <div class=" col-lg-3 col-md-3  comparehide">
+            @if (ViewBag.n > 2)
+            {
+                <span class="fontsize12">@ViewBag.mobile[2].name</span>
+            }
+            else
+            {
+                <span class="fontsize12"></span>
+            }
+        </div>
+
+
     </div>
     <div class="row  d-flex align-items-center ">
         <div class="col-lg-3 col-md-3 col-sm-4 col ">
             <span class="fs-6 fontsize12">Price</span>
         </div>
-        @if (ViewBag.n >0)
+        @if (ViewBag.n > 0)
         {
             <div class="col-lg-3 col-md-3 col-sm-4 col">
                 <span class="fontsize12">Rs @ViewBag.mobile[0].price</span>
@@ -163,7 +165,7 @@
             <span class="fontsize12"></span>
         }
 
-        @if (ViewBag.n >1)
+        @if (ViewBag.n > 1)
         {
             <div class="col-lg-3 col-md-3 col-sm-4 col">
                 <span class="fontsize12">Rs @ViewBag.mobile[1].price</span>
@@ -174,7 +176,7 @@
             <span class="fontsize12"></span>
         }
 
-        @if (ViewBag.n >2)
+        @if (ViewBag.n > 2)
         {
             <div class="col-lg-3 col-md-3 comparehide">
                 <span class="fontsize12">Rs @ViewBag.mobile[2].price</span>
@@ -185,7 +187,7 @@
             <span class="fontsize12"></span>
         }
 
-       
+
     </div>
     <div class="row  bg-red d-flex align-items-center ">
         <div class="col">
