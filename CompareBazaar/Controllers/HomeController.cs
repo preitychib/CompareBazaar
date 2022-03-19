@@ -201,7 +201,7 @@ namespace CompareBazaar.Controllers
         
      
      
-        public async Task<IActionResult> ProductsListAsync(string vendor="flipkart", int pageSize = 4, int pageNum = 2,int fVendor=1, string order = "-price", string searchStr = null,string availability=null,int fBrand=-1,int pstart=0,int pend=90000000)
+        public async Task<IActionResult> ProductsListAsync(string vendor="flipkart", int pageSize = 4, int pageNum = 1,int fVendor=1, string order = "-price", string searchStr = null,string availability=null,int fBrand=-1,int pstart=0,int pend=90000000)
         {
            
             var fmobiles = await GetMobiles(vendor,pageSize,pageNum,fVendor,order,searchStr,availability,fBrand,pstart,pend);
