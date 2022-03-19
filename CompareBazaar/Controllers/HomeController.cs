@@ -87,7 +87,7 @@ namespace CompareBazaar.Controllers
 
         
      
-       
+       [Authorize]
         public async Task<IActionResult> CompareChartAsync()
         {
             if (SessionHelper.GetObjectFromJson<List<Item>>(HttpContext.Session, "Comparelist") != null)
@@ -108,6 +108,7 @@ namespace CompareBazaar.Controllers
            
                 return View();
         } 
+        [Authorize]
         public async Task<IActionResult> WishListAsync()
         {
             if (SessionHelper.GetObjectFromJson<List<Item>>(HttpContext.Session, "Wishlist") != null)
@@ -128,6 +129,7 @@ namespace CompareBazaar.Controllers
                 return View();
         }
      
+        [Authorize]
         public  IActionResult AddItem(string vendor , int id, string View,string list)
         {
             if (SessionHelper.GetObjectFromJson<List<Item>>(HttpContext.Session, list) == null)
@@ -161,6 +163,7 @@ namespace CompareBazaar.Controllers
             return RedirectToAction(View);
         }
 
+        [Authorize]
         public IActionResult Remove(int id, string View,string list)
         {
             List<Item> myList = SessionHelper.GetObjectFromJson<List<Item>>(HttpContext.Session, list);
@@ -313,6 +316,7 @@ namespace CompareBazaar.Controllers
             }
         }
 
+        
         public async Task<ActionResult> EditProfile()
         {
             var currentUserName = User.Identity.Name;
