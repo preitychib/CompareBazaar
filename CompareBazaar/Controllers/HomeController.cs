@@ -144,6 +144,8 @@ namespace CompareBazaar.Controllers
         [Authorize]
         public  IActionResult AddItem(string vendor , int id, string View,string list)
         {
+
+           //await AddPopularProductAsync(vendor, id, View);
             if (SessionHelper.GetObjectFromJson<List<Item>>(HttpContext.Session, list) == null)
             {
                 List<Item> myList = new List<Item>
@@ -178,64 +180,63 @@ namespace CompareBazaar.Controllers
 
             return RedirectToAction(View);
         }
-        
-        
-        //public async Task<IActionResult> AddPopularProductAsync(string vendor , string id, string View,string list)
-        //{
-        //    if (SessionHelper.GetObjectFromJson<List<Item>>(HttpContext.Session, list) == null) // if popular poduct null hai 
-        //    {
-        //        List<Item> myList = new List<Item>
-        //        {
-        //            new Item()
-        //            {
-        //                id = id,
-        //                vendor = vendor
-        //            }
-        //        };
-
-        //        _context.Add(new PopularProducts 
-        //        {
-
-        //        }
-        //            );
-        //        await _context.SaveChangesAsync();
-        //        return RedirectToAction(nameof(Index));
-
-        //        var user = await _context.PopularProducts.Any(e => e.id == id);
-
-        //        user.FirstName = userEdit.FirstName;
-        //        user.LastName = userEdit.LastName;
-        //        user.Email = userEdit.Email;
-        //        user.UserName = userEdit.Email;
-
-        //        SessionHelper.SetObjectAsJson(HttpContext.Session, list, myList);
-        //    }
-        //    else
-        //    {
-        //        List<Item> myList = SessionHelper.GetObjectFromJson<List<Item>>(HttpContext.Session, list);
-
-        //        int index = isExist(id,list);
-        //        if (index == -1)
-        //        {
-        //            myList.Add(new Item()
-        //            {
-        //                id = id,
-        //                vendor = vendor
-        //            });
-                 
-
-        //        }
-        //        SessionHelper.SetObjectAsJson(HttpContext.Session, list, myList);
-        //    }
 
 
-        //    return RedirectToAction(View);
-        //}
+        public async Task<IActionResult> AddPopularProductAsync(string vendor, int id, string View)
+        {
+            bool isExit = PopularProductsExists(id);
+            if (isExit == false)
+            {
+                _context.Add(new PopularProducts()
+                {
+                    Id= Guid.NewGuid().ToString(),
+                     ProductId = id,
+                    Vendor = vendor,
+                    Value = 1
 
-        //private bool PopularProductsExists(string id)
-        //{
-        //    return _context.PopularProducts.Any(e => e.id == id);
-        //}
+                }
+                    );
+
+                await _context.SaveChangesAsync();
+                   return RedirectToAction(View);
+            }
+            else
+            {
+
+                var numQuery =
+             from pid in _context.PopularProducts
+             where pid.ProductId==id
+             select pid;
+
+
+                foreach(var i in numQuery)
+                {
+                    i.Value += 1; //value not increamenting
+                   
+                    _context.Update(i);
+                    await _context.SaveChangesAsync();
+                    Console.WriteLine(i);
+                    return RedirectToAction(View);
+                }
+             
+
+                //  await _context.SaveChangesAsync();
+            }
+                //var user = await _context.PopularProducts.Any(e => e.Id == id);
+
+                //user.FirstName = userEdit.FirstName;
+                //user.LastName = userEdit.LastName;
+                //user.Email = userEdit.Email;
+                //user.UserName = userEdit.Email;
+
+           
+            return RedirectToAction(View);
+        }
+
+        private bool PopularProductsExists(int id)
+        {
+            return _context.PopularProducts.Any(e => e.ProductId == id);
+        }
 
         [Authorize]
         public IActionResult Remove(int id, string View,string list)
