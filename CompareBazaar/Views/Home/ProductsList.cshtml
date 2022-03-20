@@ -14,8 +14,81 @@
 }
 
 <partial name="_NavBar2Partial" />
+<section class="mt-5 pt-3 ">
+    <div class="container  ">
+        <div class="row">
+            <div class="col-lg-10 col-md-12 col-sm-12 col-12 mx-auto">
+                <form class="formsearch1"  asp-action="ProductsList">
+                    <div class="p-1 bg-light bg-dark rounded   ">
+                        <div class="input-group">
+                            <input type="search" name="searchStr" placeholder="Search products,brands,features" class="form-control shadow-none">
+                            <div class="input-group-append allcat">
+                                <div class="btn-group">
+                                    <a class="btn text-white border-top-0 rounded-0 border-end-0 border-bottom-0 btn-outline-dark shadow-none  dropdown-toggle"
+                                       href="#" data-bs-toggle="dropdown" aria-expanded="false"> All Categories</a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a class="dropdown-item ms-2 dropdownbg   innerdropdownitem text-black" asp-action="ProductsList">
+                                                Mobiles
+                                                Phones
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item ms-2 dropdownbg innerdropdownitem text-black" href="#">Tablets</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item ms-2 dropdownbg innerdropdownitem text-black "
+                                               href="#">Smartwatches</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item ms-2 dropdownbg innerdropdownitem text-black" href="#">Laptops</a>
+                                        </li>
+                                        <li><a class="dropdown-item ms-2 dropdownbg innerdropdownitem text-black" href="#">TVs</a></li>
+                                        <li>
+                                            <a class="dropdown-item ms-2 dropdownbg innerdropdownitem text-black" href="#">Cameras</a>
+                                        </li>
+                                        <li><a class="dropdown-item ms-2 dropdownbg innerdropdownitem text-black" href="#">Gaming</a></li>
+                                        <li>
+                                            <a class="dropdown-item ms-2 dropdownbg innerdropdownitem text-black" href="#">
+                                                Large
+                                                Appliances
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item ms-2 dropdownbg innerdropdownitem text-black" href="#">
+                                                Small
+                                                Appliances
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item ms-2 dropdownbg  innerdropdownitem text-black" href="#">
+                                                Kitchen
+                                                Appliances
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item ms-2 dropdownbg  innerdropdownitem text-black" href="#">
+                                                Personal
+                                                Appliances
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="input-group-append">
+                                <button type="submit" name="searchStr"  class="btn btn-link searchcolor text-red shadow-none" >
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
 <section class=" pb-3   border-bottom container-fluid" id="sec1">
-    <div class="row mt-5  pt-5 f-hide">
+    <div class="row mt-3 f-hide">
         <div class="col-xxl-2 col-xl-2 col-lg-3 col-md-4 col ">
             <h4 class="fw-bold ">FILTERS</h4>
         </div>
@@ -23,27 +96,7 @@
             <h4 class="fw-bold ">MOBILE PHONES</h4>
         </div>
         <div class="col-xxl-5 col-xl-5 col-lg-5 col-md-4 col  ">
-            <!-- <div class="dropdown  ">
-      <a class="btn btn-light dropdown-toggle shadow-none" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-        Sort By : Popularity
-      </a>
-
-      <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-        <li><a class="dropdown-item p-2" href="#">Price - low to high</a></li>
-        <li><a class="dropdown-item p-2" href="#">Price - high to low</a></li>
-        <li><a class="dropdown-item p-2" href="#">Customer Rating</a></li>
-      </ul>
-    </div> -->
-            <!--<form asp-action="SortProducts">
-        <select asp-for="@order" class="form-select shadow-none ms-auto  clickbox  " aria-label="Default select example">
-            <option value="1"> Sort By : Popularity</option>-->
-            @*<option value="2" class="">@Html.ActionLink("Sort By : Price - low to high", "SortProducts", new { Str = "price" })</option>*@
-            <!--<option value="price" type="submit" class="">Sort By : Price - low to high</option>
-    <option value="-price" type="submit" selected class="">Sort By : Price - high to low</option>-->
-            <!-- <option value="3" class="">Sort By : Customer Rating</option> -->
-            <!--</select>
-        <input type="submit" />
-    </form>-->
+           
 
 
             <select onchange="window.location.href=this.value;" class="form-select shadow-none ms-auto  clickbox  " aria-label="Default select example">
@@ -62,7 +115,7 @@
             </div>
 
         </div>
-        <div class="row  mt-5  pt-4 f-show">
+        <div class="row  mt-3 f-show">
             <div class="col-6">
                 <!-- Button trigger modal -->
                 <button type="button" class="btn col-12  shadow-none fs-4 fontsize12 " data-bs-toggle="modal" data-bs-target="#exampleModal1">
@@ -532,8 +585,8 @@
                         <div class="card my-1">
                             <!-- <div class="row"> -->
                             <div class="  d-flex justify-content-center mt-3 ">
-                                <a href="" class="pointer">
-                                    <img src="@ViewBag.mobiles[l].results[k].product_images.image" class="card-img-top allproductimg  " alt="Product image">
+                                <a href="/home/ProductDetails/?vendor=@ViewBag.mobiles[l].results[k].vendor.name&id=@ViewBag.mobiles[l].results[k].id" class="pointer">
+                                    <img  src="@ViewBag.mobiles[l].results[k].product_images.image" class="card-img-top allproductimg  " alt="Product image">
                                 </a>
                             </div>
                             <a class="text-black  " onclick="Wishlist(this)" href="/home/AddItem/?vendor=@ViewBag.mobiles[l].results[k].vendor.name&id=@ViewBag.mobiles[l].results[k].id&View=ProductsList&list=Wishlist">

@@ -16,25 +16,31 @@
                 <div class="card shadow-sm compare d-flex align-items-center justify-content-center  ">
                     @if (ViewBag.n > 0)
                     {
-                        <a href="/home/Remove/?id=0&View=CompareChart&list=Comparelist" class="text-decoration-none text-black pointer d-block ">
-                            <i class="fas fa-times crossmargin fs-4"></i>
+                        <a href="/home/Remove/?id=0&View=CompareChart&list=Comparelist" class=" position-absolute top-0 end-0 text-black pointer pe-3 pt-3 ">
+                            <i class="fas fa-times fs-4"></i>
                         </a>
-                        <img class="img-fluid  allproductimg  " id="deta" src="@ViewBag.mobile[0].product_images.image" alt="">
+                        <a href="/home/ProductDetails/?vendor=@ViewBag.mobile[0].vendor.name&id=@ViewBag.mobile[0].id" class="pointer">
+                            <img class="img-fluid  allproductimg  " id="deta" src="@ViewBag.mobile[0].product_images.image" alt="">
+                        </a>
+
+
+                               
                     }
                     else
                     {
                         <a asp-controller="" asp-action="" class="mt-4"><i class="fas fa-search-plus text-red searchproduct"></i> </a>
                         <form asp-action="ProductsList" class="d-flex  mx-2 mt-4">
-                            <input type="search" name="searchStr" placeholder="Search products" class="form-control radius shadow-none comparesearch "
+                            <input name="searchStr" type="search" placeholder="Search products" class="form-control radius shadow-none "
                                    aria-label="Search">
-                            <button type="submit" class="btn btn-link searchcolor bg-red text-white radius shadow-none snone">
-                                <i class="fas fa-search"></i>
+                            @*<button type="submit" class="btn btn-link searchcolor bg-red text-white radius shadow-none snone">
+                    <i class="fas fa-search"></i>
+                </button>*@
+                            <br />
+
+                            <button type="submit" class="btn btn-danger redbtn bg-red col-8 m-2 fontsize11 shadow-none">
+                                SEARCH
                             </button>
                         </form>
-                        <a class="btn btn-danger redbtn bg-red col-8 m-2 fontsize11 shadow-none">
-                            ADD TO
-                            COMPARE
-                        </a>
                     }
                 </div>
             </div>
@@ -43,25 +49,28 @@
                 <div class="card shadow-sm compare d-flex align-items-center justify-content-center  ">
                     @if (ViewBag.n > 1)
                     {
-                        <a href="/home/Remove/?id=1&View=CompareChart&list=Comparelist" class="text-decoration-none text-black pointer d-block ">
-                            <i class="fas fa-times crossmargin fs-4"></i>
+                        <a href="/home/Remove/?id=1&View=CompareChart&list=Comparelist" class=" position-absolute top-0 end-0 text-black pointer pe-3 pt-3 ">
+                            <i class="fas fa-times fs-4"></i>
                         </a>
-                        <img class="img-fluid  allproductimg  " id="deta" src="@ViewBag.mobile[1].product_images.image" alt="">
+                        <a href="/home/ProductDetails/?vendor=@ViewBag.mobile[1].vendor.name&id=@ViewBag.mobile[1].id" class="pointer">
+                            <img class="img-fluid  allproductimg  " id="deta" src="@ViewBag.mobile[1].product_images.image" alt="">
+                        </a>
                     }
                     else
                     {
                         <a asp-controller="" asp-action="" class="mt-4"><i class="fas fa-search-plus text-red searchproduct"></i> </a>
                         <form asp-action="ProductsList" class="d-flex  mx-2 mt-4">
-                            <input type="search" name="searchStr" placeholder="Search products" class="form-control radius shadow-none comparesearch "
+                            <input name="searchStr" type="search" placeholder="Search products" class="form-control radius shadow-none "
                                    aria-label="Search">
-                            <submit type="submit" class="btn btn-link searchcolor bg-red text-white radius shadow-none snone">
-                                <i class="fas fa-search"></i>
-                            </submit>
+                            @*<button type="submit" class="btn btn-link searchcolor bg-red text-white radius shadow-none snone">
+            <i class="fas fa-search"></i>
+        </button>*@
+                            <button type="submit" class="btn btn-danger redbtn bg-red col-8 m-2 fontsize11 shadow-none">
+                                SEARCH
+                            </button>
+
                         </form>
-                        <a class="btn btn-danger redbtn bg-red col-8 m-2 fontsize11 shadow-none">
-                            ADD TO
-                            COMPARE
-                        </a>
+                        
                     }
                 </div>
             </div>
@@ -70,25 +79,30 @@
                 <div class="card shadow-sm compare d-flex align-items-center justify-content-center  ">
                     @if (ViewBag.n > 2)
                     {
-                        <a href="/home/Remove/?id=3&View=CompareChart&list=Comparelist" class="text-decoration-none text-black pointer d-block position-absolute top-0 emd-0 pe-3 pt-3 ">
-                            <i class="fas fa-times crossmargin fs-4"></i>
+                        <a href="/home/Remove/?id=3&View=CompareChart&list=Comparelist" class=" position-absolute top-0 end-0 text-black pointer pe-3 pt-3 ">
+                            <i class="fas fa-times  fs-4"></i>
                         </a>
-                        <img class="img-fluid  allproductimg  " id="deta" src="@ViewBag.mobile[2].product_images.image" alt="">
+                        <a href="/home/ProductDetails/?vendor=@ViewBag.mobile[2].vendor.name&id=@ViewBag.mobile[2].id" class="pointer">
+                            <img class="img-fluid  allproductimg  " id="deta" src="@ViewBag.mobile[2].product_images.image" alt="">
+                        </a>
                     }
                     else
                     {
                         <a asp-controller="" asp-action="" class="mt-4"><i class="fas fa-search-plus text-red searchproduct"></i> </a>
                         <form asp-action="ProductsList" class="d-flex  mx-2 mt-4">
-                            <input name="searchStr" type="search" placeholder="Search products" class="form-control radius shadow-none comparesearch "
+                          <div class="row"> <input name="searchStr" type="search" placeholder="Search products" class="form-control radius shadow-none"
                                    aria-label="Search">
-                            <button type="submit" class="btn btn-link searchcolor bg-red text-white radius shadow-none snone">
+                            </div>
+                            <br />
+                            @*<button type="submit" class="btn btn-link searchcolor bg-red text-white radius shadow-none snone">
                                 <i class="fas fa-search"></i>
-                            </button>
+                            </button>*@
+                       <div class="row">
+                        <button type="submit" class="btn btn-danger redbtn bg-red col-8 m-2 fontsize11 shadow-none">
+                            SEARCH
+                        </button>
+                        </div>
                         </form>
-                        <a class="btn btn-danger redbtn bg-red col-8 m-2 fontsize11 shadow-none">
-                            ADD TO
-                            COMPARE
-                        </a>
                     }
                 </div>
             </div>

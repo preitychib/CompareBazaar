@@ -104,7 +104,7 @@
 /* navbar1 */
 /* narbar1 profile */
 .profilewidth {
-    width: 15rem !important;
+    width: 16rem !important;
 }
 
 .red:hover, .dropdownbgprofilecolor:hover {
@@ -124,7 +124,7 @@
     width: 100%;
     /* top: 13.4%;  */
     /* position:fixed; */
-    /* z-index: 2; */
+    z-index: 3;
 }
 
 .menu-area {
@@ -182,6 +182,11 @@
     border-radius: 0rem !important;
 }
 
+.compareimg {
+    width: 8rem !important;
+    height: 8rem !important;
+}
+
 .compare, .compare-1 {
     height: 15rem !important;
     /* width: 19rem !important; */
@@ -192,7 +197,7 @@
     font-size: 4rem;
 }
 
-.comparesearch, .comparesearch-1 {
+.comparesearch-1 {
     /* width: 9rem; */
     border: 1px solid var(--black) !important;
     border-right: 0px !important;
@@ -223,6 +228,10 @@
 .form-floating > .form-control, .form-floating > .form-select, .contactheight {
     height: 2.7rem;
     line-height: 1.25;
+}
+
+.form-control:focus {
+    border-color: var(--black);
 }
 
 .sort {
@@ -529,11 +538,9 @@
     .allcat, .comparehide, .hidename, .h-hide, .snone, .f-hide, .c-hide {
         display: none !important;
     }
-
-    .comparesearch {
-        border-right: 1px solid var(--black) !important;
-    }
-
+    /* .comparesearch{
+    border-right: 1px solid var(--black) !important ;
+} */
     .col-xs-6 {
         flex: 0 0 auto;
         width: 50% !important;
@@ -606,6 +613,11 @@
     .emptywishlist {
         height: 8rem;
         width: 8rem;
+    }
+
+    .compareimg {
+        width: 6.5rem !important;
+        height: 6.5rem !important;
     }
 }
 
@@ -696,10 +708,9 @@
     /* .crossmargin{
     margin-left: 4rem;
 } */
-    .comparesearch {
-        border-right: 1px solid var(--black) !important;
-    }
-
+    /* .comparesearch{
+    border-right: 1px solid var(--black) !important ;
+} */
     .fontsize12 {
         font-size: 0.84rem !important;
     }
@@ -719,5 +730,10 @@
     .emptywishlist {
         height: 7rem;
         width: 7rem;
+    }
+
+    .compareimg {
+        width: 6rem !important;
+        height: 6rem !important;
     }
 }
