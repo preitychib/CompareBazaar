@@ -159,14 +159,18 @@ namespace CompareBazaar.Controllers
             else
             {
                 List<Item> myList = SessionHelper.GetObjectFromJson<List<Item>>(HttpContext.Session, list);
-               
+
+                int index = isExist(id,list);
+                if (index == -1)
+                {
                     myList.Add(new Item()
                     {
                         id = id,
                         vendor = vendor
                     });
+                 
 
-                
+                }
                 SessionHelper.SetObjectAsJson(HttpContext.Session, list, myList);
             }
 
@@ -178,7 +182,7 @@ namespace CompareBazaar.Controllers
         public IActionResult Remove(int id, string View,string list)
         {
             List<Item> myList = SessionHelper.GetObjectFromJson<List<Item>>(HttpContext.Session, list);
-            //int index = isExist(id);
+          //  int index = isExist(id,list);
             myList.RemoveAt(id);
             SessionHelper.SetObjectAsJson(HttpContext.Session, list, myList);
             return RedirectToAction(View);
@@ -194,24 +198,22 @@ namespace CompareBazaar.Controllers
            
             return false;
         }
-        //private int isExist(string id)
-        //{
-        //    List<Item> myList = SessionHelper.GetObjectFromJson<List<Item>>(HttpContext.Session, "myList");
-        //    int n = 0;
-        //    foreach (var product in myList) n++;
-        //        for (int i = 0; i < n; i++)
-        //    {
-        //        if (myList[i].id.Equals(id))
-        //        {
-        //            return i;
-        //        }
-        //    }
-        //    return -1;
-        //}
+        private int isExist(int id,string list)
+        {
+            List<Item> myList = SessionHelper.GetObjectFromJson<List<Item>>(HttpContext.Session, list);
+            for (int i = 0; i < myList.Count; i++)
+            {
+                if (myList[i].id.Equals(id))
+                {
+                    return i;
+                }
+            }
+            return -1;
+        }
 
-        
-     
-     
+
+
+
         public async Task<IActionResult> ProductsListAsync(string vendor="flipkart", int pageSize = 4, int pageNum = 1,int fVendor=1, string order = "-price", string searchStr = null,string availability=null,int fBrand=-1,int pstart=0,int pend=90000000)
         {
            

@@ -1,6 +1,6 @@
 * {
     font-family: 'Courier New', Courier, monospace;
-    /* border: 1px solid red; */
+    /* border: 1px solid green; */
 }
 
 :root {
@@ -113,7 +113,6 @@
 
 .btncolor {
     border: 1px solid var(--red);
-    /* color: var(--red); */
 }
 
     .btncolor:hover {
@@ -125,7 +124,7 @@
     width: 100%;
     /* top: 13.4%;  */
     /* position:fixed; */
-    z-index: 2;
+    /* z-index: 2; */
 }
 
 .menu-area {
@@ -146,7 +145,7 @@
 /* SEARCH BAR */
 .search-bar {
     position: absolute;
-    z-index: 1;
+    /* z-index: 1; */
     top: 25%;
     width: 100%;
 }
@@ -243,17 +242,14 @@
     width: 8rem;
     height: 4rem;
 }
-
-.crossmargin {
+/* .crossmargin{
     margin-left: 13rem;
     margin-bottom: 1rem;
-}
-
-.crossposition {
-    position: relative;
-    left: 1.6rem;
-}
-
+} */
+/* .crossposition{
+   position: relative;
+   left: 1.6rem;
+} */
 .crosshover:hover {
     background-color: var(--lightgrey);
     border-radius: 50%;
@@ -319,7 +315,7 @@
         font-size: 2rem;
     }
 
-    .hidename, .f-show {
+    .hidename, .f-show, .c-show {
         display: none !important;
     }
 
@@ -336,11 +332,9 @@
     .fontsize11 {
         font-size: 1rem;
     }
-
-    .crossmargin {
-        margin-left: 7.6rem;
-    }
-
+    /* .crossmargin{
+    margin-left: 7.6rem;
+} */
     #faqsec1 h1 {
         font-size: 3rem;
     }
@@ -374,14 +368,12 @@
         width: 7rem;
         height: 3.5rem;
     }
-
-    .formsearch {
-        display: block;
-        width: 90%;
-        margin: 0 auto;
-    }
-
-    .comparehide, .hidename, .f-hide {
+    /* .formsearch{
+    display: block;
+    width: 90%;
+    margin: 0 auto;
+}  */
+    .comparehide, .hidename, .f-hide, .c-hide {
         display: none !important;
     }
 
@@ -402,11 +394,9 @@
         position: absolute;
         top: 2.5rem !important;
     }
-
-    .crossmargin {
-        margin-left: 7.2rem;
-    }
-
+    /* .crossmargin{
+    margin-left: 7.2rem;
+} */
     .fontsize11 {
         font-size: 0.9rem;
     }
@@ -439,14 +429,12 @@
     .fontsize3 {
         font-size: 1.15rem;
     }
-
-    .formsearch {
-        display: block;
-        width: 95%;
-        margin: 0 auto;
-    }
-
-    .allcat, .comparehide, .hidename, .f-hide {
+    /* .formsearch{
+    display: block;
+    width: 95%;
+    margin: 0 auto;
+}   */
+    .allcat, .comparehide, .hidename, .f-hide, .c-hide {
         display: none !important;
     }
     /* .col-xs-6 {
@@ -488,13 +476,16 @@
     .searchproduct {
         font-size: 3.5rem;
     }
-
-    .crossmargin {
-        margin-left: 5rem;
-    }
-
+    /* .crossmargin{
+    margin-left: 5rem;
+} */
     #faqsec1 h1 {
         font-size: 1.9rem;
+    }
+
+    .emptywishlist {
+        height: 10rem;
+        width: 10rem;
     }
 }
 
@@ -530,14 +521,12 @@
         position: absolute;
         top: 22%;
     }
-
-    .formsearch {
-        display: block;
-        width: 95%;
-        margin: 0 auto;
-    }
-
-    .allcat, .comparehide, .hidename, .h-hide, .snone, .f-hide {
+    /* .formsearch{
+    display: block;
+    width: 95%;
+    margin: 0 auto;
+}  */
+    .allcat, .comparehide, .hidename, .h-hide, .snone, .f-hide, .c-hide {
         display: none !important;
     }
 
@@ -599,11 +588,9 @@
     .searchproduct {
         font-size: 3.4rem;
     }
-
-    .crossmargin {
-        margin-left: 4rem;
-    }
-
+    /* .crossmargin{
+    margin-left: 4rem;
+} */
     #faqsec1 h1 {
         font-size: 1.48rem;
     }
@@ -614,6 +601,11 @@
 
     .aboutimg {
         height: 18rem !important;
+    }
+
+    .emptywishlist {
+        height: 8rem;
+        width: 8rem;
     }
 }
 
@@ -648,14 +640,12 @@
         position: absolute;
         top: 20%;
     }
-
-    .formsearch {
-        display: block;
-        width: 95%;
-        margin: 0 auto;
-    }
-
-    .allcat, .comparehide, .hidename, .h-hide, .snone, .f-hide {
+    /* .formsearch{
+    display: block;
+    width: 95%;
+    margin: 0 auto;
+}  */
+    .allcat, .comparehide, .hidename, .h-hide, .snone, .f-hide, .c-hide {
         display: none !important;
     }
     /* .col-xs-6 {
@@ -703,11 +693,9 @@
     .searchproduct {
         font-size: 3.4rem;
     }
-
-    .crossmargin {
-        margin-left: 4rem;
-    }
-
+    /* .crossmargin{
+    margin-left: 4rem;
+} */
     .comparesearch {
         border-right: 1px solid var(--black) !important;
     }
@@ -726,5 +714,10 @@
 
     .aboutimg {
         height: 17rem !important;
+    }
+
+    .emptywishlist {
+        height: 7rem;
+        width: 7rem;
     }
 }

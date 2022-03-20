@@ -133,7 +133,16 @@
                                                aria-label=".form-control-sm example">
                                     </div>
                                     <ul class="">
-                                        @foreach (var item in ViewBag.brands)
+                                        @foreach (var item in ViewBag.brand1)
+                                        {
+                                            <li class="form-check ">
+                                                <input class="form-check-input shadow-none" type="checkbox" value="" id="">
+                                                <label class="form-check-label innerdropdownitem  " for="">
+                                                   @item.name
+                                                </label>
+                                            </li>
+                                        }
+                                           @foreach (var item in ViewBag.brand2)
                                         {
                                             <li class="form-check ">
                                                 <input class="form-check-input shadow-none" type="checkbox" value="" id="">
@@ -352,7 +361,16 @@
                            aria-label=".form-control-sm example">
                 </div>
                 <ul >
-                    @foreach (var item in ViewBag.brands)
+                    @foreach (var item in ViewBag.brand1)
+                    {
+                        <li class="form-check ">
+                            <input class="form-check-input shadow-none" type="checkbox" value="" id="">
+                            <label class="form-check-label innerdropdownitem  " for="">
+                               @item.name
+                            </label>
+                        </li>
+                    }
+                    @foreach (var item in ViewBag.brand2)
                     {
                         <li class="form-check ">
                             <input class="form-check-input shadow-none" type="checkbox" value="" id="">
