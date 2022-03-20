@@ -124,7 +124,7 @@
     width: 100%;
     /* top: 13.4%;  */
     /* position:fixed; */
-    z-index: 3;
+    z-index: 5;
 }
 
 .menu-area {
@@ -144,9 +144,9 @@
 }
 /* SEARCH BAR */
 .search-bar {
-    position: absolute;
-    /* z-index: 1; */
-    top: 25%;
+    position: relative;
+    z-index: 4;
+    top: 4rem;
     width: 100%;
 }
 
@@ -525,11 +525,11 @@
     .fontsize3 {
         font-size: 1.1rem;
     }
+    /* .search-bar{
+    position: absolute;
+    top: 22%;
+} */
 
-    .search-bar {
-        position: absolute;
-        top: 22%;
-    }
     /* .formsearch{
     display: block;
     width: 95%;
@@ -647,11 +647,10 @@
     .fontsize3, .fontsize7 {
         font-size: 1rem !important;
     }
-
-    .search-bar {
-        position: absolute;
-        top: 20%;
-    }
+    /* .search-bar{
+    position: absolute;
+    top: 20%;
+} */
     /* .formsearch{
     display: block;
     width: 95%;
