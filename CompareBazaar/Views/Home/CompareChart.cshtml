@@ -24,7 +24,7 @@
                         </a>
 
 
-                               
+
                     }
                     else
                     {
@@ -33,8 +33,8 @@
                             <input name="searchStr" type="search" placeholder="Search products" class="form-control radius shadow-none "
                                    aria-label="Search">
                             @*<button type="submit" class="btn btn-link searchcolor bg-red text-white radius shadow-none snone">
-                    <i class="fas fa-search"></i>
-                </button>*@
+                                    <i class="fas fa-search"></i>
+                                </button>*@
                             <br />
 
                             <button type="submit" class="btn btn-danger redbtn bg-red col-8 m-2 fontsize11 shadow-none">
@@ -63,14 +63,14 @@
                             <input name="searchStr" type="search" placeholder="Search products" class="form-control radius shadow-none "
                                    aria-label="Search">
                             @*<button type="submit" class="btn btn-link searchcolor bg-red text-white radius shadow-none snone">
-            <i class="fas fa-search"></i>
-        </button>*@
+                                    <i class="fas fa-search"></i>
+                                </button>*@
                             <button type="submit" class="btn btn-danger redbtn bg-red col-8 m-2 fontsize11 shadow-none">
                                 SEARCH
                             </button>
 
                         </form>
-                        
+
                     }
                 </div>
             </div>
@@ -90,35 +90,24 @@
                     {
                         <a asp-controller="" asp-action="" class="mt-4"><i class="fas fa-search-plus text-red searchproduct"></i> </a>
                         <form asp-action="ProductsList" class="d-flex  mx-2 mt-4">
-                          <div class="row"> <input name="searchStr" type="search" placeholder="Search products" class="form-control radius shadow-none"
-                                   aria-label="Search">
+                            <div class="row">
+                                <input name="searchStr" type="search" placeholder="Search products" class="form-control radius shadow-none"
+                                       aria-label="Search">
                             </div>
                             <br />
                             @*<button type="submit" class="btn btn-link searchcolor bg-red text-white radius shadow-none snone">
-                                <i class="fas fa-search"></i>
-                            </button>*@
-                       <div class="row">
-                        <button type="submit" class="btn btn-danger redbtn bg-red col-8 m-2 fontsize11 shadow-none">
-                            SEARCH
-                        </button>
-                        </div>
+                                    <i class="fas fa-search"></i>
+                                </button>*@
+                            <div class="row">
+                                <button type="submit" class="btn btn-danger redbtn bg-red col-8 m-2 fontsize11 shadow-none">
+                                    SEARCH
+                                </button>
+                            </div>
                         </form>
                     }
                 </div>
             </div>
-            <!-- <div class="col-lg-2 col-md-2 comparehide ">
-                <div class="card shadow-sm compare d-flex align-items-center justify-content-center  ">
-                    <a href="" class="mt-4"><i class="fas fa-search-plus text-red searchproduct"></i> </a>
-                    <form class="d-flex  mx-2 mt-4">
-                        <input type="search" placeholder="Search products" class="form-control radius shadow-none comparesearch "
-                          aria-label="Search">
-                          <a type="submit" class="btn btn-link searchcolor bg-red text-white radius shadow-none" href="#"> <i
-                              class="fas fa-search"></i></a>
-                      </form>
-                    <a class="btn btn-danger redbtn bg-red col-8 m-2 shadow-none" href="#">ADD TO
-                        COMPARE </a>
-                </div>
-            </div> -->
+
         </div>
     </div>
 
@@ -203,6 +192,7 @@
 
 
     </div>
+
     <div class="row  bg-red d-flex align-items-center ">
         <div class="col">
             <span class="fs-4 fontsize7 text-white ">GENERAL</span>
@@ -212,87 +202,316 @@
         <div class="col-lg-3 col-md-3 col-sm-4 col">
             <span class="fs-6 fontsize12">Network</span>
         </div>
-        <div class="col-lg-3 col-md-3 col-sm-4 col">
-            <span class="fontsize12">5G</span>
-        </div>
-        <div class="col-lg-3 col-md-3 col-sm-4 col">
-            <span class="fontsize12"></span>
-        </div>
-        <div class="col-lg-3 col-md-3 comparehide">
-            <span class="fontsize12"></span>
-        </div>
+        @if (ViewBag.n > 0)
+        {
+
+
+            <div class="col-lg-3 col-md-3 col-sm-4 col">
+                <span class="fontsize12"> @ViewBag.mobile[0].specifications.general.network</span>
+            </div>
+        }
+        else
+        {
+            <div class="col-lg-3 col-md-3 col-sm-4 col">
+                <span class="fontsize12"></span>
+            </div>
+
+        }
+        @if (ViewBag.n > 1)
+        {
+
+
+            <div class="col-lg-3 col-md-3 col-sm-4 col">
+                <span class="fontsize12"> @ViewBag.mobile[1].specifications.general.network</span>
+            </div>
+        }
+        else
+        {
+            <div class="col-lg-3 col-md-3 col-sm-4 col">
+                <span class="fontsize12"></span>
+            </div>
+
+        }
+        @if (ViewBag.n > 2)
+        {
+
+
+            <div class="col-lg-3 col-md-3 comparehide">
+                <span class="fontsize12"> @ViewBag.mobile[2].specifications.general.network</span>
+            </div>
+        }
+        else
+        {
+            <div class="col-lg-3 col-md-3 comparehide">
+                <span class="fontsize12"></span>
+            </div>
+
+        }
+
 
     </div>
     <div class="row  bg-light d-flex align-items-center  ">
         <div class="col-lg-3 col-md-3 col-sm-4 col">
             <span class="fs-6 fontsize12"> SIM Type </span>
         </div>
-        <div class="col-lg-3 col-md-3 col-sm-4 col">
-            <span class="fontsize12">Nano SIM</span>
-        </div>
-        <div class="col-lg-3 col-md-3 col-sm-4 col">
-            <span class="fontsize12"></span>
-        </div>
-        <div class="col-lg-3 col-md-3 comparehide">
-            <span class="fontsize12"></span>
-        </div>
+        @if (ViewBag.n > 0)
+        {
+
+
+
+            <div class="col-lg-3 col-md-3 col-sm-4 col">
+                <span class="fontsize12">@ViewBag.mobile[0].specifications.general.sim_type</span>
+            </div>
+        }
+        else
+        {
+            <div class="col-lg-3 col-md-3 col-sm-4 col">
+                <span class="fontsize12"></span>
+            </div>
+        }
+        @if (ViewBag.n > 1)
+        {
+
+
+
+            <div class="col-lg-3 col-md-3 col-sm-4 col">
+                <span class="fontsize12">@ViewBag.mobile[1].specifications.general.sim_type</span>
+            </div>
+        }
+        else
+        {
+            <div class="col-lg-3 col-md-3 col-sm-4 col">
+                <span class="fontsize12"></span>
+            </div>
+        }
+        @if (ViewBag.n > 2)
+        {
+
+
+
+            <div class="col-lg-3 col-md-3 comparehide">
+                <span class="fontsize12">@ViewBag.mobile[2].specifications.general.sim_type</span>
+            </div>
+        }
+        else
+        {
+            <div class="col-lg-3 col-md-3 comparehide">
+                <span class="fontsize12"></span>
+            </div>
+        }
+
     </div>
     <div class="row  d-flex align-items-center ">
         <div class="col-lg-3 col-md-3 col-sm-4 col">
             <span class="fs-6 fontsize12">Dual SIM</span>
         </div>
-        <div class="col-lg-3 col-md-3 col-sm-4 col">
-            <span class="fontsize12">Yes</span>
-        </div>
-        <div class="col-lg-3 col-md-3 col-sm-4 col">
-            <span class="fontsize12"></span>
-        </div>
-        <div class="col-lg-3 col-md-3 comparehide">
-            <span class="fontsize12"></span>
-        </div>
+        @if (ViewBag.n > 0)
+        {
+            @if (ViewBag.mobile[0].specifications.general.dual_sim == true)
+            {
+                <div class="col-lg-3 col-md-3 col-sm-4 col">
+                    <span class="fontsize12">Yes</span>
+                </div>
+            }
+            else
+            {
+                <div class="col-lg-3 col-md-3 col-sm-4 col">
+                    <span class="fontsize12">No</span>
+                </div>
+            }
+
+        }
+        else
+        {
+            <div class="col-lg-3 col-md-3 col-sm-4 col">
+                <span class="fontsize12"></span>
+            </div>
+        }
+        @if (ViewBag.n > 1)
+        {
+            @if (ViewBag.mobile[1].specifications.general.dual_sim == true)
+            {
+                <div class="col-lg-3 col-md-3 col-sm-4 col">
+                    <span class="fontsize12">Yes</span>
+                </div>
+            }
+            else
+            {
+                <div class="col-lg-3 col-md-3 col-sm-4 col">
+                    <span class="fontsize12">No</span>
+                </div>
+            }
+
+        }
+        else
+        {
+            <div class="col-lg-3 col-md-3 col-sm-4 col">
+                <span class="fontsize12"></span>
+            </div>
+        }
+        @if (ViewBag.n > 2)
+        {
+            @if (ViewBag.mobile[2].specifications.general.dual_sim == true)
+            {
+                <div class="col-lg-3 col-md-3 comparehide">
+                    <span class="fontsize12">Yes</span>
+                </div>
+            }
+            else
+            {
+                <div class="col-lg-3 col-md-3 comparehide">
+                    <span class="fontsize12">No</span>
+                </div>
+            }
+
+        }
+        else
+        {
+            <div class="col-lg-3 col-md-3 comparehide">
+                <span class="fontsize12"></span>
+            </div>
+        }
+
     </div>
     <div class="row bg-light d-flex align-items-center  ">
         <div class="col-lg-3 col-md-3 col-sm-4 col">
             <span class="fs-6 fontsize12">Touch Screen</span>
         </div>
-        <div class="col-lg-3 col-md-3 col-sm-4 col">
-            <span class="fontsize12">Yes</span>
-        </div>
-        <div class="col-lg-3 col-md-3 col-sm-4 col">
-            <span class="fontsize12"></span>
-        </div>
-        <div class="col-lg-3 col-md-3 comparehide">
-            <span class="fontsize12"></span>
-        </div>
+
+        @if (ViewBag.n > 0)
+        {
+            @if (ViewBag.mobile[0].specifications.general.touch_screen == true)
+            {
+                <div class="col-lg-3 col-md-3 col-sm-4 col">
+                    <span class="fontsize12">Yes</span>
+                </div>
+            }
+            else
+            {
+                <div class="col-lg-3 col-md-3 col-sm-4 col">
+                    <span class="fontsize12">No</span>
+                </div>
+            }
+
+        }
+        else
+        {
+            <div class="col-lg-3 col-md-3 col-sm-4 col">
+                <span class="fontsize12"></span>
+            </div>
+        }
+        @if (ViewBag.n > 1)
+        {
+            @if (ViewBag.mobile[1].specifications.general.touch_screen == true)
+            {
+                <div class="col-lg-3 col-md-3 col-sm-4 col">
+                    <span class="fontsize12">Yes</span>
+                </div>
+            }
+            else
+            {
+                <div class="col-lg-3 col-md-3 col-sm-4 col">
+                    <span class="fontsize12">No</span>
+                </div>
+            }
+
+        }
+        else
+        {
+            <div class="col-lg-3 col-md-3 col-sm-4 col">
+                <span class="fontsize12"></span>
+            </div>
+        }
+        @if (ViewBag.n > 2)
+        {
+            @if (ViewBag.mobile[2].specifications.general.touch_screen == true)
+            {
+                <div class="col-lg-3 col-md-3 comparehide">
+                    <span class="fontsize12">Yes</span>
+                </div>
+            }
+            else
+            {
+                <div class="col-lg-3 col-md-3 comparehide">
+                    <span class="fontsize12">No</span>
+                </div>
+            }
+
+        }
+        else
+        {
+            <div class="col-lg-3 col-md-3 comparehide">
+                <span class="fontsize12"></span>
+            </div>
+        }
+
     </div>
     <div class="row  d-flex align-items-center ">
         <div class="col-lg-3 col-md-3 col-sm-4 col">
             <span class="fs-6 fontsize12">FingerPrint Unlock</span>
         </div>
         <div class="col-lg-3 col-md-3 col-sm-4 col">
-            <span class="fontsize12">Yes</span>
+            @if (ViewBag.n > 0)
+            {
+                @if (ViewBag.mobile[0].specifications.general.touch_screen == true)
+                {
+
+
+                    <span class="fontsize12">Yes</span>
+                }
+                else
+                {
+                    <span class="fontsize12">No</span>
+
+                }
+            }
+            else
+            {
+                <span class="fontsize12"></span>
+            }
         </div>
         <div class="col-lg-3 col-md-3 col-sm-4 col">
-            <span class="fontsize12"></span>
+            @if (ViewBag.n > 1)
+            {
+                @if (ViewBag.mobile[1].specifications.general.touch_screen == true)
+                {
+
+
+                    <span class="fontsize12">Yes</span>
+                }
+                else
+                {
+                    <span class="fontsize12">No</span>
+
+                }
+            }
+            else
+            {
+                <span class="fontsize12"></span>
+            }
         </div>
         <div class="col-lg-3 col-md-3 comparehide">
-            <span class="fontsize12"></span>
+            @if (ViewBag.n > 2)
+            {
+                @if (ViewBag.mobile[2].specifications.general.touch_screen == true)
+                {
+
+
+                    <span class="fontsize12">Yes</span>
+                }
+                else
+                {
+                    <span class="fontsize12">No</span>
+
+                }
+            }
+            else
+            {
+                <span class="fontsize12"></span>
+            }
         </div>
     </div>
-    <div class="row bg-light d-flex align-items-center ">
-        <div class="col-lg-3 col-md-3 col-sm-4 col">
-            <span class="fs-6 fontsize12">Face Lock</span>
-        </div>
-        <div class="col-lg-3 col-md-3 col-sm-4 col">
-            <span class="fontsize12">NA</span>
-        </div>
-        <div class="col-lg-3 col-md-3 col-sm-4 col">
-            <span class="fontsize12"></span>
-        </div>
-        <div class="col-lg-3 col-md-3 comparehide">
-            <span class="fontsize12"></span>
-        </div>
-    </div>
+
     <div class="row bg-red  d-flex align-items-center">
         <div class="col">
             <span class="text-white fontsize7 fs-4">DISPLAY</span>
@@ -303,13 +522,37 @@
             <span class="fs-6 fontsize12">Screen Size </span>
         </div>
         <div class="col-lg-3 col-md-3 col-sm-4 col">
-            <span class="fontsize12"> 6.43 inch </span>
+            @if (ViewBag.n > 0)
+            {
+                <span class="fontsize12">@ViewBag.mobile[0].specifications.display.screen_size </span>
+            }
+            else
+            {
+                <span class="fontsize12"></span>
+
+            }
         </div>
         <div class="col-lg-3 col-md-3 col-sm-4 col">
-            <span class="fontsize12"></span>
+            @if (ViewBag.n > 1)
+            {
+                <span class="fontsize12">@ViewBag.mobile[0].specifications.display.screen_size </span>
+            }
+            else
+            {
+                <span class="fontsize12"></span>
+
+            }
         </div>
         <div class="col-lg-3 col-md-3 comparehide">
-            <span class="fontsize12"></span>
+            @if (ViewBag.n > 2)
+            {
+                <span class="fontsize12">@ViewBag.mobile[0].specifications.display.screen_size </span>
+            }
+            else
+            {
+                <span class="fontsize12"></span>
+
+            }
         </div>
     </div>
     <div class="row d-flex align-items-center bg-light">
@@ -317,13 +560,37 @@
             <span class="fs-6 fontsize12">Screen Resolution</span>
         </div>
         <div class="col-lg-3 col-md-3 col-sm-4 col">
-            <span class="fontsize12">1080 x 2400 pixels</span>
+            @if (ViewBag.n > 0)
+            {
+                <span class="fontsize12">@ViewBag.mobile[0].specifications.display.screen_resolution </span>
+            }
+            else
+            {
+                <span class="fontsize12"></span>
+
+            }
         </div>
         <div class="col-lg-3 col-md-3 col-sm-4 col">
-            <span class="fontsize12"></span>
+            @if (ViewBag.n > 1)
+            {
+                <span class="fontsize12">@ViewBag.mobile[1].specifications.display.screen_resolution </span>
+            }
+            else
+            {
+                <span class="fontsize12"></span>
+
+            }
         </div>
         <div class="col-lg-3 col-md-3 comparehide">
-            <span class="fontsize12"></span>
+            @if (ViewBag.n > 2)
+            {
+                <span class="fontsize12">@ViewBag.mobile[2].specifications.display.screen_resolution </span>
+            }
+            else
+            {
+                <span class="fontsize12"></span>
+
+            }
         </div>
     </div>
     <div class="row  d-flex align-items-center">
@@ -331,13 +598,37 @@
             <span class="fs-6 fontsize12">Display Type</span>
         </div>
         <div class="col-lg-3 col-md-3 col-sm-4 col">
-            <span class="fontsize12">Super AMOLED</span>
+            @if (ViewBag.n > 0)
+            {
+                <span class="fontsize12">@ViewBag.mobile[0].specifications.display.display_type </span>
+            }
+            else
+            {
+                <span class="fontsize12"></span>
+
+            }
         </div>
         <div class="col-lg-3 col-md-3 col-sm-4 col">
-            <span class="fontsize12"></span>
+            @if (ViewBag.n > 1)
+            {
+                <span class="fontsize12">@ViewBag.mobile[1].specifications.display.display_type </span>
+            }
+            else
+            {
+                <span class="fontsize12"></span>
+
+            }
         </div>
         <div class="col-lg-3 col-md-3 comparehide">
-            <span class="fontsize12"></span>
+            @if (ViewBag.n > 2)
+            {
+                <span class="fontsize12">@ViewBag.mobile[2].specifications.display.display_type </span>
+            }
+            else
+            {
+                <span class="fontsize12"></span>
+
+            }
         </div>
     </div>
     <div class="row bg-red d-flex align-items-center">
@@ -350,13 +641,37 @@
             <span class="fs-6 fontsize12"> Internal Memory </span>
         </div>
         <div class="col-lg-3 col-md-3 col-sm-4 col">
-            <span class="fontsize12">128 GB</span>
+            @if (ViewBag.n > 0)
+            {
+                <span class="fontsize12">@ViewBag.mobile[0].specifications.memory.internal_memory GB</span>
+            }
+            else
+            {
+                <span class="fontsize12"></span>
+
+            }
         </div>
         <div class="col-lg-3 col-md-3 col-sm-4 col">
-            <span class="fontsize12"></span>
+            @if (ViewBag.n > 1)
+            {
+                <span class="fontsize12">@ViewBag.mobile[1].specifications.memory.internal_memory GB</span>
+            }
+            else
+            {
+                <span class="fontsize12"></span>
+
+            }
         </div>
         <div class="col-lg-3 col-md-3 comparehide">
-            <span class="fontsize12"></span>
+            @if (ViewBag.n > 2)
+            {
+                <span class="fontsize12">@ViewBag.mobile[2].specifications.memory.internal_memory GB</span>
+            }
+            else
+            {
+                <span class="fontsize12"></span>
+
+            }
         </div>
     </div>
     <div class="row d-flex align-items-center bg-light">
@@ -364,13 +679,58 @@
             <span class="fs-6 fontsize12"> External Memory</span>
         </div>
         <div class="col-lg-3 col-md-3 col-sm-4 col">
-            <span class="fontsize12">NA</span>
+            @if (ViewBag.n > 0)
+            {
+                @if (ViewBag.mobile[0].specifications.memory.external_memory != null)
+                {
+                    <span class="fontsize12">@ViewBag.mobile[0].specifications.memory.external_memory GB</span>
+                }
+                else
+                {
+                    <span class="fontsize12">N/A</span>
+                }
+            }
+            else
+            {
+                <span class="fontsize12"></span>
+
+            }
         </div>
         <div class="col-lg-3 col-md-3 col-sm-4 col">
-            <span class="fontsize12"></span>
+            @if (ViewBag.n > 1)
+            {
+                @if (ViewBag.mobile[1].specifications.memory.external_memory != null)
+                {
+                    <span class="fontsize12">@ViewBag.mobile[1].specifications.memory.external_memory GB</span>
+                }
+                else
+                {
+                    <span class="fontsize12">N/A</span>
+                }
+            }
+            else
+            {
+                <span class="fontsize12"></span>
+
+            }
         </div>
         <div class="col-lg-3 col-md-3 comparehide">
-            <span class="fontsize12"></span>
+            @if (ViewBag.n > 2)
+            {
+                @if (ViewBag.mobile[2].specifications.memory.external_memory != null)
+                {
+                    <span class="fontsize12">@ViewBag.mobile[2].specifications.memory.external_memory GB</span>
+                }
+                else
+                {
+                    <span class="fontsize12">N/A</span>
+                }
+            }
+            else
+            {
+                <span class="fontsize12"></span>
+
+            }
         </div>
     </div>
     <div class="row d-flex align-items-center">
@@ -378,13 +738,37 @@
             <span class="fs-6 fontsize12">RAM</span>
         </div>
         <div class="col-lg-3 col-md-3 col-sm-4 col">
-            <span class="fontsize12">8GB</span>
+            @if (ViewBag.n > 0)
+            {
+
+
+                <span class="fontsize12">@ViewBag.mobile[0].specifications.memory.ram GB</span>}
+            else
+            {
+                <span class="fontsize12"></span>
+            }
         </div>
         <div class="col-lg-3 col-md-3 col-sm-4 col">
-            <span class="fontsize12"></span>
+            @if (ViewBag.n > 1)
+            {
+
+
+                <span class="fontsize12">@ViewBag.mobile[1].specifications.memory.ram GB</span>}
+            else
+            {
+                <span class="fontsize12"></span>
+            }
         </div>
         <div class="col-lg-3 col-md-3 comparehide">
-            <span class="fontsize12"></span>
+            @if (ViewBag.n > 2)
+            {
+
+
+                <span class="fontsize12">@ViewBag.mobile[2].specifications.memory.ram GB</span>}
+            else
+            {
+                <span class="fontsize12"></span>
+            }
         </div>
     </div>
     <div class="row d-flex align-items-center bg-red">
@@ -397,13 +781,37 @@
             <span class="fs-6 fontsize12">Rear Camera</span>
         </div>
         <div class="col-lg-3 col-md-3 col-sm-4 col">
-            <span class="fontsize12">64 MP</span>
+            @if (ViewBag.n > 0)
+            {
+
+
+                <span class="fontsize12">@ViewBag.mobile[0].specifications.camera.rear_camera</span>}
+            else
+            {
+                <span class="fontsize12"></span>
+            }
         </div>
         <div class="col-lg-3 col-md-3 col-sm-4 col">
-            <span class="fontsize12"></span>
+            @if (ViewBag.n > 1)
+            {
+
+
+                <span class="fontsize12">@ViewBag.mobile[1].specifications.camera.rear_camera</span>}
+            else
+            {
+                <span class="fontsize12"></span>
+            }
         </div>
         <div class="col-lg-3 col-md-3 comparehide">
-            <span class="fontsize12"></span>
+            @if (ViewBag.n > 2)
+            {
+
+
+                <span class="fontsize12">@ViewBag.mobile[2].specifications.camera.rear_camera</span>}
+            else
+            {
+                <span class="fontsize12"></span>
+            }
         </div>
     </div>
     <div class="row d-flex align-items-center bg-light ">
@@ -411,13 +819,61 @@
             <span class="fs-6 fontsize12">Rear Camera Flash</span>
         </div>
         <div class="col-lg-3 col-md-3 col-sm-4 col">
-            <span class="fontsize12">Yes</span>
+            @if (ViewBag.n > 0)
+            {
+
+                @if (ViewBag.mobile[0].specifications.camera.rear_camera_flash == true)
+                {
+                    <span class="fontsize12">Yes</span>
+                }
+                else
+                {
+                    <span class="fontsize12">No</span>
+                }
+            }
+            else
+            {
+                <span class="fontsize12"></span>
+
+            }
         </div>
         <div class="col-lg-3 col-md-3 col-sm-4 col">
-            <span class="fontsize12"></span>
+            @if (ViewBag.n > 1)
+            {
+
+                @if (ViewBag.mobile[1].specifications.camera.rear_camera_flash == true)
+                {
+                    <span class="fontsize12">Yes</span>
+                }
+                else
+                {
+                    <span class="fontsize12">No</span>
+                }
+            }
+            else
+            {
+                <span class="fontsize12"></span>
+
+            }
         </div>
         <div class="col-lg-3 col-md-3 comparehide">
-            <span class="fontsize12"></span>
+            @if (ViewBag.n > 2)
+            {
+
+                @if (ViewBag.mobile[2].specifications.camera.rear_camera_flash == true)
+                {
+                    <span class="fontsize12">Yes</span>
+                }
+                else
+                {
+                    <span class="fontsize12">No</span>
+                }
+            }
+            else
+            {
+                <span class="fontsize12"></span>
+
+            }
         </div>
     </div>
     <div class="row d-flex align-items-center ">
@@ -425,13 +881,40 @@
             <span class="fs-6 fontsize12">Front Camera</span>
         </div>
         <div class="col-lg-3 col-md-3 col-sm-4 col">
-            <span class="fontsize12">32 MP</span>
+            @if (ViewBag.n > 0)
+            {
+
+
+                <span class="fontsize12">@ViewBag.mobile[0].specifications.camera.front_camera</span>
+            }
+            else
+            {
+                <span class="fontsize12"></span>
+            }
         </div>
         <div class="col-lg-3 col-md-3 col-sm-4 col">
-            <span class="fontsize12"></span>
+            @if (ViewBag.n > 1)
+            {
+
+
+                <span class="fontsize12">@ViewBag.mobile[1].specifications.camera.front_camera</span>
+            }
+            else
+            {
+                <span class="fontsize12"></span>
+            }
         </div>
         <div class="col-lg-3 col-md-3 comparehide">
-            <span class="fontsize12"></span>
+            @if (ViewBag.n > 2)
+            {
+
+
+                <span class="fontsize12">@ViewBag.mobile[2].specifications.camera.front_camera</span>
+            }
+            else
+            {
+                <span class="fontsize12"></span>
+            }
         </div>
     </div>
     <div class="row d-flex align-items-center bg-light">
@@ -439,13 +922,61 @@
             <span class="fs-6 fontsize12"> Front Camera Flash</span>
         </div>
         <div class="col-lg-3 col-md-3 col-sm-4 col">
-            <span class="fontsize12">NA</span>
+            @if (ViewBag.n > 0)
+            {
+
+                @if (ViewBag.mobile[0].specifications.camera.front_camera_flash == true)
+                {
+                    <span class="fontsize12">Yes</span>
+                }
+                else
+                {
+                    <span class="fontsize12">No</span>
+                }
+            }
+            else
+            {
+                <span class="fontsize12"></span>
+
+            }
         </div>
         <div class="col-lg-3 col-md-3 col-sm-4 col">
-            <span class="fontsize12"></span>
+            @if (ViewBag.n > 1)
+            {
+
+                @if (ViewBag.mobile[1].specifications.camera.front_camera_flash == true)
+                {
+                    <span class="fontsize12">Yes</span>
+                }
+                else
+                {
+                    <span class="fontsize12">No</span>
+                }
+            }
+            else
+            {
+                <span class="fontsize12"></span>
+
+            }
         </div>
         <div class="col-lg-3 col-md-3 comparehide">
-            <span class="fontsize12"></span>
+            @if (ViewBag.n > 2)
+            {
+
+                @if (ViewBag.mobile[2].specifications.camera.front_camera_flash == true)
+                {
+                    <span class="fontsize12">Yes</span>
+                }
+                else
+                {
+                    <span class="fontsize12">No</span>
+                }
+            }
+            else
+            {
+                <span class="fontsize12"></span>
+
+            }
         </div>
     </div>
     <div class="row d-flex align-items-center bg-red">
@@ -458,13 +989,40 @@
             <span class="fs-6 fontsize12"> Rear Camera Video Quality</span>
         </div>
         <div class="col-lg-3 col-md-3 col-sm-4 col">
-            <span class="fontsize12">2160 p</span>
+            @if (ViewBag.n > 0)
+            {
+
+
+                <span class="fontsize12">@ViewBag.mobile[0].specifications.video_recording.rear_camera_video_quality</span>
+            }
+            else
+            {
+                <span class="fontsize12"></span>
+            }
         </div>
         <div class="col-lg-3 col-md-3 col-sm-4 col">
-            <span class="fontsize12"></span>
+            @if (ViewBag.n > 1)
+            {
+
+
+                <span class="fontsize12">@ViewBag.mobile[1].specifications.video_recording.rear_camera_video_quality</span>
+            }
+            else
+            {
+                <span class="fontsize12"></span>
+            }
         </div>
         <div class="col-lg-3 col-md-3 comparehide">
-            <span class="fontsize12"></span>
+            @if (ViewBag.n > 2)
+            {
+
+
+                <span class="fontsize12">@ViewBag.mobile[2].specifications.video_recording.rear_camera_video_quality</span>
+            }
+            else
+            {
+                <span class="fontsize12"></span>
+            }
         </div>
     </div>
     <div class="row d-flex align-items-center bg-red">
@@ -474,16 +1032,62 @@
     </div>
     <div class="row d-flex align-items-center">
         <div class="col-lg-3 col-md-3 col-sm-4 col">
+
             <span class="fs-6 fontsize12">Wifi</span>
         </div>
         <div class="col-lg-3 col-md-3 col-sm-4 col">
-            <span class="fontsize12">Yes</span>
+            @if (ViewBag.n > 0)
+            {
+                @if (ViewBag.mobile[0].specifications.connectivity.wifi == true)
+                {
+
+                    <span class="fontsize12">Yes</span>
+                }
+                else
+                {
+                    <span class="fontsize12">No</span>
+                }
+            }
+            else
+            {
+                <span class="fontsize12"></span>
+            }
         </div>
         <div class="col-lg-3 col-md-3 col-sm-4 col">
-            <span class="fontsize12"></span>
+            @if (ViewBag.n > 1)
+            {
+                @if (ViewBag.mobile[1].specifications.connectivity.wifi == true)
+                {
+
+                    <span class="fontsize12">Yes</span>
+                }
+                else
+                {
+                    <span class="fontsize12">No</span>
+                }
+            }
+            else
+            {
+                <span class="fontsize12"></span>
+            }
         </div>
         <div class="col-lg-3 col-md-3 comparehide">
-            <span class="fontsize12"></span>
+            @if (ViewBag.n > 2)
+            {
+                @if (ViewBag.mobile[2].specifications.connectivity.wifi == true)
+                {
+
+                    <span class="fontsize12">Yes</span>
+                }
+                else
+                {
+                    <span class="fontsize12">No</span>
+                }
+            }
+            else
+            {
+                <span class="fontsize12"></span>
+            }
         </div>
     </div>
     <div class="row d-flex align-items-center bg-light">
@@ -491,13 +1095,58 @@
             <span class="fs-6 fontsize12"> Radio</span>
         </div>
         <div class="col-lg-3 col-md-3 col-sm-4 col">
-            <span class="fontsize12">No</span>
+            @if (ViewBag.n > 0)
+            {
+                @if (ViewBag.mobile[0].specifications.connectivity.radio == true)
+                {
+
+                    <span class="fontsize12">Yes</span>
+                }
+                else
+                {
+                    <span class="fontsize12">No</span>
+                }
+            }
+            else
+            {
+                <span class="fontsize12"></span>
+            }
         </div>
         <div class="col-lg-3 col-md-3 col-sm-4 col">
-            <span class="fontsize12"></span>
+            @if (ViewBag.n > 1)
+            {
+                @if (ViewBag.mobile[1].specifications.connectivity.radio == true)
+                {
+
+                    <span class="fontsize12">Yes</span>
+                }
+                else
+                {
+                    <span class="fontsize12">No</span>
+                }
+            }
+            else
+            {
+                <span class="fontsize12"></span>
+            }
         </div>
         <div class="col-lg-3 col-md-3 comparehide">
-            <span class="fontsize12"></span>
+            @if (ViewBag.n > 2)
+            {
+                @if (ViewBag.mobile[2].specifications.connectivity.radio == true)
+                {
+
+                    <span class="fontsize12">Yes</span>
+                }
+                else
+                {
+                    <span class="fontsize12">No</span>
+                }
+            }
+            else
+            {
+                <span class="fontsize12"></span>
+            }
         </div>
     </div>
     <div class="row d-flex align-items-center">
@@ -505,13 +1154,58 @@
             <span class="fs-6 fontsize12">Infrared</span>
         </div>
         <div class="col-lg-3 col-md-3 col-sm-4 col">
-            <span class="fontsize12">NA</span>
+            @if (ViewBag.n > 0)
+            {
+                @if (ViewBag.mobile[0].specifications.connectivity.infrared == true)
+                {
+
+                    <span class="fontsize12">Yes</span>
+                }
+                else
+                {
+                    <span class="fontsize12">No</span>
+                }
+            }
+            else
+            {
+                <span class="fontsize12"></span>
+            }
         </div>
         <div class="col-lg-3 col-md-3 col-sm-4 col">
-            <span class="fontsize12"></span>
+            @if (ViewBag.n > 1)
+            {
+                @if (ViewBag.mobile[1].specifications.connectivity.infrared == true)
+                {
+
+                    <span class="fontsize12">Yes</span>
+                }
+                else
+                {
+                    <span class="fontsize12">No</span>
+                }
+            }
+            else
+            {
+                <span class="fontsize12"></span>
+            }
         </div>
         <div class="col-lg-3 col-md-3 comparehide">
-            <span class="fontsize12"></span>
+            @if (ViewBag.n > 2)
+            {
+                @if (ViewBag.mobile[2].specifications.connectivity.infrared == true)
+                {
+
+                    <span class="fontsize12">Yes</span>
+                }
+                else
+                {
+                    <span class="fontsize12">No</span>
+                }
+            }
+            else
+            {
+                <span class="fontsize12"></span>
+            }
         </div>
     </div>
     <div class="row d-flex align-items-center bg-light">
@@ -519,13 +1213,58 @@
             <span class="fs-6 fontsize12">GPRS</span>
         </div>
         <div class="col-lg-3 col-md-3 col-sm-4 col">
-            <span class="fontsize12">NA</span>
+            @if (ViewBag.n > 0)
+            {
+                @if (ViewBag.mobile[0].specifications.connectivity.gprs == true)
+                {
+
+                    <span class="fontsize12">Yes</span>
+                }
+                else
+                {
+                    <span class="fontsize12">No</span>
+                }
+            }
+            else
+            {
+                <span class="fontsize12"></span>
+            }
         </div>
         <div class="col-lg-3 col-md-3 col-sm-4 col">
-            <span class="fontsize12"></span>
+            @if (ViewBag.n > 1)
+            {
+                @if (ViewBag.mobile[1].specifications.connectivity.gprs == true)
+                {
+
+                    <span class="fontsize12">Yes</span>
+                }
+                else
+                {
+                    <span class="fontsize12">No</span>
+                }
+            }
+            else
+            {
+                <span class="fontsize12"></span>
+            }
         </div>
         <div class="col-lg-3 col-md-3 comparehide">
-            <span class="fontsize12"></span>
+            @if (ViewBag.n > 2)
+            {
+                @if (ViewBag.mobile[2].specifications.connectivity.gprs == true)
+                {
+
+                    <span class="fontsize12">Yes</span>
+                }
+                else
+                {
+                    <span class="fontsize12">No</span>
+                }
+            }
+            else
+            {
+                <span class="fontsize12"></span>
+            }
         </div>
     </div>
     <div class="row d-flex align-items-center">
@@ -533,13 +1272,58 @@
             <span class="fs-6 fontsize12"> EDGE</span>
         </div>
         <div class="col-lg-3 col-md-3 col-sm-4 col">
-            <span class="fontsize12">NA</span>
+            @if (ViewBag.n > 0)
+            {
+                @if (ViewBag.mobile[0].specifications.connectivity.edge == true)
+                {
+
+                    <span class="fontsize12">Yes</span>
+                }
+                else
+                {
+                    <span class="fontsize12">No</span>
+                }
+            }
+            else
+            {
+                <span class="fontsize12"></span>
+            }
         </div>
         <div class="col-lg-3 col-md-3 col-sm-4 col">
-            <span class="fontsize12"></span>
+            @if (ViewBag.n > 1)
+            {
+                @if (ViewBag.mobile[1].specifications.connectivity.edge == true)
+                {
+
+                    <span class="fontsize12">Yes</span>
+                }
+                else
+                {
+                    <span class="fontsize12">No</span>
+                }
+            }
+            else
+            {
+                <span class="fontsize12"></span>
+            }
         </div>
         <div class="col-lg-3 col-md-3 comparehide">
-            <span class="fontsize12"></span>
+            @if (ViewBag.n > 2)
+            {
+                @if (ViewBag.mobile[2].specifications.connectivity.edge == true)
+                {
+
+                    <span class="fontsize12">Yes</span>
+                }
+                else
+                {
+                    <span class="fontsize12">No</span>
+                }
+            }
+            else
+            {
+                <span class="fontsize12"></span>
+            }
         </div>
     </div>
     <div class="row d-flex align-items-center bg-light">
@@ -547,13 +1331,58 @@
             <span class="fs-6 fontsize12"> NFC</span>
         </div>
         <div class="col-lg-3 col-md-3 col-sm-4 col">
-            <span class="fontsize12">Yes</span>
+            @if (ViewBag.n > 0)
+            {
+                @if (ViewBag.mobile[0].specifications.connectivity.nfc == true)
+                {
+
+                    <span class="fontsize12">Yes</span>
+                }
+                else
+                {
+                    <span class="fontsize12">No</span>
+                }
+            }
+            else
+            {
+                <span class="fontsize12"></span>
+            }
         </div>
         <div class="col-lg-3 col-md-3 col-sm-4 col">
-            <span class="fontsize12"></span>
+            @if (ViewBag.n > 1)
+            {
+                @if (ViewBag.mobile[1].specifications.connectivity.nfc == true)
+                {
+
+                    <span class="fontsize12">Yes</span>
+                }
+                else
+                {
+                    <span class="fontsize12">No</span>
+                }
+            }
+            else
+            {
+                <span class="fontsize12"></span>
+            }
         </div>
         <div class="col-lg-3 col-md-3 comparehide">
-            <span class="fontsize12"></span>
+            @if (ViewBag.n > 2)
+            {
+                @if (ViewBag.mobile[2].specifications.connectivity.nfc == true)
+                {
+
+                    <span class="fontsize12">Yes</span>
+                }
+                else
+                {
+                    <span class="fontsize12">No</span>
+                }
+            }
+            else
+            {
+                <span class="fontsize12"></span>
+            }
         </div>
     </div>
     <div class="row d-flex align-items-center">
@@ -561,13 +1390,58 @@
             <span class="fs-6 fontsize12"> USB</span>
         </div>
         <div class="col-lg-3 col-md-3 col-sm-4 col">
-            <span class="fontsize12">Yes</span>
+            @if (ViewBag.n > 0)
+            {
+                @if (ViewBag.mobile[0].specifications.connectivity.usb == true)
+                {
+
+                    <span class="fontsize12">Yes</span>
+                }
+                else
+                {
+                    <span class="fontsize12">No</span>
+                }
+            }
+            else
+            {
+                <span class="fontsize12"></span>
+            }
         </div>
         <div class="col-lg-3 col-md-3 col-sm-4 col">
-            <span class="fontsize12"></span>
+            @if (ViewBag.n > 1)
+            {
+                @if (ViewBag.mobile[1].specifications.connectivity.usb == true)
+                {
+
+                    <span class="fontsize12">Yes</span>
+                }
+                else
+                {
+                    <span class="fontsize12">No</span>
+                }
+            }
+            else
+            {
+                <span class="fontsize12"></span>
+            }
         </div>
         <div class="col-lg-3 col-md-3 comparehide">
-            <span class="fontsize12"></span>
+            @if (ViewBag.n > 2)
+            {
+                @if (ViewBag.mobile[2].specifications.connectivity.usb == true)
+                {
+
+                    <span class="fontsize12">Yes</span>
+                }
+                else
+                {
+                    <span class="fontsize12">No</span>
+                }
+            }
+            else
+            {
+                <span class="fontsize12"></span>
+            }
         </div>
     </div>
     <div class="row d-flex align-items-center bg-light">
@@ -575,13 +1449,37 @@
             <span class="fs-6 fontsize12"> Bluetooth Version</span>
         </div>
         <div class="col-lg-3 col-md-3 col-sm-4 col">
-            <span class="fontsize12">5.0 With A2DP</span>
+            @if (ViewBag.n > 0)
+            {
+
+
+            <span class="fontsize12">@ViewBag.mobile[0].specifications.connectivity.bluetooth_version</span>
+            }
+            else
+            { <span class="fontsize12"></span>
+            }
         </div>
         <div class="col-lg-3 col-md-3 col-sm-4 col">
-            <span class="fontsize12"></span>
+            @if (ViewBag.n > 1)
+            {
+
+
+                <span class="fontsize12">@ViewBag.mobile[1].specifications.connectivity.bluetooth_version</span>
+            }
+            else
+            { <span class="fontsize12"></span>
+            }
         </div>
         <div class="col-lg-3 col-md-3 comparehide">
-            <span class="fontsize12"></span>
+            @if (ViewBag.n > 2)
+            {
+
+
+                <span class="fontsize12">@ViewBag.mobile[2].specifications.connectivity.bluetooth_version</span>
+            }
+            else
+            { <span class="fontsize12"></span>
+            }
         </div>
     </div>
     <div class="row d-flex align-items-center bg-red">
@@ -594,13 +1492,37 @@
             <span class="fs-6 fontsize12"> OS </span>
         </div>
         <div class="col-lg-3 col-md-3 col-sm-4 col">
-            <span class="fontsize12">Android</span>
+            @if (ViewBag.n > 0)
+            {
+
+
+                <span class="fontsize12">@ViewBag.mobile[0].specifications.os.os</span>
+            }
+            else
+            { <span class="fontsize12"></span>
+            }
         </div>
         <div class="col-lg-3 col-md-3 col-sm-4 col">
-            <span class="fontsize12"></span>
+            @if (ViewBag.n > 1)
+            {
+
+
+                <span class="fontsize12">@ViewBag.mobile[1].specifications.os.os</span>
+            }
+            else
+            { <span class="fontsize12"></span>
+            }
         </div>
         <div class="col-lg-3 col-md-3 comparehide">
-            <span class="fontsize12"></span>
+            @if (ViewBag.n > 2)
+            {
+
+
+                <span class="fontsize12">@ViewBag.mobile[2].specifications.os.os</span>
+            }
+            else
+            { <span class="fontsize12"></span>
+            }
         </div>
     </div>
     <div class="row d-flex align-items-center bg-light">
@@ -608,13 +1530,37 @@
             <span class="fs-6 fontsize12"> OS Version </span>
         </div>
         <div class="col-lg-3 col-md-3 col-sm-4 col">
-            <span class="fontsize12"> Android 11 </span>
+            @if (ViewBag.n > 0)
+            {
+
+
+                <span class="fontsize12">@ViewBag.mobile[0].specifications.os.os_version</span>
+            }
+            else
+            { <span class="fontsize12"></span>
+            }
         </div>
         <div class="col-lg-3 col-md-3 col-sm-4 col">
-            <span class="fontsize12"></span>
+            @if (ViewBag.n > 1)
+            {
+
+
+                <span class="fontsize12">@ViewBag.mobile[1].specifications.os.os_version</span>
+            }
+            else
+            { <span class="fontsize12"></span>
+            }
         </div>
         <div class="col-lg-3 col-md-3 comparehide">
-            <span class="fontsize12"></span>
+            @if (ViewBag.n > 2)
+            {
+
+
+                <span class="fontsize12">@ViewBag.mobile[2].specifications.os.os_version</span>
+            }
+            else
+            { <span class="fontsize12"></span>
+            }
         </div>
     </div>
     <div class="row d-flex align-items-center bg-red">
@@ -627,13 +1573,37 @@
             <span class="fs-6 fontsize12"> Processor Type</span>
         </div>
         <div class="col-lg-3 col-md-3 col-sm-4 col">
-            <span class="fontsize12">Octa Core</span>
+            @if (ViewBag.n > 0)
+            {
+
+
+                <span class="fontsize12">@ViewBag.mobile[0].specifications.processor.processor_type</span>
+            }
+            else
+            { <span class="fontsize12"></span>
+            }
         </div>
         <div class="col-lg-3 col-md-3 col-sm-4 col">
-            <span class="fontsize12"></span>
+            @if (ViewBag.n > 1)
+            {
+
+
+                <span class="fontsize12">@ViewBag.mobile[1].specifications.processor.processor_type</span>
+            }
+            else
+            { <span class="fontsize12"></span>
+            }
         </div>
         <div class="col-lg-3 col-md-3 comparehide">
-            <span class="fontsize12"></span>
+            @if (ViewBag.n > 2)
+            {
+
+
+                <span class="fontsize12">@ViewBag.mobile[2].specifications.processor.processor_type</span>
+            }
+            else
+            { <span class="fontsize12"></span>
+            }
         </div>
     </div>
     <div class="row d-flex align-items-center bg-light">
@@ -641,13 +1611,37 @@
             <span class="fs-6 fontsize12"> Processor Speed</span>
         </div>
         <div class="col-lg-3 col-md-3 col-sm-4 col">
-            <span class="fontsize12">2.4 Ghz</span>
+            @if (ViewBag.n > 0)
+            {
+
+
+                <span class="fontsize12">@ViewBag.mobile[0].specifications.processor.processor_speed</span>
+            }
+            else
+            { <span class="fontsize12"></span>
+            }
         </div>
         <div class="col-lg-3 col-md-3 col-sm-4 col">
-            <span class="fontsize12"></span>
+            @if (ViewBag.n > 1)
+            {
+
+
+                <span class="fontsize12">@ViewBag.mobile[1].specifications.processor.processor_speed</span>
+            }
+            else
+            { <span class="fontsize12"></span>
+            }
         </div>
         <div class="col-lg-3 col-md-3 comparehide">
-            <span class="fontsize12"></span>
+            @if (ViewBag.n > 2)
+            {
+
+
+                <span class="fontsize12">@ViewBag.mobile[2].specifications.processor.processor_speed</span>
+            }
+            else
+            { <span class="fontsize12"></span>
+            }
         </div>
     </div>
     <div class="row d-flex align-items-center">
@@ -655,13 +1649,37 @@
             <span class="fs-6 fontsize12">Chipset Group</span>
         </div>
         <div class="col-lg-3 col-md-3 col-sm-4 col">
-            <span class="fontsize12"> Qualcomm </span>
+            @if (ViewBag.n > 0)
+            {
+
+
+                <span class="fontsize12">@ViewBag.mobile[0].specifications.processor.chipset_group</span>
+            }
+            else
+            { <span class="fontsize12"></span>
+            }
         </div>
         <div class="col-lg-3 col-md-3 col-sm-4 col">
-            <span class="fontsize12"></span>
+            @if (ViewBag.n > 1)
+            {
+
+
+                <span class="fontsize12">@ViewBag.mobile[1].specifications.processor.chipset_group</span>
+            }
+            else
+            { <span class="fontsize12"></span>
+            }
         </div>
         <div class="col-lg-3 col-md-3 comparehide">
-            <span class="fontsize12"></span>
+            @if (ViewBag.n > 2)
+            {
+
+
+                <span class="fontsize12">@ViewBag.mobile[2].specifications.processor.chipset_group</span>
+            }
+            else
+            { <span class="fontsize12"></span>
+            }
         </div>
     </div>
     <div class="row d-flex align-items-center bg-light">
@@ -669,13 +1687,37 @@
             <span class="fs-6 fontsize12"> Chipset Details</span>
         </div>
         <div class="col-lg-3 col-md-3 col-sm-4 col">
-            <span class="fontsize12"> Snapdragon 778G 5G</span>
+            @if (ViewBag.n > 0)
+            {
+
+
+                <span class="fontsize12">@ViewBag.mobile[0].specifications.processor.chipset_details</span>
+            }
+            else
+            { <span class="fontsize12"></span>
+            }
         </div>
         <div class="col-lg-3 col-md-3 col-sm-4 col">
-            <span class="fontsize12"></span>
+            @if (ViewBag.n > 1)
+            {
+
+
+                <span class="fontsize12">@ViewBag.mobile[1].specifications.processor.chipset_group</span>
+            }
+            else
+            { <span class="fontsize12"></span>
+            }
         </div>
         <div class="col-lg-3 col-md-3 comparehide">
-            <span class="fontsize12"></span>
+            @if (ViewBag.n > 2)
+            {
+
+
+                <span class="fontsize12">@ViewBag.mobile[2].specifications.processor.chipset_group</span>
+            }
+            else
+            { <span class="fontsize12"></span>
+            }
         </div>
     </div>
     <div class="row d-flex align-items-center bg-red">
@@ -688,13 +1730,37 @@
             <span class="fs-6 fontsize12"> Battery Type</span>
         </div>
         <div class="col-lg-3 col-md-3 col-sm-4 col">
-            <span class="fontsize12">Li-Po</span>
+            @if (ViewBag.n > 0)
+            {
+
+
+                <span class="fontsize12">@ViewBag.mobile[0].specifications.battery.battery_type</span>
+            }
+            else
+            { <span class="fontsize12"></span>
+            }
         </div>
         <div class="col-lg-3 col-md-3 col-sm-4 col">
-            <span class="fontsize12"></span>
+            @if (ViewBag.n > 1)
+            {
+
+
+                <span class="fontsize12">@ViewBag.mobile[1].specifications.battery.battery_type</span>
+            }
+            else
+            { <span class="fontsize12"></span>
+            }
         </div>
         <div class="col-lg-3 col-md-3 comparehide">
-            <span class="fontsize12"></span>
+            @if (ViewBag.n > 2)
+            {
+
+
+                <span class="fontsize12">@ViewBag.mobile[2].specifications.battery.battery_type</span>
+            }
+            else
+            { <span class="fontsize12"></span>
+            }
         </div>
     </div>
     <div class="row d-flex align-items-center bg-light">
@@ -702,13 +1768,37 @@
             <span class="fs-6 fontsize12"> Battery Capacity</span>
         </div>
         <div class="col-lg-3 col-md-3 col-sm-4 col">
-            <span class="fontsize12">4300 mAh </span>
+            @if (ViewBag.n > 0)
+            {
+
+
+                <span class="fontsize12">@ViewBag.mobile[0].specifications.battery.battery_capacity</span>
+            }
+            else
+            { <span class="fontsize12"></span>
+            }
         </div>
         <div class="col-lg-3 col-md-3 col-sm-4 col">
-            <span class="fontsize12"></span>
+            @if (ViewBag.n > 1)
+            {
+
+
+                <span class="fontsize12">@ViewBag.mobile[1].specifications.battery.battery_capacity</span>
+            }
+            else
+            { <span class="fontsize12"></span>
+            }
         </div>
         <div class="col-lg-3 col-md-3 comparehide">
-            <span class="fontsize12"></span>
+            @if (ViewBag.n > 2)
+            {
+
+
+                <span class="fontsize12">@ViewBag.mobile[2].specifications.battery.battery_capacity</span>
+            }
+            else
+            { <span class="fontsize12"></span>
+            }
         </div>
     </div>
     <div class="row d-flex align-items-center">
@@ -716,13 +1806,58 @@
             <span class="fs-6 fontsize12">Stand By Time</span>
         </div>
         <div class="col-lg-3 col-md-3 col-sm-4 col">
-            <span class="fontsize12">NA</span>
+            @if (ViewBag.n > 0)
+            {
+                @if (ViewBag.mobile[0].specifications.battery.stand_by_time == true)
+                {
+
+                    <span class="fontsize12">Yes</span>
+                }
+                else
+                {
+                    <span class="fontsize12">No</span>
+                }
+            }
+            else
+            {
+                <span class="fontsize12"></span>
+            }
         </div>
         <div class="col-lg-3 col-md-3 col-sm-4 col">
-            <span class="fontsize12"></span>
+            @if (ViewBag.n > 1)
+            {
+                @if (ViewBag.mobile[1].specifications.battery.stand_by_time == true)
+                {
+
+                    <span class="fontsize12">Yes</span>
+                }
+                else
+                {
+                    <span class="fontsize12">No</span>
+                }
+            }
+            else
+            {
+                <span class="fontsize12"></span>
+            }
         </div>
         <div class="col-lg-3 col-md-3 comparehide">
-            <span class="fontsize12"></span>
+            @if (ViewBag.n > 2)
+            {
+                @if (ViewBag.mobile[2].specifications.battery.stand_by_time == true)
+                {
+
+                    <span class="fontsize12">Yes</span>
+                }
+                else
+                {
+                    <span class="fontsize12">No</span>
+                }
+            }
+            else
+            {
+                <span class="fontsize12"></span>
+            }
         </div>
     </div>
     <div class="row d-flex align-items-center bg-light">
@@ -730,13 +1865,58 @@
             <span class="fs-6 fontsize12">Talk Time</span>
         </div>
         <div class="col-lg-3 col-md-3 col-sm-4 col">
-            <span class="fontsize12">NA</span>
+            @if (ViewBag.n > 0)
+            {
+                @if (ViewBag.mobile[0].specifications.battery.talktime == true)
+                {
+
+                    <span class="fontsize12">Yes</span>
+                }
+                else
+                {
+                    <span class="fontsize12">No</span>
+                }
+            }
+            else
+            {
+                <span class="fontsize12"></span>
+            }
         </div>
         <div class="col-lg-3 col-md-3 col-sm-4 col">
-            <span class="fontsize12"></span>
+            @if (ViewBag.n > 1)
+            {
+                @if (ViewBag.mobile[1].specifications.battery.talktime == true)
+                {
+
+                    <span class="fontsize12">Yes</span>
+                }
+                else
+                {
+                    <span class="fontsize12">No</span>
+                }
+            }
+            else
+            {
+                <span class="fontsize12"></span>
+            }
         </div>
         <div class="col-lg-3 col-md-3 comparehide">
-            <span class="fontsize12"></span>
+            @if (ViewBag.n > 2)
+            {
+                @if (ViewBag.mobile[2].specifications.battery.talktime == true)
+                {
+
+                    <span class="fontsize12">Yes</span>
+                }
+                else
+                {
+                    <span class="fontsize12">No</span>
+                }
+            }
+            else
+            {
+                <span class="fontsize12"></span>
+            }
         </div>
     </div>
     <div class="row d-flex align-items-center bg-red">
@@ -749,13 +1929,58 @@
             <span class="fs-6 fontsize12">3.5mm Jack</span>
         </div>
         <div class="col-lg-3 col-md-3 col-sm-4 col">
-            <span class="fontsize12">Yes</span>
+            @if (ViewBag.n > 0)
+            {
+                @if (ViewBag.mobile[0].specifications.sound.jack_35mm == true)
+                {
+
+                    <span class="fontsize12">Yes</span>
+                }
+                else
+                {
+                    <span class="fontsize12">No</span>
+                }
+            }
+            else
+            {
+                <span class="fontsize12"></span>
+            }
         </div>
         <div class="col-lg-3 col-md-3 col-sm-4 col">
-            <span class="fontsize12"></span>
+            @if (ViewBag.n > 1)
+            {
+                @if (ViewBag.mobile[1].specifications.sound.jack_35mm == true)
+                {
+
+                    <span class="fontsize12">Yes</span>
+                }
+                else
+                {
+                    <span class="fontsize12">No</span>
+                }
+            }
+            else
+            {
+                <span class="fontsize12"></span>
+            }
         </div>
         <div class="col-lg-3 col-md-3 comparehide">
-            <span class="fontsize12"></span>
+            @if (ViewBag.n > 2)
+            {
+                @if (ViewBag.mobile[2].specifications.sound.jack_35mm == true)
+                {
+
+                    <span class="fontsize12">Yes</span>
+                }
+                else
+                {
+                    <span class="fontsize12">No</span>
+                }
+            }
+            else
+            {
+                <span class="fontsize12"></span>
+            }
         </div>
     </div>
     <div class="row d-flex align-items-center bg-light">
@@ -763,13 +1988,58 @@
             <span class="fs-6 fontsize12">Loudspeaker</span>
         </div>
         <div class="col-lg-3 col-md-3 col-sm-4 col">
-            <span class="fontsize12">Yes</span>
+            @if (ViewBag.n > 0)
+            {
+                @if (ViewBag.mobile[0].specifications.sound.loudspeaker == true)
+                {
+
+                    <span class="fontsize12">Yes</span>
+                }
+                else
+                {
+                    <span class="fontsize12">No</span>
+                }
+            }
+            else
+            {
+                <span class="fontsize12"></span>
+            }
         </div>
         <div class="col-lg-3 col-md-3 col-sm-4 col">
-            <span class="fontsize12"></span>
+            @if (ViewBag.n > 1)
+            {
+                @if (ViewBag.mobile[1].specifications.sound.loudspeaker == true)
+                {
+
+                    <span class="fontsize12">Yes</span>
+                }
+                else
+                {
+                    <span class="fontsize12">No</span>
+                }
+            }
+            else
+            {
+                <span class="fontsize12"></span>
+            }
         </div>
         <div class="col-lg-3 col-md-3 comparehide">
-            <span class="fontsize12"></span>
+            @if (ViewBag.n > 2)
+            {
+                @if (ViewBag.mobile[2].specifications.sound.loudspeaker == true)
+                {
+
+                    <span class="fontsize12">Yes</span>
+                }
+                else
+                {
+                    <span class="fontsize12">No</span>
+                }
+            }
+            else
+            {
+                <span class="fontsize12"></span>
+            }
         </div>
     </div>
     <div class="row d-flex align-items-center bg-red">
@@ -782,13 +2052,34 @@
             <span class="fs-6 fontsize12">Height</span>
         </div>
         <div class="col-lg-3 col-md-3 col-sm-4 col">
-            <span class="fontsize12">159.2 mm</span>
+            @if (ViewBag.n > 0)
+            {
+                <span class="fontsize12">@ViewBag.mobile[0].specifications.body.body_height</span>
+            }
+            else
+            {
+                <span class="fontsize12"></span>
+            }
         </div>
         <div class="col-lg-3 col-md-3 col-sm-4 col">
-            <span class="fontsize12"></span>
+            @if (ViewBag.n > 1)
+            {
+                <span class="fontsize12">@ViewBag.mobile[1].specifications.body.body_height</span>
+            }
+            else
+            {
+                <span class="fontsize12"></span>
+            }
         </div>
         <div class="col-lg-3 col-md-3 comparehide">
-            <span class="fontsize12"></span>
+            @if (ViewBag.n > 2)
+            {
+                <span class="fontsize12">@ViewBag.mobile[2].specifications.body.body_height</span>
+            }
+            else
+            {
+                <span class="fontsize12"></span>
+            }
         </div>
     </div>
     <div class="row d-flex align-items-center bg-light">
@@ -796,13 +2087,34 @@
             <span class="fs-6 fontsize12"> Width</span>
         </div>
         <div class="col-lg-3 col-md-3 col-sm-4 col">
-            <span class="fontsize12">73.5 mm</span>
+            @if (ViewBag.n > 0)
+            {
+                <span class="fontsize12">@ViewBag.mobile[0].specifications.body.body_width</span>
+            }
+            else
+            {
+                <span class="fontsize12"></span>
+            }
         </div>
         <div class="col-lg-3 col-md-3 col-sm-4 col">
-            <span class="fontsize12"></span>
+            @if (ViewBag.n > 1)
+            {
+                <span class="fontsize12">@ViewBag.mobile[1].specifications.body.body_width</span>
+            }
+            else
+            {
+                <span class="fontsize12"></span>
+            }
         </div>
         <div class="col-lg-3 col-md-3 comparehide">
-            <span class="fontsize12"></span>
+            @if (ViewBag.n > 2)
+            {
+                <span class="fontsize12">@ViewBag.mobile[2].specifications.body.body_width</span>
+            }
+            else
+            {
+                <span class="fontsize12"></span>
+            }
         </div>
     </div>
     <div class="row d-flex align-items-center">
@@ -810,13 +2122,34 @@
             <span class="fs-6 fontsize12">Thickness </span>
         </div>
         <div class="col-lg-3 col-md-3 col-sm-4 col">
-            <span class="fontsize12">8.0 mm</span>
+            @if (ViewBag.n > 0)
+            {
+                <span class="fontsize12">@ViewBag.mobile[0].specifications.body.body_thickness</span>
+            }
+            else
+            {
+                <span class="fontsize12"></span>
+            }
         </div>
         <div class="col-lg-3 col-md-3 col-sm-4 col">
-            <span class="fontsize12"></span>
+            @if (ViewBag.n > 1)
+            {
+                <span class="fontsize12">@ViewBag.mobile[1].specifications.body.body_thickness</span>
+            }
+            else
+            {
+                <span class="fontsize12"></span>
+            }
         </div>
         <div class="col-lg-3 col-md-3 comparehide">
-            <span class="fontsize12"></span>
+            @if (ViewBag.n > 2)
+            {
+                <span class="fontsize12">@ViewBag.mobile[2].specifications.body.body_thickness</span>
+            }
+            else
+            {
+                <span class="fontsize12"></span>
+            }
         </div>
     </div>
     <div class="row d-flex align-items-center bg-light">
@@ -824,13 +2157,34 @@
             <span class="fs-6 fontsize12">Weight</span>
         </div>
         <div class="col-lg-3 col-md-3 col-sm-4 col">
-            <span class="fontsize12">180 g</span>
+            @if (ViewBag.n > 0)
+            {
+                <span class="fontsize12">@ViewBag.mobile[0].specifications.body.body_weight</span>
+            }
+            else
+            {
+                <span class="fontsize12"></span>
+            }
         </div>
         <div class="col-lg-3 col-md-3 col-sm-4 col">
-            <span class="fontsize12"></span>
+            @if (ViewBag.n > 1)
+            {
+                <span class="fontsize12">@ViewBag.mobile[1].specifications.body.body_weight</span>
+            }
+            else
+            {
+                <span class="fontsize12"></span>
+            }
         </div>
         <div class="col-lg-3 col-md-3 comparehide">
-            <span class="fontsize12"></span>
+            @if (ViewBag.n > 2)
+            {
+                <span class="fontsize12">@ViewBag.mobile[2].specifications.body.body_weight</span>
+            }
+            else
+            {
+                <span class="fontsize12"></span>
+            }
         </div>
     </div>
     <div class="row d-flex align-items-center bg-light">
@@ -838,13 +2192,34 @@
             <span class="fs-6 fontsize12">Type</span>
         </div>
         <div class="col-lg-3 col-md-3 col-sm-4 col">
-            <span class="fontsize12">NA</span>
+            @if (ViewBag.n > 0)
+            {
+                <span class="fontsize12">@ViewBag.mobile[0].specifications.body.body_type</span>
+            }
+            else
+            {
+                <span class="fontsize12"></span>
+            }
         </div>
         <div class="col-lg-3 col-md-3 col-sm-4 col">
-            <span class="fontsize12"></span>
+            @if (ViewBag.n > 1)
+            {
+                <span class="fontsize12">@ViewBag.mobile[1].specifications.body.body_type</span>
+            }
+            else
+            {
+                <span class="fontsize12"></span>
+            }
         </div>
         <div class="col-lg-3 col-md-3 comparehide">
-            <span class="fontsize12"></span>
+            @if (ViewBag.n > 2)
+            {
+                <span class="fontsize12">@ViewBag.mobile[2].specifications.body.body_type</span>
+            }
+            else
+            {
+                <span class="fontsize12"></span>
+            }
         </div>
     </div>
 </section>

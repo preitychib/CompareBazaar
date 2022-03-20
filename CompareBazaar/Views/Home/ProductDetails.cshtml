@@ -16,13 +16,13 @@
                     </div>
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img src="@ViewBag.mobile.product_images.image" class="d-block w-100" alt="...">
+                            <img src="@ViewBag.mobile.product_images.image" class="d-block w-100" alt="Product Image">
                         </div>
                         <div class="carousel-item">
-                            <img src="@ViewBag.mobile.product_images.image" class="d-block w-100" alt="...">
+                            <img src="@ViewBag.mobile.product_images.image" class="d-block w-100" alt="Product Image">
                         </div>
                         <div class="carousel-item">
-                            <img src="@ViewBag.mobile.product_images.image" class="d-block w-100" alt="...">
+                            <img src="@ViewBag.mobile.product_images.image" class="d-block w-100" alt="">
                         </div>
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
@@ -531,285 +531,20 @@
                             <span class="fs-6 fontsize8">Weight</span>
                         </div>
                         <div class="col">
-                            <span class="fontsize8">@ViewBag.mobile.specifications.body.body_</span>
+                            <span class="fontsize8">@ViewBag.mobile.specifications.body.body_weight</span>
                         </div>
 
                     </div>
-                    <!-- </section> -->
-                    <!-- <div class="  table-responsive  ">
-                    <table class="table table-striped ">
-                      <thead>
-                        <tr>
-                          <th scope="col" colspan="2" class="fs-4" > GENERAL</th>
-                         </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <th  >Network</th>
-                          <td  >5G</td>
-                        </tr>
-                        <tr>
-                          <th > SIM Type </th>
-                          <td >Nano SIM</td>
-                        </tr>
-                        <tr>
-                          <th >Dual SIM</th>
-                          <td >Yes</td>
-                        </tr>
-                        <tr>
-                          <th >Touch Screen</th>
-                          <td >Yes</td>
-                        </tr>
-                        <tr>
-                          <th  >FingerPrint Unlock</th>
-                          <td >Yes</td>
-                        </tr> -->
-                    <!-- <tr>
-                      <th  >Face lock</th>
-                      <td>Yes</td>
-                    </tr> -->
-                    <!-- </tbody>
-                     </table>
-                    </div>
-                    <div class="  table-responsive  ">
-                     <table class="table table-striped ">
-                       <thead>
-                         <tr>
-                           <th scope="col" colspan="2" class="fs-4" > DISPLAY</th>
-                          </tr>
-                       </thead>
-                       <tbody>
-                         <tr>
-                           <th>Screen Size</th>
-                           <td>6.43 inch</td>
-                         </tr>
-                         <tr>
-                           <th>Screen Resolution</th>
-                           <td>1080 x 2400 pixels</td>
-                         </tr>
-                         <tr>
-                           <th >Display Type</th>
-                           <td>Super AMOLED</td>
-                         </tr>
-                       </tbody>
-                     </table>
-                    </div>
-                    <div class="  table-responsive  ">
-                     <table class="table table-striped ">
-                       <thead>
-                         <tr>
-                           <th scope="col" colspan="2" class="fs-4" >MEMORY</th>
-                          </tr>
-                       </thead>
-                       <tbody>
-                         <tr>
-                           <th>Internal Memory</th>
-                           <td>128 GB</td>
-                         </tr> -->
-                    <!-- <tr>
-                      <th>External Memory</th>
-                      <td>1080 x 2400 pixels</td>
-                    </tr> -->
-                    <!-- <tr>
-                           <th >RAM</th>
-                           <td>8 GB</td>
-                         </tr>
-                       </tbody>
-                     </table>
-                    </div>
-                    <div class="  table-responsive  ">
-                     <table class="table table-striped ">
-                       <thead>
-                         <tr>
-                           <th scope="col" colspan="2" class="fs-4" >CAMERA</th>
-                          </tr>
-                       </thead>
-                       <tbody>
-                         <tr>
-                           <th>Rear Camera</th>
-                           <td>64 MP</td>
-                         </tr>
-                         <tr>
-                           <th>Rear Camera Flash</th>
-                           <td>Yes</td>
-                         </tr>
-                         <tr>
-                           <th >Front Camera </th>
-                           <td>32 MP</td>
-                         </tr>  -->
-                    <!-- <tr>
-                      <th >Front Camera Flash</th>
-                      <td>8 GB</td>
-                    </tr> -->
-                    <!-- </tbody>
-                        </table>
-                       </div>
-                       <div class="  table-responsive  ">
-                        <table class="table table-striped ">
-                          <thead>
-                            <tr>
-                              <th scope="col" colspan="2" class="fs-4" >VIDEO RECORDING</th>
-                             </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <th>Rear Camera Video Quality</th>
-                              <td>2160 p</td>
-                            </tr>
+                    <div class="row d-flex align-items-center ">
+                        <div class="col">
+                            <span class="fs-6 fontsize8">Type</span>
+                        </div>
+                        <div class="col">
+                            <span class="fontsize8">@ViewBag.mobile.specifications.body.body_type</span>
+                        </div>
 
-                          </tbody>
-                        </table>
-                       </div>
-                       <div class="  table-responsive  ">
-                        <table class="table table-striped ">
-                          <thead>
-                            <tr>
-                              <th scope="col" colspan="2" class="fs-4" >CONNECTIVITY</th>
-                             </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <th>Wifi</th>
-                              <td>Yes</td>
-                            </tr>
-                            <tr>
-                              <th>Radio</th>
-                              <td>Yes</td>
-                            </tr>
-                            <tr>
-                              <th>NFC</th>
-                              <td>Yes</td>
-                            </tr>
-                            <tr>
-                              <th>USB</th>
-                              <td>Yes</td>
-                            </tr>
-                            <tr>
-                              <th>Wifi</th>
-                              <td>YES</td>
-                            </tr>
-                            <tr>
-                              <th>Bluetooth Version</th>
-                              <td>5.0 With A2DP</td>
-                            </tr>
-
-                          </tbody>
-                        </table>
-                       </div>
-                        <div class="  table-responsive  ">
-                        <table class="table table-striped ">
-                          <thead>
-                            <tr>
-                              <th scope="col" colspan="2" class="fs-4" >OS</th>
-                             </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <th>OS</th>
-                              <td>Android</td>
-                            </tr>
-                            <tr>
-                              <th>OS Version</th>
-                              <td>Android 11</td>
-                            </tr>
-                          </tbody>
-                        </table>
-                       </div>
-                        <div class="  table-responsive  ">
-                        <table class="table table-striped ">
-                          <thead>
-                            <tr>
-                              <th scope="col" colspan="2" class="fs-4" >PROCESSOR</th>
-                             </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <th>Processor Type </th>
-                              <td>Octa Core</td>
-                            </tr>
-                            <tr>
-                              <th>Processor Speed</th>
-                              <td>2.4 Ghz</td>
-                            </tr>
-                            <tr>
-                              <th>Chipset Group</th>
-                              <td>Qualcomm1</td>
-                            </tr>
-                            <tr>
-                              <th>Chipset Details</th>
-                              <td>Snapdragon 778G 5G</td>
-                            </tr>
-                          </tbody>
-                        </table>
-                       </div>
-                       <div class="  table-responsive  ">
-                        <table class="table table-striped ">
-                          <thead>
-                            <tr>
-                              <th scope="col" colspan="2" class="fs-4" >BATTERY</th>
-                             </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <th>Battery Type</th>
-                              <td>Li-Po</td>
-                            </tr>
-                            <tr>
-                              <th>Battery Capacity</th>
-                              <td>4300 mAh</td>
-                            </tr>
-                          </tbody>
-                        </table>
-                       </div>
-                       <div class="  table-responsive  ">
-                        <table class="table table-striped ">
-                          <thead>
-                            <tr>
-                              <th scope="col" colspan="2" class="fs-4" >SOUND</th>
-                             </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <th>3.5mm Jack</th>
-                              <td>Yes</td>
-                            </tr>
-                            <tr>
-                              <th>Loudspeaker</th>
-                              <td>Yes</td>
-                            </tr>
-                          </tbody>
-                        </table>
-                       </div>
-                       <div class="  table-responsive  ">
-                        <table class="table table-striped ">
-                          <thead>
-                            <tr>
-                              <th scope="col" colspan="2" class="fs-4" >BODY</th>
-                             </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <th>Height</th>
-                              <td> 159.2 mm </td>
-                            </tr>
-                            <tr>
-                              <th>Width</th>
-                              <td>73.5 mm</td>
-                            </tr>
-                            <tr>
-                              <th>Thickless</th>
-                              <td>8.0 mm</td>
-                            </tr>
-                            <tr>
-                              <th>Weight</th>
-                              <td>180 g</td>
-                            </tr>
-                          </tbody>
-                        </table>
-                       </div>
-                      </div>
-                      </div>
-                    </div> -->
+                    </div>
+                    
                 </div>
             </div>
         </div>

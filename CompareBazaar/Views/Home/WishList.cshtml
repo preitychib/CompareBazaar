@@ -1,7 +1,7 @@
 ﻿
 <partial name="_NavBar2Partial" />
 <section class="mt-5 pt-5 container">
-    <h3 class="fw-bold "> MY WISHLIST </h3>
+
 
     @*@foreach(var product in ViewBag.myList)
         {
@@ -12,6 +12,7 @@
 
     @if (ViewBag.n > 0)
     {
+        <h3 class="fw-bold "> MY WISHLIST </h3>
         int i = 0;
 
         <div class="row ">
