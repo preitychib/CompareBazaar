@@ -114,8 +114,9 @@ namespace CompareBazaar.Controllers
               //  return View();
             }
            
+            
            
-                return View();
+         return View();
         } 
         [Authorize]
         public async Task<IActionResult> WishListAsync()
@@ -177,6 +178,64 @@ namespace CompareBazaar.Controllers
 
             return RedirectToAction(View);
         }
+        
+        
+        //public async Task<IActionResult> AddPopularProductAsync(string vendor , string id, string View,string list)
+        //{
+        //    if (SessionHelper.GetObjectFromJson<List<Item>>(HttpContext.Session, list) == null) // if popular poduct null hai 
+        //    {
+        //        List<Item> myList = new List<Item>
+        //        {
+        //            new Item()
+        //            {
+        //                id = id,
+        //                vendor = vendor
+        //            }
+        //        };
+
+        //        _context.Add(new PopularProducts 
+        //        {
+
+        //        }
+        //            );
+        //        await _context.SaveChangesAsync();
+        //        return RedirectToAction(nameof(Index));
+
+        //        var user = await _context.PopularProducts.Any(e => e.id == id);
+
+        //        user.FirstName = userEdit.FirstName;
+        //        user.LastName = userEdit.LastName;
+        //        user.Email = userEdit.Email;
+        //        user.UserName = userEdit.Email;
+
+        //        SessionHelper.SetObjectAsJson(HttpContext.Session, list, myList);
+        //    }
+        //    else
+        //    {
+        //        List<Item> myList = SessionHelper.GetObjectFromJson<List<Item>>(HttpContext.Session, list);
+
+        //        int index = isExist(id,list);
+        //        if (index == -1)
+        //        {
+        //            myList.Add(new Item()
+        //            {
+        //                id = id,
+        //                vendor = vendor
+        //            });
+                 
+
+        //        }
+        //        SessionHelper.SetObjectAsJson(HttpContext.Session, list, myList);
+        //    }
+
+
+        //    return RedirectToAction(View);
+        //}
+
+        //private bool PopularProductsExists(string id)
+        //{
+        //    return _context.PopularProducts.Any(e => e.id == id);
+        //}
 
         [Authorize]
         public IActionResult Remove(int id, string View,string list)
@@ -376,9 +435,11 @@ namespace CompareBazaar.Controllers
             }
         }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-         public IActionResult Error()
+         public async Task<IActionResult> ErrorAsync()
          {
-             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            ViewBag.brand1 = await GetBrands("flipkart");
+            ViewBag.brand2 = await GetBrands("amazon");
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
          }
         
 

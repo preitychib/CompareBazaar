@@ -26,6 +26,8 @@ namespace CompareBazaar.Data
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public DbSet<Contact> ContactUs { get; set; }
+        public DbSet<PopularProducts> PopularProducts { get; set; }
+    
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
