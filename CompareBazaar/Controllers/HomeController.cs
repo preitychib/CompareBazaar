@@ -43,6 +43,23 @@ namespace CompareBazaar.Controllers
             ViewBag.brand2 = await GetBrands("amazon");
 
             ViewBag.mobiles = await GetMobiles("amazon");
+
+            //var popularProduct= _context.PopularProducts.ToList();
+            var numQuery =
+                         from pid in _context.PopularProducts
+                         orderby pid.Value descending
+                         select pid;
+
+            if (numQuery!=null)
+            {
+                ViewBag.popularMobiles = new List<dynamic>();
+                foreach (var i in numQuery)
+                {
+
+                    ViewBag.popularMobiles.Add(await GetItem(i.Vendor, "mobile", i.ProductId));
+                }
+            }
+
             if (SessionHelper.GetObjectFromJson<List<Item>>(HttpContext.Session, "Comparelist") != null)
             {
                 var myList = SessionHelper.GetObjectFromJson<List<Item>>(HttpContext.Session, "Comparelist");
@@ -140,12 +157,12 @@ namespace CompareBazaar.Controllers
            
                 return View();
         }
-     
+
         [Authorize]
-        public  IActionResult AddItem(string vendor , int id, string View,string list)
+        public IActionResult AddItem(string vendor, int id, string View, string list)
         {
 
-           //await AddPopularProductAsync(vendor, id, View);
+          
             if (SessionHelper.GetObjectFromJson<List<Item>>(HttpContext.Session, list) == null)
             {
                 List<Item> myList = new List<Item>
@@ -163,7 +180,7 @@ namespace CompareBazaar.Controllers
             {
                 List<Item> myList = SessionHelper.GetObjectFromJson<List<Item>>(HttpContext.Session, list);
 
-                int index = isExist(id,list);
+                int index = isExist(id, list);
                 if (index == -1)
                 {
                     myList.Add(new Item()
@@ -171,18 +188,18 @@ namespace CompareBazaar.Controllers
                         id = id,
                         vendor = vendor
                     });
-                 
+
 
                 }
                 SessionHelper.SetObjectAsJson(HttpContext.Session, list, myList);
             }
 
-
+            AddPopularProductAsync(vendor, id, View);
             return RedirectToAction(View);
         }
 
 
-        public async Task<IActionResult> AddPopularProductAsync(string vendor, int id, string View)
+        public IActionResult AddPopularProductAsync(string vendor, int id, string View)
         {
             bool isExit = PopularProductsExists(id);
             if (isExit == false)
@@ -197,8 +214,8 @@ namespace CompareBazaar.Controllers
                 }
                     );
 
-                await _context.SaveChangesAsync();
-                   return RedirectToAction(View);
+                 _context.SaveChanges();
+                   
             }
             else
             {
@@ -214,11 +231,12 @@ namespace CompareBazaar.Controllers
                     i.Value += 1; //value not increamenting
                    
                     _context.Update(i);
-                    await _context.SaveChangesAsync();
+                    
                     Console.WriteLine(i);
-                    return RedirectToAction(View);
+                    
                 }
-             
+                _context.SaveChanges();
+               
 
                 //  await _context.SaveChangesAsync();
             }

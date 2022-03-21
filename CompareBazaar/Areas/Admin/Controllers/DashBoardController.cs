@@ -36,8 +36,22 @@ namespace CompareBazaar.Areas.Admin.Controllers
             return View();
         }
 
+        public async Task<IActionResult> PopularProducts()
+        {
+            return View(await _context.PopularProducts.ToListAsync());
+        }
+
         
-       // [Route("Admin/User/List")]
+
+        public async Task<IActionResult> DeletePopularProduct(string id)
+        {
+            var popularProducts = await _context.PopularProducts.FindAsync(id);
+            _context.PopularProducts.Remove(popularProducts);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+
+        // [Route("Admin/User/List")]
         public ActionResult UserList(int id)
         {
             var userlist = _userManager.Users.ToList();
