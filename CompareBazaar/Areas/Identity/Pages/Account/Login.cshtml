@@ -1,4 +1,5 @@
-﻿@page
+﻿
+@page
 @model LoginModel
 
 @{
@@ -25,10 +26,10 @@
 </head>
 
 <body>
-    <section class="s1  ">
+    <section class="s1">
         <div class=" container-fluid  ">
             <div class=" position-absolute  top-1 start-50 translate-middle ">
-                <h1 class="text-center  fw-bold fontsize9  text-red h-hide">WELCOME TO COMPAREBAZAAR</h1>
+                <h1 class="text-center  fw-bold  text-red ">WELCOME TO COMPAREBAZAAR</h1>
             </div>
         </div>
     </section>
@@ -44,7 +45,7 @@
                         <form id="account" method="post">
                             <div class="row">
 
-                                <div asp-validation-summary="All" class="text-danger"></div>
+                                @*<div asp-validation-summary="All" class="text-danger"></div>*@
 
 
                                 <div class="form-floating mb-3">
@@ -84,18 +85,7 @@
                             </div>
 
                         </form>
-                        <div class="row">
-
-                            <div class="text-center fs-4 fw-bold mb-3">OR</div>
-                        </div>
-                        <div class="row">
-
-                            <div class=" text-center mb-3  ">
-                                <i class="fab fa-facebook p-2 m-1 fs-3 text-white bg-darkblue rounded-circle pointer"></i>
-                                <i class="fab fa-google p-2 bg-googlered text-white fs-3 m-1 rounded-circle pointer "></i>
-                                <i class="fab fa-twitter p-2 m-1 fs-3 text-white bg-lightblue rounded-circle pointer"></i>
-                            </div>
-                        </div>
+                        
                     </div>
                 </div>
             </div>
@@ -107,13 +97,7 @@
         @*<div class="bgimage opacity-25 img-fluid" style="background-image: url('images/background4.jpg');">
         </div>*@
     </section>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-        crossorigin="anonymous"></script>
-    <script src="/docs/5.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-        crossorigin="anonymous"></script> -->
-
+    
 </body>
 
 </html>

@@ -43,19 +43,15 @@
 .bg-lightestred {
     background-color: var(--lightestred);
 }
-
-.bg-googlered {
+/* .bg-googlered{
     background-color: var(--googlered);
 }
-
-.bg-darkblue {
+.bg-darkblue{
     background-color: var(--darkblue);
 }
-
-.bg-lightblue {
+.bg-lightblue{
     background-color: var(--lightblue);
-}
-
+} */
 .pointer {
     cursor: pointer;
 }
@@ -104,7 +100,7 @@
 /* navbar1 */
 /* narbar1 profile */
 .profilewidth {
-    width: 16rem !important;
+    width: 16.3rem !important;
 }
 
 .red:hover, .dropdownbgprofilecolor:hover {
@@ -216,9 +212,13 @@
     background-size: cover !important;
 }
 
-.top, .top-1 {
-    position: absolute;
-    top: 4rem !important;
+.top {
+    position: absolute !important;
+    top: 6rem !important;
+}
+.top-1 {
+    position: absolute !important;
+    top: 7rem !important;
 }
 
 .boxwidth {
@@ -319,11 +319,9 @@
     .fontsize6 {
         font-size: 0.85rem;
     }
-
-    .fontsize9 {
-        font-size: 2rem;
-    }
-
+    /* .fontsize9{
+    font-size: 2rem;
+} */
     .hidename, .f-show, .c-show {
         display: none !important;
     }
@@ -332,11 +330,10 @@
         width: 7rem;
         height: 3.5rem;
     }
-
-    .top {
-        position: absolute;
-        top: 3.1rem !important;
-    }
+    /* .top{
+    position: relative;
+    top: 3.1rem !important;
+} */
     /* .fontsize11{
     font-size: 0.8rem;
 } */
@@ -389,25 +386,23 @@
         flex: 0 0 auto;
         width: 50% !important;
     }
-
-    .fontsize9 {
-        font-size: 1.7rem;
-    }
-
+    /* .fontsize9{
+    font-size: 1.7rem;
+} */
     .boxwidth {
         width: 26.4rem !important;
     }
-
-    .top {
-        position: absolute;
-        top: 2.5rem !important;
-    }
+    /* .top{
+    position: absolute;
+    top: 2.5rem !important;
+} */
     /* .crossmargin{
     margin-left: 7.2rem;
 } */
-    /* .fontsize11{
-    font-size: 0.9rem;
-} */
+    .fontsize11 {
+        font-size: 1rem;
+    }
+
     .compare {
         width: 9rem;
     }
@@ -458,26 +453,26 @@
         width: 6rem;
         height: 3rem;
     }
-
-    .fontsize9 {
-        font-size: 1.57rem;
-    }
-
+    /* .fontsize9{
+    font-size: 1.57rem;
+} */
     .boxwidth {
         width: 22rem !important;
     }
 
     .top {
         position: absolute;
-        top: 2.5rem !important;
+        top: 5rem !important;
     }
 
     .compare {
         width: 7.4rem;
     }
-    /* .fontsize11{
-    font-size: 0.74rem;
-} */
+
+    .fontsize11 {
+        font-size: 0.9rem;
+    }
+
     .searchproduct {
         font-size: 3.5rem;
     }
@@ -531,7 +526,7 @@
     width: 95%;
     margin: 0 auto;
 }  */
-    .allcat, .comparehide, .hidename, .h-hide, .snone, .f-hide, .c-hide {
+    .allcat, .comparehide, .hidename, .snone, .f-hide, .c-hide {
         display: none !important;
     }
     /* .comparesearch{
@@ -590,6 +585,11 @@
 
     .searchproduct {
         font-size: 3.4rem;
+    }
+
+    .top {
+        position: absolute !important;
+        top: 3rem !important;
     }
     /* .crossmargin{
     margin-left: 4rem;
@@ -652,7 +652,7 @@
     width: 95%;
     margin: 0 auto;
 }  */
-    .allcat, .comparehide, .hidename, .h-hide, .snone, .f-hide, .c-hide {
+    .allcat, .comparehide, .hidename, .snone, .f-hide, .c-hide {
         display: none !important;
     }
     /* .col-xs-6 {
@@ -695,6 +695,11 @@
 
     .fontsize11 {
         font-size: 0.8rem;
+    }
+
+    .top {
+        position: absolute !important;
+        top: 3rem !important;
     }
 
     .searchproduct {
