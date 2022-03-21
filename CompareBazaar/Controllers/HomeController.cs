@@ -84,6 +84,12 @@ namespace CompareBazaar.Controllers
             ViewBag.brand2 = await GetBrands("amazon");
             return View();
         }
+        public async Task<IActionResult> TAndC()
+        {
+            ViewBag.brand1 = await GetBrands("flipkart");
+            ViewBag.brand2 = await GetBrands("amazon");
+            return View();
+        }
 
         public IActionResult Contact()
         {
@@ -228,25 +234,19 @@ namespace CompareBazaar.Controllers
 
                 foreach(var i in numQuery)
                 {
-                    i.Value += 1; //value not increamenting
+                    i.Value += 1; 
                    
                     _context.Update(i);
                     
-                    Console.WriteLine(i);
+                    
                     
                 }
                 _context.SaveChanges();
                
 
-                //  await _context.SaveChangesAsync();
+                
             }
-                //var user = await _context.PopularProducts.Any(e => e.Id == id);
-
-                //user.FirstName = userEdit.FirstName;
-                //user.LastName = userEdit.LastName;
-                //user.Email = userEdit.Email;
-                //user.UserName = userEdit.Email;
-
+               
            
             return RedirectToAction(View);
         }
@@ -265,17 +265,7 @@ namespace CompareBazaar.Controllers
             SessionHelper.SetObjectAsJson(HttpContext.Session, list, myList);
             return RedirectToAction(View);
         }
-        private bool IsNull()
-        {
-            List<Item> myList = SessionHelper.GetObjectFromJson<List<Item>>(HttpContext.Session, "cart");
-           
-                if (myList!=null)
-                {
-                    return true;
-                }
-           
-            return false;
-        }
+       
         private int isExist(int id,string list)
         {
             List<Item> myList = SessionHelper.GetObjectFromJson<List<Item>>(HttpContext.Session, list);
@@ -289,25 +279,38 @@ namespace CompareBazaar.Controllers
             return -1;
         }
 
+        public async Task<IActionResult> ProductsListAsync(string vendor = "flipkart", int pageSize = 4, int pageNum = 1, int fVendor = 1, string order = "-price", string searchStr = null, string availability = null, int fBrand = -1, int pstart = 0, int pend = 90000000)
+        {
+
+            var fmobiles = await GetMobiles(vendor, pageSize, pageNum, fVendor, order, searchStr, availability, fBrand, pstart, pend);
+            var amobiles = await GetMobiles("amazon", pageSize, pageNum, fVendor, order, searchStr, availability, fBrand, pstart, pend);
+            
+
+            ViewBag.mobiles = new List<dynamic>();
+            ViewBag.mobiles.Add(fmobiles);
+            ViewBag.mobiles.Add(amobiles);
+            //Console.WriteLine( ViewBag.mobiles[1].results.Count==null);
 
 
+            ViewBag.brand1 = await GetBrands("flipkart");
+            ViewBag.brand2 = await GetBrands("amazon");
 
-        public async Task<IActionResult> ProductsListAsync(string vendor="flipkart", int pageSize = 4, int pageNum = 1,int fVendor=1, string order = "-price", string searchStr = null,string availability=null,int fBrand=-1,int pstart=0,int pend=90000000)
+            return View();
+
+        }
+
+
+        public async Task<object> MergeProducts(string vendor="flipkart", int pageSize = 4, int pageNum = 1,int fVendor=1, string order = "-price", string searchStr = null,string availability=null,int fBrand=-1,int pstart=0,int pend=90000000)
         {
            
             var fmobiles = await GetMobiles(vendor,pageSize,pageNum,fVendor,order,searchStr,availability,fBrand,pstart,pend);
            var amobiles = await GetMobiles("amazon",pageSize,pageNum,fVendor,order,searchStr,availability,fBrand,pstart,pend);
-            dynamic mobiles = new ExpandoObject();
             
-             ViewBag.mobiles = new List<dynamic>();
-            ViewBag.mobiles.Add(fmobiles);
-            ViewBag.mobiles.Add(amobiles);
-           //Console.WriteLine( ViewBag.mobiles[1].results.Count==null);
+            
+             var mobiles = new List<dynamic>();
+                  mobiles.Add(fmobiles);
+                  mobiles.Add(amobiles);
            
-             
-            ViewBag.brand1 = await GetBrands("flipkart");
-            ViewBag.brand2 = await GetBrands("amazon");
-
             return View();
            
         }

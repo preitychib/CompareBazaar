@@ -337,10 +337,9 @@
         position: absolute;
         top: 3.1rem !important;
     }
-
-    .fontsize11 {
-        font-size: 1rem;
-    }
+    /* .fontsize11{
+    font-size: 0.8rem;
+} */
     /* .crossmargin{
     margin-left: 7.6rem;
 } */
@@ -406,10 +405,9 @@
     /* .crossmargin{
     margin-left: 7.2rem;
 } */
-    .fontsize11 {
-        font-size: 0.9rem;
-    }
-
+    /* .fontsize11{
+    font-size: 0.9rem;
+} */
     .compare {
         width: 9rem;
     }
@@ -477,11 +475,9 @@
     .compare {
         width: 7.4rem;
     }
-
-    .fontsize11 {
-        font-size: 0.74rem;
-    }
-
+    /* .fontsize11{
+    font-size: 0.74rem;
+} */
     .searchproduct {
         font-size: 3.5rem;
     }
@@ -585,7 +581,7 @@
     }
 
     .fontsize11 {
-        font-size: 0.5rem;
+        font-size: 0.8rem;
     }
 
     .fontsize12 {
@@ -698,7 +694,7 @@
     }
 
     .fontsize11 {
-        font-size: 0.5rem;
+        font-size: 0.8rem;
     }
 
     .searchproduct {
