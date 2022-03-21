@@ -9,7 +9,7 @@
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="~/admin/plugins/fontawesome-free/css/all.min.css">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Tempusdominus Bootstrap 4 -->
@@ -42,14 +42,15 @@
                 <li class="nav-item">
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
-                <li class="nav-item d-none d-sm-inline-block">
+                @*<li class="nav-item d-none d-sm-inline-block">
                     <a asp-area="admin" asp-controller="dashboard" asp-action="Index" class="nav-link">Home</a>
-                </li>
-                <li class="nav-item d-none d-sm-inline-block">
-                    <a asp-area="admin" asp-controller="dashboard" asp-action="UserList" class="nav-link">User List</a>
+                </li>*@
+                @*<li class="nav-item d-none d-sm-inline-block">
+                    <a asp-area="admin" asp-controller="dashboard" asp-action="UserList" class="nav-link">Users</a>
                   
                 </li>
-                <li class="nav-item d-none d-sm-inline-block">  <a asp-area="admin" asp-controller="dashboard" asp-action="ContactList" class="nav-link">Contact List</a></li>
+                <li class="nav-item d-none d-sm-inline-block">  <a asp-area="admin" asp-controller="dashboard" asp-action="ContactList" class="nav-link">Messages</a></li>
+             <li class="nav-item d-none d-sm-inline-block">  <a asp-area="admin" asp-controller="dashboard" asp-action="ContactList" class="nav-link"> Popular Product</a></li>*@
             </ul>
 
            
@@ -59,7 +60,7 @@
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
             <a asp-area="" asp-controller="Home" asp-action="Index" class="brand-link">
-                <img src="dist/img/logooo.png" alt="Welcome" class="brand-image img-circle elevation-3" style="opacity: .8">
+                <img src="~/admin/dist/img/logooo.png" alt="Welcome" class="brand-image img-circle elevation-3" style="opacity: .8">
                 <span class="brand-text font-weight-light">CompareBaazar</span>
             </a>
 
@@ -71,7 +72,7 @@
                         <!-- Add icons to the links using the .nav-icon class
                          with font-awesome or any other icon font library -->
                         <li class="nav-item menu-open">
-                            <a href="#" class="nav-link active">
+                            <a asp-area="admin" asp-controller="dashboard" asp-action="" class="nav-link active">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
                                     Dashboard
@@ -108,10 +109,19 @@
                         </li>
                         <li class="nav-item">
                             <a  asp-area="admin" asp-controller="dashboard" asp-action="ContactList"  class="nav-link">
-                                <i class="nav-icon fas fa-search"></i>
+                                <i class="fa fa-box-open"></i>
                                 <p>
-                                    Contact List
-                                    <i class="fas fa-angle-left right"></i>
+                                    Messages
+                                    
+                                </p>
+                            </a>
+
+                        </li><li class="nav-item">
+                            <a  asp-area="admin" asp-controller="dashboard" asp-action="PopularProducts"  class="nav-link">
+                                <i class="fa fa-fire"></i>
+                                <p>
+                                    Popular products
+                                    
                                 </p>
                             </a>
 
