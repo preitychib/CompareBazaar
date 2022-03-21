@@ -149,40 +149,43 @@
             <div class="col-lg-3 col-md-3 col-sm-4 col ">
                 <span class="fs-6 fontsize12">Price</span>
             </div>
-            @if (ViewBag.n > 0)
-            {
-                <div class="col-lg-3 col-md-3 col-sm-4 col">
+            <div class="col-lg-3 col-md-3 col-sm-4 col">
+                @if (ViewBag.n > 0)
+                {
+
                     <span class="fontsize12">Rs @ViewBag.mobile[0].price</span>
-                </div>
-            }
-            else
-            {
-                <span class="fontsize12"></span>
-            }
 
-            @if (ViewBag.n > 1)
-            {
-                <div class="col-lg-3 col-md-3 col-sm-4 col">
+                }
+                else
+                {
+                    <span class="fontsize12"></span>
+                }
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-4 col">
+                @if (ViewBag.n > 1)
+                {
+
                     <span class="fontsize12">Rs @ViewBag.mobile[1].price</span>
-                </div>
-            }
-            else
-            {
-                <span class="fontsize12"></span>
-            }
 
-            @if (ViewBag.n > 2)
-            {
-                <div class="col-lg-3 col-md-3 comparehide">
+                }
+                else
+                {
+                    <span class="fontsize12"></span>
+                }
+            </div>
+            <div class="col-lg-3 col-md-3 comparehide">
+                @if (ViewBag.n > 2)
+                {
+
                     <span class="fontsize12">Rs @ViewBag.mobile[2].price</span>
-                </div>
-            }
-            else
-            {
-                <span class="fontsize12"></span>
-            }
 
+                }
+                else
+                {
+                    <span class="fontsize12"></span>
+                }
 
+            </div>
         </div>
 
         <div class="row  bg-red d-flex align-items-center ">
