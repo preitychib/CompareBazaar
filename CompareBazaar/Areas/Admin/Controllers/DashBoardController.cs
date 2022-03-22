@@ -51,7 +51,7 @@ namespace CompareBazaar.Areas.Admin.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        // [Route("Admin/User/List")]
+       
         public ActionResult UserList(int id)
         {
             var userlist = _userManager.Users.ToList();
@@ -59,7 +59,7 @@ namespace CompareBazaar.Areas.Admin.Controllers
             return View();
         }
 
-       // [Route("Admin/User/Edit/{id}")]
+      
         public async Task<ActionResult> EditUser(string id)
         {
             var user = await _userManager.FindByIdAsync(id);
@@ -68,7 +68,7 @@ namespace CompareBazaar.Areas.Admin.Controllers
             return View();
         }
 
-       // [Route("Admin/User/Edit/{id}")]
+       
         [HttpPost]
         public async Task<ActionResult> EditUser(string id,IFormCollection userEdit)
         {
@@ -103,7 +103,7 @@ namespace CompareBazaar.Areas.Admin.Controllers
             }
         }
 
-     //   [Route("Admin/User/Delete/{id}")]
+     
         public async Task<ActionResult> DeleteUser(string id)
         {
             try
@@ -128,14 +128,14 @@ namespace CompareBazaar.Areas.Admin.Controllers
 
         }
 
-       // [Route("Admin/User/Add")]
+      
         [HttpGet]
         public IActionResult UserAdd()
         {
             return View();
         }
 
-      //  [Route("Admin/User/Add")]
+     
         [HttpPost]
         public async Task<ActionResult> UserAdd(IFormCollection collection)
         {
@@ -172,8 +172,7 @@ namespace CompareBazaar.Areas.Admin.Controllers
         }
 
 
-        //[HttpPost]
-      //  [ValidateAntiForgeryToken]
+        
         public async Task<IActionResult> DeleteContact(int id)
         {
             var contact = await _context.ContactUs.FindAsync(id);
@@ -182,23 +181,7 @@ namespace CompareBazaar.Areas.Admin.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-      /*  public async Task<IActionResult> ContactDetails(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var contact = await _context.ContactUs
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (contact == null)
-            {
-                return NotFound();
-            }
-
-            return View(contact);
-        }
-      */
+    
     }
 
 

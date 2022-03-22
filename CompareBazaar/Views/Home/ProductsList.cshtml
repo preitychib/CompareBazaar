@@ -6,6 +6,7 @@
 
 
 <partial name="_NavBar2Partial" />
+
 <section class="mt-5 pt-3 ">
     <div class="container  ">
         <div class="row">
@@ -13,7 +14,7 @@
                 <form class="formsearch1" asp-action="ProductsList">
                     <div class="p-1 bg-light bg-dark rounded   ">
                         <div class="input-group">
-                            <input type="search" name="searchStr" placeholder="Search products,brands,features" class="form-control shadow-none">
+                            <input type="search" name="searchStr" placeholder="Search products,brands,features" value="@(ViewBag.searchStr)" class="form-control shadow-none">
                             <div class="input-group-append allcat">
                                 <div class="btn-group">
                                     <a class="btn text-white border-top-0 rounded-0 border-end-0 border-bottom-0 btn-outline-dark shadow-none  dropdown-toggle"
@@ -92,8 +93,9 @@
             <form asp-action="ProductsList" method="get">
 
                 <fieldset>
+                    <input type="hidden" name="searchStr" value="@(ViewBag.searchStr)" class="form-control shadow-none">
 
-                    <select name="order" onchange="this.form.submit()" class="form-select shadow-none ms-auto  clickbox  " aria-label="Default select example">
+                    <select name="order" onchange="this.form.submit()" class="form-select shadow-none ms-auto  clickbox " value="@(ViewBag.order)"  aria-label="Default select example">
                         <option value=""> Sort By : </option>
                         <option value="price" type="submit">Sort By : Price - low to high</option>
 
@@ -301,200 +303,155 @@
 <section class="container-fluid">
     <div class="row ">
         <div class="col-xxl-2 col-xl-2 col-lg-3 col-md-4 col f-hide border-end  ">
-            <div class="  border-bottom ">
-                <div class="row my-3">
-                    <div class="col-8">
-                        <h5 class="fw-bold ms-2 text-red">PRICE</h5>
-                    </div>
-                    <div class="col-4">
-                        <a href="" class=" text-decoration-none text-lightred fs-6"> Clear</a>
-                    </div>
-                </div>
-                <ul class="">
-                    <li class="form-check ">
-                        <input class="form-check-input shadow-none " type="checkbox" value="" id="">
-                        <label class="form-check-label innerdropdownitem " for="">
-                            Under Rs 5,000
-                        </label>
-                    </li>
-                    <li class="form-check">
-                        <input class="form-check-input  shadow-none  " type="checkbox" value="" id="">
-                        <label class="form-check-label  innerdropdownitem " for="">
-                            Rs 5,000 to Rs 10,000
-                        </label>
-                    </li>
-                    <li class="form-check">
-                        <input class="form-check-input  shadow-none" type="checkbox" value="" id="">
-                        <label class="form-check-label innerdropdownitem    " for="">
-                            Rs 10,000 to Rs 15,000
-                        </label>
-                    </li>
-                    <li class="form-check">
-                        <input class="form-check-input   shadow-none" type="checkbox" value="" id="">
-                        <label class="form-check-label innerdropdownitem  " for="">
-                            Rs 15,000 to Rs 20,000
-                        </label>
-                    </li>
-                    <li class="form-check">
-                        <input class="form-check-input  shadow-none" type="checkbox" value="" id="">
-                        <label class="form-check-label innerdropdownitem  " for="">
-                            Under Rs 20,000
-                        </label>
-                    </li>
-                    <li class="form-check">
-                        <input class="form-check-input shadow-none" type="checkbox" value="" id="">
-                        <label class="form-check-label  innerdropdownitem   " for="">
-                            Above Rs 20,000
-                        </label>
-                    </li>
-                </ul>
-            </div>
-            <div class="  border-bottom">
-                <div class="my-3">
-                    <div class="row">
+            <form asp-action="ProductsList" method="get">
+                <input type="hidden" name="searchStr" value="@(ViewBag.searchStr)" class="form-control shadow-none">
+                <input type="hidden" name="order" value="@(ViewBag.order)" class="form-control shadow-none">
+
+                <div class="  border-bottom ">
+                    <div class="row my-3">
                         <div class="col-8">
-                            <h5 class="   fw-bold  ms-2 text-red">BRAND</h5>
+                            <h5 class="fw-bold ms-2 text-red">PRICE</h5>
                         </div>
                         <div class="col-4">
                             <a href="" class=" text-decoration-none text-lightred fs-6"> Clear</a>
                         </div>
                     </div>
-                    <!-- <span class="fw-bold fs-6 ms-2 ">BRAND</span>
-                    <span class=""> <a href="" class=" text-decoration-none ms-5 fs-6"> Clear </a></span> -->
-                    <input class="form-control form-control-sm shadow-none clickbox " type="text" placeholder="Search Brand"
-                           aria-label=".form-control-sm example">
-                </div>
-                <ul class="scrollbar">
-                    @foreach (var item in ViewBag.brand1)
-                    {
+                    <ul class="">
                         <li class="form-check ">
-                            <input class="form-check-input shadow-none" type="checkbox" value="" id="">
-                            <label class="form-check-label innerdropdownitem  " for="">
-                                @item.name
+                            <input  name="Price5k"  value="" onchange="this.form.submit()" class="form-check-input shadow-none " type="checkbox"  id="">
+                            <label class="form-check-label innerdropdownitem " for="">
+                                Under Rs 5,000
                             </label>
                         </li>
-                    }
-                    @foreach (var item in ViewBag.brand2)
-                    {
-                        <li class="form-check ">
-                            <input class="form-check-input shadow-none" type="checkbox" value="" id="">
-                            <label class="form-check-label innerdropdownitem  " for="">
-                                @item.name
+                        <li class="form-check">
+                            <input class="form-check-input  shadow-none  " type="checkbox" value="" id="">
+                            <label class="form-check-label  innerdropdownitem " for="">
+                                Rs 5,000 to Rs 10,000
                             </label>
                         </li>
-                    }
-
-
-
-                </ul>
-            </div>
-            <!-- <div class="  border-bottom ">
-
-              <div class="row my-3">
-                <div class="col-8">
-                  <h5 class="   fw-bold  ms-2 text-red "> RATINGS</h5>
+                        <li class="form-check">
+                            <input class="form-check-input  shadow-none" type="checkbox" value="" id="">
+                            <label class="form-check-label innerdropdownitem    " for="">
+                                Rs 10,000 to Rs 15,000
+                            </label>
+                        </li>
+                        <li class="form-check">
+                            <input class="form-check-input   shadow-none" type="checkbox" value="" id="">
+                            <label class="form-check-label innerdropdownitem  " for="">
+                                Rs 15,000 to Rs 20,000
+                            </label>
+                        </li>
+                        <li class="form-check">
+                            <input class="form-check-input  shadow-none" type="checkbox" value="" id="">
+                            <label class="form-check-label innerdropdownitem  " for="">
+                                Under Rs 20,000
+                            </label>
+                        </li>
+                        <li class="form-check">
+                            <input class="form-check-input shadow-none" type="checkbox" value="" id="">
+                            <label class="form-check-label  innerdropdownitem   " for="">
+                                Above Rs 20,000
+                            </label>
+                        </li>
+                    </ul>
                 </div>
-                <div class="col-4">
-                  <a href="" class=" text-decoration-none text-lightred fs-6"> Clear</a>
-                </div>
-              </div>
-              <ul class="">
-                <li class="form-check ">
-                  <input class="form-check-input shadow-none" type="checkbox" value="" id="">
-                  <label class="form-check-label   innerdropdownitem" for="">
-                    5 Star Reviews
-                  </label>
-                </li>
-                <li class="form-check">
-                  <input class="form-check-input  shadow-none  " type="checkbox" value="" id="">
-                  <label class="form-check-label   innerdropdownitem" for="">
-                    4 Star Reviews
-                  </label>
-                </li>
-                <li class="form-check">
-                  <input class="form-check-input  shadow-none" type="checkbox" value="" id="">
-                  <label class="form-check-label  innerdropdownitem" for="">
-                    3 Star Reviews
-                  </label>
-                </li>
-                <li class="form-check">
-                  <input class="form-check-input   shadow-none" type="checkbox" value="" id="">
-                  <label class="form-check-label  innerdropdownitem" for="">
-                    2 Star Reviews
-                  </label>
-                </li>
-                <li class="form-check">
-                  <input class="form-check-input  shadow-none" type="checkbox" value="" id="">
-                  <label class="form-check-label   innerdropdownitem" for="">
-                    1 Star Reviews
-                  </label>
-                </li>
+                <div class="  border-bottom">
+                    <div class="my-3">
+                        <div class="row">
+                            <div class="col-8">
+                                <h5 class="   fw-bold  ms-2 text-red">BRAND</h5>
+                            </div>
+                            <div class="col-4">
+                                <a href="" class=" text-decoration-none text-lightred fs-6"> Clear</a>
+                            </div>
+                        </div>
+                       
+                        <input class="form-control form-control-sm shadow-none clickbox " type="text" placeholder="Search Brand"
+                               aria-label=".form-control-sm example">
+                    </div>
+                    <ul class="scrollbar">
+                        @foreach (var item in ViewBag.brand1)
+                        {
+                            <li class="form-check ">
+                                <input class="form-check-input shadow-none" type="checkbox" value="@item.id" id="">
+                                <label class="form-check-label innerdropdownitem  " for="">
+                                    @item.name
+                                </label>
+                            </li>
+                        }
+                        @foreach (var item in ViewBag.brand2)
+                        {
+                            <li class="form-check ">
+                                <input class="form-check-input shadow-none" type="checkbox" value="" id="">
+                                <label class="form-check-label innerdropdownitem  " for="">
+                                    @item.name
+                                </label>
+                            </li>
+                        }
 
-              </ul>
-            </div> -->
-            <div class="  border-bottom ">
-                <!-- <div class="my-3">
-                  <span class="fw-bold fs-6 ms-2 ">AVAILABILITY</span>
-                  <span class=""> <a href="" class=" text-decoration-none fs-6 ms-3 "> Clear  </a></span>
-                </div> -->
-                <div class="row my-3">
-                    <div class="col-8">
-                        <h5 class="   fw-bold  ms-2 text-red ">AVAILABILITY</h5>
-                    </div>
-                    <div class="col-4">
-                        <a href="" class=" text-decoration-none text-lightred fs-6"> Clear</a>
-                    </div>
+
+
+                    </ul>
                 </div>
 
-                <ul class="">
-                    <li class="form-check ">
-                        <input class="form-check-input shadow-none" type="checkbox" value="" id="">
-                        <label class="form-check-label    innerdropdownitem" for="">
-                            Include Out of Stock
-                        </label>
-                    </li>
-                    <li class="form-check">
-                        <input class="form-check-input  shadow-none  " type="checkbox" value="" id="">
-                        <label class="form-check-label  innerdropdownitem" for="">
-                            Exclude Upcoming
-                        </label>
-                    </li>
-                    <li class="form-check">
-                        <input class="form-check-input  shadow-none" type="checkbox" value="" id="">
-                        <label class="form-check-label   innerdropdownitem" for="">
-                            Upcoming
-                        </label>
-                    </li>
-                </ul>
-            </div>
-            <div class=" border-bottom  ">
-                <div class="row my-3">
-                    <div class="col-8">
-                        <h5 class="   fw-bold text-red ms-2 ">VENDORS</h5>
+                <div class="  border-bottom ">
+
+                    <div class="row my-3">
+                        <div class="col-8">
+                            <h5 class="   fw-bold  ms-2 text-red ">AVAILABILITY</h5>
+                        </div>
+                        <div class="col-4">
+                            <a href="" class=" text-decoration-none text-lightred fs-6"> Clear</a>
+                        </div>
                     </div>
-                    <div class="col-4">
-                        <a href="" class=" text-decoration-none  text-lightred fs-6"> Clear</a>
-                    </div>
+
+                    <ul class="">
+                        <li class="form-check ">
+                            <input class="form-check-input shadow-none" type="checkbox" value="" id="">
+                            <label class="form-check-label    innerdropdownitem" for="">
+                                Include Out of Stock
+                            </label>
+                        </li>
+                        <li class="form-check">
+                            <input class="form-check-input  shadow-none  " type="checkbox" value="" id="">
+                            <label class="form-check-label  innerdropdownitem" for="">
+                                Exclude Upcoming
+                            </label>
+                        </li>
+                        <li class="form-check">
+                            <input class="form-check-input  shadow-none" type="checkbox" value="" id="">
+                            <label class="form-check-label   innerdropdownitem" for="">
+                                Upcoming
+                            </label>
+                        </li>
+                    </ul>
                 </div>
-                <!-- <div class="my-3">
-                  <span class="fw-bold fs-6 ms-2 ">Vendors</span>
-                  <span class=""> <a href="" class=" text-decoration-none fs-6 ms-5 "> Clear  </a></span>
-                </div> -->
-                <ul class="">
-                    <li class="form-check ">
-                        <input class="form-check-input shadow-none" type="checkbox" value="" id="">
-                        <label class="form-check-label   innerdropdownitem" for="">
-                            Amazon
-                        </label>
-                    </li>
-                    <li class="form-check">
-                        <input class="form-check-input  shadow-none  " type="checkbox" value="" id="">
-                        <label class="form-check-label   innerdropdownitem" for="">
-                            Flipkart
-                        </label>
-                    </li>
-                </ul>
-            </div>
+                <div class=" border-bottom  ">
+                    <div class="row my-3">
+                        <div class="col-8">
+                            <h5 class="   fw-bold text-red ms-2 ">VENDORS</h5>
+                        </div>
+                        <div class="col-4">
+                            <a href="" class=" text-decoration-none  text-lightred fs-6"> Clear</a>
+                        </div>
+                    </div>
+
+                    <ul class="">
+                        <li class="form-check ">
+                            <input class="form-check-input shadow-none" type="checkbox" value="" id="">
+                            <label class="form-check-label   innerdropdownitem" for="">
+                                Amazon
+                            </label>
+                        </li>
+                        <li class="form-check">
+                            <input class="form-check-input  shadow-none  " type="checkbox" value="" id="">
+                            <label class="form-check-label   innerdropdownitem" for="">
+                                Flipkart
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+            </form>
         </div>
         <div class="col-xxl-10 col-xl-10 col-lg-9 col-md-8 col">
             <div class="row mx-3 mt-5">
@@ -540,20 +497,20 @@
     </div>
 
 </section>
-<nav aria-label="Page navigation example" class="my-4">
+<!--<nav aria-label="Page navigation example" class="my-4">
     <ul class="pagination justify-content-center ">
-        <li class="page-item disabled ">
+        <li class="page-item ">
             <a class="page-link shadow-none disabled text-red bg-transparent " href="#" aria-label="Previous">
                 <span aria-hidden="true">&laquo;</span>
             </a>
-        </li>
-        <li class="page-item active "><a class="page-link shadow-none text-red bg-transparent " href="#">1</a></li>
+        </li>-->
+        @*<li class="page-item active "><a class="page-link shadow-none text-red bg-transparent " href="#">1</a></li>
         <li class="page-item"><a class="page-link shadow-none text-red bg-transparent" href="#">2</a></li>
-        <li class="page-item"><a class="page-link shadow-none text-red bg-transparent" href="#">3</a></li>
-        <li class="page-item ">
+        <li class="page-item"><a class="page-link shadow-none text-red bg-transparent" href="#">3</a></li>*@
+        <!--<li class="page-item ">
             <a class="page-link shadow-none text-red bg-transparent" href="#" aria-label="Next">
                 <span aria-hidden="true">&raquo;</span>
             </a>
         </li>
     </ul>
-</nav>
+</nav>-->

@@ -27,14 +27,12 @@ namespace CompareBazaar.Controllers
         private readonly ApplicationDbContext _context;
 
 
-        //  private readonly HttpClient _client;
-
         public HomeController(ILogger<HomeController> logger, UserManager<ApplicationUser> userManager, ApplicationDbContext context)
         {
             _logger = logger;
             _userManager = userManager;
             _context = context;
-            // _client = client;
+           
         }
 
         public async Task<IActionResult> IndexAsync()
@@ -44,7 +42,7 @@ namespace CompareBazaar.Controllers
 
             ViewBag.mobiles = await GetMobiles("amazon");
 
-            //var popularProduct= _context.PopularProducts.ToList();
+            
             var numQuery =
                          from pid in _context.PopularProducts
                          orderby pid.Value descending
@@ -74,7 +72,7 @@ namespace CompareBazaar.Controllers
                 ViewBag.n = myList.Count;
 
             }
-            //  Console.WriteLine(ViewBag.mobiles);
+            
             return View();
         }
 
@@ -260,7 +258,7 @@ namespace CompareBazaar.Controllers
         public IActionResult Remove(int id, string View, string list)
         {
             List<Item> myList = SessionHelper.GetObjectFromJson<List<Item>>(HttpContext.Session, list);
-            //  int index = isExist(id,list);
+            
             myList.RemoveAt(id);
             SessionHelper.SetObjectAsJson(HttpContext.Session, list, myList);
             return RedirectToAction(View);
@@ -295,6 +293,24 @@ namespace CompareBazaar.Controllers
             dynamic allmobiles = MergeProducts(mobiles, order);
 
             ViewBag.mobiles = allmobiles;
+
+            if (searchStr != null)
+            {
+                ViewBag.searchStr = searchStr;
+            }
+            else
+            {
+                ViewBag.searchStr = "";
+            }
+
+            if (order != null)
+            {
+                ViewBag.order = order;
+            }
+            else
+            {
+                ViewBag.order = "";
+            }
 
             return View();
 
@@ -364,29 +380,25 @@ namespace CompareBazaar.Controllers
             return allmobiles;
         }
 
-
-
-
-
-        private static async Task<object> GetMobiles(string vendor, int pageSize = 4, int pageNum = 1, int fVendor = 1, string order = "id", string searchStr = null, string avlbty = null, int brand = -1, int pstart = 0, int pend = 90000000)
+        private static async Task<object> GetMobiles(string vendor, int pageSize = 4, int pageNum = 1, int fVendor = 1, string order = "id", string searchStr = null, string avlbty = null, int brand=-1, int pstart = 0, int pend = 90000000)
         {
             try
             {
                 using var client = new HttpClient();
                 string Url;
-                //Url = $"https://comparebazaar-api.herokuapp.com/api/{vendor}/mobile/?ordering=-price";
+                
                 if (searchStr == null)
                 {
-                    Url = $"https://comparebazaar-api.herokuapp.com/api/{vendor}/mobile/?ordering={order}&availability={avlbty}&vendor={fVendor}&page_size={pageSize}&page={pageNum}&price_start={pstart}&price_end={pend}";// brand not added
-                                                                                                                                                                                                                            // Url = $"https://comparebazaar-api.herokuapp.com/api/{vendor}/mobile/";
+                    Url = $"https://comparebazaar-api.herokuapp.com/api/{vendor}/mobile/?ordering={order}&availability={avlbty}&vendor={fVendor}&page_size={pageSize}&page={pageNum}&price_start={pstart}&price_end={pend}";
+                }else if (brand>-1)
+                {
+                    Url = $"https://comparebazaar-api.herokuapp.com/api/{vendor}/mobile/?brand={brand}ordering={order}&availability={avlbty}&vendor={fVendor}&page_size={pageSize}&page={pageNum}&price_start={pstart}&price_end={pend}";
                 }
                 else
                 {
-                    //Url = $"https://comparebazaar-api.herokuapp.com/api/{vendor}/mobile/?ordering={order}&vendor={fVendor}&availability={avlbty}&price_start={pstart}&price_end={pend}"; //brand not added
-                    Url = $"https://comparebazaar-api.herokuapp.com/api/{vendor}/mobile/?search={searchStr}&ordering={order}&vendor={fVendor}&page_size={pageSize}&page={pageNum}&availability={avlbty}&price_start={pstart}&price_end={pend}"; //brand not added
-                    //Url = $"https://comparebazaar-api.herokuapp.com/api/{vendor}/mobile/?search={searchStr}&ordering={order}";
-                }
-                // return await client.GetAsync(url);
+                     Url = $"https://comparebazaar-api.herokuapp.com/api/{vendor}/mobile/?search={searchStr}&ordering={order}&vendor={fVendor}&page_size={pageSize}&page={pageNum}&availability={avlbty}&price_start={pstart}&price_end={pend}"; //brand not added
+                      }
+               
                 var Response = await client.GetAsync(Url);
                 Response.EnsureSuccessStatusCode();
 
@@ -394,8 +406,6 @@ namespace CompareBazaar.Controllers
 
                 var Mobiles = JsonConvert.DeserializeObject<object>(Content);
 
-
-                // var newMobiles = await _mobileService.GetMobiles();
                 return Mobiles;
             }
             catch (Exception ex)
@@ -410,7 +420,7 @@ namespace CompareBazaar.Controllers
             ViewBag.brand2 = await GetBrands("amazon");
             var mobile = await GetItem(vendor, "mobile", id);
             ViewBag.mobile = mobile;
-            // Console.WriteLine(mobile);
+            
 
             return View();
         }
@@ -422,17 +432,14 @@ namespace CompareBazaar.Controllers
                 using var client = new HttpClient();
                 var Url = $"https://comparebazaar-api.herokuapp.com/api/{vendor}/{item}/{id}";
 
-                // return await client.GetAsync(url);
+                
                 var Response = await client.GetAsync(Url);
                 Response.EnsureSuccessStatusCode();
 
                 var Content = await Response.Content.ReadAsStringAsync();
-                //  Product Mobiles = new Product();
+                
                 var itemObject = JsonConvert.DeserializeObject<object>(Content);
-                // Mobiles =  JsonConvert.DeserializeObject<Product>(Content);
-
-
-                // var newMobiles = await _mobileService.GetMobiles();
+                
                 return itemObject;
             }
             catch (Exception ex)
@@ -448,7 +455,7 @@ namespace CompareBazaar.Controllers
                 using var client = new HttpClient();
                 var Url = $"https://comparebazaar-api.herokuapp.com/api/{vendor}/brand";
 
-                // return await client.GetAsync(url);
+                
                 var Response = await client.GetAsync(Url);
                 Response.EnsureSuccessStatusCode();
 
@@ -457,7 +464,7 @@ namespace CompareBazaar.Controllers
                 var brands = JsonConvert.DeserializeObject<object>(Content);
 
 
-                // var newMobiles = await _mobileService.GetMobiles();
+                
                 return brands;
             }
             catch (Exception ex)
@@ -466,7 +473,6 @@ namespace CompareBazaar.Controllers
                 return null;
             }
         }
-
 
         public async Task<ActionResult> EditProfile()
         {
@@ -520,18 +526,6 @@ namespace CompareBazaar.Controllers
         }
 
 
-        /*[Route("Error/{stausCode}")]
-        public IActionResult HttptStatusCodeHandler(int statusCode)
-        {
-            switch (statusCode)
-            {
-                case 404:
-                    ViewBag.ErrorMessage = "WE COULDN'T FIND THAT PAGE.";
-                    break;
-
-            }
-
-            return View("Error");
-        }*/
+       
     }
 }

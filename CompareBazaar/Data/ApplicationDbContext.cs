@@ -8,7 +8,6 @@ namespace CompareBazaar.Data
 {
 
     public class ApplicationUser : IdentityUser { 
-
         [StringLength(250)]
         public string FirstName { get; set; }
         [StringLength(250)]
@@ -19,9 +18,6 @@ namespace CompareBazaar.Data
         public string Address2 { get; set; }
         [StringLength(50)]
         public string PostCode { get; set; }
-
-
-        
     }
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
@@ -31,10 +27,7 @@ namespace CompareBazaar.Data
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
-        }
-       
-
-        
+        } 
 
     }
 }
