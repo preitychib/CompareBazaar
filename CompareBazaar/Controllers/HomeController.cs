@@ -132,7 +132,7 @@ namespace CompareBazaar.Controllers
                         ViewBag.mobile.Add(await GetItem(myList[i].vendor, "mobile", myList[i].id));
                 }
                 ViewBag.n = myList.Count;
-                //  return View();
+                
             }
 
 
@@ -165,8 +165,6 @@ namespace CompareBazaar.Controllers
         [Authorize]
         public IActionResult AddItem(string vendor, int id, string View, string list)
         {
-
-
             if (SessionHelper.GetObjectFromJson<List<Item>>(HttpContext.Session, list) == null)
             {
                 List<Item> myList = new List<Item>
@@ -279,9 +277,7 @@ namespace CompareBazaar.Controllers
 
         public async Task<IActionResult> ProductsListAsync(string vendor = "flipkart", int pageSize = 4, int pageNum = 1, int fVendor = 1, string order = "id", string searchStr = null, string availability = null, int fBrand = -1, int pstart = 0, int pend = 90000000)
         {
-            ViewBag.brand1 = await GetBrands("flipkart");
-            ViewBag.brand2 = await GetBrands("amazon");
-
+           
 
             var fmobiles = await GetMobiles(vendor, pageSize, pageNum, fVendor, order, searchStr, availability, fBrand, pstart, pend);
             var amobiles = await GetMobiles("amazon", pageSize, pageNum, fVendor, order, searchStr, availability, fBrand, pstart, pend);
@@ -311,6 +307,8 @@ namespace CompareBazaar.Controllers
             {
                 ViewBag.order = "";
             }
+            ViewBag.brand1 = await GetBrands("flipkart");
+            ViewBag.brand2 = await GetBrands("amazon");
 
             return View();
 
