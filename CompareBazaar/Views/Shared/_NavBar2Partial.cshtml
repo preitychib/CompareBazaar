@@ -16,26 +16,29 @@
                         <li>
                             <div class="row">
                                 <div class=" col-xs-12 col-sm-12 col-md-4 col-lg-4 ">
+                                   
                                     <ul class=" list-unstyled ">
                                         <li class="text-red fw-bold fs-4 ">
                                             Brands
                                         </li>
                                         @foreach (var item in ViewBag.brand1)
-                                        {
-                                            <li>
-                                                <a href="#"
-                                                   class="dropdown-item  dropdownbg innerdropdownitem text-black">@item.name</a>
-                                            </li>
+                                        { 
+                                                <li>
+                                                    <a asp-action="ProductsList" asp-route-fBrand="@item.id"
+                                                       class="dropdown-item  dropdownbg innerdropdownitem text-black">@item.name</a>
+                                                </li>
+                                           
                                         } 
                                         @foreach (var item in ViewBag.brand2)
                                         {
                                             <li>
-                                                <a href="#"
+                                                <a asp-action="ProductList" asp-route-fBrand="@item.id"
                                                    class="dropdown-item  dropdownbg innerdropdownitem text-black">@item.name</a>
                                             </li>
                                         }
                                            
                                         </ul>
+                                        
                                 </div>
                                 <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 dropdown-margin">
                                     <ul class=" list-unstyled ">

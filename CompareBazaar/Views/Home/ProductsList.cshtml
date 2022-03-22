@@ -4,11 +4,7 @@
 
     int i, j,k,l,n1,n2;
     i = j =k= l=0;
-    if (ViewBag.mobiles[0] != null) { n1 = ViewBag.mobiles[0].results.Count; }
-    else n1 = -1;
-
-    if (ViewBag.mobiles[1] != null) { n2 = ViewBag.mobiles[1].results.Count; }
-    else n2 = -1;
+   
 
 
 }
@@ -97,33 +93,23 @@
         </div>
         <div class="col-xxl-5 col-xl-5 col-lg-5 col-md-4 col  ">
 
-            <!--<form action="/Home/ProductsList" method="get" >
+            <form asp-action="ProductsList" method="get" >
 
                 <fieldset>
-                    Sort By
-                    <select name="order" class="form-select shadow-none ms-auto  clickbox  " aria-label="Default select example">
-
+                  
+                    <select name="order" onchange="this.form.submit()" class="form-select shadow-none ms-auto  clickbox  " aria-label="Default select example">
+                        <option value=""> Sort By : </option>
                         <option value="price" type="submit">Sort By : Price - low to high</option>
 
 
-                        <option value="-price" type="submit">Sort By : Price - high to low</option>-->
+                        <option value="-price" type="submit">Sort By : Price - high to low</option>
 
-                        <!--<option value="3" class="">Sort By : Customer Rating</option> -->
-                    <!--</select>
+
+                    </select>
                     
                 </fieldset>
-                </form>-->
-                <select class="form-select shadow-none ms-auto  clickbox  " aria-label="Default select example">
-                    <option value="/Home/ProductsList/"> Sort By : </option>
-                    <option value="2" class="">@Html.ActionLink("Sort By : Price - low to high", "SortProducts", new { Str = "price" })</option>
-
-                    <option value="/Home/ProductsList/order=price" type="submit" class="">Sort By : Price - low to high</option>
-
-
-                    <option value="/Home/ProductsList/?order=-price" type="submit">Sort By : Price - high to low</option>
-
-                    <option value="3" class="">Sort By : Customer Rating</option> 
-                </select>
+                </form>
+               
 
 
         </div>
@@ -286,29 +272,18 @@
                             <h5 class="modal-title fw-bold text-black" id="exampleModalLabel2">Sort By</h5>
                             <button class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <form asp-action="SortProducts" >
+                        <form asp-action="ProductsList" >
                         <div class="modal-body">
-                            <!-- <select class="form-select shadow-none ms-auto  clickbox  " aria-label="Default select example">
-                              <option selected> Sort By : Popularity</option>
-                              <option value="1" class="dropdownbg">Sort By : Price - low to high</option>
-                              <option value="2" class="">Sort By : Price - high to low</option>
-                              <option value="3" class="">Sort By : Customer Rating</option>
-                            </select> -->
-                            @*<div class="form-check">
-                                <input class="form-check-input shadow-none  " type="radio" name="flexRadioDefault" id="flexRadioDefault1" >
-                                <label class="form-check-label innerdropdownitem " for="flexRadioDefault1">
-                                    Popularity
-                                </label>
-                            </div>*@
+                            
                             
                             <div class="form-check">
-                                <input  asp-for="@order" value="price" class="form-check-input shadow-none " type="radio"  id="flexRadioDefault2" >
+                                <input name="order" value="price" class="form-check-input shadow-none " type="radio"  id="flexRadioDefault2" >
                                 <label class="form-check-label innerdropdownitem " for="flexRadioDefault2">
                                     Price - low to high
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input asp-for="@order" value="-price" class="form-check-input shadow-none" type="radio" name="Str" id="flexRadioDefault3">
+                                <input name="order"  value="-price" class="form-check-input shadow-none" type="radio"  id="flexRadioDefault3">
                                 <label class="form-check-label innerdropdownitem " for="flexRadioDefault3">
                                     Price - high to low
                                 </label>
@@ -317,7 +292,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <a type="submit"  href="/home/ProductsList/?order=@order" name="Str" class="btn btn btn-danger redbtn bg-red">Apply</a>
+                            <button type="submit" name="order" asp-action="ProductsList" asp-route-order=order class="btn btn btn-danger redbtn bg-red">Apply</button>
                         </div>
                         </form>
                     </div>
@@ -527,139 +502,43 @@
         </div>
         <div class="col-xxl-10 col-xl-10 col-lg-9 col-md-8 col">
             <div class="row mx-3 mt-5">
-                @while (i < n1 && j < n2)
+
+                @foreach (var item in ViewBag.mobiles)
                 {
-                    if (order == "-price")
-                    {
-                        if (ViewBag.mobiles[0].results[i].price >= ViewBag.mobiles[1].results[j].price)
-                        {
-                            k = i; l = 0; i++;
-                            Console.WriteLine(k);
-
-
-                        }
-
-                        else
-                        {
-                            k = j; l = 1; j++;
-
-                        }
-                    }
-                    else if (order =="price")
-                    {
-                        if (ViewBag.mobiles[0].results[i].price <= ViewBag.mobiles[1].results[j].price)
-                        {
-                            k = i; l = 0; i++;
-                            Console.WriteLine(k);
-
-
-                        }
-
-                        else
-                        {
-                            k = j; l = 1; j++;
-
-                        }
-                    }
                     <div class=" col-xxl-3 col-xl-3 col-lg-6 col-md-6 col-sm-6 col ">
                         <div class="card my-1">
+                           
+
                             <!-- <div class="row"> -->
                             <div class="  d-flex justify-content-center mt-3 ">
-                                <a href="/home/ProductDetails/?vendor=@ViewBag.mobiles[l].results[k].vendor.name&id=@ViewBag.mobiles[l].results[k].id" class="pointer">
-                                    <img  src="@ViewBag.mobiles[l].results[k].product_images.image" class="card-img-top allproductimg  " alt="Product image">
+                                <a href="/home/ProductDetails/?vendor=@item.vendor.name&id=@item.id " class="pointer">
+                                    <img src="@item.product_images.image" class="card-img-top allproductimg  " alt="Product image">
                                 </a>
                             </div>
-                            <a id="wishlist13" class="text-black  " onclick="Wishlist(this)" href="/home/AddItem/?vendor=@ViewBag.mobiles[l].results[k].vendor.name&id=@ViewBag.mobiles[l].results[k].id&View=ProductsList&list=Wishlist">
-                                <i  class="far fa-heart pointer ms-4 wishlist  "></i>
-                            </a>
-                            <!-- </div> -->
-                            <div class="card-body text-center">
-                                @*@{
-                            var nameStr = item.name.Split(" ");
-
-                        }*@
-                                <a class=" text-decoration-none text-dark fw-bold fs-4" href="">@ViewBag.mobiles[l].results[k].name</a>
-                                @*<a class=" text-decoration-none text-dark fw-bold fs-4" href="">@nameStr[1]</a>*@
-                                <h6 class=" text-decoration-none text-red fw-bold ">Rs @ViewBag.mobiles[l].results[k].price</h6>
-                                <!-- <a  href="" class="btn btn-danger redbtn bg-red my-2 shadow-none" > <i class="far fa-heart pointer"></i> WISHLIST </a> <br> -->
-                                <a href="/home/AddItem/?vendor=@ViewBag.mobiles[l].results[k].vendor.name&id=@ViewBag.mobiles[l].results[k].id&View=CompareChart&list=Comparelist" class="btn btn-danger redbtn bg-red my-2 shadow-none">COMPARE</a>
-                                @*<a onclick="location.href='@Url.Action("ProductDetails","Home", new  { vendor= item.vendor.name, id=item.id})'" class="btn btn-danger redbtn bg-red my-2 shadow-none">VIEW</a>*@
-                                @*@using (Html.BeginForm("index", "Home"))
-                        {*@
-                                <a href="/home/ProductDetails/?vendor=@ViewBag.mobiles[l].results[k].vendor.name&id=@ViewBag.mobiles[l].results[k].id" class="btn btn-danger redbtn bg-red my-2 shadow-none">VIEW</a>
-                            </div>
-                        </div>
-
-                    </div>
-
-
-                }
-
-                @while (i < n1)
-                {
-                    l = 0; k = i; i++;
-
-                    <div class=" col-xxl-3 col-xl-3 col-lg-6 col-md-6 col-sm-6 col ">
-                        <div class="card my-1">
-                            <!-- <div class="row"> -->
-                            <div class="  d-flex justify-content-center mt-3 ">
-                                <a href="/home/ProductDetails/?vendor=@ViewBag.mobiles[l].results[k].vendor.name&id=@ViewBag.mobiles[l].results[k].id" class="pointer">
-                                    <img src="@ViewBag.mobiles[l].results[k].product_images.image" class="card-img-top allproductimg  " alt="Product image">
-                                </a>
-                            </div>
-                            <a class="text-black  " onclick="Wishlist(this)" href="/home/AddItem/?vendor=@ViewBag.mobiles[l].results[k].vendor.name&id=@ViewBag.mobiles[l].results[k].id&View=WishList&list=Wishlist">
+                            <a id="wishlist13" class="text-black  " onclick="Wishlist(this)" href="/home/AddItem/?vendor=@item.vendor.name&id=@item.id&View=ProductsList&list=Wishlist">
                                 <i class="far fa-heart pointer ms-4 wishlist  "></i>
                             </a>
                             <!-- </div> -->
                             <div class="card-body text-center">
-
-                                <a class=" text-decoration-none text-dark fw-bold fs-4" href="">@ViewBag.mobiles[l].results[k].name</a>
-
-                                <h6 class=" text-decoration-none text-red fw-bold ">Rs @ViewBag.mobiles[l].results[k].price</h6>
+                               
+                                <a class=" text-decoration-none text-dark fw-bold fs-4" href="/home/ProductDetails/?vendor=@item.vendor.name&id=@item.id ">@item.name</a>
+                               
+                                <h6 class=" text-decoration-none text-red fw-bold ">Rs @item.price</h6>
                                 <!-- <a  href="" class="btn btn-danger redbtn bg-red my-2 shadow-none" > <i class="far fa-heart pointer"></i> WISHLIST </a> <br> -->
-                                <a href="/home/AddItem/?vendor=@ViewBag.mobiles[l].results[k].vendor.name&id=@ViewBag.mobiles[l].results[k].id&View=CompareChart&list=Comparelist" class="btn btn-danger redbtn bg-red my-2 shadow-none">COMPARE</a>
-
-                                <a href="/home/ProductDetails/?vendor=@ViewBag.mobiles[l].results[k].vendor.name&id=@ViewBag.mobiles[l].results[k].id" class="btn btn-danger redbtn bg-red my-2 shadow-none">VIEW</a>
+                                <a href="/home/AddItem/?vendor=@item.vendor.name&id=@item.id&View=CompareChart&list=Comparelist" class="btn btn-danger redbtn bg-red my-2 shadow-none">COMPARE</a>
+                               
+                                <a href="/home/ProductDetails/?vendor=@item.name&id=@item.id" class="btn btn-danger redbtn bg-red my-2 shadow-none">VIEW</a>
                             </div>
                         </div>
 
                     </div>
 
                 }
-                @while (j < n2)
-                {
-                    l = 1; k = j; j++;
-
-                    <div class=" col-xxl-3 col-xl-3 col-lg-6 col-md-6 col-sm-6 col ">
-                        <div class="card my-1">
-                            <!-- <div class="row"> -->
-                            <div class="  d-flex justify-content-center mt-3 ">
-                                <a href="/home/ProductDetails/?vendor=@ViewBag.mobiles[l].results[k].vendor.name&id=@ViewBag.mobiles[l].results[k].id" class="pointer">
-                                    <img src="@ViewBag.mobiles[l].results[k].product_images.image" class="card-img-top allproductimg  " alt="Product image">
-                                </a>
-                            </div>
-                            <a class="text-black  " onclick="Wishlist(this)" href="/home/AddItem/?vendor=@ViewBag.mobiles[l].results[k].vendor.name&id=@ViewBag.mobiles[l].results[k].id&View=WishList&list=Wishlist">
-                                <i class="far fa-heart pointer ms-4 wishlist  "></i>
-                            </a>
-                            <!-- </div> -->
-                            <div class="card-body text-center">
-
-                                <a class=" text-decoration-none text-dark fw-bold fs-4" href="">@ViewBag.mobiles[l].results[k].name</a>
-
-                                <h6 class=" text-decoration-none text-red fw-bold ">Rs @ViewBag.mobiles[l].results[k].price</h6>
-                                <!-- <a  href="" class="btn btn-danger redbtn bg-red my-2 shadow-none" > <i class="far fa-heart pointer"></i> WISHLIST </a> <br> -->
-                                <a href="/home/AddItem/?vendor=@ViewBag.mobiles[l].results[k].vendor.name&id=@ViewBag.mobiles[l].results[k].id&View=CompareChart&list=Comparelist" class="btn btn-danger redbtn bg-red my-2 shadow-none">COMPARE</a>
-
-                                <a href="/home/ProductDetails/?vendor=@ViewBag.mobiles[l].results[k].vendor.name&id=@ViewBag.mobiles[l].results[k].id" class="btn btn-danger redbtn bg-red my-2 shadow-none">VIEW</a>
-                            </div>
-                        </div>
-
-                    </div>
-                }
 
 
 
-            </div>
+
+                </div>
            
         </div>
     </div>

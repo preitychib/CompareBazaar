@@ -19,17 +19,17 @@ using System.Threading.Tasks;
 
 namespace CompareBazaar.Controllers
 {
-   
+
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly ApplicationDbContext _context;
 
-       
+
         //  private readonly HttpClient _client;
 
-        public HomeController(ILogger<HomeController> logger,UserManager<ApplicationUser> userManager, ApplicationDbContext context)
+        public HomeController(ILogger<HomeController> logger, UserManager<ApplicationUser> userManager, ApplicationDbContext context)
         {
             _logger = logger;
             _userManager = userManager;
@@ -50,7 +50,7 @@ namespace CompareBazaar.Controllers
                          orderby pid.Value descending
                          select pid;
 
-            if (numQuery!=null)
+            if (numQuery != null)
             {
                 ViewBag.popularMobiles = new List<dynamic>();
                 foreach (var i in numQuery)
@@ -72,7 +72,7 @@ namespace CompareBazaar.Controllers
                         ViewBag.mobile.Add(await GetItem(myList[i].vendor, "mobile", myList[i].id));
                 }
                 ViewBag.n = myList.Count;
-               
+
             }
             //  Console.WriteLine(ViewBag.mobiles);
             return View();
@@ -115,9 +115,9 @@ namespace CompareBazaar.Controllers
             return View();
         }
 
-        
-     
-       [Authorize]
+
+
+        [Authorize]
         public async Task<IActionResult> CompareChartAsync()
         {
             ViewBag.brand1 = await GetBrands("flipkart");
@@ -134,13 +134,13 @@ namespace CompareBazaar.Controllers
                         ViewBag.mobile.Add(await GetItem(myList[i].vendor, "mobile", myList[i].id));
                 }
                 ViewBag.n = myList.Count;
-              //  return View();
+                //  return View();
             }
-           
-            
-           
-         return View();
-        } 
+
+
+
+            return View();
+        }
         [Authorize]
         public async Task<IActionResult> WishListAsync()
         {
@@ -155,20 +155,20 @@ namespace CompareBazaar.Controllers
                     for (int i = 0; i < myList.Count; i++)
                         ViewBag.mobile.Add(await GetItem(myList[i].vendor, "mobile", myList[i].id));
                 }
-                 ViewBag.n = myList.Count;
-              
-                
+                ViewBag.n = myList.Count;
+
+
             }
-           
-           
-                return View();
+
+
+            return View();
         }
 
         [Authorize]
         public IActionResult AddItem(string vendor, int id, string View, string list)
         {
 
-          
+
             if (SessionHelper.GetObjectFromJson<List<Item>>(HttpContext.Session, list) == null)
             {
                 List<Item> myList = new List<Item>
@@ -212,42 +212,42 @@ namespace CompareBazaar.Controllers
             {
                 _context.Add(new PopularProducts()
                 {
-                    Id= Guid.NewGuid().ToString(),
-                     ProductId = id,
+                    Id = Guid.NewGuid().ToString(),
+                    ProductId = id,
                     Vendor = vendor,
                     Value = 1
 
                 }
                     );
 
-                 _context.SaveChanges();
-                   
+                _context.SaveChanges();
+
             }
             else
             {
 
                 var numQuery =
              from pid in _context.PopularProducts
-             where pid.ProductId==id
+             where pid.ProductId == id
              select pid;
 
 
-                foreach(var i in numQuery)
+                foreach (var i in numQuery)
                 {
-                    i.Value += 1; 
-                   
+                    i.Value += 1;
+
                     _context.Update(i);
-                    
-                    
-                    
+
+
+
                 }
                 _context.SaveChanges();
-               
 
-                
+
+
             }
-               
-           
+
+
             return RedirectToAction(View);
         }
 
@@ -257,16 +257,16 @@ namespace CompareBazaar.Controllers
         }
 
         [Authorize]
-        public IActionResult Remove(int id, string View,string list)
+        public IActionResult Remove(int id, string View, string list)
         {
             List<Item> myList = SessionHelper.GetObjectFromJson<List<Item>>(HttpContext.Session, list);
-          //  int index = isExist(id,list);
+            //  int index = isExist(id,list);
             myList.RemoveAt(id);
             SessionHelper.SetObjectAsJson(HttpContext.Session, list, myList);
             return RedirectToAction(View);
         }
-       
-        private int isExist(int id,string list)
+
+        private int isExist(int id, string list)
         {
             List<Item> myList = SessionHelper.GetObjectFromJson<List<Item>>(HttpContext.Session, list);
             for (int i = 0; i < myList.Count; i++)
@@ -279,42 +279,94 @@ namespace CompareBazaar.Controllers
             return -1;
         }
 
-        public async Task<IActionResult> ProductsListAsync(string vendor = "flipkart", int pageSize = 4, int pageNum = 1, int fVendor = 1, string order = "-price", string searchStr = null, string availability = null, int fBrand = -1, int pstart = 0, int pend = 90000000)
+        public async Task<IActionResult> ProductsListAsync(string vendor = "flipkart", int pageSize = 4, int pageNum = 1, int fVendor = 1, string order = "price", string searchStr = null, string availability = null, int fBrand = -1, int pstart = 0, int pend = 90000000)
         {
+            ViewBag.brand1 = await GetBrands("flipkart");
+            ViewBag.brand2 = await GetBrands("amazon");
+
 
             var fmobiles = await GetMobiles(vendor, pageSize, pageNum, fVendor, order, searchStr, availability, fBrand, pstart, pend);
             var amobiles = await GetMobiles("amazon", pageSize, pageNum, fVendor, order, searchStr, availability, fBrand, pstart, pend);
 
-            ViewBag.order="price";
-            ViewBag.mobiles = new List<dynamic>();
-            ViewBag.mobiles.Add(fmobiles);
-            ViewBag.mobiles.Add(amobiles);
-            //Console.WriteLine( ViewBag.mobiles[1].results.Count==null);
+            var mobiles = new List<dynamic>();
+            mobiles.Add(fmobiles);
+            mobiles.Add(amobiles);
 
+            dynamic allmobiles = MergeProducts(mobiles, order);
 
-            ViewBag.brand1 = await GetBrands("flipkart");
-            ViewBag.brand2 = await GetBrands("amazon");
+            ViewBag.mobiles = allmobiles;
 
             return View();
 
         }
 
 
-        public async Task<object> MergeProducts(string vendor="flipkart", int pageSize = 4, int pageNum = 1,int fVendor=1, string order = "-price", string searchStr = null,string availability=null,int fBrand=-1,int pstart=0,int pend=90000000)
+        public List<dynamic> MergeProducts(dynamic mobiles, string order)
         {
-           
-            var fmobiles = await GetMobiles(vendor,pageSize,pageNum,fVendor,order,searchStr,availability,fBrand,pstart,pend);
-           var amobiles = await GetMobiles("amazon",pageSize,pageNum,fVendor,order,searchStr,availability,fBrand,pstart,pend);
-            
-            
-             var mobiles = new List<dynamic>();
-                  mobiles.Add(fmobiles);
-                  mobiles.Add(amobiles);
-           
-            return View();
-           
+            int i, j, n1, n2;
+            i = j = 0;
+            if (mobiles[0] != null) { n1 = mobiles[0].results.Count; }
+            else n1 = -1;
+
+            if (mobiles[1] != null) { n2 =mobiles[1].results.Count; }
+            else n2 = -1;
+
+            var allmobiles = new List<dynamic>();
+
+            while (i < n1 && j < n2)
+            {
+                if (order == "-price")
+                {
+                    if (mobiles[0].results[i].price >= mobiles[1].results[j].price)
+                    {
+
+                        allmobiles.Add(mobiles[0].results[i]);
+                        i++;
+                    }
+
+                    else
+                    {
+                        allmobiles.Add(mobiles[0].results[j]);
+                        j++;
+
+                    }
+                }
+                else if (order == "price")
+                {
+                    if (mobiles[0].results[i].price <= mobiles[1].results[j].price)
+                    {
+                        allmobiles.Add(mobiles[0].results[i]);
+                        i++;
+
+                    }
+
+                    else
+                    {
+                        allmobiles.Add(mobiles[0].results[j]);
+                        j++;
+
+                    }
+                }
+
+            }
+            while (i < n1)
+            {
+                allmobiles.Add(mobiles[0].results[i]);
+                i++;
+            }
+            while (j < n2)
+            {
+                allmobiles.Add(mobiles[0].results[j]);
+                j++;
+            }
+            return allmobiles;
         }
-        private static async Task<object> GetMobiles(string vendor,int pageSize=4,int pageNum=1,int fVendor=1, string order="-price", string searchStr=null,string avlbty=null,int brand=-1,int pstart=0,int pend= 90000000)
+
+
+
+
+
+        private static async Task<object> GetMobiles(string vendor, int pageSize = 4, int pageNum = 1, int fVendor = 1, string order = "price", string searchStr = null, string avlbty = null, int brand = -1, int pstart = 0, int pend = 90000000)
         {
             try
             {
@@ -324,11 +376,12 @@ namespace CompareBazaar.Controllers
                 if (searchStr == null && brand > -1)
                 {
                     Url = $"https://comparebazaar-api.herokuapp.com/api/{vendor}/mobile/?ordering={order}&availability={avlbty}&vendor={fVendor}&page_size={pageSize}&page={pageNum}&price_start={pstart}&price_end={pend}";// brand not added
-                   // Url = $"https://comparebazaar-api.herokuapp.com/api/{vendor}/mobile/";
+                                                                                                                                                                                                                            // Url = $"https://comparebazaar-api.herokuapp.com/api/{vendor}/mobile/";
                 }
                 else
                 {
-                    Url = $"https://comparebazaar-api.herokuapp.com/api/{vendor}/mobile/?search={searchStr}&ordering={order}&vendor={fVendor}&page_size={pageSize}&page={pageNum}&availability={avlbty}&price_start={pstart}&price_end={pend}"; //brand not added
+                    Url = $"https://comparebazaar-api.herokuapp.com/api/{vendor}/mobile/?ordering={order}&vendor={fVendor}&availability={avlbty}&price_start={pstart}&price_end={pend}"; //brand not added
+                    //Url = $"https://comparebazaar-api.herokuapp.com/api/{vendor}/mobile/?search={searchStr}&ordering={order}&vendor={fVendor}&page_size={pageSize}&page={pageNum}&availability={avlbty}&price_start={pstart}&price_end={pend}"; //brand not added
                     //Url = $"https://comparebazaar-api.herokuapp.com/api/{vendor}/mobile/?search={searchStr}&ordering={order}";
                 }
                 // return await client.GetAsync(url);
@@ -338,7 +391,7 @@ namespace CompareBazaar.Controllers
                 var Content = await Response.Content.ReadAsStringAsync();
 
                 var Mobiles = JsonConvert.DeserializeObject<object>(Content);
-                
+
 
                 // var newMobiles = await _mobileService.GetMobiles();
                 return Mobiles;
@@ -349,18 +402,18 @@ namespace CompareBazaar.Controllers
                 return null;
             }
         }
-        public async Task<IActionResult> ProductDetailsAsync(string vendor,int id)
+        public async Task<IActionResult> ProductDetailsAsync(string vendor, int id)
         {
             ViewBag.brand1 = await GetBrands("flipkart");
             ViewBag.brand2 = await GetBrands("amazon");
-            var mobile = await GetItem(vendor,"mobile",id);
+            var mobile = await GetItem(vendor, "mobile", id);
             ViewBag.mobile = mobile;
-           // Console.WriteLine(mobile);
+            // Console.WriteLine(mobile);
 
             return View();
         }
 
-        private static async Task<object> GetItem(string vendor,string item,int id)
+        private static async Task<object> GetItem(string vendor, string item, int id)
         {
             try
             {
@@ -372,8 +425,8 @@ namespace CompareBazaar.Controllers
                 Response.EnsureSuccessStatusCode();
 
                 var Content = await Response.Content.ReadAsStringAsync();
-              //  Product Mobiles = new Product();
-               var itemObject =  JsonConvert.DeserializeObject<object>(Content);
+                //  Product Mobiles = new Product();
+                var itemObject = JsonConvert.DeserializeObject<object>(Content);
                 // Mobiles =  JsonConvert.DeserializeObject<Product>(Content);
 
 
@@ -412,18 +465,18 @@ namespace CompareBazaar.Controllers
             }
         }
 
-        
+
         public async Task<ActionResult> EditProfile()
         {
             var currentUserName = User.Identity.Name;
             var user = await _userManager.FindByEmailAsync(currentUserName);
 
             ViewBag.user = user;
-            
+
             return View();
         }
 
-       
+
         [HttpPost]
         public async Task<ActionResult> EditProfile(IFormCollection userEdit)
         {
@@ -437,7 +490,7 @@ namespace CompareBazaar.Controllers
                 user.Address1 = userEdit["Address1"];
                 user.Address2 = userEdit["Address2"];
                 user.PhoneNumber = userEdit["PhoneNumber"]; ;
-                user.PostCode = userEdit["Postcode"]; 
+                user.PostCode = userEdit["Postcode"];
 
                 var result = await _userManager.UpdateAsync(user);
 
@@ -457,13 +510,13 @@ namespace CompareBazaar.Controllers
             }
         }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-         public async Task<IActionResult> ErrorAsync()
-         {
+        public async Task<IActionResult> ErrorAsync()
+        {
             ViewBag.brand1 = await GetBrands("flipkart");
             ViewBag.brand2 = await GetBrands("amazon");
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-         }
-        
+        }
+
 
         /*[Route("Error/{stausCode}")]
         public IActionResult HttptStatusCodeHandler(int statusCode)
