@@ -567,9 +567,9 @@
         width: 100% !important;
     }
 
-    .fontsize10 {
+   /* .fontsize10 {
         font-size: 0.7rem !important;
-    }
+    }*/
 
     .compare {
         width: 6rem;
@@ -680,9 +680,9 @@
         width: 15.6rem !important;
     }
 
-    .fontsize10 {
+    /*.fontsize10 {
         font-size: 0.6rem !important;
-    }
+    }*/
 
     .col-xxs-12 {
         flex: 0 0 auto;

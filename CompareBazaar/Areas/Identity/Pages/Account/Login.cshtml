@@ -45,7 +45,7 @@
                         <form id="account" method="post">
 
                             <div class="row">
-                                <div asp-validation-summary="All" class="text-danger"></div>
+                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                                 <div class="form-floating mb-3">
                                     <input type="email" asp-for="Input.Email" class="form-control form-control-sm rounded-0 border-0 border-bottom-red shadow-none" id="floatingInput" placeholder="Email Address">
                                     <label asp-for="Input.Email" for="floatingInput" class="text-red"> <i class="fas fa-envelope ms-1"></i> Email Address</label>
