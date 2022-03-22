@@ -284,8 +284,8 @@ namespace CompareBazaar.Controllers
 
             var fmobiles = await GetMobiles(vendor, pageSize, pageNum, fVendor, order, searchStr, availability, fBrand, pstart, pend);
             var amobiles = await GetMobiles("amazon", pageSize, pageNum, fVendor, order, searchStr, availability, fBrand, pstart, pend);
-            
 
+            ViewBag.order="price";
             ViewBag.mobiles = new List<dynamic>();
             ViewBag.mobiles.Add(fmobiles);
             ViewBag.mobiles.Add(amobiles);

@@ -1,5 +1,5 @@
 ﻿@{ 
-    String  vendor = "flipkart", order = "-price" ,searchStr = null,availability = null;
+    String  vendor = "flipkart", order = "-price" ,availability = null;
     int pageSize = 4,pageNum = 1, fVendor = 1,fBrand = -1,pstart = 0, pend = 90000000;
 
     int i, j,k,l,n1,n2;
@@ -76,7 +76,7 @@
                                 </div>
                             </div>
                             <div class="input-group-append">
-                                <button type="submit" name="searchStr"  class="btn btn-link searchcolor text-red shadow-none" >
+                                <button type="submit" name="searchStr" asp-action="ProductsList" asp-route-searchStr=searchStr class="btn btn-link searchcolor text-red shadow-none" >
                                     <i class="fas fa-search"></i>
                                 </button>
                             </div>
@@ -96,29 +96,43 @@
             <h4 class="fw-bold ">MOBILE PHONES</h4>
         </div>
         <div class="col-xxl-5 col-xl-5 col-lg-5 col-md-4 col  ">
-           
+
+            <!--<form action="/Home/ProductsList" method="get" >
+
+                <fieldset>
+                    Sort By
+                    <select name="order" class="form-select shadow-none ms-auto  clickbox  " aria-label="Default select example">
+
+                        <option value="price" type="submit">Sort By : Price - low to high</option>
 
 
-            <select onchange="window.location.href=this.value;" class="form-select shadow-none ms-auto  clickbox  " aria-label="Default select example">
-                <option value="/Home/ProductsList/"> Sort By : </option>
-                @*<option value="2" class="">@Html.ActionLink("Sort By : Price - low to high", "SortProducts", new { Str = "price" })</option>*@
-               
-                    <option value="/Home/ProductsList/?order=price" type="submit" class="">Sort By : Price - low to high</option>
+                        <option value="-price" type="submit">Sort By : Price - high to low</option>-->
 
-               
+                        <!--<option value="3" class="">Sort By : Customer Rating</option> -->
+                    <!--</select>
+                    
+                </fieldset>
+                </form>-->
+                <select class="form-select shadow-none ms-auto  clickbox  " aria-label="Default select example">
+                    <option value="/Home/ProductsList/"> Sort By : </option>
+                    <option value="2" class="">@Html.ActionLink("Sort By : Price - low to high", "SortProducts", new { Str = "price" })</option>
+
+                    <option value="/Home/ProductsList/order=price" type="submit" class="">Sort By : Price - low to high</option>
+
+
                     <option value="/Home/ProductsList/?order=-price" type="submit">Sort By : Price - high to low</option>
-               
-                    <!--<option value="3" class="">Sort By : Customer Rating</option> -->
-                </select>
-                   
 
-            </div>
+                    <option value="3" class="">Sort By : Customer Rating</option> 
+                </select>
+
+
+        </div>
 
         </div>
         <div class="row  mt-3 f-show">
             <div class="col-6">
                 <!-- Button trigger modal -->
-                <button type="button" class="btn col-12  shadow-none fs-4 fontsize12 " data-bs-toggle="modal" data-bs-target="#exampleModal1">
+                <button type="button" class ="btn col-12  shadow-none fs-4 fontsize12 " data-bs-toggle="modal" data-bs-target="#exampleModal1">
                     <i class="fa-solid fa-filter  "></i> FILTERS
                 </button>
 
@@ -207,42 +221,8 @@
                                           
                                         </ul>
                                 </div>
-                                <!-- <div class=" ">
-                          <h4 class="   fw-bold  ms-2 text-red "> RATINGS</h4>
-                          <ul class="">
-                            <li class="form-check ">
-                              <input class="form-check-input shadow-none" type="checkbox" value="" id="">
-                              <label class="form-check-label   innerdropdownitem" for="">
-                                5 Star Reviews
-                              </label>
-                            </li>
-                            <li class="form-check">
-                              <input class="form-check-input  shadow-none  " type="checkbox" value="" id="">
-                              <label class="form-check-label   innerdropdownitem" for="">
-                                4 Star Reviews
-                              </label>
-                            </li>
-                            <li class="form-check">
-                              <input class="form-check-input  shadow-none" type="checkbox" value="" id="">
-                              <label class="form-check-label  innerdropdownitem" for="">
-                                3 Star Reviews
-                              </label>
-                            </li>
-                            <li class="form-check">
-                              <input class="form-check-input   shadow-none" type="checkbox" value="" id="">
-                              <label class="form-check-label  innerdropdownitem" for="">
-                                2 Star Reviews
-                              </label>
-                            </li>
-                            <li class="form-check">
-                              <input class="form-check-input  shadow-none" type="checkbox" value="" id="">
-                              <label class="form-check-label   innerdropdownitem" for="">
-                                1 Star Reviews
-                              </label>
-                            </li>
-
-                          </ul>
-                        </div> -->
+                               
+                       
                                 <div class=" ">
                                     <h4 class="   fw-bold  ms-2 text-red ">AVAILABILITY</h4>
                                     <ul class="">
