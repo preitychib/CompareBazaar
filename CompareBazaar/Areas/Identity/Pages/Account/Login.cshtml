@@ -43,11 +43,9 @@
                     </div>
                     <div class="model-body m-1">
                         <form id="account" method="post">
+
                             <div class="row">
-
-                                @*<div asp-validation-summary="All" class="text-danger"></div>*@
-
-
+                                <div asp-validation-summary="All" class="text-danger"></div>
                                 <div class="form-floating mb-3">
                                     <input type="email" asp-for="Input.Email" class="form-control form-control-sm rounded-0 border-0 border-bottom-red shadow-none" id="floatingInput" placeholder="Email Address">
                                     <label asp-for="Input.Email" for="floatingInput" class="text-red"> <i class="fas fa-envelope ms-1"></i> Email Address</label>
@@ -63,15 +61,13 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class=" col checkbox ms-2 mb-3">
-                                    <label asp-for="Input.RememberMe">
-                                        <input asp-for="Input.RememberMe" />
+                             
+                                    <label class="checkbox fs-6 mb-3 ms-2" asp-for="Input.RememberMe">
+                                        <input type="checkbox"  asp-for="Input.RememberMe" />
                                         @Html.DisplayNameFor(m => m.Input.RememberMe)
                                     </label>
-                                </div>
-                                <div class="col ">
-                                    <a id="forgot-password" class="text-decoration-none" asp-page="./ForgotPassword">Forgot Password?</a>
-                                </div>
+                              
+                                
                             </div>
                             <div class="text-center mb-3">
                                 Don't have an account ?
