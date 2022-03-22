@@ -279,7 +279,7 @@ namespace CompareBazaar.Controllers
             return -1;
         }
 
-        public async Task<IActionResult> ProductsListAsync(string vendor = "flipkart", int pageSize = 4, int pageNum = 1, int fVendor = 1, string order = "price", string searchStr = null, string availability = null, int fBrand = -1, int pstart = 0, int pend = 90000000)
+        public async Task<IActionResult> ProductsListAsync(string vendor = "flipkart", int pageSize = 4, int pageNum = 1, int fVendor = 1, string order = "id", string searchStr = null, string availability = null, int fBrand = -1, int pstart = 0, int pend = 90000000)
         {
             ViewBag.brand1 = await GetBrands("flipkart");
             ViewBag.brand2 = await GetBrands("amazon");
@@ -303,7 +303,7 @@ namespace CompareBazaar.Controllers
 
         public List<dynamic> MergeProducts(dynamic mobiles, string order)
         {
-            int i, j, n1, n2;
+            int i, j, n1=-1, n2=-1;
             i = j = 0;
             if (mobiles[0] != null) { n1 = mobiles[0].results.Count; }
             else n1 = -1;
@@ -312,42 +312,44 @@ namespace CompareBazaar.Controllers
             else n2 = -1;
 
             var allmobiles = new List<dynamic>();
-
-            while (i < n1 && j < n2)
+            if (order != "id")
             {
-                if (order == "-price")
+                while (i < n1 && j < n2)
                 {
-                    if (mobiles[0].results[i].price >= mobiles[1].results[j].price)
+                    if (order == "-price")
                     {
+                        if (mobiles[0].results[i].price >= mobiles[1].results[j].price)
+                        {
 
-                        allmobiles.Add(mobiles[0].results[i]);
-                        i++;
+                            allmobiles.Add(mobiles[0].results[i]);
+                            i++;
+                        }
+
+                        else
+                        {
+                            allmobiles.Add(mobiles[1].results[j]);
+                            j++;
+
+                        }
+                    }
+                    else if (order == "price")
+                    {
+                        if (mobiles[0].results[i].price <= mobiles[1].results[j].price)
+                        {
+                            allmobiles.Add(mobiles[0].results[i]);
+                            i++;
+
+                        }
+
+                        else
+                        {
+                            allmobiles.Add(mobiles[1].results[j]);
+                            j++;
+
+                        }
                     }
 
-                    else
-                    {
-                        allmobiles.Add(mobiles[0].results[j]);
-                        j++;
-
-                    }
                 }
-                else if (order == "price")
-                {
-                    if (mobiles[0].results[i].price <= mobiles[1].results[j].price)
-                    {
-                        allmobiles.Add(mobiles[0].results[i]);
-                        i++;
-
-                    }
-
-                    else
-                    {
-                        allmobiles.Add(mobiles[0].results[j]);
-                        j++;
-
-                    }
-                }
-
             }
             while (i < n1)
             {
@@ -356,7 +358,7 @@ namespace CompareBazaar.Controllers
             }
             while (j < n2)
             {
-                allmobiles.Add(mobiles[0].results[j]);
+                allmobiles.Add(mobiles[1].results[j]);
                 j++;
             }
             return allmobiles;
@@ -366,22 +368,22 @@ namespace CompareBazaar.Controllers
 
 
 
-        private static async Task<object> GetMobiles(string vendor, int pageSize = 4, int pageNum = 1, int fVendor = 1, string order = "price", string searchStr = null, string avlbty = null, int brand = -1, int pstart = 0, int pend = 90000000)
+        private static async Task<object> GetMobiles(string vendor, int pageSize = 4, int pageNum = 1, int fVendor = 1, string order = "id", string searchStr = null, string avlbty = null, int brand = -1, int pstart = 0, int pend = 90000000)
         {
             try
             {
                 using var client = new HttpClient();
                 string Url;
                 //Url = $"https://comparebazaar-api.herokuapp.com/api/{vendor}/mobile/?ordering=-price";
-                if (searchStr == null && brand > -1)
+                if (searchStr == null)
                 {
                     Url = $"https://comparebazaar-api.herokuapp.com/api/{vendor}/mobile/?ordering={order}&availability={avlbty}&vendor={fVendor}&page_size={pageSize}&page={pageNum}&price_start={pstart}&price_end={pend}";// brand not added
                                                                                                                                                                                                                             // Url = $"https://comparebazaar-api.herokuapp.com/api/{vendor}/mobile/";
                 }
                 else
                 {
-                    Url = $"https://comparebazaar-api.herokuapp.com/api/{vendor}/mobile/?ordering={order}&vendor={fVendor}&availability={avlbty}&price_start={pstart}&price_end={pend}"; //brand not added
-                    //Url = $"https://comparebazaar-api.herokuapp.com/api/{vendor}/mobile/?search={searchStr}&ordering={order}&vendor={fVendor}&page_size={pageSize}&page={pageNum}&availability={avlbty}&price_start={pstart}&price_end={pend}"; //brand not added
+                    //Url = $"https://comparebazaar-api.herokuapp.com/api/{vendor}/mobile/?ordering={order}&vendor={fVendor}&availability={avlbty}&price_start={pstart}&price_end={pend}"; //brand not added
+                    Url = $"https://comparebazaar-api.herokuapp.com/api/{vendor}/mobile/?search={searchStr}&ordering={order}&vendor={fVendor}&page_size={pageSize}&page={pageNum}&availability={avlbty}&price_start={pstart}&price_end={pend}"; //brand not added
                     //Url = $"https://comparebazaar-api.herokuapp.com/api/{vendor}/mobile/?search={searchStr}&ordering={order}";
                 }
                 // return await client.GetAsync(url);
