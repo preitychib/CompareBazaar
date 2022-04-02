@@ -275,12 +275,12 @@ namespace CompareBazaar.Controllers
             return -1;
         }
 
-        public async Task<IActionResult> ProductsListAsync(string os = "", string ram = "", string vendor = "flipkart", int pageSize = 4, int pageNum = 1, int fVendor = 1, string order = "id", string searchStr = "", string availability = null, int fBrand = -1, int pstart = 0, int pend = 90000000)
+        public async Task<IActionResult> ProductsListAsync(string os = "", string ram = "",string network="", string vendor = "flipkart", int pageSize = 4, int pageNum = 1, int fVendor = 1, string order = "id", string searchStr = "", string availability = null, int fBrand = -1, int pstart = 0, int pend = 90000000)
         {
            
 
-            var fmobiles = await GetMobiles(os,ram,vendor, pageSize, pageNum, fVendor, order, searchStr, availability, fBrand, pstart, pend);
-            var amobiles = await GetMobiles(os,ram,"amazon", pageSize, pageNum, fVendor, order, searchStr, availability, fBrand, pstart, pend);
+            var fmobiles = await GetMobiles(os,ram,network,vendor, pageSize, pageNum, fVendor, order, searchStr, availability, fBrand, pstart, pend);
+            var amobiles = await GetMobiles(os,ram,network,"amazon", pageSize, pageNum, fVendor, order, searchStr, availability, fBrand, pstart, pend);
 
             var mobiles = new List<dynamic>();
             mobiles.Add(fmobiles);
@@ -378,7 +378,7 @@ namespace CompareBazaar.Controllers
             return allmobiles;
         }
 
-        private static async Task<object> GetMobiles(string os = "", string ram = "", string vendor="flipkart", int pageSize = 4, int pageNum = 1, int fVendor = 1, string order = "id", string searchStr = "", string avlbty = null, int brand=-1, int pstart = 0, int pend = 90000000)
+        private static async Task<object> GetMobiles(string os = "", string ram = "",string network = "", string vendor="flipkart", int pageSize = 4, int pageNum = 1, int fVendor = 1, string order = "id", string searchStr = "", string avlbty = null, int brand=-1, int pstart = 0, int pend = 90000000)
         {
             try
             {
@@ -387,11 +387,13 @@ namespace CompareBazaar.Controllers
                 
                if (brand>-1)
                 {
-                    Url = $"https://comparebazaar-api.herokuapp.com/api/{vendor}/mobile/?search={searchStr}&brand={brand}ordering={order}&availability={avlbty}&vendor={fVendor}&page_size={pageSize}&page={pageNum}&price_start={pstart}&price_end={pend}";
+                   // Url = $"https://comparebazaar-api.herokuapp.com/api/{vendor}/mobile/?os={os}&ram={ram}&search={searchStr}&brand={brand}ordering={order}&availability={avlbty}&vendor={fVendor}&page_size={pageSize}&page={pageNum}&price_start={pstart}&price_end={pend}";
+                    Url = $"https://comparebazaar-api.herokuapp.com/api/{vendor}/mobile/?search={searchStr}&ordering={order}&page_size={pageSize}&page={pageNum}&vendor={fVendor}&brand={brand}&price_start={pstart}&price_end={pend}&os={os}&network={network}&ram={ram}&availability={avlbty}";
                 }
                 else
                 {
-                     Url = $"https://comparebazaar-api.herokuapp.com/api/{vendor}/mobile/?search={searchStr}&ordering={order}&vendor={fVendor}&page_size={pageSize}&page={pageNum}&availability={avlbty}&price_start={pstart}&price_end={pend}"; //brand not added
+                    Url = $"https://comparebazaar-api.herokuapp.com/api/{vendor}/mobile/?search={searchStr}&ordering={order}&page_size={pageSize}&page={pageNum}&vendor={fVendor}&price_start={pstart}&price_end={pend}&os={os}&network={network}&ram={ram}&availability={avlbty}";
+                   // Url = $"https://comparebazaar-api.herokuapp.com/api/{vendor}/mobile/?os={os}&ram={ram}&search={searchStr}&ordering={order}&vendor={fVendor}&page_size={pageSize}&page={pageNum}&availability={avlbty}&price_start={pstart}&price_end={pend}"; //brand not added
                       }
                
                 var Response = await client.GetAsync(Url);

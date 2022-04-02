@@ -107,13 +107,21 @@
                     </div>
                     <div class="row  d-flex align-items-center ">
                         <div class="col">
+                            <span class="fs-6 fontsize8 ">Brand</span>
+                        </div>
+                        <div class="col">
+                            <span class="fontsize8">@ViewBag.mobile.brand.name</span>
+                        </div>
+                    </div>
+                    <div class="row bg-light d-flex align-items-center  ">
+                        <div class="col">
                             <span class="fs-6 fontsize8 ">Network</span>
                         </div>
                         <div class="col">
                             <span class="fontsize8">@ViewBag.mobile.specifications.general.network</span>
                         </div>
                     </div>
-                    <div class="row  bg-light d-flex align-items-center  ">
+                    <div class="row   d-flex align-items-center  ">
                         <div class="col">
                             <span class="fs-6 fontsize8"> SIM Type </span>
                         </div>
@@ -123,7 +131,7 @@
                     </div>
                     @if (ViewBag.mobile.specifications.general.dual_sim == true)
                     {
-                        <div class="row  d-flex align-items-center ">
+                        <div class="row bg-light d-flex align-items-center ">
                             <div class="col">
                                 <span class="fs-6 fontsize8">Dual SIM</span>
                             </div>
@@ -134,7 +142,7 @@
                     }
                     @if (ViewBag.mobile.specifications.general.touch_screen == true)
                     {
-                        <div class="row bg-light d-flex align-items-center  ">
+                        <div class="row  d-flex align-items-center  ">
                             <div class="col">
                                 <span class="fs-6 fontsize8">Touch Screen</span>
                             </div>
@@ -146,7 +154,7 @@
 
                     @if (ViewBag.mobile.specifications.general.fingerprint_unlock == true)
                     {
-                        <div class="row  d-flex align-items-center ">
+                        <div class="row bg-light d-flex align-items-center ">
                             <div class="col">
                                 <span class="fs-6 fontsize8">FingerPrint Unlock</span>
                             </div>
@@ -548,7 +556,7 @@
                     </div>
 
                 </div>
-            </div>
         </div>
+    </div>
     </div>
 </section>
