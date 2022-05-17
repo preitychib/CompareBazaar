@@ -317,7 +317,7 @@ namespace CompareBazaar.Controllers
 
         public List<dynamic> MergeProducts(dynamic mobiles, string order)
         {
-            int i, j, n1=-1, n2=-1;
+            int i, j,n1,n2;
             i = j = 0;
             if (mobiles[0] != null) { n1 = mobiles[0].results.Count; }
             else n1 = -1;
